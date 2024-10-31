@@ -1,0 +1,52 @@
+# Site settings
+title: "PyPose Website"
+author: "PyPose"
+default_author: The PyPose Team
+description: "PyPose is to connect classic robotics with modern learning methods."
+latest_version: 1.0
+timezone: America/New_York
+url: "https://pypose.org"
+baseurl: ""
+plugins:
+  - jekyll-paginate-v2
+  - jekyll-redirect-from
+  - jekyll-autoprefixer
+  - jekyll-feed
+sass:
+  load_paths:
+    - _sass
+    - node_modules
+exclude: [vendor, node_modules, README.md, Gemfile, Gemdile.lock, yarn.lock, yarn-error.log, package.json, Makefile, scripts, _hub/docs/template.md, resources.html, features.html]
+include: [_static, _images, _modules, _sources, _asserts.html, _lowrank.html, _script.html, _serialization.html, _tensor_str.html, _trace.html, _utils.html]
+keep_files: [vendor/assets, docs/main/_static/js/vendor/]
+github: [metadata]
+external_urls:
+  github: https://github.com/pypose/pypose
+  github_issues: https://github.com/pypose/pypose/issues
+  contributing: https://github.com/pypose/pypose/blob/main/CONTRIBUTING.md
+  twitter: https://twitter.com/pypose_org
+  tutorials: https://pypose.org/tutorials/
+livereload: true
+markdown: kramdown
+highlighter: rouge
+collections:
+  get_started:
+    output: true
+  features:
+    output: false
+  mobile:
+    output: true
+
+pagination:
+  enabled: true
+  per_page: 8
+  permalink: '/:num/'
+  title: ':title | :num of :max'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+# google_site_verification: eOAFtDphTbbm4OPKva2d3Z0Z_2bBxWMGdkD0IRQ6VeA
