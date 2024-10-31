@@ -1,0 +1,153 @@
+<head>
+  <!-- Google Tag Manager -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-52DXT37');</script> -->
+  <!-- End Google Tag Manager -->
+  <!-- Second tag include -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6ST8LE9P6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G6ST8LE9P6');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico?">
+  <title>
+    {% if page.title %}
+      {{ page.title }} | PyPose
+    {% else %}
+      PyPose
+    {% endif %}
+  </title>
+  {% include open_graph_and_meta.html %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
+  <script src="{{ site.baseurl }}/assets/vendor/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/vendor/popper.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/vendor/bootstrap.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/vendor/anchor.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link href="{{ site.baseurl }}/feed.xml" type="application/atom+xml" rel="alternate" title="Pythorch Blog Posts" />
+  <!-- Google Tag Manager for PyPose -->
+  {% include analytics.html %}
+
+
+  <!-- Floating Card style -->
+  <style>
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  .floatcard{
+      position: relative;
+      width: 188px;
+      height: 360px;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 2px 3px 3px rgb(139, 138, 138);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+  }
+  .floatcard:hover{
+      box-shadow: 2px 3px 10px rgb(36, 35, 35);
+  }
+  .floatImg{
+      position: relative;
+      /* top: 0;
+      left: 0; */
+      width: 100%;
+      /* height: 300px; */
+      overflow: hidden;
+      
+  }
+  .floatImg img{
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s;
+  }
+  .floatcard:hover .floatImg img{
+      transform: scale(1.2);
+      filter: blur(1px);
+  }
+  .floatText{
+      position: absolute;
+      bottom: -58px;
+      width: 100%;
+      height: 200px;
+
+      background-color: rgb(247, 242, 242);
+      transition: 0.3s;
+  }
+  .floatcard:hover .floatText{
+      bottom: 0px;
+  }
+  .floatText h2{
+      color: rgb(1, 4, 9);
+      line-height: 78px;
+      font-size: 24px;
+      text-align: center;
+
+  }
+  .floatText p{
+      padding: 0 20px;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight:bold;
+      font-style: italic;
+      text-align: center;
+  }
+  .floatTextLAB{
+      position: absolute;
+      bottom: -156px;
+      width: 100%;
+      height: 300px;
+
+      background-color: rgb(247, 242, 242);
+      transition: 0.5s;
+  }
+  .floatcard:hover .floatTextLAB{
+      bottom: 0px;
+  }
+  .floatTextLAB h2{
+      color: rgb(1, 4, 9);
+      line-height: 79px;
+      font-size: 24px;
+      text-align: center;
+
+  }
+  .floatTextLAB p{
+      padding: 0 18px;
+      font-size: 13px;
+      line-height: 20px;
+      font-style: italic;
+      text-align: center;
+  }
+  .floatcard-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  }
+  </style>
+
+</head>

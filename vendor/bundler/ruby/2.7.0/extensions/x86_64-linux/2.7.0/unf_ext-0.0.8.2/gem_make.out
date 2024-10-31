@@ -1,0 +1,22 @@
+current directory: /home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+/home/kemove/.rbenv/versions/2.7.6/bin/ruby -I /home/kemove/.rbenv/versions/2.7.6/lib/ruby/2.7.0 -r ./siteconf20241031-3758517-abq4eb.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make "DESTDIR=" clean
+make[1]: Entering directory '/home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
+make[1]: Leaving directory '/home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
+
+current directory: /home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make "DESTDIR="
+make[1]: Entering directory '/home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
+compiling unf.cc
+linking shared-object unf_ext.so
+make[1]: Leaving directory '/home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
+
+current directory: /home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make "DESTDIR=" install
+make[1]: Entering directory '/home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20241031-3758517-mr8uuf
+make[1]: Leaving directory '/home/kemove/pypose.github.io/vendor/bundler/ruby/2.7.0/gems/unf_ext-0.0.8.2/ext/unf_ext'
