@@ -1,6 +1,0 @@
-﻿pypose.add
-==========
-
-.. currentmodule:: pypose
-
-.. autofunction:: add

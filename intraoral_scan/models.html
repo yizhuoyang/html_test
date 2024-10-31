@@ -1,0 +1,611 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>intraoral_scan.Models &mdash; Pysensing main documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/katex-math.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CurveNet" href="generated/models/tooth_alignment/curvenet/pysensing.intraoral_scan.models.tooth_alignment.curvenet.CurveNet.html" />
+    <link rel="prev" title="Segmenter" href="generated/inference/utils/segmenter/pysensing.intraoral_scan.inference.utils.segmenter.Segmenter.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+                <div class="version">
+                  0.0.2
+                </div>
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/Acoustic.html">Acoustic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/csi.html">CSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rssi/rssi.html">RSSI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="intraoral_scan.html">intraoral_scan</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="intraoral_scan.html">intraoral_scan</a> &gt;</li>
+        
+      <li>intraoral_scan.Models</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/intraoral_scan/models.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <section id="intraoral-scan-models">
+<h1>intraoral_scan.Models<a class="headerlink" href="#intraoral-scan-models" title="Permalink to this heading">¶</a></h1>
+<section id="tooth-alignment-curvenet">
+<h2>Tooth Alignment CurveNet<a class="headerlink" href="#tooth-alignment-curvenet" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_alignment/curvenet/pysensing.intraoral_scan.models.tooth_alignment.curvenet.CurveNet.html#pysensing.intraoral_scan.models.tooth_alignment.curvenet.CurveNet" title="pysensing.intraoral_scan.models.tooth_alignment.curvenet.CurveNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CurveNet</span></code></a></p></td>
+<td><p>Implementation of &quot;Walk in the Cloud: Learning Curves for Point Clouds Shape Analysis&quot;.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-alignment-dgcnn">
+<h2>Tooth Alignment DGCNN<a class="headerlink" href="#tooth-alignment-dgcnn" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_alignment/dgcnn/pysensing.intraoral_scan.models.tooth_alignment.dgcnn.knn.html#pysensing.intraoral_scan.models.tooth_alignment.dgcnn.knn" title="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.knn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">knn</span></code></a></p></td>
+<td><p>Computes the k-nearest neighbors (KNN) for each point in the point cloud.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_alignment/dgcnn/pysensing.intraoral_scan.models.tooth_alignment.dgcnn.get_graph_feature.html#pysensing.intraoral_scan.models.tooth_alignment.dgcnn.get_graph_feature" title="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.get_graph_feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_graph_feature</span></code></a></p></td>
+<td><p>Constructs the graph feature for each point by concatenating the feature differences between each point and its k-nearest neighbors.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_alignment/dgcnn/pysensing.intraoral_scan.models.tooth_alignment.dgcnn.Encoder.html#pysensing.intraoral_scan.models.tooth_alignment.dgcnn.Encoder" title="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.Encoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Encoder</span></code></a></p></td>
+<td><p>Encoder module that extracts hierarchical features from point clouds using a dynamic graph-based approach.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_alignment/dgcnn/pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN.html#pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN" title="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DGCNN</span></code></a></p></td>
+<td><p>Implementation of &quot;Dynamic Graph CNN for Learning on Point Clouds&quot;.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-alignment-tanet">
+<h2>Tooth Alignment TANet<a class="headerlink" href="#tooth-alignment-tanet" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_alignment/tanet/pysensing.intraoral_scan.models.tooth_alignment.tanet.custom_max.html#pysensing.intraoral_scan.models.tooth_alignment.tanet.custom_max" title="pysensing.intraoral_scan.models.tooth_alignment.tanet.custom_max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">custom_max</span></code></a></p></td>
+<td><p>Performs max pooling along one or multiple dimensions.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_alignment/tanet/pysensing.intraoral_scan.models.tooth_alignment.tanet.PointNet.html#pysensing.intraoral_scan.models.tooth_alignment.tanet.PointNet" title="pysensing.intraoral_scan.models.tooth_alignment.tanet.PointNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointNet</span></code></a></p></td>
+<td><p>A simple PointNet encoder that applies MLP layers to point cloud data and performs global max pooling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_alignment/tanet/pysensing.intraoral_scan.models.tooth_alignment.tanet.GRUCell.html#pysensing.intraoral_scan.models.tooth_alignment.tanet.GRUCell" title="pysensing.intraoral_scan.models.tooth_alignment.tanet.GRUCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GRUCell</span></code></a></p></td>
+<td><p>Custom GRU cell implementation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_alignment/tanet/pysensing.intraoral_scan.models.tooth_alignment.tanet.TANet.html#pysensing.intraoral_scan.models.tooth_alignment.tanet.TANet" title="pysensing.intraoral_scan.models.tooth_alignment.tanet.TANet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TANet</span></code></a></p></td>
+<td><p>Implementation of &quot;TANet: Towards Fully Automatic Tooth Arrangement&quot;.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-segmentation-dbganet">
+<h2>Tooth Segmentation DBGANet<a class="headerlink" href="#tooth-segmentation-dbganet" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet/pysensing.intraoral_scan.models.tooth_segmentation.dbganet.GaussProjection.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet.GaussProjection" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet.GaussProjection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GaussProjection</span></code></a></p></td>
+<td><p>Perform a Gaussian projection for each value in the input tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet/pysensing.intraoral_scan.models.tooth_segmentation.dbganet.knn.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet.knn" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet.knn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">knn</span></code></a></p></td>
+<td><p>Computes the k-nearest neighbors (KNN) for each point in the point cloud.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet/pysensing.intraoral_scan.models.tooth_segmentation.dbganet.get_graph_feature.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet.get_graph_feature" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet.get_graph_feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_graph_feature</span></code></a></p></td>
+<td><p>Constructs the graph feature for each point by concatenating the feature differences between each point and its k-nearest neighbors.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet/pysensing.intraoral_scan.models.tooth_segmentation.dbganet.DBGANet.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet.DBGANet" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet.DBGANet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DBGANet</span></code></a></p></td>
+<td><p>Implementation of &quot;DBGANet: Dual-Branch Geometric Attention Network for Accurate 3D Tooth Segmentation&quot;</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-segmentation-dbganet-utils">
+<h2>Tooth Segmentation DBGANet Utils<a class="headerlink" href="#tooth-segmentation-dbganet-utils" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.pc_normalize.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.pc_normalize" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.pc_normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pc_normalize</span></code></a></p></td>
+<td><p>Normalize the point cloud so that it is centered at the origin and scaled within unit length.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.square_distance.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.square_distance" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.square_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square_distance</span></code></a></p></td>
+<td><p>Calculate Euclid distance between each two points.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.index_points.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.index_points" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.index_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_points</span></code></a></p></td>
+<td><p>Index points using the provided indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.farthest_point_sample.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.farthest_point_sample" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.farthest_point_sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">farthest_point_sample</span></code></a></p></td>
+<td><p>Perform farthest point sampling on the input point cloud.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.query_ball_point.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.query_ball_point" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.query_ball_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_ball_point</span></code></a></p></td>
+<td><p>Find the points within a specified radius for each query point.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.PointNetSetAbstractionMsg.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.PointNetSetAbstractionMsg" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.PointNetSetAbstractionMsg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointNetSetAbstractionMsg</span></code></a></p></td>
+<td><p>PointNet Set Abstraction with Multi-Scale Grouping.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dbganet_utils/pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.centroid.html#pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.centroid" title="pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils.centroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">centroid</span></code></a></p></td>
+<td><p>The centroid module, which performs point cloud feature extraction.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-segmentation-dgcnn">
+<h2>Tooth Segmentation DGCNN<a class="headerlink" href="#tooth-segmentation-dgcnn" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dgcnn/pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.knn.html#pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.knn" title="pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.knn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">knn</span></code></a></p></td>
+<td><p>Computes the k-nearest neighbors (KNN) for each point in the point cloud.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dgcnn/pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.get_graph_feature.html#pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.get_graph_feature" title="pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.get_graph_feature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_graph_feature</span></code></a></p></td>
+<td><p>Constructs the graph feature for each point by concatenating the feature differences between each point and its k-nearest neighbors.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dgcnn/pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.Transform_Net.html#pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.Transform_Net" title="pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.Transform_Net"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Transform_Net</span></code></a></p></td>
+<td><p>Transformation Network for aligning input point clouds using a learned transformation matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/dgcnn/pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.DGCNN_partseg.html#pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.DGCNN_partseg" title="pysensing.intraoral_scan.models.tooth_segmentation.dgcnn.DGCNN_partseg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DGCNN_partseg</span></code></a></p></td>
+<td><p>Implementation of &quot;Dynamic Graph CNN for Learning on Point Clouds&quot; for part segmentation on point clouds.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-segmentation-pct">
+<h2>Tooth Segmentation PCT<a class="headerlink" href="#tooth-segmentation-pct" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/pct/pysensing.intraoral_scan.models.tooth_segmentation.pct.Local_op.html#pysensing.intraoral_scan.models.tooth_segmentation.pct.Local_op" title="pysensing.intraoral_scan.models.tooth_segmentation.pct.Local_op"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Local_op</span></code></a></p></td>
+<td><p>Local Operation Module for feature extraction from neighboring points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/pct/pysensing.intraoral_scan.models.tooth_segmentation.pct.PCT.html#pysensing.intraoral_scan.models.tooth_segmentation.pct.PCT" title="pysensing.intraoral_scan.models.tooth_segmentation.pct.PCT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PCT</span></code></a></p></td>
+<td><p>Implementation of &quot;PCT: Point cloud transformer&quot;.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooth-segmentation-pct-utils">
+<h2>Tooth Segmentation PCT Utils<a class="headerlink" href="#tooth-segmentation-pct-utils" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/pct_utils/pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.square_distance.html#pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.square_distance" title="pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.square_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square_distance</span></code></a></p></td>
+<td><p>Calculate Euclidean distance between each pair of points from source and destination.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/pct_utils/pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.index_points.html#pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.index_points" title="pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.index_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_points</span></code></a></p></td>
+<td><p>Index points using indices from a batch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/pct_utils/pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.knn_point.html#pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.knn_point" title="pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.knn_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">knn_point</span></code></a></p></td>
+<td><p>Find the K nearest neighbors of each point in a given set.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/models/tooth_segmentation/pct_utils/pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.sample_and_group.html#pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.sample_and_group" title="pysensing.intraoral_scan.models.tooth_segmentation.pct_utils.sample_and_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_and_group</span></code></a></p></td>
+<td><p>Sample points and group their neighbors for feature extraction.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="generated/models/tooth_alignment/curvenet/pysensing.intraoral_scan.models.tooth_alignment.curvenet.CurveNet.html" class="btn btn-neutral float-right" title="CurveNet" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="generated/inference/utils/segmenter/pysensing.intraoral_scan.inference.utils.segmenter.Segmenter.html" class="btn btn-neutral" title="Segmenter" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing Contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../_static/doctools.js"></script>
+         <script src="../_static/katex.min.js"></script>
+         <script src="../_static/auto-render.min.js"></script>
+         <script src="../_static/katex_autorenderer.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿lowpass_filter
+==============
+.. currentmodule:: pysensing.csi.preprocessing.denoising
+
+.. autoclass:: lowpass_filter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

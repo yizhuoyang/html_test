@@ -1,0 +1,9 @@
+﻿CNNLoc1D
+========
+.. currentmodule:: pysensing.rssi.models.localization.fingerprinting
+
+.. autoclass:: CNNLoc1D
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,9 @@
+﻿har_RNN
+=======
+.. currentmodule:: pysensing.csi.model.har
+
+.. autoclass:: har_RNN
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

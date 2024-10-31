@@ -1,9 +1,0 @@
-﻿.. currentmodule:: pypose
-
-
-pypose.Sim3
-===========
-
-.. autoclass:: Sim3
-    :inherited-members:
-    :members:

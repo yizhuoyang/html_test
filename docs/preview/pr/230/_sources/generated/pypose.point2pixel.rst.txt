@@ -1,6 +1,0 @@
-﻿pypose.point2pixel
-==================
-
-.. currentmodule:: pypose
-
-.. autofunction:: point2pixel

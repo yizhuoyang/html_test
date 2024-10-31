@@ -1,6 +1,0 @@
-﻿pypose.sparse.SbkTensor.dense\_dim
-==================================
-
-.. currentmodule:: pypose.sparse
-
-.. automethod:: SbkTensor.dense_dim

@@ -1,0 +1,9 @@
+﻿normalization
+=============
+.. currentmodule:: pysensing.csi.preprocessing.transform
+
+.. autoclass:: normalization
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

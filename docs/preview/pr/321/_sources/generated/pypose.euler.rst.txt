@@ -1,6 +1,0 @@
-﻿pypose.euler
-============
-
-.. currentmodule:: pypose
-
-.. autofunction:: euler

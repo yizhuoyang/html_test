@@ -1,0 +1,9 @@
+﻿hpe_train
+=========
+.. currentmodule:: pysensing.mmwave.PC.inference.hpe
+
+.. autoclass:: hpe_train
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

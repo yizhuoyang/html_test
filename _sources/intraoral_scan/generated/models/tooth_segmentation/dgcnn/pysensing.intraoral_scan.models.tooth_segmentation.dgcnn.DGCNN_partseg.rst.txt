@@ -1,0 +1,9 @@
+﻿DGCNN_partseg
+=============
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.dgcnn
+
+.. autoclass:: DGCNN_partseg
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

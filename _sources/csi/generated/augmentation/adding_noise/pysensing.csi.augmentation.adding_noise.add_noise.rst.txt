@@ -1,0 +1,9 @@
+﻿add_noise
+=========
+.. currentmodule:: pysensing.csi.augmentation.adding_noise
+
+.. autoclass:: add_noise
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,27 @@
+Acoustic.Augmentation
+-------------------------------------------
+Spectrogram Augmentation
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.acoustic.augmentation.spectrogram_aug
+.. autosummary::
+    :toctree: generated/augmentation/spectrogram_aug
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    timestretch
+    timemasking
+    frequencymasking
+
+Signal Augmentation
+~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.acoustic.augmentation.signal_aug
+.. autosummary::
+    :toctree: generated/augmentation/signal_aug
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    add_noise
+    add_atempo
+    add_echo
+    add_chorus
+

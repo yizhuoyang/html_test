@@ -1,0 +1,5 @@
+﻿afpild_testing
+==============
+.. currentmodule:: pysensing.acoustic.inference.training.AFPILD_utils.testing
+
+.. autofunction:: afpild_testing

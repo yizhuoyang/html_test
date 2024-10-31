@@ -1,0 +1,9 @@
+﻿WPFormer
+========
+.. currentmodule:: pysensing.csi.model.hpe
+
+.. autoclass:: WPFormer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,5 @@
+﻿train_model
+===========
+.. currentmodule:: pysensing.acoustic.inference.training.AcousticPose_utils.hpe_train
+
+.. autofunction:: train_model

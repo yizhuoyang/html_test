@@ -1,0 +1,9 @@
+﻿load_raw_bin
+============
+.. currentmodule:: pysensing.csi.load_raw.load_raw_from_atheros
+
+.. autoclass:: load_raw_bin
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

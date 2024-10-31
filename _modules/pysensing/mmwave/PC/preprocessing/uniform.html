@@ -1,0 +1,744 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pysensing.mmwave.PC.preprocessing.uniform &mdash; Pysensing main documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/katex-math.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+                <div class="version">
+                  0.0.2
+                </div>
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../intraoral_scan/intraoral_scan.html">intraoral_scan</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../../../../../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+          <li><a href="../../../../index.html">Module code</a> &gt;</li>
+        
+      <li>pysensing.mmwave.PC.preprocessing.uniform</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <h1>Source code for pysensing.mmwave.PC.preprocessing.uniform</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+
+<div class="viewcode-block" id="cropping"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/preprocessing/uniform/pysensing.mmwave.PC.preprocessing.uniform.cropping.html#pysensing.mmwave.PC.preprocessing.uniform.cropping">[docs]</a><span class="k">def</span> <span class="nf">cropping</span><span class="p">(</span><span class="n">radar_pc</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.67</span><span class="p">,</span> <span class="mf">1.67</span><span class="p">],</span> <span class="n">y_range</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">z_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.67</span><span class="p">,</span> <span class="mf">1.67</span><span class="p">]):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function crop the input radar point cloud according to bounding box defined by (x_range, y_range, z_range). </span>
+<span class="sd">    Given input radar point cloud, the points within the bounding box will be selected as the output point cloud and the remaining will be removed.</span>
+<span class="sd">    </span>
+<span class="sd">    Input: </span>
+<span class="sd">        radar_pc (np.ndarray): a frame of PC with shape [N, 5] or [N, 6] depending on mmWave device, where N is the number of points.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        radar_pc (np.ndarray): Input radar point cloud. Only support float numpy array.</span>
+
+<span class="sd">        x_range (list with length 2): [minimum x range, maximum x range]. Default [-1.67, 1.67]. Modify according to mmWave device.</span>
+
+<span class="sd">        y_range (list with length 2): [minimum y range, maximum y range]. Default [-1.67, 1.67]. Modify according to mmWave device.</span>
+<span class="sd">        </span>
+<span class="sd">        z_range (list with length 2): [minimum z range, maximum z range]. Default [-1.67, 1.67]. Modify according to mmWave device.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        radar_pc [np.ndarray] The returned radar_pc is cropped version of input, of [N&#39;, 5] or [N&#39;, 6] shape, where N&#39; is the number of points after cropping, not an uniform size.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">        &gt;&gt;&gt; import pysensing.mmwave.PC.preprocessing.uniform as U</span>
+<span class="sd">        &gt;&gt;&gt; cropped = U.cropping(np.random(500, 5), x_range=[-1.67, 1.67], y_range = [0, 5.3], z_range=[-1.67, 1.67])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># print(radar_pc)</span>
+
+    <span class="n">radar_pc</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">radar_pc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x_range</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">radar_pc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span>
+    <span class="n">radar_pc</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span>
+    <span class="n">radar_pc</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">z_range</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">z_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span>
+
+    <span class="k">return</span> <span class="n">radar_pc</span></div>
+
+
+
+<div class="viewcode-block" id="padding"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/preprocessing/uniform/pysensing.mmwave.PC.preprocessing.uniform.padding.html#pysensing.mmwave.PC.preprocessing.uniform.padding">[docs]</a><span class="k">def</span> <span class="nf">padding</span><span class="p">(</span><span class="n">radar_pc</span><span class="p">,</span> <span class="n">npoint</span><span class="o">=</span><span class="mi">3000</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function pad the input radar point cloud into n npoints.</span>
+<span class="sd">    Given input radar point cloud with N points, if N &lt; n, add (n-N) null points (0,0,0,0,0)</span>
+<span class="sd">    to the point cloud; else if N &gt; n, select the first n point as the output point cloud.</span>
+
+<span class="sd">    Input: </span>
+<span class="sd">        radar_pc (np.ndarray): a frame of PC with shape [N, 5] or [N, 6] depending on mmWave device, where N is the number of points.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        radar_pc (np.ndarray): Input radar point cloud. Only support float numpy array.</span>
+
+<span class="sd">        npoint (int, npoint &gt; 0): The number of output point cloud n. Default 3000. </span>
+<span class="sd">    </span>
+<span class="sd">    Return:</span>
+<span class="sd">        radar_pc (np.ndarray) The returned radar_pc is cropped version of input, of [N&#39;, 5] or [N&#39;, 6] shape, where N&#39; = npoint.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">        &gt;&gt;&gt; import pysensing.mmwave.PC.preprocessing.uniform as U</span>
+<span class="sd">        &gt;&gt;&gt; padded = U.padding(np.random(300, 5), npoint=500)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">radar_pc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">radar_pc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="n">Npoint</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">Npoint</span> <span class="o">&lt;</span> <span class="n">npoint</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npoint</span><span class="o">-</span><span class="n">Npoint</span><span class="p">):</span>
+            <span class="n">radar_pc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">radar_pc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">radar_pc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">radar_pc</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[:</span><span class="n">npoint</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="k">return</span> <span class="n">radar_pc</span></div>
+
+
+
+<div class="viewcode-block" id="voxelizing"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/preprocessing/uniform/pysensing.mmwave.PC.preprocessing.uniform.voxelizing.html#pysensing.mmwave.PC.preprocessing.uniform.voxelizing">[docs]</a><span class="k">def</span> <span class="nf">voxelizing</span><span class="p">(</span><span class="n">radar_pc</span><span class="p">,</span> <span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">,</span> <span class="n">z_points</span><span class="p">,</span> <span class="n">x_range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">y_range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">z_range</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function converted the a sequence of input radar point clouds into a sequence of voxel images given resolution defined by (x_points, y_points, z_points).</span>
+<span class="sd">    The value of voxel image represents the number of points within the bin range.</span>
+<span class="sd">    </span>
+<span class="sd">    Input: </span>
+<span class="sd">        radar_pc: A dict of variable-length radar point clouds, representing a sequence of radar point clouds, e.t. {[N, 5], ..., [N, 5]}, </span>
+<span class="sd">        where N is the number of points in each frame, and N is variable length.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        radar_pc (dict of list): A dict of python list of shape [N, 5] or [N, 6] representing radar pc of each frame.   </span>
+
+<span class="sd">        x_points (int): Resolution of voxel image in x-dimension.  </span>
+
+<span class="sd">        y_points (int): Resolution of voxel image in y-dimension.    </span>
+
+<span class="sd">        z_points (int): Resolution of voxel image in z-dimension.         </span>
+
+<span class="sd">        x_range (list with length 2): [minimum x range, maximum x range]. Default None. Using [min(x), max(x)] as the default range.</span>
+
+<span class="sd">        y_range (list with length 2): [minimum y range, maximum y range]. Default None. Using [min(y), max(y)] as the default range.</span>
+<span class="sd">        </span>
+<span class="sd">        z_range (list with length 2): [minimum z range, maximum z range]. Default None. Using [min(z), max(z)] as the default range.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        voxel (np.ndarray): The returned voxel image is the corresponding sequence voxel image, of [x_points, y_points, z_points] shape.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    &gt;&gt;&gt; import pysensing.mmwave.PC.preprocessing.uniform as U</span>
+<span class="sd">    &gt;&gt;&gt; voxel = U.voxalizing(np.random(500, 5), x_points = 32, y_points = 32, z_points = 10)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+    <span class="c1">#y and z points in this cluster of frames</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">radar_pc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">x_range</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_min</span> <span class="o">=</span> <span class="n">x_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">x_max</span> <span class="o">=</span> <span class="n">x_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">y_range</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">y_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">y_min</span> <span class="o">=</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y_max</span> <span class="o">=</span> <span class="n">y_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">z_range</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">z_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">z_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">z_min</span> <span class="o">=</span> <span class="n">z_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">z_max</span> <span class="o">=</span> <span class="n">z_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">z_res</span> <span class="o">=</span> <span class="p">(</span><span class="n">z_max</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">)</span><span class="o">/</span><span class="n">z_points</span>
+    <span class="n">y_res</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">)</span><span class="o">/</span><span class="n">y_points</span>
+    <span class="n">x_res</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span><span class="p">)</span><span class="o">/</span><span class="n">x_points</span>
+
+    <span class="n">pixel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">x_points</span><span class="p">,</span><span class="n">y_points</span><span class="p">,</span><span class="n">z_points</span><span class="p">])</span>
+
+    <span class="n">x_current</span> <span class="o">=</span> <span class="n">x_min</span>
+    <span class="n">y_current</span> <span class="o">=</span> <span class="n">y_min</span>
+    <span class="n">z_current</span> <span class="o">=</span> <span class="n">z_min</span>
+
+    <span class="n">x_prev</span> <span class="o">=</span> <span class="n">x_min</span>
+    <span class="n">y_prev</span> <span class="o">=</span> <span class="n">y_min</span>
+    <span class="n">z_prev</span> <span class="o">=</span> <span class="n">z_min</span>
+
+
+    <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">y_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">z_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">x_current</span> <span class="o">=</span> <span class="n">x_min</span>
+        <span class="n">x_prev</span> <span class="o">=</span> <span class="n">x_min</span>
+        <span class="n">x_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">done</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="k">while</span> <span class="n">x_current</span> <span class="o">&lt;=</span> <span class="n">x_max</span> <span class="ow">and</span> <span class="n">x_count</span> <span class="o">&lt;</span> <span class="n">x_points</span> <span class="ow">and</span> <span class="n">done</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+            <span class="n">y_prev</span> <span class="o">=</span> <span class="n">y_min</span>
+            <span class="n">y_current</span> <span class="o">=</span> <span class="n">y_min</span>
+            <span class="n">y_count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">y_current</span> <span class="o">&lt;=</span> <span class="n">y_max</span> <span class="ow">and</span> <span class="n">y_count</span> <span class="o">&lt;</span> <span class="n">y_points</span> <span class="ow">and</span> <span class="n">done</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+                <span class="n">z_prev</span> <span class="o">=</span> <span class="n">z_min</span>
+                <span class="n">z_current</span> <span class="o">=</span> <span class="n">z_min</span>
+                <span class="n">z_count</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">z_current</span> <span class="o">&lt;=</span> <span class="n">z_max</span> <span class="ow">and</span> <span class="n">z_count</span> <span class="o">&lt;</span> <span class="n">z_points</span> <span class="ow">and</span> <span class="n">done</span><span class="o">==</span><span class="kc">False</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x_current</span> <span class="ow">and</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">y_current</span> <span class="ow">and</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">z_current</span> <span class="ow">and</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x_prev</span> <span class="ow">and</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">y_prev</span> <span class="ow">and</span> <span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">z_prev</span><span class="p">:</span>
+                        <span class="n">pixel</span><span class="p">[</span><span class="n">x_count</span><span class="p">,</span><span class="n">y_count</span><span class="p">,</span><span class="n">z_count</span><span class="p">]</span> <span class="o">=</span> <span class="n">pixel</span><span class="p">[</span><span class="n">x_count</span><span class="p">,</span><span class="n">y_count</span><span class="p">,</span><span class="n">z_count</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="n">done</span> <span class="o">=</span> <span class="kc">True</span>
+
+                        <span class="c1">#velocity_voxel[x_count,y_count,z_count] = velocity_voxel[x_count,y_count,z_count] + velocity[i]</span>
+                    <span class="n">z_prev</span> <span class="o">=</span> <span class="n">z_current</span>
+                    <span class="n">z_current</span> <span class="o">=</span> <span class="n">z_current</span> <span class="o">+</span> <span class="n">z_res</span>
+                    <span class="n">z_count</span> <span class="o">=</span> <span class="n">z_count</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">y_prev</span> <span class="o">=</span> <span class="n">y_current</span>
+                <span class="n">y_current</span> <span class="o">=</span> <span class="n">y_current</span> <span class="o">+</span> <span class="n">y_res</span>
+                <span class="n">y_count</span> <span class="o">=</span> <span class="n">y_count</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">x_prev</span> <span class="o">=</span> <span class="n">x_current</span>
+            <span class="n">x_current</span> <span class="o">=</span> <span class="n">x_current</span> <span class="o">+</span> <span class="n">x_res</span>
+            <span class="n">x_count</span> <span class="o">=</span> <span class="n">x_count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">pixel</span></div>
+
+
+<div class="viewcode-block" id="load_from_raw"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/preprocessing/uniform/pysensing.mmwave.PC.preprocessing.uniform.load_from_raw.html#pysensing.mmwave.PC.preprocessing.uniform.load_from_raw">[docs]</a><span class="k">def</span> <span class="nf">load_from_raw</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">,</span> <span class="n">sub_dirs</span><span class="p">,</span> <span class="n">file_ext</span><span class="o">=</span><span class="s1">&#39;*.txt&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function load .txt format raw data collected from TI mmwave radar groups into a sequence of voxel images given resolution </span>
+<span class="sd">    defined by (x_points, y_points, z_points). The value of voxel image represents the number of points within the bin range.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        parent_dir (str): Path to dataset train split or test split.</span>
+
+<span class="sd">        sub_dirs (str): Path to data file recorded the sensor data stream.</span>
+
+<span class="sd">        file_ext (str): Type of file. Default &quot;\*.txt&quot;, supporting TI mmWave radar groups.</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        voxels_all (np.ndarray): Returned sequence of voxel images.</span>
+
+<span class="sd">        slicing_marker (np.ndarray): slicing_marker indicates the length of sensor data in one single sequence, i.e. how many frames contained by one file.</span>
+
+<span class="sd">        labels_all (np.ndarray): Returned label of the action corresponding to each voxel images.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sub_dirs</span><span class="p">)</span>
+    <span class="n">voxels_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">slicing_marker</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">labels_all</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    
+
+    <span class="k">for</span> <span class="n">sub_dir</span> <span class="ow">in</span> <span class="n">sub_dirs</span><span class="p">:</span>
+        <span class="n">files</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">,</span><span class="n">sub_dir</span><span class="p">,</span> <span class="n">file_ext</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">sub_dir</span><span class="p">)</span>
+            <span class="n">action_data</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span> <span class="c1"># get a dict of variable length PC data stored by list</span>
+            <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">action_data</span><span class="p">))</span>
+
+<span class="w">            </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">            Voxelization of all data obtained</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+            
+            <span class="n">voxels</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># Now for 2 second windows, we need to club together the frames and we will have some sliding windows</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">action_data</span><span class="p">:</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="n">action_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">pc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span>
+
+                <span class="n">pix</span> <span class="o">=</span> <span class="n">voxelizing</span><span class="p">(</span><span class="n">pc</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+                <span class="c1">#print(i, f.shape,pix.shape)</span>
+                <span class="n">voxels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pix</span><span class="p">)</span>
+                
+
+            <span class="n">voxels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">voxels</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">voxels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="n">labels_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_dir</span><span class="p">)</span>
+            <span class="n">voxels_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">voxels_all</span><span class="p">,</span><span class="n">voxels</span><span class="p">])</span>
+            
+            <span class="n">slicing_marker</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">voxels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">voxels_all</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">slicing_marker</span><span class="p">),</span> <span class="n">slicing_marker</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels_all</span><span class="p">),</span> <span class="n">labels_all</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">Data_path</span> <span class="o">=</span>  <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">,</span> <span class="s2">&quot;data.npz&quot;</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">Data_path</span><span class="p">,</span> <span class="n">voxels_all</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">slicing_marker</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels_all</span><span class="p">))</span>
+
+
+
+
+
+    <span class="k">return</span> <span class="n">voxels_all</span><span class="p">,</span> <span class="n">slicing_marker</span><span class="p">,</span> <span class="n">labels_all</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="n">frame_num_count</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">frame_num</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">intensity</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">wordlist</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+    <span class="k">for</span> <span class="n">x1</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">x1</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+            <span class="n">wordlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+    <span class="n">length1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">length1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;point_id:&quot;</span> <span class="ow">and</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">frame_num_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;point_id:&quot;</span><span class="p">:</span>
+            <span class="n">frame_num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frame_num_count</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;x:&quot;</span><span class="p">:</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;y:&quot;</span><span class="p">:</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;z:&quot;</span><span class="p">:</span>
+            <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;velocity:&quot;</span><span class="p">:</span>
+            <span class="n">velocity</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;intensity:&quot;</span><span class="p">:</span>
+            <span class="n">intensity</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wordlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">frame_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">frame_num</span><span class="p">)</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">velocity</span><span class="p">)</span>
+    <span class="n">intensity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">intensity</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="n">velocity</span> <span class="o">=</span> <span class="n">velocity</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="n">intensity</span> <span class="o">=</span> <span class="n">intensity</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+    <span class="n">frame_num</span> <span class="o">=</span> <span class="n">frame_num</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+
+
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frame_num</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">frame_num</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">frame_num</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">velocity</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">intensity</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">frame_num</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">=</span><span class="p">[]</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">frame_num</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">velocity</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">intensity</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+    <span class="k">return</span> <span class="n">data</span>
+
+
+
+
+
+</pre></div>
+
+             </article>
+             
+            </div>
+            <footer>
+  
+
+  
+
+    <hr>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing Contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+         <script src="../../../../../_static/jquery.js"></script>
+         <script src="../../../../../_static/underscore.js"></script>
+         <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../../../../../_static/doctools.js"></script>
+         <script src="../../../../../_static/katex.min.js"></script>
+         <script src="../../../../../_static/auto-render.min.js"></script>
+         <script src="../../../../../_static/katex_autorenderer.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../../../../../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../../../../../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../../../../../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

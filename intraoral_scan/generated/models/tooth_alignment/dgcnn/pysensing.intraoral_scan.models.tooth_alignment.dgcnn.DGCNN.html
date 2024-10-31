@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Pysensing Documentation &mdash; Pysensing main documentation</title>
+  <title>DGCNN &mdash; Pysensing main documentation</title>
   
 
   
@@ -26,31 +26,32 @@
 
   
 
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!-- <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> -->
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" type="text/css" />
-  <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Acoustic" href="acoustic/Acoustic.html" />
+  <link rel="stylesheet" href="../../../../../_static/katex-math.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="custom_max" href="../tanet/pysensing.intraoral_scan.models.tooth_alignment.tanet.custom_max.html" />
+    <link rel="prev" title="Encoder" href="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.Encoder.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
   
 
   
-  <script src="_static/js/modernizr.min.js"></script>
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
 
   <!-- Preload the theme fonts -->
 
-<link rel="preload" href="_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../../../../../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
 <!-- Preload the katex fonts -->
 
@@ -134,7 +135,7 @@
 
 
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search Docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -151,12 +152,12 @@
             
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="acoustic/Acoustic.html">Acoustic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="csi/csi.html">CSI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rssi/rssi.html">RSSI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intraoral_scan/intraoral_scan.html">intraoral_scan</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../intraoral_scan.html">intraoral_scan</a></li>
 </ul>
 
             
@@ -189,7 +190,7 @@
   <ul class="pytorch-breadcrumbs">
     
       <li>
-        <a href="#">
+        <a href="../../../../../index.html">
           
             Docs
           
@@ -197,13 +198,17 @@
       </li>
 
         
-      <li>Pysensing Documentation</li>
+          <li><a href="../../../../intraoral_scan.html">intraoral_scan</a> &gt;</li>
+        
+          <li><a href="../../../../models.html">intraoral_scan.Models</a> &gt;</li>
+        
+      <li>DGCNN</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"><img src="_static/images/view-page-source-icon.svg"></a>
+            <a href="../../../../../_sources/intraoral_scan/generated/models/tooth_alignment/dgcnn/pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN.rst.txt" rel="nofollow"><img src="../../../../../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -229,60 +234,59 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="pysensing-documentation">
-<h1>Pysensing Documentation<a class="headerlink" href="#pysensing-documentation" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="acoustic/Acoustic.html">Acoustic</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="acoustic/preprocessing.html">Acoustic.Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustic/augmentation.html">Acoustic.Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustic/datasets.html">Acoustic.Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustic/models.html">Acoustic.Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustic/training.html">Acoustic.Training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="acoustic/inference.html">Acoustic.Inference</a></li>
+  <section id="dgcnn">
+<h1>DGCNN<a class="headerlink" href="#dgcnn" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysensing.intraoral_scan.models.tooth_alignment.dgcnn.</span></span><span class="sig-name descname"><span class="pre">DGCNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chn_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emb_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/pysensing/intraoral_scan/models/tooth_alignment/dgcnn.html#DGCNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Implementation of “Dynamic Graph CNN for Learning on Point Clouds”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chn_in</strong> (<em>int</em>) – Number of input channels for each point (default: 6).</p></li>
+<li><p><strong>k</strong> (<em>int</em>) – Number of nearest neighbors for graph feature extraction (default: 16).</p></li>
+<li><p><strong>emb_dims</strong> (<em>int</em>) – The dimension of the output embedding (default: 1024).</p></li>
+<li><p><strong>dropout</strong> (<em>float</em>) – Dropout probability for the linear layers (default: 0.6).</p></li>
+<li><p><strong>output_channels</strong> (<em>int</em>) – The number of output channels, typically quaternion (4) + position (3) = 7.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="csi/csi.html">CSI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="csi/load_raw.html">CSI.Load_Raw_Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="csi/augmentation.html">CSI.Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="csi/preprocessing.html">CSI.Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="csi/models.html">CSI.Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="csi/datasets.html">CSI.Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="csi/inference.html">CSI.Inference</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="mmwave_PC/mmwave_PC.html">mmwave_PC</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="mmwave_PC/preprocessing.html">mmwave_PC.Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmwave_PC/inference.html">mmwave_PC.Inference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmwave_PC/datasets.html">mmwave_PC.Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mmwave_PC/models.html">mmwave_PC.Models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rssi/rssi.html">RSSI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rssi/preprocessing.html">RSSI.Preprocessing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rssi/augmentation.html">RSSI.Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rssi/datasets.html">RSSI.Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rssi/models.html">RSSI.Models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="intraoral_scan/intraoral_scan.html">intraoral_scan</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intraoral_scan/augmentation.html">intraoral_scan.Augmentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intraoral_scan/inference.html">intraoral_scan.Inference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intraoral_scan/models.html">intraoral_scan.Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intraoral_scan/preprocessing.html">intraoral_scan.Preprocessing</a></li>
-</ul>
-</li>
-</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Different from the orginal paper, the reimplemeted paper takes the dentition pointcloud (batch_size, ntooth, npoint, nfeature) as input
+and outputs the corresponding pose tranformation (quaternion, position).</p>
 </div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../_modules/pysensing/intraoral_scan/models/tooth_alignment/dgcnn.html#DGCNN.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysensing.intraoral_scan.models.tooth_alignment.dgcnn.DGCNN.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass for the DGCNN. Takes the point cloud of detition as input and predicts the quaternion and position for each tooth.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>Tensor</em>) – Input tensor of shape (batch_size, ntooth, npoint, nfeature).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>quat (Tensor): Predicted quaternions of shape (batch_size, ntooth, 4).</p></li>
+<li><p>pos (Tensor): Predicted positions of shape (batch_size, ntooth, 3).</p></li>
 </ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple(Tensor, Tensor)</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">DGCNN</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">quat</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">quat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Output: (4, 28, 4), (4, 28, 3)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -293,8 +297,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="acoustic/Acoustic.html" class="btn btn-neutral float-right" title="Acoustic" accesskey="n" rel="next">Next <img src="_static/images/chevron-right-orange.svg" class="next-page"></a>
+        <a href="../tanet/pysensing.intraoral_scan.models.tooth_alignment.tanet.custom_max.html" class="btn btn-neutral float-right" title="custom_max" accesskey="n" rel="next">Next <img src="../../../../../_static/images/chevron-right-orange.svg" class="next-page"></a>
       
+      
+        <a href="pysensing.intraoral_scan.models.tooth_alignment.dgcnn.Encoder.html" class="btn btn-neutral" title="Encoder" accesskey="p" rel="prev"><img src="../../../../../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
       
     </div>
   
@@ -335,23 +341,23 @@
   
 
      
-       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-         <script src="_static/jquery.js"></script>
-         <script src="_static/underscore.js"></script>
-         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-         <script src="_static/doctools.js"></script>
-         <script src="_static/katex.min.js"></script>
-         <script src="_static/auto-render.min.js"></script>
-         <script src="_static/katex_autorenderer.js"></script>
+       <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+         <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+         <script src="../../../../../_static/jquery.js"></script>
+         <script src="../../../../../_static/underscore.js"></script>
+         <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../../../../../_static/doctools.js"></script>
+         <script src="../../../../../_static/katex.min.js"></script>
+         <script src="../../../../../_static/auto-render.min.js"></script>
+         <script src="../../../../../_static/katex_autorenderer.js"></script>
      
 
   
 
-  <script type="text/javascript" src="_static/js/vendor/popper.min.js"></script>
-  <script type="text/javascript" src="_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../../../../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../../../../../_static/js/vendor/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-  <script type="text/javascript" src="_static/js/theme.js"></script>
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
@@ -426,7 +432,7 @@
   <div class="cookie-banner-wrapper">
   <div class="container">
     <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
-    <img class="close-button" src="_static/images/pytorch-x.svg">
+    <img class="close-button" src="../../../../../_static/images/pytorch-x.svg">
   </div>
 </div>
 
@@ -469,7 +475,7 @@
 
   <!-- End Mobile Menu -->
 
-  <script type="text/javascript" src="_static/js/vendor/anchor.min.js"></script>
+  <script type="text/javascript" src="../../../../../_static/js/vendor/anchor.min.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {

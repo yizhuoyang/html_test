@@ -1,0 +1,9 @@
+﻿DGCNN
+=====
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.dgcnn
+
+.. autoclass:: DGCNN
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,9 @@
+﻿har_GRU
+=======
+.. currentmodule:: pysensing.csi.model.har
+
+.. autoclass:: har_GRU
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

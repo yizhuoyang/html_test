@@ -1,9 +1,0 @@
-﻿.. currentmodule:: pypose
-
-
-pypose.se3
-==========
-
-.. autoclass:: se3
-    :inherited-members:
-    :members:

@@ -1,0 +1,9 @@
+﻿hid_RNN
+=======
+.. currentmodule:: pysensing.csi.model.hid
+
+.. autoclass:: hid_RNN
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

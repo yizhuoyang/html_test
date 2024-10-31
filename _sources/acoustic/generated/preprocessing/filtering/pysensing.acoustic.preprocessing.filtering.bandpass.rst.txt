@@ -1,0 +1,9 @@
+﻿bandpass
+========
+.. currentmodule:: pysensing.acoustic.preprocessing.filtering
+
+.. autoclass:: bandpass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

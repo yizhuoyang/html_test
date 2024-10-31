@@ -1,0 +1,9 @@
+﻿bandpass_filter
+===============
+.. currentmodule:: pysensing.csi.preprocessing.denoising
+
+.. autoclass:: bandpass_filter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

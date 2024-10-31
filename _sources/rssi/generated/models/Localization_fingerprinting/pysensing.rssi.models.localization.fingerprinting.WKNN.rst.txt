@@ -1,0 +1,9 @@
+﻿WKNN
+====
+.. currentmodule:: pysensing.rssi.models.localization.fingerprinting
+
+.. autoclass:: WKNN
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

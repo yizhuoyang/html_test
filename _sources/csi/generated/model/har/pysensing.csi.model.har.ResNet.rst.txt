@@ -1,0 +1,9 @@
+﻿ResNet
+======
+.. currentmodule:: pysensing.csi.model.har
+
+.. autoclass:: ResNet
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

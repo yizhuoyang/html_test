@@ -1,0 +1,5 @@
+﻿load_har_model
+==============
+.. currentmodule:: pysensing.acoustic.models.get_model
+
+.. autofunction:: load_har_model

@@ -1,0 +1,9 @@
+﻿AOA_Fourier_Net
+===============
+.. currentmodule:: pysensing.mmwave_raw.models.network
+
+.. autoclass:: AOA_Fourier_Net
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

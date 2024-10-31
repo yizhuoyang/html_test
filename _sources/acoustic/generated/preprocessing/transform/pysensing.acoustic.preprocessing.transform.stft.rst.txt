@@ -1,0 +1,9 @@
+﻿stft
+====
+.. currentmodule:: pysensing.acoustic.preprocessing.transform
+
+.. autoclass:: stft
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

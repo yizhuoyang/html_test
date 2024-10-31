@@ -1,0 +1,9 @@
+﻿add_chorus
+==========
+.. currentmodule:: pysensing.acoustic.augmentation.signal_aug
+
+.. autoclass:: add_chorus
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

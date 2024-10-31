@@ -1,0 +1,9 @@
+﻿PCT
+===
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct
+
+.. autoclass:: PCT
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

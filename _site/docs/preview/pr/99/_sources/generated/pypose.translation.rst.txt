@@ -1,6 +1,0 @@
-﻿pypose.translation
-==================
-
-.. currentmodule:: pypose
-
-.. autofunction:: translation
