@@ -1,0 +1,9 @@
+﻿AmazonasIndoorEnv_Dataset
+=========================
+.. currentmodule:: pysensing.bluetooth.datasets.amazonas_indoor_env
+
+.. autoclass:: AmazonasIndoorEnv_Dataset
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

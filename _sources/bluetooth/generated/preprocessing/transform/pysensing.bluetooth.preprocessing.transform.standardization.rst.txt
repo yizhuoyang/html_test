@@ -1,0 +1,9 @@
+﻿standardization
+===============
+.. currentmodule:: pysensing.bluetooth.preprocessing.transform
+
+.. autoclass:: standardization
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

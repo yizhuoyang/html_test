@@ -11,6 +11,7 @@ Pysensing Documentation
    csi/csi
    mmwave_PC/mmwave_PC
    rssi/rssi
+   bluetooth/bluetooth
    intraoral_scan/intraoral_scan
 
 

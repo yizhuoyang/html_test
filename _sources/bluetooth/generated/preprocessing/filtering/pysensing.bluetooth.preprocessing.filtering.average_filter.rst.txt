@@ -1,0 +1,9 @@
+﻿average_filter
+==============
+.. currentmodule:: pysensing.bluetooth.preprocessing.filtering
+
+.. autoclass:: average_filter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

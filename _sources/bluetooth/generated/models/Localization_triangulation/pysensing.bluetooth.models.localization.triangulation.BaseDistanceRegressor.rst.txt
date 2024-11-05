@@ -1,0 +1,9 @@
+﻿BaseDistanceRegressor
+=====================
+.. currentmodule:: pysensing.bluetooth.models.localization.triangulation
+
+.. autoclass:: BaseDistanceRegressor
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,9 @@
+﻿Triangulator
+============
+.. currentmodule:: pysensing.bluetooth.models.localization.triangulation
+
+.. autoclass:: Triangulator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    
