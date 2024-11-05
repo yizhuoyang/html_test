@@ -1,0 +1,5 @@
+﻿normalize_data
+==============
+.. currentmodule:: pysensing.uwb.datasets.localization
+
+.. autofunction:: normalize_data

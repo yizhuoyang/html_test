@@ -1,0 +1,5 @@
+﻿running_background_suppression
+==============================
+.. currentmodule:: pysensing.uwb.preprocessing.clutter_suppression
+
+.. autofunction:: running_background_suppression

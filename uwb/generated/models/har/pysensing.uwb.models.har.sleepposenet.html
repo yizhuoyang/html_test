@@ -10,7 +10,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CNNLoc1D &mdash; Pysensing main documentation</title>
+  <title>sleepposenet &mdash; Pysensing main documentation</title>
   
 
   
@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="../../../../_static/katex-math.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="human_tracking_resnet" href="../localization/pysensing.uwb.models.localization.human_tracking_resnet.html" />
+    <link rel="prev" title="occupancy_detection_autoencoder" href="../occupancy_detection/pysensing.uwb.models.occupancy_detection.occupancy_detection_autoencoder.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
@@ -150,11 +152,12 @@
             
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rssi.html">RSSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../intraoral_scan/intraoral_scan.html">intraoral_scan</a></li>
 </ul>
@@ -197,13 +200,17 @@
       </li>
 
         
-      <li>CNNLoc1D</li>
+          <li><a href="../../../uwb.html">UWB</a> &gt;</li>
+        
+          <li><a href="../../../models.html">UWB.Models</a> &gt;</li>
+        
+      <li>sleepposenet</li>
     
     
       <li class="pytorch-breadcrumbs-aside">
         
             
-            <a href="../../../../_sources/rssi/generated/models/Localization_fingerprinting/pysensing.rssi.models.localization.fingerprinting.CNNLoc1D.rst.txt" rel="nofollow"><img src="../../../../_static/images/view-page-source-icon.svg"></a>
+            <a href="../../../../_sources/uwb/generated/models/har/pysensing.uwb.models.har.sleepposenet.rst.txt" rel="nofollow"><img src="../../../../_static/images/view-page-source-icon.svg"></a>
           
         
       </li>
@@ -229,8 +236,57 @@
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
               
-  <section id="cnnloc1d">
-<h1>CNNLoc1D<a class="headerlink" href="#cnnloc1d" title="Permalink to this heading">¶</a></h1>
+  <section id="sleepposenet">
+<h1>sleepposenet<a class="headerlink" href="#sleepposenet" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pysensing.uwb.models.har.sleepposenet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pysensing.uwb.models.har.</span></span><span class="sig-name descname"><span class="pre">sleepposenet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pysensing/uwb/models/har.html#sleepposenet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysensing.uwb.models.har.sleepposenet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Pytorch implementation of the SleepPoseNet model.
+The model is based on the following paper :
+“SleepPoseNet: Multi-View Learning for Sleep Postural Transition Recognition Using UWB.”</p>
+<p>Noted that the “kernel_regularizer” term could not be directly implemented in pytorch model,
+need to modify the loss function to include the regularization term.
+e.g</p>
+<blockquote>
+<div><p>loss = criterion(output, target)
+loss = loss + torch.norm(model.layer.weight, p=2)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong> (<em>num_classes</em>) – obj: ‘int’): the dimension of the feature space</p></li>
+<li><p><strong>(</strong> – obj: ‘int’): the number of classes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obj: ‘torch.Tensor’): the output of the model</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>x (</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pysensing.uwb.models.har.sleepposenet.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_td</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_wrtft</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pysensing/uwb/models/har.html#sleepposenet.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysensing.uwb.models.har.sleepposenet.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pysensing.uwb.models.har.sleepposenet.generate_embeddings">
+<span class="sig-name descname"><span class="pre">generate_embeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_td</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_wrtft</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/pysensing/uwb/models/har.html#sleepposenet.generate_embeddings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pysensing.uwb.models.har.sleepposenet.generate_embeddings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -238,6 +294,15 @@
              
             </div>
             <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../localization/pysensing.uwb.models.localization.human_tracking_resnet.html" class="btn btn-neutral float-right" title="human_tracking_resnet" accesskey="n" rel="next">Next <img src="../../../../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="../occupancy_detection/pysensing.uwb.models.occupancy_detection.occupancy_detection_autoencoder.html" class="btn btn-neutral" title="occupancy_detection_autoencoder" accesskey="p" rel="prev"><img src="../../../../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
   
 
   

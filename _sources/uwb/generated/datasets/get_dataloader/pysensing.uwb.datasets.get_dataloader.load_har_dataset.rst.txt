@@ -1,0 +1,5 @@
+﻿load_har_dataset
+================
+.. currentmodule:: pysensing.uwb.datasets.get_dataloader
+
+.. autofunction:: load_har_dataset

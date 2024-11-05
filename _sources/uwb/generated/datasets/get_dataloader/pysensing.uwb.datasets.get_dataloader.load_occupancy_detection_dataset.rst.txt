@@ -1,0 +1,5 @@
+﻿load_occupancy_detection_dataset
+================================
+.. currentmodule:: pysensing.uwb.datasets.get_dataloader
+
+.. autofunction:: load_occupancy_detection_dataset
