@@ -1,0 +1,9 @@
+﻿MGesture
+========
+.. currentmodule:: pysensing.mmwave.PC.dataset.hgr
+
+.. autoclass:: MGesture
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

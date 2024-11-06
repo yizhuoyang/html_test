@@ -1,9 +1,0 @@
-﻿WPNet
-=====
-.. currentmodule:: pysensing.csi.model.hpe
-
-.. autoclass:: WPNet
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

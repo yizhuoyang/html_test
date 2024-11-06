@@ -1,9 +1,0 @@
-﻿UT_HAR
-======
-.. currentmodule:: pysensing.csi.dataset.har
-
-.. autoclass:: UT_HAR
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

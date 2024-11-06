@@ -1,5 +1,0 @@
-﻿weighted_rtf_transform
-======================
-.. currentmodule:: pysensing.uwb.preprocessing.transformation
-
-.. autofunction:: weighted_rtf_transform

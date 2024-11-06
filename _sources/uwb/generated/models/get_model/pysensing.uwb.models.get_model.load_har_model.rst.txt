@@ -1,5 +1,0 @@
-﻿load_har_model
-==============
-.. currentmodule:: pysensing.uwb.models.get_model
-
-.. autofunction:: load_har_model

@@ -1,0 +1,9 @@
+﻿CSI_AutoEncoder
+===============
+.. currentmodule:: pysensing.csi.model.reconstruction
+
+.. autoclass:: CSI_AutoEncoder
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

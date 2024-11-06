@@ -1,0 +1,9 @@
+﻿har_LSTM
+========
+.. currentmodule:: pysensing.csi.model.har
+
+.. autoclass:: har_LSTM
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

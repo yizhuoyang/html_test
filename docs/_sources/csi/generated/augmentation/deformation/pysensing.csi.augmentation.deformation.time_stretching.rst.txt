@@ -1,0 +1,9 @@
+﻿time_stretching
+===============
+.. currentmodule:: pysensing.csi.augmentation.deformation
+
+.. autoclass:: time_stretching
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

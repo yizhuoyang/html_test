@@ -1,0 +1,66 @@
+UWB.Preprocessing
+---------------------
+Clutter Suppression
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.preprocessing.clutter_suppression
+.. autosummary::
+    :toctree: generated/preprocessing/clutter_suppression
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    dc_suppression
+    static_background_suppression
+    running_background_suppression
+
+Cropping
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.preprocessing.cropping
+.. autosummary::
+    :toctree: generated/preprocessing/cropping
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    range_selection
+
+Filtering
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.preprocessing.filtering
+.. autosummary::
+    :toctree: generated/preprocessing/filtering
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    bandpass_butterworth_filter
+
+Transformation
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.preprocessing.transformation
+.. autosummary::
+    :toctree: generated/preprocessing/transformation
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    time_difference_transform
+    wrtft
+    apply_wrtft
+    weighted_rtf_transform
+
+Nan Removal
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.preprocessing.nan_removal
+.. autosummary::
+    :toctree: generated/preprocessing/nan_removal
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    remove_nan
+
+Normalization
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.preprocessing.normalization
+.. autosummary::
+    :toctree: generated/preprocessing/normalization
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    normalize_data

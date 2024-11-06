@@ -1,9 +1,0 @@
-﻿MLP
-===
-.. currentmodule:: pysensing.bluetooth.models.localization.fingerprinting
-
-.. autoclass:: MLP
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,9 +1,0 @@
-﻿inversespectrogram
-==================
-.. currentmodule:: pysensing.acoustic.preprocessing.transform
-
-.. autoclass:: inversespectrogram
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

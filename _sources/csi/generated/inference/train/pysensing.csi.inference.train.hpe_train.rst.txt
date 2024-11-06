@@ -1,9 +1,0 @@
-﻿hpe_train
-=========
-.. currentmodule:: pysensing.csi.inference.train
-
-.. autoclass:: hpe_train
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

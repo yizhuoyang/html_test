@@ -1,9 +1,0 @@
-﻿hpe_csi_embedding
-=================
-.. currentmodule:: pysensing.csi.inference.embedding
-
-.. autoclass:: hpe_csi_embedding
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

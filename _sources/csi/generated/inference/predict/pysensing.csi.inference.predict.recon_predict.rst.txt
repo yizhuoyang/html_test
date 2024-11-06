@@ -1,9 +1,0 @@
-﻿recon_predict
-=============
-.. currentmodule:: pysensing.csi.inference.predict
-
-.. autoclass:: recon_predict
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

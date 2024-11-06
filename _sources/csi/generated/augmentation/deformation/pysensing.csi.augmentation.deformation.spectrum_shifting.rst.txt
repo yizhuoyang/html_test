@@ -1,9 +1,0 @@
-﻿spectrum_shifting
-=================
-.. currentmodule:: pysensing.csi.augmentation.deformation
-
-.. autoclass:: spectrum_shifting
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

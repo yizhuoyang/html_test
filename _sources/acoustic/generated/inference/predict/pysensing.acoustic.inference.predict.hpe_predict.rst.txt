@@ -1,9 +1,0 @@
-﻿hpe_predict
-===========
-.. currentmodule:: pysensing.acoustic.inference.predict
-
-.. autoclass:: hpe_predict
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

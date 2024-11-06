@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Google Tag Manager -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-52DXT37');</script> -->
+  <!-- End Google Tag Manager -->
+  <!-- Second tag include -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6ST8LE9P6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G6ST8LE9P6');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+  <title>
+    
+      PyPose
+    
+  </title>
+  
+  <meta property="og:title" content="PyPose" />
+  <meta
+    name="description"
+    property="og:description"
+    content="Accelerate research via differentiable robotics with learning."
+  />
+  <meta
+  property="og:image"
+  content="https://pypose.org/assets/images/pytorch-logo.png"
+  />
+  <meta property="og:url" content="https://www.pytorch.org" />
+
+
+<meta property="og:type" content="website" />
+<meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <script src="/assets/vendor/jquery.min.js"></script>
+  <script src="/assets/vendor/popper.min.js"></script>
+  <script src="/assets/vendor/bootstrap.min.js"></script>
+  <script src="/assets/vendor/anchor.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Pythorch Blog Posts" />
+  <!-- Google Tag Manager for PyPose -->
+  <!-- <script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-117752657-2"
+></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-117752657-2");
+</script> -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6ST8LE9P6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6ST8LE9P6');
+</script> -->
+
+
+
+  <!-- Floating Card style -->
+  <style>
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  .floatcard{
+      position: relative;
+      width: 188px;
+      height: 360px;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 2px 3px 3px rgb(139, 138, 138);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+  }
+  .floatcard:hover{
+      box-shadow: 2px 3px 10px rgb(36, 35, 35);
+  }
+  .floatImg{
+      position: relative;
+      /* top: 0;
+      left: 0; */
+      width: 100%;
+      /* height: 300px; */
+      overflow: hidden;
+      
+  }
+  .floatImg img{
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s;
+  }
+  .floatcard:hover .floatImg img{
+      transform: scale(1.2);
+      filter: blur(1px);
+  }
+  .floatText{
+      position: absolute;
+      bottom: -58px;
+      width: 100%;
+      height: 200px;
+
+      background-color: rgb(247, 242, 242);
+      transition: 0.3s;
+  }
+  .floatcard:hover .floatText{
+      bottom: 0px;
+  }
+  .floatText h2{
+      color: rgb(1, 4, 9);
+      line-height: 78px;
+      font-size: 24px;
+      text-align: center;
+
+  }
+  .floatText p{
+      padding: 0 20px;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight:bold;
+      font-style: italic;
+      text-align: center;
+  }
+  .floatTextLAB{
+      position: absolute;
+      bottom: -156px;
+      width: 100%;
+      height: 300px;
+
+      background-color: rgb(247, 242, 242);
+      transition: 0.5s;
+  }
+  .floatcard:hover .floatTextLAB{
+      bottom: 0px;
+  }
+  .floatTextLAB h2{
+      color: rgb(1, 4, 9);
+      line-height: 79px;
+      font-size: 24px;
+      text-align: center;
+
+  }
+  .floatTextLAB p{
+      padding: 0 18px;
+      font-size: 13px;
+      line-height: 20px;
+      font-style: italic;
+      text-align: center;
+  }
+  .floatcard-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  }
+  </style>
+
+</head>
+
+  <body class="get-started">
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52DXT37"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div class="container-fluid header-holder get-started-header">
+  <div class="container">
+    
+
+<div class="header-container">
+  <a class="header-logo" href="https://pypose.org" aria-label="PyPose"></a>
+
+  <div class="main-menu">
+  <ul>
+    <li class="main-menu-item ">
+      <a href="/get-started">Get Started</a>
+    </li>
+
+    <!-- <li class="main-menu-item">
+      <div id="dropdownMenuButton" data-toggle="resources-dropdown" class="resources-dropdown">
+        <a class="resource-option with-down-arrow" href="/ecosystem">
+          Ecosystem
+        </a>
+        <div class="resources-dropdown-menu">
+          <a class="nav-dropdown-item" href="/ecosystem">
+            <span class="dropdown-title">Tools</span>
+            <p>Learn about the tools and frameworks in the PyTorch Ecosystem</p>
+          </a>
+          <a class="nav-dropdown-item" href="/ecosystem/pted/2021">
+            <span class="dropdown-title">Ecosystem Day - 2021</span>
+            <p>See the posters presented at ecosystem day 2021</p>
+          </a>
+          <a class="nav-dropdown-item" href="/ecosystem/ptdd/2021">
+            <span class="dropdown-title">Developer Day - 2021</span>
+            <p>See the posters presented at developer day 2021</p>
+          </a>
+        </div>
+      </div>
+    </li> -->
+
+    <!-- <li class="main-menu-item ">
+      <a href="/mobile">Mobile</a>
+    </li>
+
+    <li class="main-menu-item ">
+      <a href="/blog">Blog</a>
+    </li> -->
+
+    <li class="main-menu-item">
+      <a href="https://pypose.org/tutorials/">Tutorials</a>
+    </li>
+    
+    <!-- <li class="main-menu-item ">
+      <a href="/docs">Docs</a>
+    </li> -->
+
+    <li class="main-menu-item" id="docs-main-menu-link">
+      <a href="/docs">Docs</a>
+    </li>
+
+    <li class="main-menu-item active">
+      <a href="/about-us">About Us</a>
+    </li>
+
+    
+
+    <!-- <li class="main-menu-item">
+      <div id="docsDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+        <a class="doc-option with-down-arrow">
+          Docs
+        </a>
+        <div class="resources-dropdown-menu">
+          <a class="nav-dropdown-item" href="/docs">
+            <span class="dropdown-title docs-title">PyTorch</span>
+            <p></p>
+          </a>
+          <a class="nav-dropdown-item" href="/audio">
+            <span class="dropdown-title docs-title">torchaudio</span>
+            <p></p>
+          </a>
+          <a class="nav-dropdown-item" href="/xla/release/1.6/index.html">
+            <span class="dropdown-title docs-title">PyTorch on XLA Devices</span>
+            <p></p>
+          </a>
+        </div>
+      </div>
+    </li> -->
+
+    <!-- 
+
+    <li class="main-menu-item ">
+
+      <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+        <a class="resource-option with-down-arrow">
+          Resources
+        </a>
+        <div class="resources-dropdown-menu">
+          <a class="nav-dropdown-item" href="/features">
+            <span class=dropdown-title>About</span>
+            <p>Learn about PyTorch’s features and capabilities</p>
+          </a>
+          <a class="nav-dropdown-item" href="/#community-module">
+            <span class=dropdown-title>Community</span>
+            <p>Join the PyTorch developer community to contribute, learn, and get your questions answered.</p>
+          </a>
+          <a class="nav-dropdown-item" href="/events">
+            <span class=dropdown-title>Events</span>
+            <p>Find events, webinars, and podcasts</p>
+          </a>
+          <a class="nav-dropdown-item" href="/resources">
+            <span class=dropdown-title>Developer Resources</span>
+            <p>Find resources and get questions answered</p>
+          </a>
+          <a class="nav-dropdown-item" href="" target="_blank">
+            <span class=dropdown-title>Forums</span>
+            <p>A place to discuss PyTorch code, issues, install, research</p>
+          </a>
+          <a class="nav-dropdown-item" href="/hub">
+            <span class=dropdown-title>Models (Beta)</span>
+            <p>Discover, publish, and reuse pre-trained models</p>
+          </a>
+        </div>
+      </div>
+    </li> -->
+
+    <li class="main-menu-item" id="github-main-menu-link">
+      <a href="https://github.com/pypose/pypose">GitHub</a>
+    </li>
+
+    <!-- <li class="navSearchWrapper reactNavSearchWrapper" key="search">
+      <div class="search-border">
+        <div id="search-icon"></div>
+        <input
+          id="search-input"
+          type="text"
+          title="Search"
+        />
+        <div id="close-search">X</div>
+      </div>
+    </li> -->
+  </ul>
+</div>
+
+<script src="/assets/main-menu-dropdown.js"></script>
+
+
+  <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+</div>
+
+  </div>
+</div>
+
+
+    <div class="main-background home-page-background"></div>
+
+    <div class="jumbotron jumbotron-fluid on-dark-background">
+  <div class="container">
+    <div class="row">
+        <!-- Normal content -->
+        <div class="col-md-7">
+            
+          <div style="width: 338%;">
+            <!-- <p class="lead" style="font-size: 2em;">Thanks to our 80+ volunteer developers from 16 institutes and 3 continents!</p> -->
+            <p class="lead" style="font-size: 2em;">Thanks to our <span style="font-size: 2em;">80+</span> volunteer developers from <span style="font-size: 2em;">20+</span> institutes and <span style="font-size: 2em;">4</span> continents!</p>
+          </div>
+     
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-content-wrapper">
+  
+    <div class="no-banner"></div>
+  
+
+
+  <section class="section">
+    <div class="container" style="grid-template-columns: 20% 20% 20% 20% 20%;">
+      <div class="columns">
+  
+        <div class="column is-12">
+          <p> <br> <br> </p>
+          <h1 style="font-size:35px;">Key Supporting Labs</h1>
+        </div>
+
+        <div class="container homepage-feature-module key-features-module">
+          <div class="row">
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg" style="top:62px; left:5px;">
+                  <img src="/assets/images/SAIRLAB.png">
+                </div>
+                <div class="floatTextLAB">
+                  <h2>SAIR Lab</h2>
+                  <p style="font-weight:bold"> State University of New York at Buffalo </p>
+                  <p> Our research goal is to achieve human-level spatial awareness and reasoning on robotic systems. </p>
+                </div>
+                <a href="https://sairlab.org/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>  
+
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg" style="top:65px;">
+                  <img src="/assets/images/ARILAB.png">
+                </div>
+                <div class="floatTextLAB">
+                  <h2>ARI Lab</h2>
+                  <p style="font-weight:bold"> Pennsylvania State University </p>
+                  <p> Our mission is to advance state-of-the-art aerial autonomy by bridging the aerospace and robotic communities. </p>
+                </div>
+                <a href="https://ari-psu.github.io/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg" style="top:82px;">
+                  <img src="/assets/images/AIRLAB.png">
+                </div>
+                <div class="floatTextLAB">
+                  <h2>AIR Lab</h2>
+                  <p style="font-weight:bold"> Carnegie Mellon University </p>
+                  <p> Our mission is to advance state-of-the-art autonomy. </p>
+                </div>
+                <a href="https://theairlab.org/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg" style="top:62px;">
+                  <img src="/assets/images/RSL.png">
+                </div>
+                <div class="floatTextLAB">
+                  <h2>RSL</h2>
+                  <p style="height: 0px"></p>
+                  <p style="font-weight:bold"> ETH Zürich </p>
+                  <p>
+                    The Robotic Systems Lab (RSL) designs machines, creates actuation principles and builds up control technologies for autonomous operation in challenging environments. </p>
+                </div>
+                <a href="https://rsl.ethz.ch/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>  
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg" style="top:66px;">
+                  <img src="/assets/images/SPARKLAB.png">
+                </div>
+                <div class="floatTextLAB">
+                  <h2>SPARK Lab</h2>
+                  <p style="font-weight:bold"> Massachusetts Institute of Technology </p>
+                  <p>
+                    The SPARK Lab works at the cutting edge of robotics and autonomous systems research for air, space, and ground applications. </p>
+                </div>
+                <a href="https://web.mit.edu/sparklab/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+  
+        <div class="column is-12">
+          <p> <br> <br> </p>
+          <h1 style="font-size:35px;">Key Supporting Personnel</h1>
+        </div>
+
+        <div class="container homepage-feature-module key-features-module">
+          <div class="row">
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/ChenWang.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Chen Wang</h2>
+                      <p style="font-weight:bold"> State University of New York at Buffalo </p>
+                      <p> Assistant Professor </p>
+                </div>
+                <a href="https://sairlab.org/team/chenw/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>  
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/JunyiGeng.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Junyi Geng</h2>
+                      <p style="font-weight:bold"> Pennsylvania State University </p>
+                      <p> Assistant Professor </p>
+                </div>
+                <a href="https://ari-psu.github.io/team/junyi_geng/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/YaoyuHu.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Yaoyu Hu</h2>
+                      <p style="font-weight:bold"> Carnegie Mellon University </p>
+                      <p> Postdoctoral Fellow </p>
+                </div>
+                <a href="http://www.huyaoyu.com/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/DaningHuang.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Daning Huang</h2>
+                      <p style="font-weight:bold"> Pennsylvania State University </p>
+                      <p> Assistant Professor </p>
+                </div>
+                <a href="https://www.aero.psu.edu/department/directory-detail-g.aspx?q=dfh5340" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>  
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/Sebastian.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Sebastian Scherer</h2>
+                      <p style="font-weight:bold"> Carnegie Mellon University </p>
+                      <p> Associate Research Professor </p>
+                </div>
+                <a href="http://theairlab.org/team/sebastian/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container homepage-feature-module key-features-module">
+          <div class="row">
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/Luca.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Luca Carlone</h2>
+                      <p style="font-weight:bold"> Massachusetts Institute of Technology </p>
+                      <p> Associate Professor </p>
+                </div>
+                <a href="https://lucacarlone.mit.edu/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>  
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/LihuaXie.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Lihua Xie</h2>
+                      <p style="font-weight:bold"> Nanyang Technological University </p>
+                      <p> Professor </p>
+                </div>
+                <a href="https://personal.ntu.edu.sg/elhxie/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/Marco.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px;">Marco Hutter</h2>
+                      <p style="height: 0px"></p>
+                      <p style="font-weight:bold"> ETH Zürich </p>
+                      <p> Professor </p>
+                </div>
+                <a href="https://rsl.ethz.ch/the-lab/people/person-detail.MTIxOTEx.TGlzdC8yNDQxLC0xNDI1MTk1NzM1.html" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+        
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/JiajunWu.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px;">Jiajun Wu</h2>
+                      <p style="height: 0px"></p>
+                      <p style="font-weight:bold"> Stanford University </p>
+                      <p> Assistant Professor </p>
+                </div>
+                <a href="https://jiajunwu.com/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>
+
+            <div class="col-sm">
+              <div class="floatcard">
+                <div class="floatImg">
+                  <img src="/assets/images/personnel/Karthik.png">
+                </div>
+                <div class="floatText">
+                      <h2 style="font-size:20px">Karthik Dantu</h2>
+                      <p style="font-weight:bold"> State University of New York at Buffalo </p>
+                      <p> Associate Professor </p>
+                </div>
+                <a href="https://cse.buffalo.edu/faculty/kdantu/" target="_blank" rel="noopener noreferrer" class='floatcard-link'></a>
+              </div>
+            </div>  
+        
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- <div class="container-fluid quick-start-module quick-starts">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 start-locally-col">
+
+        <h3>Install PyTorch</h3>
+
+        <p>Select your preferences and run the install command. Stable represents the most currently tested and supported version of PyPose. This should
+  be suitable for many users. Please ensure that you have <b>met the prerequisites below (e.g., numpy)</b>,  depending on your package manager. 
+</p>
+
+<div class="row">
+  <div class="col-md-3 headings">
+    <div class="col-md-12 title-block">
+      <div class="option-text">PyPose Build</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text os-text">Your OS</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text">Package</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text">Language</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text">Compute Platform</div>
+    </div>
+    <div class="col-md-12 title-block command-block">
+      <div class="option-text command-text">Run this Command:</div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="row ptbuild">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">PyPose Build</div>
+      </div>
+      <div class="col-md-12 option block version selected" id="stable">
+        <div class="option-text">Stable (0.2.0)</div>
+      </div>
+    </div>
+    <div class="row os">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">Your OS</div>
+      </div>
+      <div class="col-md-4 option block" id="linux">
+        <div class="option-text">Linux</div>
+      </div>
+      <div class="col-md-4 option block" id="macos">
+        <div class="option-text">Mac</div>
+      </div>
+      <div class="col-md-4 option block" id="windows">
+        <div class="option-text">Windows</div>
+      </div>
+    </div>
+    <div class="row package">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text"></div>
+      </div>
+      <div class="col-md-12 option block selected" id="pip">
+        <div class="option-text">Pip</div>
+      </div>
+    </div>
+    <div class="row language">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">Language</div>
+      </div>
+      <div class="col-md-12 option block version selected" id="python">
+        <div class="option-text">Python</div>
+      </div>
+    </div>
+    <div class="row cuda">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">Compute Platform</div>
+      </div>
+      <div class="col-md-6 option block version selected" id="cuda10.2">
+        <div class="option-text">CUDA 10.2</div>
+      </div>
+      <div class="col-md-6 option block version" id="cuda11.x">
+        <div class="option-text">CUDA 11.3</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 title-block command-mobile-heading">
+        <div class="option-text">Run this Command:</div>
+      </div>
+      <div class="command-container">
+        <div class="col-md-12" id="command">pip install pypose</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <a href="/get-started/previous-versions" class="btn btn-lg with-right-arrow btn-white prev-versions-btn">
+          Previous versions of PyTorch
+        </a>
+      </div>
+
+      <div class="col-md-3 offset-md-1 cloud-options-col">
+        <h3>Quick Start With<br />Cloud Partners</h3>
+
+        <p>Get up and running with PyTorch quickly through popular cloud platforms and machine learning services.</p>
+
+        <div class="quick-start-guides">
+  <div class="cloud-option-row">
+    <div class="cloud-option" data-toggle="cloud-dropdown">
+      <div class="cloud-option-body alibaba" id="alibaba">
+        Alibaba Cloud
+      </div>
+      <ul>
+        <li><a href="https://cn.aliyun.com/product/bigdata/product/learn">Alibaba Cloud PAI</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cloud-option-row">
+    <div class="cloud-option" data-toggle="cloud-dropdown">
+      <div class="cloud-option-body aws" id="aws">
+        Amazon Web Services
+      </div>
+
+      <ul>
+        <li><a href="https://aws.amazon.com/pytorch/">PyTorch on AWS</a></li>
+        <li><a href="https://aws.amazon.com/sagemaker">Amazon SageMaker</a></li>
+        <li><a href="https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/deep-learning-containers-ec2-tutorials-training.html#deep-learning-containers-ec2-tutorials-training-pytorch">AWS Deep Learning Containers</a></li>
+        <li><a href="https://docs.aws.amazon.com/dlami/latest/devguide/tutorial-pytorch.html">AWS Deep Learning AMIs</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cloud-option-row">
+    <div class="cloud-option" data-toggle="cloud-dropdown">
+      <div class="cloud-option-body google-cloud" id="google-cloud">
+        Google Cloud Platform
+      </div>
+
+      <ul>
+        <li><a href="https://cloud.google.com/deep-learning-vm/docs/pytorch_start_instance">Cloud Deep Learning VM Image</a></li>
+      </ul>
+
+      <ul>
+        <li><a href="https://cloud.google.com/ai-platform/deep-learning-containers/">Deep Learning Containers</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="cloud-option-row">
+    <div class="cloud-option" data-toggle="cloud-dropdown">
+      <div class="cloud-option-body microsoft-azure" id="microsoft-azure">
+        <p>Microsoft Azure -</p>
+        <span>PyTorch Enterprise Program</span>
+      </div>
+
+      <ul>
+        <li><a href="https://azure.microsoft.com/en-us/develop/pytorch/">PyTorch on Azure</a></li>
+        <li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-train-pytorch">Azure Machine Learning</a></li>
+        <li><a href="https://docs.microsoft.com/en-us/azure/azure-functions/machine-learning-pytorch?tabs=bash">Azure Functions</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/quick-start-module.js"></script>
+ -->
+  <head>
+    <style>
+        /* This style will center the image on the page */
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+  </head>
+</div>
+
+
+<style>
+  .button.is-info {
+   background-color:#3f9ba7;
+   border-color:transparent;
+   color:#fff
+  }
+  .button.is-info.is-hovered {
+   background-color:#3f9ba7;
+   border-color:transparent;
+   color:#fff
+  }
+</style>
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+
+      <div class="column is-12">
+        <p> <br> <br> </p>
+        <h1 style="font-size:35px;">Volunteer Developers</h1>
+
+
+      <div class="container homepage-feature-module key-features-module">
+
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="row key-features-boxes">
+                <div class="col-md-3 key-feature-box">
+                  <h5>Dasong Gao</h5>
+                  <p>PhD Student</p>
+                  <p>Massachusetts Institute of Technology</p>
+                </div>
+              
+                <div class="col-md-3 key-feature-box">
+                  <h5>Kuan Xu</h5>
+                  <p>PhD Student</p>
+                  <p>Nanyang Technological University</p>
+                </div>
+              
+                <div class="col-md-3 key-feature-box">
+                  <h5>Yuheng Qiu</h5>
+                  <p>PhD Student</p>
+                  <p>Carnegie Mellon University</p>
+                </div>
+
+                <div class="col-md-3 key-feature-box">
+                  <h5>Bowen Li</h5>
+                  <p>PhD Student</p>
+                  <p>Carnegie Mellon University</p>
+                </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Fan Yang</h5>
+                <p>PhD Student</p>
+                <p>ETH Zürich</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Brady Moon</h5>
+                <p>PhD Student</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Abhinav Pandey</h5>
+                <p>Undergraduate Student</p>
+                <p>Pennsylvania State University</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Aryan</h5>
+                <p>Undergraduate Student</p>
+                <p>Delhi Technological University</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Jiahe Xu</h5>
+                <p>Engineer</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Tianhao Wu</h5>
+                <p>Master's Student</p>
+                <p>University of Virginia</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Haonan He</h5>
+                <p>Master's Student</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Fang Xu</h5>
+                <p>Postdoctoral</p>
+                <p>Nanyang Technological University</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Zhongqiang Ren</h5>
+                <p>PhD Student</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Shibo Zhao</h5>
+                <p>PhD Student</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Taimeng Fu</h5>
+                <p>PhD Student</p>
+                <p>University at Buffalo, SUNY</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Pranay Reddy</h5>
+                <p>PhD Student</p>
+                <p>University of Massachusetts Amherst</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Xiao Lin</h5>
+                <p>Undergraduate Student</p>
+                <p>Georgia Institute of Technology</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Wenshan Wang</h5>
+                <p>Systems Scientist</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Jingnan Shi</h5>
+                <p>PhD Student</p>
+                <p>Massachusetts Institute of Technology</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Rajat Talak</h5>
+                <p>Research Scientist</p>
+                <p>Massachusetts Institute of Technology</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Kun Cao</h5>
+                <p>Research Fellow</p>
+                <p>Nanyang Technological University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Yi Du</h5>
+                <p>PhD Student</p>
+                <p>University at Buffalo, SUNY</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Han Wang</h5>
+                <p>Research Scientist</p>
+                <p>Huawei</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Huai Yu</h5>
+                <p>Research Associate Professor</p>
+                <p>Wuhan University</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Shanzhao Wang</h5>
+                <p>Master's Student</p>
+                <p>University of Michigan</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Siyu Chen</h5>
+                <p>PhD Student</p>
+                <p>Nanyang Technological University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Ananth Kashyap</h5>
+                <p>High School Student</p>
+                <p>Fox Chapel Area High School</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Rohan Bandaru</h5>
+                <p>High School Student</p>
+                <p>Lexington High School</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Zitong Zhan</h5>
+                <p>PhD Student</p>
+                <p>University at Buffalo, SUNY</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Shaoshu Su</h5>
+                <p>PhD Student</p>
+                <p>University at Buffalo, SUNY</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Zhipeng Zhao</h5>
+                <p>PhD Student</p>
+                <p>University at Buffalo, SUNY</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Yutian Chen</h5>
+                <p>Undergraduate Student</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Xiangyu Chen</h5>
+                <p>Master's Student</p>
+                <p>Shandong University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Qihang Li</h5>
+                <p>Resarch Scientist</p>
+                <p>Johns Hopkins University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Haitao Xiao</h5>
+                <p>Engineer</p>
+                <p>ZBL</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Huan Xu</h5>
+                <p>Master's Student</p>
+                <p>Georgia Institute of Technology</p>
+              </div>
+            </div>
+
+            <div class="row key-features-boxes">
+              <div class="col-md-3 key-feature-box">
+                <h5>Zihan Wang</h5>
+                <p>Master's Student</p>
+                <p>Carnegie Mellon University</p>
+              </div>
+
+              <div class="col-md-3 key-feature-box">
+                <h5>Xiangfu Li</h5>
+                <p>PhD Student</p>
+                <p>Pennsylvania State University</p>
+              </div>
+            
+              <div class="col-md-3 key-feature-box">
+                <h5>Yangmengfei Xu</h5>
+                <p>PhD Student</p>
+                <p>University of Melbourne</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+#blocks {
+width:100%;
+height:60px;
+margin:0 auto;
+/* background-color: #ffe; */
+}
+#block1 {
+height:33.33%;
+width:30%;
+/* background: red; */
+float: left;
+}
+#block2 {
+height:33.33%;
+width:40%;
+/* background: yellow; */
+float: left;
+}
+#block3 {
+height:33.33%;
+width:30%;
+/* background: green; */
+float: right;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+<!-- <div class="container homepage-feature-module key-features-module">
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="row key-features-boxes"> -->
+
+
+<!-- Load JS for pagination -->
+
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script list-id="news-items" display-count="1" pagination="true" src="/assets/filter-hub-tags.js"></script> -->
+
+
+
+    <div class="container-fluid docs-tutorials-resources">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <h2>Docs</h2>
+        <p>Access documentation for PyPose</p>
+        <a class="with-right-arrow" href="/docs">View Docs</a>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <h2>Tutorials</h2>
+        <p>Get started with tutorials and examples</p>
+        <a class="with-right-arrow" href="https://pypose.org/tutorials/">View Tutorials</a>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <h2>Get Started</h2>
+        <p>Find resources and how to start using PyPose</p>
+        <a class="with-right-arrow" href="/get-started">Get Started</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-logo-wrapper">
+      <a href="https://pypose.org" class="footer-logo"></a>
+    </div>
+
+    <div class="footer-links-wrapper">
+      <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><a href="https://pypose.org">PyPose</a></li>
+          <li><a href="/get-started">Get Started</a></li>
+          <li><a href="/features">Features</a></li>
+          <!-- <li><a href="/ecosystem">Ecosystem</a></li> -->
+          <!-- <li><a href="/blog">Blog</a></li> -->
+          <li><a href="https://github.com/pypose/pypose/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><a href="/resources">Resources</a></li>
+          <li><a href="https://pypose.org/tutorials/">Tutorials</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <!-- <li><a href="" target="_blank">Discuss</a></li> -->
+          <li><a href="https://github.com/pypose/pypose/issues" target="_blank">GitHub Issues</a></li>
+          <!-- <li><a href="/assets/brand-guidelines/PyTorch-Brand-Guidelines.pdf" target="_blank">Brand Guidelines</a></li> -->
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><p>Stay up to date</p></li>
+          <!-- <li><a href="" target="_blank">Facebook</a></li> -->
+          <li><a href="https://twitter.com/pypose_org" target="_blank">Twitter</a></li>
+          <!-- <li><a href="" target="_blank">YouTube</a></li> -->
+          <li><a href="https://github.com/pypose/pypose" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><p>PyTorch Podcasts</p></li>
+          <li><a href="" target="_blank">Spotify</a></li>
+          <li><a href="" target="_blank">Apple</a></li>
+          <li><a href="" target="_blank">Google</a></li>
+          <li><a href="" target="_blank">Amazon</a></li>
+        </ul>
+      </div> -->
+    </div>
+
+    <!-- <div class="privacy-policy">
+      <ul>
+        <li class="privacy-policy-links"><a href="/assets/tos-oss-privacy-policy/fb-tos-privacy-policy.pdf" target="_blank">Terms</a></li>
+        <li class="privacy-policy-links">|</li>
+        <li class="privacy-policy-links"><a href="/assets/tos-oss-privacy-policy/fb-oss-privacy-policy.pdf" target="_blank">Privacy</a></li>
+      </ul>
+    </div> -->
+  </div>
+  <!-- <img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/795629140/?label=txkmCPmdtosBENSssfsC&amp;guid=ON&amp;script=0"/>
+ -->
+</footer>
+
+<div class="mobile-main-menu">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="mobile-main-menu-header-container">
+        <a class="header-logo" href="https://pypose.org" aria-label="PyPose"></a>
+        <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-main-menu-links-container">
+
+    <div class="main-menu">
+      <ul>
+        <!-- <li class="navSearchWrapper reactNavSearchWrapper tabletSearchWrapper" key="search">
+          <div class="mobile-search-border">
+            <input
+              id="mobile-search-input"
+              type="text"
+              title="Search"
+            />
+            <div id="mobile-search-icon"></div>
+          </div>
+        </li> -->
+
+        <li class="">
+          <a href="/get-started">Get Started</a>
+        </li>
+
+        <!-- <li class="resources-mobile-menu-title">
+          <a href="/ecosystem">Ecosystem</a>
+        </li>
+        <ul class="resources-mobile-menu-items">
+          <li>
+            <a href="/ecosystem">Tools</a>
+          </li>
+          <li>
+            <a href="/ecosystem/pted/2021">Ecosystem Day 2021</a>
+          </li>
+          <li>
+            <a href="/ecosystem/ptdd/2021">Developer Day 2021</a>
+          </li>
+        </ul> -->
+
+        <!-- <li class="">
+          <a href="/mobile">Mobile</a>
+        </li>
+
+        <li class="">
+          <a href="/blog">Blog</a>
+        </li> -->
+
+        <li>
+          <a href="https://pypose.org/tutorials/">Tutorials</a>
+        </li>
+
+        <li class="resources-mobile-menu-title">
+          <a href="/docs">Docs</a>
+        </li>
+
+        <li class="active">
+          <a href="/about-us">About Us</a>
+        </li>
+
+        <!-- <ul class="resources-mobile-menu-items">
+          <li class="">
+            <a href="/docs">PyTorch</a>
+          </li>
+
+          <li class="">
+            <a href="/audio">torchaudio</a>
+          </li>
+
+          <li class="">
+            <a href="/text">torchtext</a>
+          </li>
+
+          <li class="">
+            <a href="/docs/stable/torchvision">torchvision</a>
+          </li>
+
+          <li class="">
+            <a href="/elastic">TorchElastic</a>
+          </li>
+
+          <li class="">
+            <a href="/serve">TorchServe</a>
+          </li>
+
+          <li class="">
+            <a href="/xla/release/1.6/index.html">PyTorch on XLA Devices</a>
+          </li>
+        </ul> -->
+
+        <!-- <li class="resources-mobile-menu-title">
+          Resources
+        </li> -->
+
+        <!-- <ul class="resources-mobile-menu-items">
+          <li class="">
+            <a href="/features">About</a>
+          </li>
+
+          <li>
+            <a href="/#community-module">Community</a>
+          </li>
+
+          <li>
+            <a href="/events">Events</a>
+          </li>
+
+          <li class="">
+            <a href="/resources">Developer Resources</a>
+          </li>
+
+          <li>
+            <a href="">Forum</a>
+          </li>
+
+          <li class="">
+            <a href="/hub">Models (Beta)</a>
+          </li>
+
+        </ul> -->
+
+        <li id="github-mobile-menu-link">
+          <a href="https://github.com/pypose/pypose">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="/assets/mobile-menu.js"></script>
+<script src="/assets/scroll-to-anchor.js"></script>
+<script src="/assets/external-links-new-tab.js"></script>
+
+  <script src="/assets/search-bar.js"></script>
+
+<script src="/assets/cookie-banner.js"></script>
+
+<script type="text/javascript">
+  mobileMenu.bind();
+  anchors.add('.pytorch-article h2, .pytorch-article h3, .pytorch-article h4, .pytorch-article h5');
+
+  // Add class to links that have code blocks, since we cannot create links in code blocks
+  $("a code.highlighter-rouge").each(function(e) {
+    $(this).closest("a").addClass("has-code");
+  });
+
+  scrollToAnchor.bind();
+
+  var hasStaticHeader = $(".blog-header, .blog-detail-header, .resources-header, .get-started-header, .features-header, .ecosystem-header, .hub-header, .mobile-header").length > 0;
+
+  if (!hasStaticHeader) {
+    $(window).on("scroll", function() {
+      var top = $(this).scrollTop();
+      var fullPosition = $(".main-background").height() - $(".header-holder").height();
+
+      if (top <= 40) {
+        $(".header-holder").css({"backgroundColor": "rgba(0, 0, 0, 0.165)"});
+      } else if (top >= fullPosition) {
+        $(".header-holder").css({"backgroundColor": "#000000"});
+      } else {
+        var bgColor = "rgba(0, 0, 0, " + top / fullPosition + ")";
+        $(".header-holder").css({"backgroundColor": bgColor});
+      }
+    });
+  }
+</script>
+
+
+
+
+<!-- <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="/assets/images/pytorch-x.svg">
+  </div>
+</div>
+ -->
+
+  </body>
+</html>

@@ -1,5 +1,0 @@
-﻿occupancy_detection_predict
-===========================
-.. currentmodule:: pysensing.uwb.inference.predict
-
-.. autofunction:: occupancy_detection_predict

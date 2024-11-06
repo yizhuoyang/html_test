@@ -1,0 +1,5 @@
+﻿static_background_suppression
+=============================
+.. currentmodule:: pysensing.uwb.preprocessing.clutter_suppression
+
+.. autofunction:: static_background_suppression

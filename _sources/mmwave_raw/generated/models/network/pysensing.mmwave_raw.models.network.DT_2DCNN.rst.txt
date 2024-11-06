@@ -1,9 +1,0 @@
-﻿DT_2DCNN
-========
-.. currentmodule:: pysensing.mmwave_raw.models.network
-
-.. autoclass:: DT_2DCNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

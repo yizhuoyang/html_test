@@ -1,9 +1,0 @@
-﻿DAT_2DCNNLSTM
-=============
-.. currentmodule:: pysensing.mmwave_raw.models.network
-
-.. autoclass:: DAT_2DCNNLSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

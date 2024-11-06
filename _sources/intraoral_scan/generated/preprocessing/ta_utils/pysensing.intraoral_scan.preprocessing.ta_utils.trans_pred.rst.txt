@@ -1,5 +1,0 @@
-﻿trans_pred
-==========
-.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_utils
-
-.. autofunction:: trans_pred

@@ -1,9 +1,0 @@
-﻿recon_train
-===========
-.. currentmodule:: pysensing.csi.inference.train
-
-.. autoclass:: recon_train
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

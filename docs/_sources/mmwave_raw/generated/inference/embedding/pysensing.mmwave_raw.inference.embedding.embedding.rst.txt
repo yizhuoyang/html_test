@@ -1,0 +1,9 @@
+﻿embedding
+=========
+.. currentmodule:: pysensing.mmwave_raw.inference.embedding
+
+.. autoclass:: embedding
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

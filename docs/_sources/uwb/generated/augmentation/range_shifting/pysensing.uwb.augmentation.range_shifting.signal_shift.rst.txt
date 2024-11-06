@@ -1,0 +1,5 @@
+﻿signal_shift
+============
+.. currentmodule:: pysensing.uwb.augmentation.range_shifting
+
+.. autofunction:: signal_shift

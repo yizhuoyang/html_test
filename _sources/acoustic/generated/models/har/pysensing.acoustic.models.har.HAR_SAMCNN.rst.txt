@@ -1,9 +1,0 @@
-﻿HAR_SAMCNN
-==========
-.. currentmodule:: pysensing.acoustic.models.har
-
-.. autoclass:: HAR_SAMCNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

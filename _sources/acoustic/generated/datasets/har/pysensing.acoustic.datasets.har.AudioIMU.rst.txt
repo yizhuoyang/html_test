@@ -1,9 +1,0 @@
-﻿AudioIMU
-========
-.. currentmodule:: pysensing.acoustic.datasets.har
-
-.. autoclass:: AudioIMU
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

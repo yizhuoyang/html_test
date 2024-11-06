@@ -1,9 +1,0 @@
-﻿CNN
-===
-.. currentmodule:: pysensing.rssi.models.localization.fingerprinting
-
-.. autoclass:: CNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

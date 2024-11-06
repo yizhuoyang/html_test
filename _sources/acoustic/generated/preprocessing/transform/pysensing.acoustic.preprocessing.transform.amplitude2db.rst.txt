@@ -1,9 +1,0 @@
-﻿amplitude2db
-============
-.. currentmodule:: pysensing.acoustic.preprocessing.transform
-
-.. autoclass:: amplitude2db
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

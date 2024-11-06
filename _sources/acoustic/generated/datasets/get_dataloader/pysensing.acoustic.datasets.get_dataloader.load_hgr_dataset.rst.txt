@@ -1,5 +1,0 @@
-﻿load_hgr_dataset
-================
-.. currentmodule:: pysensing.acoustic.datasets.get_dataloader
-
-.. autofunction:: load_hgr_dataset

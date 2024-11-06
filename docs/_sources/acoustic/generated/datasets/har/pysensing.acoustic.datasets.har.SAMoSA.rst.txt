@@ -1,0 +1,9 @@
+﻿SAMoSA
+======
+.. currentmodule:: pysensing.acoustic.datasets.har
+
+.. autoclass:: SAMoSA
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

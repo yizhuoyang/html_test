@@ -1,5 +1,0 @@
-﻿load_pedestrian_tracking
-========================
-.. currentmodule:: pysensing.uwb.datasets.localization
-
-.. autofunction:: load_pedestrian_tracking

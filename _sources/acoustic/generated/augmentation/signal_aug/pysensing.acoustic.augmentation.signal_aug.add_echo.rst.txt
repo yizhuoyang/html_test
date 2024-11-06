@@ -1,9 +1,0 @@
-﻿add_echo
-========
-.. currentmodule:: pysensing.acoustic.augmentation.signal_aug
-
-.. autoclass:: add_echo
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

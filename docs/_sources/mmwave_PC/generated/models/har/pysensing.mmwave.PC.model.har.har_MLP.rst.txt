@@ -1,0 +1,9 @@
+﻿har_MLP
+=======
+.. currentmodule:: pysensing.mmwave.PC.model.har
+
+.. autoclass:: har_MLP
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

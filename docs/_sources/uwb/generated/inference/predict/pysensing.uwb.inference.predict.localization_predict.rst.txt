@@ -1,0 +1,5 @@
+﻿localization_predict
+====================
+.. currentmodule:: pysensing.uwb.inference.predict
+
+.. autofunction:: localization_predict

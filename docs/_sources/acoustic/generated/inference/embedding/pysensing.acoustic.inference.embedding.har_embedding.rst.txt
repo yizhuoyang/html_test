@@ -1,0 +1,9 @@
+﻿har_embedding
+=============
+.. currentmodule:: pysensing.acoustic.inference.embedding
+
+.. autoclass:: har_embedding
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,9 @@
+﻿SA_Layer
+========
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct
+
+.. autoclass:: SA_Layer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

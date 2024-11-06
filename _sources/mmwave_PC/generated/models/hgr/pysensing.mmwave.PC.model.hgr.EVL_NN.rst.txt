@@ -1,9 +1,0 @@
-﻿EVL_NN
-======
-.. currentmodule:: pysensing.mmwave.PC.model.hgr
-
-.. autoclass:: EVL_NN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

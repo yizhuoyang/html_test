@@ -1,5 +1,0 @@
-﻿to_dec
-======
-.. currentmodule:: pysensing.intraoral_scan.inference.utils.ts_utils
-
-.. autofunction:: to_dec

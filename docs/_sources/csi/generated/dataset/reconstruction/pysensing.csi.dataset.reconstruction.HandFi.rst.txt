@@ -1,0 +1,9 @@
+﻿HandFi
+======
+.. currentmodule:: pysensing.csi.dataset.reconstruction
+
+.. autoclass:: HandFi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

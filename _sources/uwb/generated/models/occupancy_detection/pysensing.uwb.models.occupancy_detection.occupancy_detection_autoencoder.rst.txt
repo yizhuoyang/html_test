@@ -1,9 +1,0 @@
-﻿occupancy_detection_autoencoder
-===============================
-.. currentmodule:: pysensing.uwb.models.occupancy_detection
-
-.. autoclass:: occupancy_detection_autoencoder
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,0 +1,5 @@
+﻿random_augmentation
+===================
+.. currentmodule:: pysensing.intraoral_scan.augmentation.ta_aug
+
+.. autofunction:: random_augmentation

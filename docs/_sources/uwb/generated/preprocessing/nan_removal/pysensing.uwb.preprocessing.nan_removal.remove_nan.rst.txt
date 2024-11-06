@@ -1,0 +1,5 @@
+﻿remove_nan
+==========
+.. currentmodule:: pysensing.uwb.preprocessing.nan_removal
+
+.. autofunction:: remove_nan

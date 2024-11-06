@@ -1,9 +1,0 @@
-﻿har_test
-========
-.. currentmodule:: pysensing.mmwave.PC.inference.har
-
-.. autoclass:: har_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,9 +1,0 @@
-﻿load_har_model
-==============
-.. currentmodule:: pysensing.csi.model.get_model
-
-.. autoclass:: load_har_model
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

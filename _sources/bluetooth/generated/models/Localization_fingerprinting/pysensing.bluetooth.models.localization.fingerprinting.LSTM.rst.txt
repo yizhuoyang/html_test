@@ -1,9 +1,0 @@
-﻿LSTM
-====
-.. currentmodule:: pysensing.bluetooth.models.localization.fingerprinting
-
-.. autoclass:: LSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,0 +1,5 @@
+﻿get_graph_feature
+=================
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.dgcnn
+
+.. autofunction:: get_graph_feature

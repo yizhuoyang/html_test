@@ -1,9 +1,0 @@
-﻿hid_MLP
-=======
-.. currentmodule:: pysensing.csi.model.hid
-
-.. autoclass:: hid_MLP
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

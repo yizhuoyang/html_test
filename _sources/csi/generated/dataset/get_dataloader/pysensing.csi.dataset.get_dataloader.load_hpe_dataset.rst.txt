@@ -1,9 +1,0 @@
-﻿load_hpe_dataset
-================
-.. currentmodule:: pysensing.csi.dataset.get_dataloader
-
-.. autoclass:: load_hpe_dataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

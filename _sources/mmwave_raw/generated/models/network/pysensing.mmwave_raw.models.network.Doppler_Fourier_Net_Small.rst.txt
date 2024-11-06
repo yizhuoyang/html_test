@@ -1,9 +1,0 @@
-﻿Doppler_Fourier_Net_Small
-=========================
-.. currentmodule:: pysensing.mmwave_raw.models.network
-
-.. autoclass:: Doppler_Fourier_Net_Small
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

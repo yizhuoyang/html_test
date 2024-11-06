@@ -1,0 +1,9 @@
+﻿add_atempo
+==========
+.. currentmodule:: pysensing.acoustic.augmentation.signal_aug
+
+.. autoclass:: add_atempo
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,26 @@
+BLUETOOTH.Models
+------------------------------
+Localization.triangulation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.bluetooth.models.localization.triangulation
+.. autosummary::
+    :toctree: generated/models/Localization_triangulation
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    Triangulator
+    BaseDistanceRegressor
+
+Localization.fingerprinting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.bluetooth.models.localization.fingerprinting
+.. autosummary::
+    :toctree: generated/models/Localization_fingerprinting
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    WKNN
+    MLP
+    CNN
+    LSTM
+

@@ -1,0 +1,5 @@
+﻿har_train_val
+=============
+.. currentmodule:: pysensing.acoustic.inference.training.har_train
+
+.. autofunction:: har_train_val

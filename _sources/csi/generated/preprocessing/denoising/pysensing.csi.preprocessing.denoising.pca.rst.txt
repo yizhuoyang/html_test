@@ -1,9 +1,0 @@
-﻿pca
-===
-.. currentmodule:: pysensing.csi.preprocessing.denoising
-
-.. autoclass:: pca
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

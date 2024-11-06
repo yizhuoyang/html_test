@@ -1,5 +1,0 @@
-﻿normalize_data
-==============
-.. currentmodule:: pysensing.uwb.preprocessing.normalization
-
-.. autofunction:: normalize_data

@@ -1,5 +1,0 @@
-﻿MagWarp
-=======
-.. currentmodule:: pysensing.uwb.augmentation.magnitude_warping
-
-.. autofunction:: MagWarp

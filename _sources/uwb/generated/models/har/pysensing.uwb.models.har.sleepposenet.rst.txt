@@ -1,9 +1,0 @@
-﻿sleepposenet
-============
-.. currentmodule:: pysensing.uwb.models.har
-
-.. autoclass:: sleepposenet
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

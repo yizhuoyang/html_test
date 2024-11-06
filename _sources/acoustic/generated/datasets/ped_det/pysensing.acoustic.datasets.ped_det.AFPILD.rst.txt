@@ -1,9 +1,0 @@
-﻿AFPILD
-======
-.. currentmodule:: pysensing.acoustic.datasets.ped_det
-
-.. autoclass:: AFPILD
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

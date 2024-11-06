@@ -1,9 +1,0 @@
-﻿Synchronizer
-============
-.. currentmodule:: pysensing.bluetooth.augmentation.synchronization
-
-.. autoclass:: Synchronizer
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,9 +1,0 @@
-﻿NTUFi_HAR
-=========
-.. currentmodule:: pysensing.csi.dataset.har
-
-.. autoclass:: NTUFi_HAR
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

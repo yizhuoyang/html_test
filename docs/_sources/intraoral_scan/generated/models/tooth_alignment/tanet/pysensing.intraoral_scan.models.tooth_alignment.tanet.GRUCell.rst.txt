@@ -1,0 +1,9 @@
+﻿GRUCell
+=======
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.tanet
+
+.. autoclass:: GRUCell
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,5 @@
+﻿QuatMul
+=======
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_utils
+
+.. autofunction:: QuatMul

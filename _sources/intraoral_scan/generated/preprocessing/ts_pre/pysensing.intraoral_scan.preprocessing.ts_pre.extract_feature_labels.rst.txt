@@ -1,5 +1,0 @@
-﻿extract_feature_labels
-======================
-.. currentmodule:: pysensing.intraoral_scan.preprocessing.ts_pre
-
-.. autofunction:: extract_feature_labels

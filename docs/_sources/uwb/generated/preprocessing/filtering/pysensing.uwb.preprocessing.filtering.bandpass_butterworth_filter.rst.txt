@@ -1,0 +1,9 @@
+﻿bandpass_butterworth_filter
+===========================
+.. currentmodule:: pysensing.uwb.preprocessing.filtering
+
+.. autoclass:: bandpass_butterworth_filter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

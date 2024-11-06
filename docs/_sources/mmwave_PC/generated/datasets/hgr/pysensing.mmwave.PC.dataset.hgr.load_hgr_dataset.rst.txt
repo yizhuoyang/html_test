@@ -1,0 +1,9 @@
+﻿load_hgr_dataset
+================
+.. currentmodule:: pysensing.mmwave.PC.dataset.hgr
+
+.. autoclass:: load_hgr_dataset
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

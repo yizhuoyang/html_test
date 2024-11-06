@@ -1,0 +1,9 @@
+﻿WKNN
+====
+.. currentmodule:: pysensing.bluetooth.models.localization.fingerprinting
+
+.. autoclass:: WKNN
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

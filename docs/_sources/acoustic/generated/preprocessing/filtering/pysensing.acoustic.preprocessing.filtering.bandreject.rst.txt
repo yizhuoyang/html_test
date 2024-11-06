@@ -1,0 +1,9 @@
+﻿bandreject
+==========
+.. currentmodule:: pysensing.acoustic.preprocessing.filtering
+
+.. autoclass:: bandreject
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

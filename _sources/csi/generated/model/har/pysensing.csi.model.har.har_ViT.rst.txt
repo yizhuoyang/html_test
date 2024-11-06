@@ -1,9 +1,0 @@
-﻿har_ViT
-=======
-.. currentmodule:: pysensing.csi.model.har
-
-.. autoclass:: har_ViT
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

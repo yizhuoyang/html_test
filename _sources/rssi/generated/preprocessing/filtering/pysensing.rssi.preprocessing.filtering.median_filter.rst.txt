@@ -1,9 +1,0 @@
-﻿median_filter
-=============
-.. currentmodule:: pysensing.rssi.preprocessing.filtering
-
-.. autoclass:: median_filter
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

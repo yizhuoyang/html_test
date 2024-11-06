@@ -1,5 +1,0 @@
-﻿farthest_point_sample
-=====================
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils
-
-.. autofunction:: farthest_point_sample

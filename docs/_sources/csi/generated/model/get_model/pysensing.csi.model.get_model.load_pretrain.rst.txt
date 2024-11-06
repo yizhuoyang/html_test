@@ -1,0 +1,9 @@
+﻿load_pretrain
+=============
+.. currentmodule:: pysensing.csi.model.get_model
+
+.. autoclass:: load_pretrain
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

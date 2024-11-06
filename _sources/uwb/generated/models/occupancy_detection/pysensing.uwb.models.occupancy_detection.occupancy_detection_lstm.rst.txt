@@ -1,9 +1,0 @@
-﻿occupancy_detection_lstm
-========================
-.. currentmodule:: pysensing.uwb.models.occupancy_detection
-
-.. autoclass:: occupancy_detection_lstm
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

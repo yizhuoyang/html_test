@@ -1,0 +1,9 @@
+﻿hid_LeNet
+=========
+.. currentmodule:: pysensing.csi.model.hid
+
+.. autoclass:: hid_LeNet
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

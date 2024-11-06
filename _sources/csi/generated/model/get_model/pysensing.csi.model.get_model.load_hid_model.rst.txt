@@ -1,9 +1,0 @@
-﻿load_hid_model
-==============
-.. currentmodule:: pysensing.csi.model.get_model
-
-.. autoclass:: load_hid_model
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

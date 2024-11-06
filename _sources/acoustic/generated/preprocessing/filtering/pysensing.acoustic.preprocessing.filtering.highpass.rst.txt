@@ -1,9 +1,0 @@
-﻿highpass
-========
-.. currentmodule:: pysensing.acoustic.preprocessing.filtering
-
-.. autoclass:: highpass
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

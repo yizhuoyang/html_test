@@ -1,0 +1,5 @@
+﻿DistortTimesteps
+================
+.. currentmodule:: pysensing.uwb.augmentation.time_warping
+
+.. autofunction:: DistortTimesteps

@@ -1,0 +1,9 @@
+﻿ipd
+===
+.. currentmodule:: pysensing.acoustic.preprocessing.transform
+
+.. autoclass:: ipd
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

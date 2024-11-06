@@ -1,0 +1,9 @@
+﻿DataLoader
+==========
+.. currentmodule:: pysensing.intraoral_scan.inference.utils.ta_dataloader
+
+.. autoclass:: DataLoader
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

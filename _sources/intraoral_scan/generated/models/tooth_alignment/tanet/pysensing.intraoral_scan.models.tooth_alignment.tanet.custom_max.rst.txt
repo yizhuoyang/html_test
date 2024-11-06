@@ -1,5 +1,0 @@
-﻿custom_max
-==========
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.tanet
-
-.. autofunction:: custom_max

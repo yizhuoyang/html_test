@@ -1,5 +1,0 @@
-﻿getTooth
-========
-.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_utils
-
-.. autofunction:: getTooth

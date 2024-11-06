@@ -1,5 +1,0 @@
-﻿dc_suppression
-==============
-.. currentmodule:: pysensing.uwb.preprocessing.clutter_suppression
-
-.. autofunction:: dc_suppression

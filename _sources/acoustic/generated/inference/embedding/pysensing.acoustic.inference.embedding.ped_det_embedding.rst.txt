@@ -1,9 +1,0 @@
-﻿ped_det_embedding
-=================
-.. currentmodule:: pysensing.acoustic.inference.embedding
-
-.. autoclass:: ped_det_embedding
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

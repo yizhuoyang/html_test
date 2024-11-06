@@ -1,9 +1,0 @@
-﻿timestretch
-===========
-.. currentmodule:: pysensing.acoustic.augmentation.spectrogram_aug
-
-.. autoclass:: timestretch
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

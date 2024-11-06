@@ -1,5 +1,0 @@
-﻿train
-=====
-.. currentmodule:: pysensing.uwb.training.har
-
-.. autofunction:: train

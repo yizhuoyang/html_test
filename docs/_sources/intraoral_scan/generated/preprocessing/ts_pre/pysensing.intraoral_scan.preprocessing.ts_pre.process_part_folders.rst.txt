@@ -1,0 +1,5 @@
+﻿process_part_folders
+====================
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ts_pre
+
+.. autofunction:: process_part_folders

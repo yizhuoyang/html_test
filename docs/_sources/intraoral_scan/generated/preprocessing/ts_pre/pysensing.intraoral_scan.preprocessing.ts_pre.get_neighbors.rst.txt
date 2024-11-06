@@ -1,0 +1,5 @@
+﻿get_neighbors
+=============
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ts_pre
+
+.. autofunction:: get_neighbors

@@ -1,9 +1,0 @@
-﻿Encoder
-=======
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.dgcnn
-
-.. autoclass:: Encoder
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

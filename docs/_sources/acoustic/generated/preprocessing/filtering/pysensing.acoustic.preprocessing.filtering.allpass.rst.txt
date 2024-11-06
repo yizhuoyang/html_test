@@ -1,0 +1,9 @@
+﻿allpass
+=======
+.. currentmodule:: pysensing.acoustic.preprocessing.filtering
+
+.. autoclass:: allpass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,9 @@
+﻿AMG
+===
+.. currentmodule:: pysensing.acoustic.datasets.hgr
+
+.. autoclass:: AMG
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

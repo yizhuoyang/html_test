@@ -1,0 +1,10 @@
+intraoral_scan
+==============
+.. toctree::
+   :maxdepth: 2
+   :caption: intraoral_scan Modules
+
+   augmentation
+   inference
+   models
+   preprocessing

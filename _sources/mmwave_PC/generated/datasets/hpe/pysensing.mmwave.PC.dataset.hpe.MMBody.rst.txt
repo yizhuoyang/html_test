@@ -1,9 +1,0 @@
-﻿MMBody
-======
-.. currentmodule:: pysensing.mmwave.PC.dataset.hpe
-
-.. autoclass:: MMBody
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

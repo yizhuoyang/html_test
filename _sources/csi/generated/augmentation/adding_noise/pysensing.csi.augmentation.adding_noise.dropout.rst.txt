@@ -1,9 +1,0 @@
-﻿dropout
-=======
-.. currentmodule:: pysensing.csi.augmentation.adding_noise
-
-.. autoclass:: dropout
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

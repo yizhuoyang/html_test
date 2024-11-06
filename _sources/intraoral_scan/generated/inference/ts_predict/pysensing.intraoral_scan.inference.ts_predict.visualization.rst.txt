@@ -1,5 +1,0 @@
-﻿visualization
-=============
-.. currentmodule:: pysensing.intraoral_scan.inference.ts_predict
-
-.. autofunction:: visualization

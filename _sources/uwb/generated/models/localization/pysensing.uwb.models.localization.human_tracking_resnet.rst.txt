@@ -1,9 +1,0 @@
-﻿human_tracking_resnet
-=====================
-.. currentmodule:: pysensing.uwb.models.localization
-
-.. autoclass:: human_tracking_resnet
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

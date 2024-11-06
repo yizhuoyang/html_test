@@ -1,9 +1,0 @@
-﻿DAT_3DCNN
-=========
-.. currentmodule:: pysensing.mmwave_raw.models.network
-
-.. autoclass:: DAT_3DCNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,5 +1,0 @@
-﻿har_predict
-===========
-.. currentmodule:: pysensing.uwb.inference.predict
-
-.. autofunction:: har_predict

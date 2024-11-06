@@ -1,9 +1,0 @@
-﻿hid_train
-=========
-.. currentmodule:: pysensing.csi.inference.train
-
-.. autoclass:: hid_train
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,9 +1,0 @@
-﻿PED_CNN
-=======
-.. currentmodule:: pysensing.acoustic.models.ped_det
-
-.. autoclass:: PED_CNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

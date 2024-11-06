@@ -1,9 +1,0 @@
-﻿ped_det_predict
-===============
-.. currentmodule:: pysensing.acoustic.inference.predict
-
-.. autoclass:: ped_det_predict
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

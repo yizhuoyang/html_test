@@ -1,0 +1,9 @@
+﻿PointNetSetAbstractionMsg
+=========================
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.dbganet_utils
+
+.. autoclass:: PointNetSetAbstractionMsg
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

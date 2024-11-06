@@ -1,9 +1,0 @@
-﻿WMUBLELoc_Dataset
-=================
-.. currentmodule:: pysensing.bluetooth.datasets.wmu_ble_loc
-
-.. autoclass:: WMUBLELoc_Dataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

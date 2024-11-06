@@ -1,9 +1,0 @@
-﻿normalization
-=============
-.. currentmodule:: pysensing.rssi.preprocessing.transform
-
-.. autoclass:: normalization
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

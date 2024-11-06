@@ -1,0 +1,12 @@
+RSSI.Augmentation
+-------------------------------------------
+Synchronization
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.rssi.augmentation.synchronization
+.. autosummary::
+    :toctree: generated/augmentation/synchronization
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    Synchronizer
+

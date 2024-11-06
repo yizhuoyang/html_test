@@ -1,0 +1,13 @@
+CSI
+=========
+.. toctree::
+   :maxdepth: 2
+   :caption: CSI Modules
+   
+   load_raw
+   augmentation
+   preprocessing
+   models
+   datasets
+   inference
+

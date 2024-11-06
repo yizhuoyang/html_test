@@ -1,0 +1,5 @@
+﻿load
+====
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_pre
+
+.. autofunction:: load

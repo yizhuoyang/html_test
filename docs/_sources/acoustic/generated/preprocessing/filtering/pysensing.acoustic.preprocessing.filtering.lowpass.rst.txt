@@ -1,0 +1,9 @@
+﻿lowpass
+=======
+.. currentmodule:: pysensing.acoustic.preprocessing.filtering
+
+.. autoclass:: lowpass
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

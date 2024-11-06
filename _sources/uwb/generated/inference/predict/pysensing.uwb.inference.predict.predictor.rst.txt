@@ -1,9 +1,0 @@
-﻿predictor
-=========
-.. currentmodule:: pysensing.uwb.inference.predict
-
-.. autoclass:: predictor
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

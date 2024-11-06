@@ -1,0 +1,5 @@
+﻿occupancy_detection_uwb_embedding
+=================================
+.. currentmodule:: pysensing.uwb.inference.embedding
+
+.. autofunction:: occupancy_detection_uwb_embedding

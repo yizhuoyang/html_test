@@ -1,0 +1,72 @@
+intraoral_scan.Inference
+------------------------
+Tooth Alignment Predict
+~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.inference.ta_predict
+.. autosummary::
+    :toctree: generated/inference/ta_predict
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    predict
+
+Tooth Alignment Dataloader
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.inference.utils.ta_dataloader
+.. autosummary::
+    :toctree: generated/inference/utils/ta_dataloader
+    :nosignatures:
+    :template: autosummary/function.rst
+    
+    load_process
+
+.. autosummary::
+    :toctree: generated/inference/utils/ta_dataloader
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    DataLoader
+
+Tooth Segmentation Predict
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.inference.ts_predict
+.. autosummary::
+    :toctree: generated/inference/ts_predict
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    predict
+    visualization
+
+Tooth Segmentation Dataloader
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.inference.utils.ts_dataloader
+.. autosummary::
+    :toctree: generated/inference/utils/ts_dataloader
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    load
+    extract_data_from_root
+
+Tooth Segmentation Utils
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.inference.utils.ts_utils
+.. autosummary::
+    :toctree: generated/inference/utils/ts_utils
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    to_dec
+    create_colors
+    generate_findices
+
+Segmenter
+~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.inference.utils.segmenter
+.. autosummary::
+    :toctree: generated/inference/utils/segmenter
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    Segmenter

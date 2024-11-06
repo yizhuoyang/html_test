@@ -1,0 +1,9 @@
+﻿MLP
+===
+.. currentmodule:: pysensing.rssi.models.localization.fingerprinting
+
+.. autoclass:: MLP
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

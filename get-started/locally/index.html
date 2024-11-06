@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <!-- Google Tag Manager -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-52DXT37');</script> -->
+  <!-- End Google Tag Manager -->
+  <!-- Second tag include -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6ST8LE9P6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G6ST8LE9P6');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+  <title>
+    
+      Start Locally | PyPose
+    
+  </title>
+  
+  <meta property="og:title" content="PyPose" />
+  <meta
+    name="description"
+    property="og:description"
+    content="Accelerate research via differentiable robotics with learning."
+  />
+  <meta
+  property="og:image"
+  content="https://pypose.org/assets/images/pytorch-logo.png"
+  />
+  <meta property="og:url" content="https://www.pytorch.org" />
+
+
+<meta property="og:type" content="website" />
+<meta name="robots" content="index, follow" />
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <script src="/assets/vendor/jquery.min.js"></script>
+  <script src="/assets/vendor/popper.min.js"></script>
+  <script src="/assets/vendor/bootstrap.min.js"></script>
+  <script src="/assets/vendor/anchor.min.js"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Pythorch Blog Posts" />
+  <!-- Google Tag Manager for PyPose -->
+  <!-- <script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-117752657-2"
+></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "UA-117752657-2");
+</script> -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6ST8LE9P6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G6ST8LE9P6');
+</script> -->
+
+
+
+  <!-- Floating Card style -->
+  <style>
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  .floatcard{
+      position: relative;
+      width: 188px;
+      height: 360px;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 2px 3px 3px rgb(139, 138, 138);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+  }
+  .floatcard:hover{
+      box-shadow: 2px 3px 10px rgb(36, 35, 35);
+  }
+  .floatImg{
+      position: relative;
+      /* top: 0;
+      left: 0; */
+      width: 100%;
+      /* height: 300px; */
+      overflow: hidden;
+      
+  }
+  .floatImg img{
+      width: 100%;
+      height: 100%;
+      transition: all 0.5s;
+  }
+  .floatcard:hover .floatImg img{
+      transform: scale(1.2);
+      filter: blur(1px);
+  }
+  .floatText{
+      position: absolute;
+      bottom: -58px;
+      width: 100%;
+      height: 200px;
+
+      background-color: rgb(247, 242, 242);
+      transition: 0.3s;
+  }
+  .floatcard:hover .floatText{
+      bottom: 0px;
+  }
+  .floatText h2{
+      color: rgb(1, 4, 9);
+      line-height: 78px;
+      font-size: 24px;
+      text-align: center;
+
+  }
+  .floatText p{
+      padding: 0 20px;
+      font-size: 13px;
+      line-height: 20px;
+      font-weight:bold;
+      font-style: italic;
+      text-align: center;
+  }
+  .floatTextLAB{
+      position: absolute;
+      bottom: -156px;
+      width: 100%;
+      height: 300px;
+
+      background-color: rgb(247, 242, 242);
+      transition: 0.5s;
+  }
+  .floatcard:hover .floatTextLAB{
+      bottom: 0px;
+  }
+  .floatTextLAB h2{
+      color: rgb(1, 4, 9);
+      line-height: 79px;
+      font-size: 24px;
+      text-align: center;
+
+  }
+  .floatTextLAB p{
+      padding: 0 18px;
+      font-size: 13px;
+      line-height: 20px;
+      font-style: italic;
+      text-align: center;
+  }
+  .floatcard-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  }
+  </style>
+
+</head>
+
+  <body class="get-started">
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52DXT37"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div class="container-fluid header-holder get-started-header">
+  <div class="container">
+    
+
+<div class="header-container">
+  <a class="header-logo" href="https://pypose.org" aria-label="PyPose"></a>
+
+  <div class="main-menu">
+  <ul>
+    <li class="main-menu-item active">
+      <a href="/get-started">Get Started</a>
+    </li>
+
+    <!-- <li class="main-menu-item">
+      <div id="dropdownMenuButton" data-toggle="resources-dropdown" class="resources-dropdown">
+        <a class="resource-option with-down-arrow" href="/ecosystem">
+          Ecosystem
+        </a>
+        <div class="resources-dropdown-menu">
+          <a class="nav-dropdown-item" href="/ecosystem">
+            <span class="dropdown-title">Tools</span>
+            <p>Learn about the tools and frameworks in the PyTorch Ecosystem</p>
+          </a>
+          <a class="nav-dropdown-item" href="/ecosystem/pted/2021">
+            <span class="dropdown-title">Ecosystem Day - 2021</span>
+            <p>See the posters presented at ecosystem day 2021</p>
+          </a>
+          <a class="nav-dropdown-item" href="/ecosystem/ptdd/2021">
+            <span class="dropdown-title">Developer Day - 2021</span>
+            <p>See the posters presented at developer day 2021</p>
+          </a>
+        </div>
+      </div>
+    </li> -->
+
+    <!-- <li class="main-menu-item ">
+      <a href="/mobile">Mobile</a>
+    </li>
+
+    <li class="main-menu-item ">
+      <a href="/blog">Blog</a>
+    </li> -->
+
+    <li class="main-menu-item">
+      <a href="https://pypose.org/tutorials/">Tutorials</a>
+    </li>
+    
+    <!-- <li class="main-menu-item ">
+      <a href="/docs">Docs</a>
+    </li> -->
+
+    <li class="main-menu-item" id="docs-main-menu-link">
+      <a href="/docs">Docs</a>
+    </li>
+
+    <li class="main-menu-item ">
+      <a href="/about-us">About Us</a>
+    </li>
+
+    
+
+    <!-- <li class="main-menu-item">
+      <div id="docsDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+        <a class="doc-option with-down-arrow">
+          Docs
+        </a>
+        <div class="resources-dropdown-menu">
+          <a class="nav-dropdown-item" href="/docs">
+            <span class="dropdown-title docs-title">PyTorch</span>
+            <p></p>
+          </a>
+          <a class="nav-dropdown-item" href="/audio">
+            <span class="dropdown-title docs-title">torchaudio</span>
+            <p></p>
+          </a>
+          <a class="nav-dropdown-item" href="/xla/release/1.6/index.html">
+            <span class="dropdown-title docs-title">PyTorch on XLA Devices</span>
+            <p></p>
+          </a>
+        </div>
+      </div>
+    </li> -->
+
+    <!-- 
+
+    <li class="main-menu-item ">
+
+      <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+        <a class="resource-option with-down-arrow">
+          Resources
+        </a>
+        <div class="resources-dropdown-menu">
+          <a class="nav-dropdown-item" href="/features">
+            <span class=dropdown-title>About</span>
+            <p>Learn about PyTorch’s features and capabilities</p>
+          </a>
+          <a class="nav-dropdown-item" href="/#community-module">
+            <span class=dropdown-title>Community</span>
+            <p>Join the PyTorch developer community to contribute, learn, and get your questions answered.</p>
+          </a>
+          <a class="nav-dropdown-item" href="/events">
+            <span class=dropdown-title>Events</span>
+            <p>Find events, webinars, and podcasts</p>
+          </a>
+          <a class="nav-dropdown-item" href="/resources">
+            <span class=dropdown-title>Developer Resources</span>
+            <p>Find resources and get questions answered</p>
+          </a>
+          <a class="nav-dropdown-item" href="" target="_blank">
+            <span class=dropdown-title>Forums</span>
+            <p>A place to discuss PyTorch code, issues, install, research</p>
+          </a>
+          <a class="nav-dropdown-item" href="/hub">
+            <span class=dropdown-title>Models (Beta)</span>
+            <p>Discover, publish, and reuse pre-trained models</p>
+          </a>
+        </div>
+      </div>
+    </li> -->
+
+    <li class="main-menu-item" id="github-main-menu-link">
+      <a href="https://github.com/pypose/pypose">GitHub</a>
+    </li>
+
+    <!-- <li class="navSearchWrapper reactNavSearchWrapper" key="search">
+      <div class="search-border">
+        <div id="search-icon"></div>
+        <input
+          id="search-input"
+          type="text"
+          title="Search"
+        />
+        <div id="close-search">X</div>
+      </div>
+    </li> -->
+  </ul>
+</div>
+
+<script src="/assets/main-menu-dropdown.js"></script>
+
+
+  <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+</div>
+
+  </div>
+</div>
+
+
+    <div class="main-background get-started-background"></div>
+
+    
+
+    <div class="jumbotron jumbotron-fluid on-dark-background">
+      <div class="container">
+        <h1>Get Started</h1>
+
+        <p class="lead">Select preferences and run the command to install PyPose.</p>
+      </div>
+    </div>
+
+    <div class="main-content-wrapper">
+      <div class="main-content">
+        <div class="container-fluid nav-menu-wrapper">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light main-content-menu">
+              <ul class="navbar-nav">
+                
+                  <li class="nav-item nav-select">
+                    <a class="nav-link get-started-nav-link" data-id="get-started-locally" href="/get-started/locally/">Start Locally</a>
+                  </li>
+                
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="container">
+          
+
+            <div class="row">
+  <div class="col-md-3">
+    <div class="sticky-top get-started-locally-sidebar">
+  <p id="get-started-shortcuts-menu">Shortcuts</p>
+  <ul id="get-started-locally-sidebar-list"></ul>
+</div>
+
+
+  </div>
+  <div class="col-md-8 offset-md-1">
+    <div class="article-wrapper" data-id="">
+      <article class="pytorch-article">
+        <h2 id="start-locally">Start Locally</h2>
+
+<div class="container-fluid quick-start-module quick-starts">
+  <div class="row">
+    <div class="col-md-12">
+      <p>Select your preferences and run the install command. Stable represents the most currently tested and supported version of PyPose. This should
+  be suitable for many users. Please ensure that you have <b>met the prerequisites below (e.g., numpy)</b>,  depending on your package manager. 
+</p>
+
+<div class="row">
+  <div class="col-md-3 headings">
+    <div class="col-md-12 title-block">
+      <div class="option-text">PyPose Build</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text os-text">Your OS</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text">Package</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text">Language</div>
+    </div>
+    <div class="col-md-12 title-block">
+      <div class="option-text">Compute Platform</div>
+    </div>
+    <div class="col-md-12 title-block command-block">
+      <div class="option-text command-text">Run this Command:</div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="row ptbuild">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">PyPose Build</div>
+      </div>
+      <div class="col-md-12 option block version selected" id="stable">
+        <div class="option-text">Stable (0.2.0)</div>
+      </div>
+    </div>
+    <div class="row os">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">Your OS</div>
+      </div>
+      <div class="col-md-4 option block" id="linux">
+        <div class="option-text">Linux</div>
+      </div>
+      <div class="col-md-4 option block" id="macos">
+        <div class="option-text">Mac</div>
+      </div>
+      <div class="col-md-4 option block" id="windows">
+        <div class="option-text">Windows</div>
+      </div>
+    </div>
+    <div class="row package">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text"></div>
+      </div>
+      <div class="col-md-12 option block selected" id="pip">
+        <div class="option-text">Pip</div>
+      </div>
+    </div>
+    <div class="row language">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">Language</div>
+      </div>
+      <div class="col-md-12 option block version selected" id="python">
+        <div class="option-text">Python</div>
+      </div>
+    </div>
+    <div class="row cuda">
+      <div class="col-md-12 title-block mobile-heading">
+        <div class="option-text">Compute Platform</div>
+      </div>
+      <div class="col-md-6 option block version selected" id="cuda10.2">
+        <div class="option-text">CUDA 10.2</div>
+      </div>
+      <div class="col-md-6 option block version" id="cuda11.x">
+        <div class="option-text">CUDA 11.3</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 title-block command-mobile-heading">
+        <div class="option-text">Run this Command:</div>
+      </div>
+      <div class="command-container">
+        <div class="col-md-12" id="command">pip install pypose</div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div id="installation">
+  <div class="os macos">
+<h1 class="no_toc" id="installing-on-macos">Installing on macOS</h1>
+
+<p>PyPose can be installed and used on macOS. Depending on your system and compute requirements, your experience with PyPose on a Mac may vary in terms of processing time. It is recommended, but not required, that your Mac have an NVIDIA GPU in order to harness the full power of PyPose’s <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> support.</p>
+
+<blockquote>
+  <p>Currently, CUDA support on macOS is only available by <a href="#mac-from-source">building PyPose from source</a></p>
+</blockquote>
+
+<h2 id="mac-prerequisites">Prerequisites</h2>
+
+<h3 id="macos-version">macOS Version</h3>
+
+<p>PyPose is supported on macOS 10.10 (Yosemite) or above.</p>
+
+<h3 id="mac-python">Python</h3>
+
+<p>It is recommended that you use Python 3.7 or greater, which can be installed either through the Anaconda package manager (see <a href="#anaconda">below</a>), <a href="https://brew.sh/">Homebrew</a>, or the <a href="https://www.python.org/downloads/mac-osx/">Python website</a>.</p>
+
+<h3 id="mac-package-manager">Package Manager</h3>
+
+<p>To install the PyPose binaries, you will need to use one of two supported package managers: <a href="https://www.anaconda.com/download/#macos">Anaconda</a> or <a href="https://pypi.org/project/pip/">pip</a>. Anaconda is the recommended package manager as it will provide you all of the PyPose dependencies in one, sandboxed install, including Python.</p>
+
+<h4 id="anaconda">Anaconda</h4>
+
+<p>To install Anaconda, you can <a href="https://www.anaconda.com/download/#macos">download graphical installer</a> or use the command-line installer. If you use the command-line installer, you can right-click on the installer link, select <code class="language-plaintext highlighter-rouge">Copy Link Address</code>, and then use the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># The version of Anaconda may be different depending on when you are installing`</span>
+curl <span class="nt">-O</span> https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+sh Miniconda3-latest-MacOSX-x86_64.sh
+<span class="c"># and follow the prompts. The defaults are generally good.`</span>
+</code></pre></div></div>
+
+<h4 id="pip">pip</h4>
+
+<p><em>Python 3</em></p>
+
+<p>If you installed Python via Homebrew or the Python website, <code class="language-plaintext highlighter-rouge">pip</code> was installed with it. If you installed Python 3.x, then you will be using the command <code class="language-plaintext highlighter-rouge">pip3</code>.</p>
+
+<blockquote>
+  <p>Tip: If you want to use just the command  <code class="language-plaintext highlighter-rouge">pip</code>, instead of <code class="language-plaintext highlighter-rouge">pip3</code>, you can symlink <code class="language-plaintext highlighter-rouge">pip</code> to the <code class="language-plaintext highlighter-rouge">pip3</code> binary.</p>
+</blockquote>
+
+<h2 id="mac-installation">Installation</h2>
+
+<h3 id="mac-anaconda">pip</h3>
+
+<p>To install PyPose via pip, use one of the following command</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Python 3.x</span>
+pip <span class="nb">install </span>pypose
+</code></pre></div></div>
+
+<h2 id="mac-verification">Verification</h2>
+
+<p>To ensure that PyPose was installed correctly, we can verify the installation by running sample PyPose code. Here we will construct a randomly initialized tensor.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">torch</span><span class="p">,</span> <span class="n">pypose</span> <span class="k">as</span> <span class="n">pp</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># A random so(3) LieTensor
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">pp</span><span class="p">.</span><span class="n">randn_so3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">so3Type</span> <span class="n">LieTensor</span><span class="p">:</span>
+    <span class="n">tensor</span><span class="p">([[</span> <span class="mf">0.1606</span><span class="p">,</span>  <span class="mf">0.0232</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5516</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mf">0.0807</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7184</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1102</span><span class="p">]],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="mac-from-source">Building from source</h2>
+
+<p>For the majority of PyPose users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge PyPose code, whether for testing or actual development on the PyPose core.</p>
+
+<blockquote>
+  <p>You will also need to build from source if you want CUDA support.</p>
+</blockquote>
+
+<h3 id="mac-prerequisites-2">Prerequisites</h3>
+
+<ol>
+  <li>Install <a href="#anaconda">Anaconda</a></li>
+  <li>Install <a href="https://developer.nvidia.com/cuda-downloads">CUDA</a>, if your machine has a <a href="https://developer.nvidia.com/cuda-gpus">CUDA-enabled GPU</a>.</li>
+  <li>Install from <a href="https://github.com/pypose/pypose">source</a>.</li>
+</ol>
+
+<p>You can verify the installation as described <a href="#mac-verification">above</a>.</p>
+
+</div>
+  <div class="os linux selected">
+<h1 class="no_toc" id="installing-on-linux">Installing on Linux</h1>
+
+<p>PyPose can be installed and used on various Linux distributions. Depending on your system and compute requirements, your experience with PyPose on Linux may vary in terms of processing time. It is recommended, but not required, that your Linux system has an NVIDIA GPU in order to harness the full power of PyPose’s <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> support.
+<!-- [support](https://PyPose.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors). --></p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<!-- {: #linux-prerequisites}
+
+### Supported Linux Distributions
+
+PyPose is supported on Linux distributions that use [glibc](https://www.gnu.org/software/libc/) >= v2.17, which include the following:
+
+* [Arch Linux](https://www.archlinux.org/download/), minimum version 2012-07-15
+* [CentOS](https://www.centos.org/download/), minimum version 7.3-1611
+* [Debian](https://www.debian.org/distrib/), minimum version 8.0
+* [Fedora](https://getfedora.org/), minimum version 24
+* [Mint](https://linuxmint.com/download.php), minimum version 14
+* [OpenSUSE](https://software.opensuse.org/), minimum version 42.1
+* [PCLinuxOS](https://www.pclinuxos.com/get-pclinuxos/), minimum version 2014.7
+* [Slackware](http://www.slackware.com/getslack/), minimum version 14.2
+* [Ubuntu](https://www.ubuntu.com/download/desktop), minimum version 13.04
+
+> The install instructions here will generally apply to all supported Linux distributions. An example difference is that your distribution may support `yum` instead of `apt`. The specific examples shown were run on an Ubuntu 18.04 machine. -->
+
+<h3 id="linux-python">Python</h3>
+
+<p>Python 3.7 or greater is generally installed by default on any of our supported Linux distributions, which meets our recommendation.</p>
+
+<blockquote>
+  <p>Tip: By default, you will have to use the command <code class="language-plaintext highlighter-rouge">python3</code> to run Python. If you want to use just the command <code class="language-plaintext highlighter-rouge">python</code>, instead of <code class="language-plaintext highlighter-rouge">python3</code>, you can symlink <code class="language-plaintext highlighter-rouge">python</code> to the <code class="language-plaintext highlighter-rouge">python3</code> binary.</p>
+</blockquote>
+
+<p>However, if you want to install another version, there are multiple ways:</p>
+
+<ul>
+  <li>APT</li>
+  <li><a href="https://www.python.org/downloads/mac-osx/">Python website</a></li>
+</ul>
+
+<p>If you decide to use APT, you can run the following command to install it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python
+</code></pre></div></div>
+
+<blockquote>
+  <p>It is recommended that you use Python 3.6, 3.7 or 3.8, which can be installed via any of the mechanisms above .</p>
+</blockquote>
+
+<!-- > If you use [Anaconda](#anaconda) to install PyPose, it will install a sandboxed version of Python that will be used for running PyPose applications. -->
+
+<h3 id="linux-package-manager">Package Manager</h3>
+
+<p>To install the PyPose binaries, you will need to use one of two supported package managers: <a href="https://www.anaconda.com/download/#linux">Anaconda</a> or <a href="https://pypi.org/project/pip/">pip</a>.</p>
+
+<!-- Anaconda is the recommended package manager as it will provide you all of the PyPose dependencies in one, sandboxed install, including Python.
+
+#### Anaconda
+
+To install Anaconda, you will use the [command-line installer](https://www.anaconda.com/download/#linux). Right-click on the 64-bit installer link, select `Copy Link Location`, and then use the following commands:
+
+```bash
+# The version of Anaconda may be different depending on when you are installing`
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh
+# and follow the prompts. The defaults are generally good.`
+```
+
+> You may have to open a new terminal or re-source your `~/.bashrc `to get access to the `conda` command. -->
+
+<h4 id="pip">pip</h4>
+
+<p><em>Python 3</em></p>
+
+<p>While Python 3.x is installed by default on Linux, <code class="language-plaintext highlighter-rouge">pip</code> is not installed by default.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python3-pip
+</code></pre></div></div>
+
+<blockquote>
+  <p>Tip: If you want to use just the command  <code class="language-plaintext highlighter-rouge">pip</code>, instead of <code class="language-plaintext highlighter-rouge">pip3</code>, you can symlink <code class="language-plaintext highlighter-rouge">pip</code> to the <code class="language-plaintext highlighter-rouge">pip3</code> binary.</p>
+</blockquote>
+
+<h2 id="linux-installation">Installation</h2>
+
+<!-- ### Anaconda
+{: #linux-anaconda}
+
+#### No CUDA
+
+To install PyPose via Anaconda, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Conda and CUDA: None.
+Then, run the command that is presented to you.
+
+#### With CUDA
+
+To install PyPose via Anaconda, and you do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Conda and the CUDA version suited to your machine. Often, the latest CUDA version is better.
+Then, run the command that is presented to you. -->
+
+<h3 id="linux-pip">pip</h3>
+
+<h4 id="no-cuda">No CUDA</h4>
+
+<p>To install PyPose via pip, and do not have a <a href="https://developer.nvidia.com/cuda-zone">CUDA-capable</a> system or do not require CUDA, in the above selector, choose OS: Linux, Package: Pip and CUDA: None.
+Then, run the command that is presented to you.</p>
+
+<h4 id="with-cuda">With CUDA</h4>
+
+<p>To install PyPose via pip, and do have a <a href="https://developer.nvidia.com/cuda-zone">CUDA-capable</a> system, in the above selector, choose OS: Linux, Package: Pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
+Then, run the command that is presented to you.</p>
+
+<h2 id="linux-verification">Verification</h2>
+
+<p>To ensure that PyPose was installed correctly, we can verify the installation by running sample PyPose code. Here we will construct a randomly initialized tensor.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">torch</span><span class="p">,</span> <span class="n">pypose</span> <span class="k">as</span> <span class="n">pp</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="c1"># A random so(3) LieTensor
+</span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">pp</span><span class="p">.</span><span class="n">randn_so3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">so3Type</span> <span class="n">LieTensor</span><span class="p">:</span>
+    <span class="n">tensor</span><span class="p">([[</span> <span class="mf">0.1606</span><span class="p">,</span>  <span class="mf">0.0232</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5516</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mf">0.0807</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7184</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1102</span><span class="p">]],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Additionally, to check if your GPU driver and CUDA is enabled and accessible by PyPose, run the following commands to return whether or not the CUDA driver is enabled:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="linux-from-source">Building from source</h2>
+
+<p>For the majority of PyPose users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge PyPose code, whether for testing or actual development on the PyPose core. To install the latest PyPose code, you will need to <a href="https://github.com/pypose/pypose#from-source">build PyPose from source</a>.</p>
+
+<!-- ### Prerequisites
+{: #linux-prerequisites-2}
+
+1. Install [Anaconda](#anaconda)
+2. Install [CUDA](https://developer.nvidia.com/cuda-downloads), if your machine has a [CUDA-enabled GPU](https://developer.nvidia.com/cuda-gpus).
+3. Follow the steps described here: [https://github.com/PyPose/PyPose#from-source](https://github.com/PyPose/PyPose#from-source)
+
+You can verify the installation as described [above](#linux-verification). -->
+
+</div>
+  <div class="os windows">
+<h1 class="no_toc" id="installing-on-windows">Installing on Windows</h1>
+
+<p>PyPose can be installed and used on various Windows distributions. Depending on your system and compute requirements, your experience with PyPose on Windows may vary in terms of processing time. It is recommended, but not required, that your Windows system has an NVIDIA GPU in order to harness the full power of PyPose’s <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> <a href="https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors">support</a>.</p>
+
+<h2 id="windows-prerequisites">Prerequisites</h2>
+
+<h3 id="supported-windows-distributions">Supported Windows Distributions</h3>
+
+<p>PyPose is supported on the following Windows distributions:</p>
+
+<ul>
+  <li><a href="https://www.microsoft.com/en-us/software-download/windows10ISO">Windows 10</a> or greater recommended.</li>
+</ul>
+
+<blockquote>
+  <p>The install instructions here will generally apply to all supported Windows distributions. The specific examples shown will be run on a Windows 11 Home machine</p>
+</blockquote>
+
+<h3 id="windows-python">Python</h3>
+
+<p>Currently, PyPose on Windows only supports Python 3.7 and beyond; Python 2.x is not supported.</p>
+
+<p>As it is not installed by default on Windows, there are multiple ways to install Python:</p>
+
+<ul>
+  <li><a href="https://chocolatey.org/">Chocolatey</a></li>
+  <li><a href="https://www.python.org/downloads/windows/">Python website</a></li>
+  <li><a href="#anaconda">Anaconda</a></li>
+</ul>
+
+<blockquote>
+  <p>If you decide to use Chocolatey, and haven’t installed Chocolatey yet, ensure that you are <a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/">running your command prompt as an administrator</a>.</p>
+</blockquote>
+
+<p>For a Chocolatey-based install, run the following command in an <a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/">administrative command prompt</a>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco <span class="nb">install </span>python
+</code></pre></div></div>
+
+<h3 id="windows-package-manager">Package Manager</h3>
+
+<p>To install the PyPose binaries, you will need to use at least one of two supported package managers: <a href="https://www.anaconda.com/download/#windows">Anaconda</a> and <a href="https://pypi.org/project/pip/">pip</a>. Currently we only support <code class="language-plaintext highlighter-rouge">pip</code> and it will provide you all of the PyPose dependencies in one, sandboxed install.</p>
+
+<h4 id="pip">pip</h4>
+
+<p>If you installed Python by any of the recommended ways <a href="#windows-python">above</a>, <a href="https://pypi.org/project/pip/">pip</a> will have already been installed for you.</p>
+
+<h2 id="windows-installation">Installation</h2>
+
+<h3 id="windows-anaconda">pip</h3>
+
+<h4 id="no-cuda">No CUDA</h4>
+
+<p>Currently we do not have a CPU version of PyPose. Please stay tuned!</p>
+
+<h4 id="with-cuda">With CUDA</h4>
+
+<p>To install PyPose via pip, and you do have a <a href="https://developer.nvidia.com/cuda-zone">CUDA-capable</a> system, in the above selector, choose OS: Windows, Package: pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
+Then, run the command that is presented to you.</p>
+
+<h2 id="windows-verification">Verification</h2>
+
+<p>To ensure that PyPose was installed correctly, we can verify the installation by running sample PyPose code. Here we will construct a randomly initialized tensor.</p>
+
+<p>From the command line, type:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python
+</code></pre></div></div>
+
+<p>then enter the following code:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pypose</span> <span class="k">as</span> <span class="n">pp</span>
+<span class="n">pp</span><span class="p">.</span><span class="n">__version__</span>
+</code></pre></div></div>
+
+<p>The output should be something similar to:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'0.2.0'
+</code></pre></div></div>
+
+</div>
+</div>
+
+<script page-id="get-started-locally" src="/assets/menu-tab-selection.js"></script>
+
+<script src="/assets/quick-start-module.js"></script>
+
+<script src="/assets/show-screencast.js"></script>
+
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid docs-tutorials-resources">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <h2>Docs</h2>
+        <p>Access documentation for PyPose</p>
+        <a class="with-right-arrow" href="/docs">View Docs</a>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <h2>Tutorials</h2>
+        <p>Get started with tutorials and examples</p>
+        <a class="with-right-arrow" href="https://pypose.org/tutorials/">View Tutorials</a>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <h2>Get Started</h2>
+        <p>Find resources and how to start using PyPose</p>
+        <a class="with-right-arrow" href="/get-started">Get Started</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-logo-wrapper">
+      <a href="https://pypose.org" class="footer-logo"></a>
+    </div>
+
+    <div class="footer-links-wrapper">
+      <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><a href="https://pypose.org">PyPose</a></li>
+          <li><a href="/get-started">Get Started</a></li>
+          <li><a href="/features">Features</a></li>
+          <!-- <li><a href="/ecosystem">Ecosystem</a></li> -->
+          <!-- <li><a href="/blog">Blog</a></li> -->
+          <li><a href="https://github.com/pypose/pypose/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><a href="/resources">Resources</a></li>
+          <li><a href="https://pypose.org/tutorials/">Tutorials</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <!-- <li><a href="" target="_blank">Discuss</a></li> -->
+          <li><a href="https://github.com/pypose/pypose/issues" target="_blank">GitHub Issues</a></li>
+          <!-- <li><a href="/assets/brand-guidelines/PyTorch-Brand-Guidelines.pdf" target="_blank">Brand Guidelines</a></li> -->
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><p>Stay up to date</p></li>
+          <!-- <li><a href="" target="_blank">Facebook</a></li> -->
+          <li><a href="https://twitter.com/pypose_org" target="_blank">Twitter</a></li>
+          <!-- <li><a href="" target="_blank">YouTube</a></li> -->
+          <li><a href="https://github.com/pypose/pypose" target="_blank">GitHub</a></li>
+        </ul>
+      </div>
+
+      <!-- <div class="footer-links-col">
+        <ul>
+          <li class="list-title"><p>PyTorch Podcasts</p></li>
+          <li><a href="" target="_blank">Spotify</a></li>
+          <li><a href="" target="_blank">Apple</a></li>
+          <li><a href="" target="_blank">Google</a></li>
+          <li><a href="" target="_blank">Amazon</a></li>
+        </ul>
+      </div> -->
+    </div>
+
+    <!-- <div class="privacy-policy">
+      <ul>
+        <li class="privacy-policy-links"><a href="/assets/tos-oss-privacy-policy/fb-tos-privacy-policy.pdf" target="_blank">Terms</a></li>
+        <li class="privacy-policy-links">|</li>
+        <li class="privacy-policy-links"><a href="/assets/tos-oss-privacy-policy/fb-oss-privacy-policy.pdf" target="_blank">Privacy</a></li>
+      </ul>
+    </div> -->
+  </div>
+  <!-- <img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/795629140/?label=txkmCPmdtosBENSssfsC&amp;guid=ON&amp;script=0"/>
+ -->
+</footer>
+
+<div class="mobile-main-menu">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="mobile-main-menu-header-container">
+        <a class="header-logo" href="https://pypose.org" aria-label="PyPose"></a>
+        <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-main-menu-links-container">
+
+    <div class="main-menu">
+      <ul>
+        <!-- <li class="navSearchWrapper reactNavSearchWrapper tabletSearchWrapper" key="search">
+          <div class="mobile-search-border">
+            <input
+              id="mobile-search-input"
+              type="text"
+              title="Search"
+            />
+            <div id="mobile-search-icon"></div>
+          </div>
+        </li> -->
+
+        <li class="active">
+          <a href="/get-started">Get Started</a>
+        </li>
+
+        <!-- <li class="resources-mobile-menu-title">
+          <a href="/ecosystem">Ecosystem</a>
+        </li>
+        <ul class="resources-mobile-menu-items">
+          <li>
+            <a href="/ecosystem">Tools</a>
+          </li>
+          <li>
+            <a href="/ecosystem/pted/2021">Ecosystem Day 2021</a>
+          </li>
+          <li>
+            <a href="/ecosystem/ptdd/2021">Developer Day 2021</a>
+          </li>
+        </ul> -->
+
+        <!-- <li class="">
+          <a href="/mobile">Mobile</a>
+        </li>
+
+        <li class="">
+          <a href="/blog">Blog</a>
+        </li> -->
+
+        <li>
+          <a href="https://pypose.org/tutorials/">Tutorials</a>
+        </li>
+
+        <li class="resources-mobile-menu-title">
+          <a href="/docs">Docs</a>
+        </li>
+
+        <li class="">
+          <a href="/about-us">About Us</a>
+        </li>
+
+        <!-- <ul class="resources-mobile-menu-items">
+          <li class="">
+            <a href="/docs">PyTorch</a>
+          </li>
+
+          <li class="">
+            <a href="/audio">torchaudio</a>
+          </li>
+
+          <li class="">
+            <a href="/text">torchtext</a>
+          </li>
+
+          <li class="">
+            <a href="/docs/stable/torchvision">torchvision</a>
+          </li>
+
+          <li class="">
+            <a href="/elastic">TorchElastic</a>
+          </li>
+
+          <li class="">
+            <a href="/serve">TorchServe</a>
+          </li>
+
+          <li class="">
+            <a href="/xla/release/1.6/index.html">PyTorch on XLA Devices</a>
+          </li>
+        </ul> -->
+
+        <!-- <li class="resources-mobile-menu-title">
+          Resources
+        </li> -->
+
+        <!-- <ul class="resources-mobile-menu-items">
+          <li class="">
+            <a href="/features">About</a>
+          </li>
+
+          <li>
+            <a href="/#community-module">Community</a>
+          </li>
+
+          <li>
+            <a href="/events">Events</a>
+          </li>
+
+          <li class="">
+            <a href="/resources">Developer Resources</a>
+          </li>
+
+          <li>
+            <a href="">Forum</a>
+          </li>
+
+          <li class="">
+            <a href="/hub">Models (Beta)</a>
+          </li>
+
+        </ul> -->
+
+        <li id="github-mobile-menu-link">
+          <a href="https://github.com/pypose/pypose">GitHub</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="/assets/mobile-menu.js"></script>
+<script src="/assets/scroll-to-anchor.js"></script>
+<script src="/assets/external-links-new-tab.js"></script>
+
+  <script src="/assets/search-bar.js"></script>
+
+<script src="/assets/cookie-banner.js"></script>
+
+<script type="text/javascript">
+  mobileMenu.bind();
+  anchors.add('.pytorch-article h2, .pytorch-article h3, .pytorch-article h4, .pytorch-article h5');
+
+  // Add class to links that have code blocks, since we cannot create links in code blocks
+  $("a code.highlighter-rouge").each(function(e) {
+    $(this).closest("a").addClass("has-code");
+  });
+
+  scrollToAnchor.bind();
+
+  var hasStaticHeader = $(".blog-header, .blog-detail-header, .resources-header, .get-started-header, .features-header, .ecosystem-header, .hub-header, .mobile-header").length > 0;
+
+  if (!hasStaticHeader) {
+    $(window).on("scroll", function() {
+      var top = $(this).scrollTop();
+      var fullPosition = $(".main-background").height() - $(".header-holder").height();
+
+      if (top <= 40) {
+        $(".header-holder").css({"backgroundColor": "rgba(0, 0, 0, 0.165)"});
+      } else if (top >= fullPosition) {
+        $(".header-holder").css({"backgroundColor": "#000000"});
+      } else {
+        var bgColor = "rgba(0, 0, 0, " + top / fullPosition + ")";
+        $(".header-holder").css({"backgroundColor": bgColor});
+      }
+    });
+  }
+</script>
+
+
+
+
+<!-- <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="/assets/images/pytorch-x.svg">
+  </div>
+</div>
+ -->
+
+  </body>
+</html>
+
+<script src="/assets/get-started-sidebar.js"></script>

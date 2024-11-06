@@ -1,9 +1,0 @@
-﻿SoundPose2DDataset
-==================
-.. currentmodule:: pysensing.acoustic.datasets.hpe
-
-.. autoclass:: SoundPose2DDataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,5 +1,0 @@
-﻿knn_point
-=========
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct_utils
-
-.. autofunction:: knn_point

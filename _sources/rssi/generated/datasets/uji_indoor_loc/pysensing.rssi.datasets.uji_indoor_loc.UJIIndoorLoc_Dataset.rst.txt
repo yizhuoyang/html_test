@@ -1,9 +1,0 @@
-﻿UJIIndoorLoc_Dataset
-====================
-.. currentmodule:: pysensing.rssi.datasets.uji_indoor_loc
-
-.. autoclass:: UJIIndoorLoc_Dataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

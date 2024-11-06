@@ -1,9 +1,0 @@
-﻿Point_Transformer_Last
-======================
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct
-
-.. autoclass:: Point_Transformer_Last
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

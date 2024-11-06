@@ -1,5 +1,0 @@
-﻿get_idx_dirs
-============
-.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_utils
-
-.. autofunction:: get_idx_dirs
