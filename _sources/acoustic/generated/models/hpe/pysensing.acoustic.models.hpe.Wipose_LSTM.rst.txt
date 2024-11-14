@@ -1,9 +1,0 @@
-﻿Wipose_LSTM
-===========
-.. currentmodule:: pysensing.acoustic.models.hpe
-
-.. autoclass:: Wipose_LSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

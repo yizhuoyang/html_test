@@ -1,5 +1,0 @@
-﻿ped_det_test
-============
-.. currentmodule:: pysensing.acoustic.inference.training.ped_det_train
-
-.. autofunction:: ped_det_test

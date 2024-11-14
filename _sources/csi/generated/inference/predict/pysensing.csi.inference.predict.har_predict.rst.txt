@@ -1,9 +1,0 @@
-﻿har_predict
-===========
-.. currentmodule:: pysensing.csi.inference.predict
-
-.. autoclass:: har_predict
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

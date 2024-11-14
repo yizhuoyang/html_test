@@ -1,9 +1,0 @@
-﻿Speech2pose
-===========
-.. currentmodule:: pysensing.acoustic.models.hpe
-
-.. autoclass:: Speech2pose
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

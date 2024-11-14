@@ -1,0 +1,40 @@
+CSI.Inference
+---------------------------------
+Predict
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.csi.inference.predict
+.. autosummary::
+    :toctree: generated/inference/predict
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+    
+    har_predict
+    hid_predict
+    hpe_predict
+    recon_predict
+
+Embedding
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.csi.inference.embedding
+.. autosummary::
+    :toctree: generated/inference/embedding
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+    
+    har_csi_embedding
+    hid_csi_embedding
+    hpe_csi_embedding
+    recon_csi_embedding
+
+Train
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.csi.inference.train
+.. autosummary::
+    :toctree: generated/inference/train
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+    
+    har_train
+    hid_train
+    hpe_train
+    recon_train

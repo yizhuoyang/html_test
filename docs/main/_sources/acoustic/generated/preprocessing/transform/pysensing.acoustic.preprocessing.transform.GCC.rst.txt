@@ -1,0 +1,9 @@
+﻿GCC
+===
+.. currentmodule:: pysensing.acoustic.preprocessing.transform
+
+.. autoclass:: GCC
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

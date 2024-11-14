@@ -1,0 +1,5 @@
+﻿knn
+===
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.dgcnn
+
+.. autofunction:: knn

@@ -1,9 +1,0 @@
-﻿CurveNet
-========
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.curvenet
-
-.. autoclass:: CurveNet
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,5 +1,0 @@
-﻿TimeWarp
-========
-.. currentmodule:: pysensing.uwb.augmentation.time_warping
-
-.. autofunction:: TimeWarp

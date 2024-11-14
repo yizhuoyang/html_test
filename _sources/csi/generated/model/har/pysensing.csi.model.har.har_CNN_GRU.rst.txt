@@ -1,9 +1,0 @@
-﻿har_CNN_GRU
-===========
-.. currentmodule:: pysensing.csi.model.har
-
-.. autoclass:: har_CNN_GRU
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

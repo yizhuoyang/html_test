@@ -1,5 +1,0 @@
-﻿get_graph_feature
-=================
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.dgcnn
-
-.. autofunction:: get_graph_feature

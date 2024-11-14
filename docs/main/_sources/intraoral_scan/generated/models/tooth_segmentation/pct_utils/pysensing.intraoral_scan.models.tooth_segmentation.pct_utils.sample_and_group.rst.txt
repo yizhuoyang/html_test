@@ -1,0 +1,5 @@
+﻿sample_and_group
+================
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct_utils
+
+.. autofunction:: sample_and_group

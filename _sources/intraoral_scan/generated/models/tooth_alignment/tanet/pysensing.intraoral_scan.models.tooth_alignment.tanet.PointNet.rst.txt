@@ -1,9 +1,0 @@
-﻿PointNet
-========
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.tanet
-
-.. autoclass:: PointNet
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

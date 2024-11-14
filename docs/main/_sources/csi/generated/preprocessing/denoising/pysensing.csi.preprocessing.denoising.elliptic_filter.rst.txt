@@ -1,0 +1,9 @@
+﻿elliptic_filter
+===============
+.. currentmodule:: pysensing.csi.preprocessing.denoising
+
+.. autoclass:: elliptic_filter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

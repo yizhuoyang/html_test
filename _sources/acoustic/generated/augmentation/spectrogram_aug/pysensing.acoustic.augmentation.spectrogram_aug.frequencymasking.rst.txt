@@ -1,9 +1,0 @@
-﻿frequencymasking
-================
-.. currentmodule:: pysensing.acoustic.augmentation.spectrogram_aug
-
-.. autoclass:: frequencymasking
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

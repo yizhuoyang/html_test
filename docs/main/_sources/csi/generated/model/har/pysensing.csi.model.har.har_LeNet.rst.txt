@@ -1,0 +1,9 @@
+﻿har_LeNet
+=========
+.. currentmodule:: pysensing.csi.model.har
+
+.. autoclass:: har_LeNet
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

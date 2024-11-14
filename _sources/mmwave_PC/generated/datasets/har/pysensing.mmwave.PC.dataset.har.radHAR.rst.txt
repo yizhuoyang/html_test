@@ -1,9 +1,0 @@
-﻿radHAR
-======
-.. currentmodule:: pysensing.mmwave.PC.dataset.har
-
-.. autoclass:: radHAR
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

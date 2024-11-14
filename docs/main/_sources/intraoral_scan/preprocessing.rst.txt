@@ -1,0 +1,44 @@
+intraoral_scan.Preprocessing
+----------------------------
+Tooth Alignment Preprocess
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_pre
+.. autosummary::
+    :toctree: generated/preprocessing/ta_pre
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    load
+    main
+
+Tooth Alignment Preprocess Utils
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_utils
+.. autosummary::
+    :toctree: generated/preprocessing/ta_utils
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    get_idx_dirs
+    getAxis
+    QuatMul
+    QuatRotate
+    trans_pred
+    quaternion_to_matrix
+    getTooth
+    showTooth
+
+
+Tooth Segmentation Preprocess
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.intraoral_scan.preprocessing.ts_pre
+.. autosummary::
+    :toctree: generated/preprocessing/ts_pre
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    get_neighbors
+    get_vertices_defined_curvature
+    extract_feature_labels
+    process_part_folders
+    multithreading_pre

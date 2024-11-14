@@ -1,5 +1,0 @@
-﻿predict
-=======
-.. currentmodule:: pysensing.intraoral_scan.inference.ts_predict
-
-.. autofunction:: predict

@@ -1,5 +1,0 @@
-﻿har_test
-========
-.. currentmodule:: pysensing.acoustic.inference.training.har_train
-
-.. autofunction:: har_test

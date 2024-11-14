@@ -1,9 +1,0 @@
-﻿RDAT_3DCNNLSTM
-==============
-.. currentmodule:: pysensing.mmwave_raw.models.network
-
-.. autoclass:: RDAT_3DCNNLSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

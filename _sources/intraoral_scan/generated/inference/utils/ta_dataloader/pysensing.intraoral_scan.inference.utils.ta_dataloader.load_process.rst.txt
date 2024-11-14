@@ -1,5 +1,0 @@
-﻿load_process
-============
-.. currentmodule:: pysensing.intraoral_scan.inference.utils.ta_dataloader
-
-.. autofunction:: load_process

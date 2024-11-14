@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator>
+  <link href="https://pypose.org/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://pypose.org/" rel="alternate" type="text/html" />
+  <updated>2024-09-19T17:47:41-04:00</updated>
+  <id>https://pypose.org/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">PyPose Website</title>
+  
+
+  
+    <subtitle>PyPose is to connect classic robotics with modern learning methods.</subtitle>
+  
+
+  
+    <author>
+        <name>PyPose</name>
+      
+      
+    </author>
+  
+
+  
+  
+  
+</feed>
+
+

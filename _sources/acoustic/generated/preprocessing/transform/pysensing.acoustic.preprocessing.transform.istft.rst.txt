@@ -1,9 +1,0 @@
-﻿istft
-=====
-.. currentmodule:: pysensing.acoustic.preprocessing.transform
-
-.. autoclass:: istft
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

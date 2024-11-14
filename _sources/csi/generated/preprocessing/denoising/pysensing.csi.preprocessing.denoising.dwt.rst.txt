@@ -1,9 +1,0 @@
-﻿dwt
-===
-.. currentmodule:: pysensing.csi.preprocessing.denoising
-
-.. autoclass:: dwt
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

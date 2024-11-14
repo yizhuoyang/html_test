@@ -1,0 +1,9 @@
+﻿sliding_window
+==============
+.. currentmodule:: pysensing.mmwave.PC.preprocessing.sliding_window
+
+.. autoclass:: sliding_window
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,0 +1,5 @@
+﻿train
+=====
+.. currentmodule:: pysensing.uwb.training.occupancy_detection
+
+.. autofunction:: train

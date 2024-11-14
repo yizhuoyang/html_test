@@ -1,9 +1,0 @@
-﻿Synchronizer
-============
-.. currentmodule:: pysensing.rssi.augmentation.synchronization
-
-.. autoclass:: Synchronizer
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

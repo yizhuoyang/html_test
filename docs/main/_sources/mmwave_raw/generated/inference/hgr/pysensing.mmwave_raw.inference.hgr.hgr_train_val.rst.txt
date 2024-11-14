@@ -1,0 +1,9 @@
+﻿hgr_train_val
+=============
+.. currentmodule:: pysensing.mmwave_raw.inference.hgr
+
+.. autoclass:: hgr_train_val
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

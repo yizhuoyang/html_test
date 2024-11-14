@@ -1,5 +1,0 @@
-﻿generate_findices
-=================
-.. currentmodule:: pysensing.intraoral_scan.inference.utils.ts_utils
-
-.. autofunction:: generate_findices

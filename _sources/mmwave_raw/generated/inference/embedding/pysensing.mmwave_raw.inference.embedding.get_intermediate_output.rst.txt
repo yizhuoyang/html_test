@@ -1,9 +1,0 @@
-﻿get_intermediate_output
-=======================
-.. currentmodule:: pysensing.mmwave_raw.inference.embedding
-
-.. autoclass:: get_intermediate_output
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

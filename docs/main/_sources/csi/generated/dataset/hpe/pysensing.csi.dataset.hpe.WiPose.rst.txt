@@ -1,0 +1,9 @@
+﻿WiPose
+======
+.. currentmodule:: pysensing.csi.dataset.hpe
+
+.. autoclass:: WiPose
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

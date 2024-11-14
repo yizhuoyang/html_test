@@ -1,9 +1,0 @@
-﻿hid_ViT
-=======
-.. currentmodule:: pysensing.csi.model.hid
-
-.. autoclass:: hid_ViT
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

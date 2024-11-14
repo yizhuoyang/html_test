@@ -1,5 +1,0 @@
-﻿quaternion_to_matrix
-====================
-.. currentmodule:: pysensing.intraoral_scan.preprocessing.ta_utils
-
-.. autofunction:: quaternion_to_matrix

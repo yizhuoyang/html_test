@@ -1,5 +1,0 @@
-﻿range_selection
-===============
-.. currentmodule:: pysensing.uwb.preprocessing.cropping
-
-.. autofunction:: range_selection

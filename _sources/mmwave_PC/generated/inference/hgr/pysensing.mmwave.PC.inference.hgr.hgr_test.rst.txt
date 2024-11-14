@@ -1,9 +1,0 @@
-﻿hgr_test
-========
-.. currentmodule:: pysensing.mmwave.PC.inference.hgr
-
-.. autoclass:: hgr_test
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

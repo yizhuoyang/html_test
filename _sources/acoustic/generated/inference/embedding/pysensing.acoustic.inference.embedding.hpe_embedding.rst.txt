@@ -1,9 +1,0 @@
-﻿hpe_embedding
-=============
-.. currentmodule:: pysensing.acoustic.inference.embedding
-
-.. autoclass:: hpe_embedding
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

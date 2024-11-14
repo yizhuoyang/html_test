@@ -1,0 +1,53 @@
+UWB.Augmentation
+---------------------
+Magnitude Warping
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.augmentation.magnitude_warping
+.. autosummary::
+    :toctree: generated/augmentation/magnitude_warping
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    GenerateRandomCurves
+    MagWarp
+
+Time Warping
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.augmentation.time_warping
+.. autosummary::
+    :toctree: generated/augmentation/time_warping
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    DistortTimesteps
+    TimeWarp
+
+Range Shifting
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.augmentation.range_shifting
+.. autosummary::
+    :toctree: generated/augmentation/range_shifting
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    signal_shift
+
+Time Shifting
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.augmentation.time_shifting
+.. autosummary::
+    :toctree: generated/augmentation/time_shifting
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    signal_shift_time
+
+Scaling
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.augmentation.scaling
+.. autosummary::
+    :toctree: generated/augmentation/scaling
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    DA_Scaling

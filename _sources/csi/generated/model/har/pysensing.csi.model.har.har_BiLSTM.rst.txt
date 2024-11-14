@@ -1,9 +1,0 @@
-﻿har_BiLSTM
-==========
-.. currentmodule:: pysensing.csi.model.har
-
-.. autoclass:: har_BiLSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

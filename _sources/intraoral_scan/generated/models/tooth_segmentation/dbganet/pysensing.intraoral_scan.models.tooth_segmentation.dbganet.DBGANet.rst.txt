@@ -1,9 +1,0 @@
-﻿DBGANet
-=======
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.dbganet
-
-.. autoclass:: DBGANet
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

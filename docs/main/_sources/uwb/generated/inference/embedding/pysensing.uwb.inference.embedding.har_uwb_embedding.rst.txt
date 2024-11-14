@@ -1,0 +1,5 @@
+﻿har_uwb_embedding
+=================
+.. currentmodule:: pysensing.uwb.inference.embedding
+
+.. autofunction:: har_uwb_embedding

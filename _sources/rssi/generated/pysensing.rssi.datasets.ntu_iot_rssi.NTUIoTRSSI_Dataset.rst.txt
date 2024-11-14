@@ -1,9 +1,0 @@
-﻿NTUIoTRSSI_Dataset
-==================
-.. currentmodule:: pysensing.rssi.datasets.ntu_iot_rssi
-
-.. autoclass:: NTUIoTRSSI_Dataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

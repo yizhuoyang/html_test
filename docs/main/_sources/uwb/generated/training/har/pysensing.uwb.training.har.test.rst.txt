@@ -1,0 +1,5 @@
+﻿test
+====
+.. currentmodule:: pysensing.uwb.training.har
+
+.. autofunction:: test

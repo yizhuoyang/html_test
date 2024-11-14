@@ -1,5 +1,0 @@
-﻿load_hpe_dataset
-================
-.. currentmodule:: pysensing.acoustic.datasets.get_dataloader
-
-.. autofunction:: load_hpe_dataset

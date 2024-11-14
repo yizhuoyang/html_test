@@ -1,5 +1,0 @@
-﻿localization_uwb_embedding
-==========================
-.. currentmodule:: pysensing.uwb.inference.embedding
-
-.. autofunction:: localization_uwb_embedding

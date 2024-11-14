@@ -1,0 +1,5 @@
+﻿GenerateRandomCurves
+====================
+.. currentmodule:: pysensing.uwb.augmentation.magnitude_warping
+
+.. autofunction:: GenerateRandomCurves

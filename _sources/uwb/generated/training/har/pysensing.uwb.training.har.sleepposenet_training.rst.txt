@@ -1,5 +1,0 @@
-﻿sleepposenet_training
-=====================
-.. currentmodule:: pysensing.uwb.training.har
-
-.. autofunction:: sleepposenet_training

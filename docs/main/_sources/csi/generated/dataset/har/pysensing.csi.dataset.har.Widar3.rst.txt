@@ -1,0 +1,9 @@
+﻿Widar3
+======
+.. currentmodule:: pysensing.csi.dataset.har
+
+.. autoclass:: Widar3
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

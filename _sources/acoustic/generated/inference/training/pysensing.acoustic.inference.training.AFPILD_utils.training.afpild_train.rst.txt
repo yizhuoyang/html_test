@@ -1,5 +1,0 @@
-﻿afpild_train
-============
-.. currentmodule:: pysensing.acoustic.inference.training.AFPILD_utils.training
-
-.. autofunction:: afpild_train

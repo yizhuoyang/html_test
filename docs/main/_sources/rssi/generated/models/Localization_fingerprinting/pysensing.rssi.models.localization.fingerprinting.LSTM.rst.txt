@@ -1,0 +1,9 @@
+﻿LSTM
+====
+.. currentmodule:: pysensing.rssi.models.localization.fingerprinting
+
+.. autoclass:: LSTM
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

@@ -1,5 +1,0 @@
-﻿test
-====
-.. currentmodule:: pysensing.uwb.training.localization
-
-.. autofunction:: test

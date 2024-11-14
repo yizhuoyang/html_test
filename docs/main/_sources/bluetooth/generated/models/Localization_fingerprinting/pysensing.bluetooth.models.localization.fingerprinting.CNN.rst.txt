@@ -1,0 +1,9 @@
+﻿CNN
+===
+.. currentmodule:: pysensing.bluetooth.models.localization.fingerprinting
+
+.. autoclass:: CNN
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

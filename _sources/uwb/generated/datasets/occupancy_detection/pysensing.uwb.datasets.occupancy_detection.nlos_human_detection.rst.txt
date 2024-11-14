@@ -1,9 +1,0 @@
-﻿nlos_human_detection
-====================
-.. currentmodule:: pysensing.uwb.datasets.occupancy_detection
-
-.. autoclass:: nlos_human_detection
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

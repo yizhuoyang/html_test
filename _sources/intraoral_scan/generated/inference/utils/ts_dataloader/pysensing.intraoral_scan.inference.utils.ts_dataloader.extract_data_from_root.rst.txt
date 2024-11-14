@@ -1,5 +1,0 @@
-﻿extract_data_from_root
-======================
-.. currentmodule:: pysensing.intraoral_scan.inference.utils.ts_dataloader
-
-.. autofunction:: extract_data_from_root

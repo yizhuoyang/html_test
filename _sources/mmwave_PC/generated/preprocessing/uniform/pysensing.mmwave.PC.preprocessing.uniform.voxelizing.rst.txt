@@ -1,9 +1,0 @@
-﻿voxelizing
-==========
-.. currentmodule:: pysensing.mmwave.PC.preprocessing.uniform
-
-.. autoclass:: voxelizing
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

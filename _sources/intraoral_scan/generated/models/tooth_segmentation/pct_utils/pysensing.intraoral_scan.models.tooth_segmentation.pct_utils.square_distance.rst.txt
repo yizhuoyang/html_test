@@ -1,5 +1,0 @@
-﻿square_distance
-===============
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct_utils
-
-.. autofunction:: square_distance

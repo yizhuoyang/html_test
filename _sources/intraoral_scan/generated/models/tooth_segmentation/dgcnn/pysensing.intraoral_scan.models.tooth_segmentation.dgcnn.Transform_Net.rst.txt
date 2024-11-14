@@ -1,9 +1,0 @@
-﻿Transform_Net
-=============
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.dgcnn
-
-.. autoclass:: Transform_Net
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

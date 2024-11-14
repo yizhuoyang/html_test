@@ -1,9 +1,0 @@
-﻿Local_op
-========
-.. currentmodule:: pysensing.intraoral_scan.models.tooth_segmentation.pct
-
-.. autoclass:: Local_op
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,0 +1,5 @@
+﻿evaluate_model
+==============
+.. currentmodule:: pysensing.acoustic.inference.training.AcousticPose_utils.hpe_test
+
+.. autofunction:: evaluate_model

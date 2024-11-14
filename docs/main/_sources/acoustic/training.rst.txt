@@ -1,0 +1,62 @@
+Acoustic.Training
+------------------------------
+Human Pose Estimation
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.acoustic.inference.training.AcousticPose_utils.hpe_train
+.. autosummary::
+    :toctree: generated/inference/training
+    :nosignatures:
+    :template: autosummary/function.rst
+    
+    train_model
+    
+.. currentmodule:: pysensing.acoustic.inference.training.AcousticPose_utils.hpe_test
+.. autosummary::
+    :toctree: generated/inference/training
+    :nosignatures:
+    :template: autosummary/function.rst
+    
+    evaluate_model
+    
+Human Activity Recognition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.acoustic.inference.training.har_train
+.. autosummary::
+    :toctree: generated/inference/training
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    har_train_val
+    har_test
+
+Pedestrian Detection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.acoustic.inference.training.ped_det_train
+.. autosummary::
+    :toctree: generated/inference/training
+    :nosignatures:
+    :template: autosummary/function.rst
+    
+    ped_det_train
+    ped_det_test
+ 
+.. currentmodule:: pysensing.acoustic.inference.training.AFPILD_utils.training
+.. autosummary::
+    :toctree: generated/inference/training
+    :nosignatures:
+    :template: autosummary/function.rst
+    
+    afpild_train
+    
+.. currentmodule:: pysensing.acoustic.inference.training.AFPILD_utils.testing
+.. autosummary::
+    :toctree: generated/inference/training
+    :nosignatures:
+    :template: autosummary/function.rst
+    
+    afpild_testing
+    
+    
+    
+
+    

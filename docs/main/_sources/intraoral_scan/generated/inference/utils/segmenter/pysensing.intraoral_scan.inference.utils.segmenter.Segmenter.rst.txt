@@ -1,0 +1,9 @@
+﻿Segmenter
+=========
+.. currentmodule:: pysensing.intraoral_scan.inference.utils.segmenter
+
+.. autoclass:: Segmenter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

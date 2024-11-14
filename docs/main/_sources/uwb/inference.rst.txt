@@ -1,0 +1,33 @@
+UWB.Inference
+---------------------
+Predict
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.inference.predict
+.. autosummary::
+    :toctree: generated/inference/predict
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    predictor
+
+.. autosummary::
+    :toctree: generated/inference/predict
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    occupancy_detection_predict
+    har_predict
+    localization_predict
+
+Gemerate Embedding
+~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.uwb.inference.embedding
+
+.. autosummary::
+    :toctree: generated/inference/embedding
+    :nosignatures:
+    :template: autosummary/function.rst
+
+    har_uwb_embedding
+    occupancy_detection_uwb_embedding
+    localization_uwb_embedding

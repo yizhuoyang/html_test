@@ -1,9 +1,0 @@
-﻿timemasking
-===========
-.. currentmodule:: pysensing.acoustic.augmentation.spectrogram_aug
-
-.. autoclass:: timemasking
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

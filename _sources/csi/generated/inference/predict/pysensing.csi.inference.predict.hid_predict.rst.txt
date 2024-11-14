@@ -1,9 +1,0 @@
-﻿hid_predict
-===========
-.. currentmodule:: pysensing.csi.inference.predict
-
-.. autoclass:: hid_predict
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

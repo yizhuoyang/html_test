@@ -1,5 +1,0 @@
-﻿signal_shift_time
-=================
-.. currentmodule:: pysensing.uwb.augmentation.time_shifting
-
-.. autofunction:: signal_shift_time

@@ -1,9 +1,0 @@
-﻿MetaFi_Dataset
-==============
-.. currentmodule:: pysensing.csi.dataset.hpe
-
-.. autoclass:: MetaFi_Dataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

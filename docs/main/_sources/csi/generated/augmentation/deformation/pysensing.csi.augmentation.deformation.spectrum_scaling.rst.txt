@@ -1,0 +1,9 @@
+﻿spectrum_scaling
+================
+.. currentmodule:: pysensing.csi.augmentation.deformation
+
+.. autoclass:: spectrum_scaling
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

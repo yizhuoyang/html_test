@@ -1,9 +1,0 @@
-﻿har_LSTM
-========
-.. currentmodule:: pysensing.mmwave.PC.model.har
-
-.. autoclass:: har_LSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

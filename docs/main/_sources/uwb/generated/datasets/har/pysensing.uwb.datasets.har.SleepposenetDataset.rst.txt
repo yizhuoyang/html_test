@@ -1,0 +1,9 @@
+﻿SleepposenetDataset
+===================
+.. currentmodule:: pysensing.uwb.datasets.har
+
+.. autoclass:: SleepposenetDataset
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

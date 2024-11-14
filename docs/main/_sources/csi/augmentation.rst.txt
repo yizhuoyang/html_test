@@ -1,0 +1,25 @@
+CSI.Augmentation
+---------------------------------
+Add Noise
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.csi.augmentation.adding_noise
+.. autosummary::
+    :toctree: generated/augmentation/adding_noise
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    dropout
+    add_noise
+
+Deformation
+~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.csi.augmentation.deformation
+.. autosummary::
+    :toctree: generated/augmentation/deformation
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    time_stretching
+    spectrum_scaling
+    spectrum_shifting
+

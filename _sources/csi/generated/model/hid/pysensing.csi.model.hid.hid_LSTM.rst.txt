@@ -1,9 +1,0 @@
-﻿hid_LSTM
-========
-.. currentmodule:: pysensing.csi.model.hid
-
-.. autoclass:: hid_LSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

@@ -1,9 +1,0 @@
-﻿remove_nan
-==========
-.. currentmodule:: pysensing.rssi.preprocessing.filtering
-
-.. autoclass:: remove_nan
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

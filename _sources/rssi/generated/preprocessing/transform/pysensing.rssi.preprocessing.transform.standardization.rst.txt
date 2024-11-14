@@ -1,9 +1,0 @@
-﻿standardization
-===============
-.. currentmodule:: pysensing.rssi.preprocessing.transform
-
-.. autoclass:: standardization
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

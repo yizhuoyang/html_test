@@ -1,9 +1,0 @@
-﻿Block
-=====
-.. currentmodule:: pysensing.uwb.models.localization
-
-.. autoclass:: Block
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

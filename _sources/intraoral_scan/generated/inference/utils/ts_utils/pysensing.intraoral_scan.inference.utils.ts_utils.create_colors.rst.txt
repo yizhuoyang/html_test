@@ -1,5 +1,0 @@
-﻿create_colors
-=============
-.. currentmodule:: pysensing.intraoral_scan.inference.utils.ts_utils
-
-.. autofunction:: create_colors

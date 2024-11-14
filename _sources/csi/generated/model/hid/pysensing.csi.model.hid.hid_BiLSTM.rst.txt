@@ -1,9 +1,0 @@
-﻿hid_BiLSTM
-==========
-.. currentmodule:: pysensing.csi.model.hid
-
-.. autoclass:: hid_BiLSTM
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

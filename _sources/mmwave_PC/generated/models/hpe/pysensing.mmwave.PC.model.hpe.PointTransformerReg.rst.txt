@@ -1,9 +1,0 @@
-﻿PointTransformerReg
-===================
-.. currentmodule:: pysensing.mmwave.PC.model.hpe
-
-.. autoclass:: PointTransformerReg
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

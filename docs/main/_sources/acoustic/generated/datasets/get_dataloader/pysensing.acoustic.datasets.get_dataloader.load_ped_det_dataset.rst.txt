@@ -1,0 +1,5 @@
+﻿load_ped_det_dataset
+====================
+.. currentmodule:: pysensing.acoustic.datasets.get_dataloader
+
+.. autofunction:: load_ped_det_dataset

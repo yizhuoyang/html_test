@@ -1,9 +1,0 @@
-﻿har_MLP
-=======
-.. currentmodule:: pysensing.csi.model.har
-
-.. autoclass:: har_MLP
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

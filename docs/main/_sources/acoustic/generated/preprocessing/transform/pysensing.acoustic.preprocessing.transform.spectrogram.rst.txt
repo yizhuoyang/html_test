@@ -1,0 +1,9 @@
+﻿spectrogram
+===========
+.. currentmodule:: pysensing.acoustic.preprocessing.transform
+
+.. autoclass:: spectrogram
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

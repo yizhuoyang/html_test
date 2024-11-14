@@ -1,0 +1,9 @@
+﻿TANet
+=====
+.. currentmodule:: pysensing.intraoral_scan.models.tooth_alignment.tanet
+
+.. autoclass:: TANet
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

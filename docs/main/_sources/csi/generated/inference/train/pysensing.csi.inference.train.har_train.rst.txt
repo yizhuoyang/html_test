@@ -1,0 +1,9 @@
+﻿har_train
+=========
+.. currentmodule:: pysensing.csi.inference.train
+
+.. autoclass:: har_train
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

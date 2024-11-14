@@ -1,9 +1,0 @@
-﻿HAR_AUDIOCNN
-============
-.. currentmodule:: pysensing.acoustic.models.har
-
-.. autoclass:: HAR_AUDIOCNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

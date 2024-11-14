@@ -1,9 +1,0 @@
-﻿cropping
-========
-.. currentmodule:: pysensing.mmwave.PC.preprocessing.uniform
-
-.. autoclass:: cropping
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

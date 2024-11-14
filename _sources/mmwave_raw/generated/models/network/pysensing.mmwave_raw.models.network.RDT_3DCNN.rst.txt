@@ -1,9 +1,0 @@
-﻿RDT_3DCNN
-=========
-.. currentmodule:: pysensing.mmwave_raw.models.network
-
-.. autoclass:: RDT_3DCNN
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

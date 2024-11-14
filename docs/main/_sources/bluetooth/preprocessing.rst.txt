@@ -1,0 +1,24 @@
+BLUETOOTH.Preprocessing
+-------------------------------------------
+Filtering
+~~~~~~~~~
+.. currentmodule:: pysensing.bluetooth.preprocessing.filtering
+.. autosummary::
+    :toctree: generated/preprocessing/filtering
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    remove_nan
+    median_filter
+    average_filter
+
+Transform
+~~~~~~~~~
+.. currentmodule:: pysensing.bluetooth.preprocessing.transform
+.. autosummary::
+    :toctree: generated/preprocessing/transform
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    normalization
+    standardization

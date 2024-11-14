@@ -1,0 +1,9 @@
+﻿mfcc
+====
+.. currentmodule:: pysensing.acoustic.preprocessing.transform
+
+.. autoclass:: mfcc
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

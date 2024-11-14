@@ -1,0 +1,9 @@
+﻿melspectrogram
+==============
+.. currentmodule:: pysensing.acoustic.preprocessing.transform
+
+.. autoclass:: melspectrogram
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

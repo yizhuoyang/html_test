@@ -1,0 +1,40 @@
+mmwave_raw.Inference
+------------------------------
+Human Gesture Recognition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave_raw.inference.hgr
+.. autosummary::
+    :toctree: generated/inference/hgr
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    hgr_train
+    hgr_test
+    hgr_train_val
+
+
+Human Activity Recognition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave_raw.inference.har
+.. autosummary::
+    :toctree: generated/inference/har
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    har_train
+    har_test
+    har_train_val
+
+
+Embedding
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave_raw.inference.embedding
+.. autosummary::
+    :toctree: generated/inference/embedding
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    get_intermediate_output
+    embedding
+
+

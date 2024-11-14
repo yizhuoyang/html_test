@@ -1,9 +1,0 @@
-﻿SoundPoseLSTMDataset
-====================
-.. currentmodule:: pysensing.acoustic.datasets.hpe
-
-.. autoclass:: SoundPoseLSTMDataset
-    :members:
-    :undoc-members:
-    :show-inheritance:
-    

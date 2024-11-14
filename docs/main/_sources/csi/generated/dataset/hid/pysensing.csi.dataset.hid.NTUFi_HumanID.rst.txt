@@ -1,0 +1,9 @@
+﻿NTUFi_HumanID
+=============
+.. currentmodule:: pysensing.csi.dataset.hid
+
+.. autoclass:: NTUFi_HumanID
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

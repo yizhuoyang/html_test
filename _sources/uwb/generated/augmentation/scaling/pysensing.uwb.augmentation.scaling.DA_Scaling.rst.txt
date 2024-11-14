@@ -1,5 +1,0 @@
-﻿DA_Scaling
-==========
-.. currentmodule:: pysensing.uwb.augmentation.scaling
-
-.. autofunction:: DA_Scaling

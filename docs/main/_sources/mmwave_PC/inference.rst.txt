@@ -1,0 +1,35 @@
+mmwave_PC.Inference
+------------------------------
+Human Pose Estimation
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave.PC.inference.hpe
+.. autosummary::
+    :toctree: generated/inference/hpe
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    hpe_train
+    hpe_test
+
+Human Activity Recognition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave.PC.inference.har
+.. autosummary::
+    :toctree: generated/inference/har
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    har_train
+    har_test
+
+Human Gesture Recognition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave.PC.inference.hgr
+.. autosummary::
+    :toctree: generated/inference/hgr
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    hgr_train
+    hgr_test
+
