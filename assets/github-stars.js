@@ -73,7 +73,7 @@ function addFilterScript() {
     data["displayCount"] +
     " pagination=" +
     data["pagination"] +
-    " src='//assets/filter-hub-tags.js'></script>";
+    " src='./assets/filter-hub-tags.js'></script>";
 
   return script;
 }
