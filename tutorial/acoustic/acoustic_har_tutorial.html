@@ -1,0 +1,828 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Acoustic Human Activity Recognition Tutorial &mdash; Pysensing Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Acoustic Hand Gesture Recognition Tutorial" href="acoustic_hgr_tutorial.html" />
+    <link rel="prev" title="Acoustic augmentation.spectrogram_aug Tutorial" href="acoustic_spectrogram_aug_tutorial.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li class="active"> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://yizhuoyang.github.io/html_test/">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acoustic_filter_tutorial.html">Acoustic Preprocessing.Filter Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acoustic_transform_tutorial.html">Acoustic Preprocssing.Transfrom Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acoustic_sig_aug_tutorial.html">Acoustic Augmentation.Signal_aug Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acoustic_spectrogram_aug_tutorial.html">Acoustic augmentation.spectrogram_aug Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Acoustic Human Activity Recognition Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acoustic_hgr_tutorial.html">Acoustic Hand Gesture Recognition Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acoustic_ped_det_tutorial.html">Acoustic Pedestrian Detection Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acoustic_hpe_tutorial.html">Acoustic Human Pose estimation Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Acoustic Human Activity Recognition Tutorial</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/acoustic/acoustic_har_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+
+          <div class="pytorch-call-to-action-links">
+            <div id="tutorial-type">acoustic/acoustic_har_tutorial</div>
+
+            <div id="google-colab-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-colab.svg"/>
+              <div class="call-to-action-desktop-view">Run in Google Colab</div>
+              <div class="call-to-action-mobile-view">Colab</div>
+            </div>
+            <div id="download-notebook-link">
+              <img class="call-to-action-notebook-img" src="../_static/images/pytorch-download.svg"/>
+              <div class="call-to-action-desktop-view">Download Notebook</div>
+              <div class="call-to-action-mobile-view">Notebook</div>
+            </div>
+            <div id="github-view-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-github.svg"/>
+              <div class="call-to-action-desktop-view">View on GitHub</div>
+              <div class="call-to-action-mobile-view">GitHub</div>
+            </div>
+          </div>
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-acoustic-acoustic-har-tutorial-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="acoustic-human-activity-recognition-tutorial">
+<span id="sphx-glr-acoustic-acoustic-har-tutorial-py"></span><h1>Acoustic Human Activity Recognition Tutorial<a class="headerlink" href="#acoustic-human-activity-recognition-tutorial" title="Permalink to this heading">¶</a></h1>
+<p>!pip install pysensing</p>
+<p>In this tutorial, we will be implementing codes for acoustic Human activity recognition</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pysensing.acoustic.datasets.har</span> <span class="k">as</span> <span class="nn">har_datasets</span>
+<span class="kn">import</span> <span class="nn">pysensing.acoustic.models.har</span> <span class="k">as</span> <span class="nn">har_models</span>
+<span class="kn">import</span> <span class="nn">pysensing.acoustic.models.get_model</span> <span class="k">as</span> <span class="nn">acoustic_models</span>
+<span class="kn">import</span> <span class="nn">pysensing.acoustic.inference.embedding</span> <span class="k">as</span> <span class="nn">embedding</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="samosa-sensoring-activities-with-motion-abd-subsampled-audio">
+<h2>SAMoSA: Sensoring Activities with Motion abd Subsampled Audio<a class="headerlink" href="#samosa-sensoring-activities-with-motion-abd-subsampled-audio" title="Permalink to this heading">¶</a></h2>
+<p>SAMSoSA dataset is designed to use audio and IMU data collected by a watch to predict the actions of the users.</p>
+<p>There are totally 27 actions in the dataset.</p>
+<p>In the library, we provide a dataloader to use only audio data to predict these actions.</p>
+</section>
+<section id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">¶</a></h2>
+<p>Method 1: Use get_dataloader</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">train_loader</span><span class="p">,</span><span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_har_dataset</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;samosa&#39;</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Method 2: Manually setup the dataloader</span>
+<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;./data&#39;</span> <span class="c1"># The path contains the samosa dataset</span>
+<span class="n">samosa_traindataset</span> <span class="o">=</span> <span class="n">har_datasets</span><span class="o">.</span><span class="n">SAMoSA</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">samosa_testdataset</span> <span class="o">=</span> <span class="n">har_datasets</span><span class="o">.</span><span class="n">SAMoSA</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="c1"># Define the dataloader</span>
+<span class="n">samosa_trainloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">samosa_traindataset</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">samosa_testloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">samosa_testdataset</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">dataclass</span> <span class="o">=</span> <span class="n">samosa_traindataset</span><span class="o">.</span><span class="n">class_dict</span>
+<span class="n">datalist</span>  <span class="o">=</span> <span class="n">samosa_traindataset</span><span class="o">.</span><span class="n">audio_data</span>
+<span class="c1"># Example of the samples in the dataset</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Randomly select an index</span>
+<span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">samosa_traindataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spectrogram for activity: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_acoustic_har_tutorial_001.png" srcset="../_images/sphx_glr_acoustic_har_tutorial_001.png" alt="Spectrogram for activity: 0" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>using dataset: SAMoSA
+</pre></div>
+</div>
+</section>
+<section id="load-the-model">
+<h2>Load the model<a class="headerlink" href="#load-the-model" title="Permalink to this heading">¶</a></h2>
+<p>Method 1:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">samosa_model</span> <span class="o">=</span> <span class="n">har_models</span><span class="o">.</span><span class="n">HAR_SAMCNN</span><span class="p">(</span><span class="n">dropout</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="c1"># Method 2:</span>
+<span class="n">samosa_model</span> <span class="o">=</span> <span class="n">acoustic_models</span><span class="o">.</span><span class="n">load_har_model</span><span class="p">(</span><span class="s1">&#39;samcnn&#39;</span><span class="p">,</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="model-training-and-testing">
+<h2>Model training and testing<a class="headerlink" href="#model-training-and-testing" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.inference.training.har_train</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># Model training</span>
+<span class="n">epoch</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">samosa_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="mf">0.0001</span><span class="p">)</span>
+<span class="n">har_train_val</span><span class="p">(</span><span class="n">samosa_model</span><span class="p">,</span><span class="n">samosa_trainloader</span><span class="p">,</span><span class="n">samosa_testloader</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">save_dir</span> <span class="o">=</span> <span class="s1">&#39;./data&#39;</span><span class="p">,</span><span class="n">save</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Model testing</span>
+<span class="n">test_loss</span> <span class="o">=</span> <span class="n">har_test</span><span class="p">(</span><span class="n">samosa_model</span><span class="p">,</span><span class="n">samosa_testloader</span><span class="p">,</span><span class="n">criterion</span><span class="p">,</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Train round0/1:   0%|          | 0/78 [00:00&lt;?, ?batch/s]
+Train round0/1:   1%|▏         | 1/78 [00:00&lt;00:20,  3.76batch/s]
+Train round0/1:   3%|▎         | 2/78 [00:00&lt;00:12,  5.87batch/s]
+Train round0/1:   4%|▍         | 3/78 [00:00&lt;00:10,  7.22batch/s]
+Train round0/1:   5%|▌         | 4/78 [00:00&lt;00:09,  7.67batch/s]
+Train round0/1:   8%|▊         | 6/78 [00:00&lt;00:08,  8.98batch/s]
+Train round0/1:  10%|█         | 8/78 [00:00&lt;00:07,  9.52batch/s]
+Train round0/1:  12%|█▏        | 9/78 [00:01&lt;00:07,  9.57batch/s]
+Train round0/1:  14%|█▍        | 11/78 [00:01&lt;00:06,  9.87batch/s]
+Train round0/1:  17%|█▋        | 13/78 [00:01&lt;00:06, 10.19batch/s]
+Train round0/1:  19%|█▉        | 15/78 [00:01&lt;00:06, 10.13batch/s]
+Train round0/1:  22%|██▏       | 17/78 [00:01&lt;00:05, 10.87batch/s]
+Train round0/1:  24%|██▍       | 19/78 [00:01&lt;00:05, 10.74batch/s]
+Train round0/1:  27%|██▋       | 21/78 [00:02&lt;00:05, 10.36batch/s]
+Train round0/1:  29%|██▉       | 23/78 [00:02&lt;00:05, 10.37batch/s]
+Train round0/1:  32%|███▏      | 25/78 [00:02&lt;00:05, 10.43batch/s]
+Train round0/1:  35%|███▍      | 27/78 [00:02&lt;00:04, 10.33batch/s]
+Train round0/1:  37%|███▋      | 29/78 [00:02&lt;00:04, 10.78batch/s]
+Train round0/1:  40%|███▉      | 31/78 [00:03&lt;00:04, 10.82batch/s]
+Train round0/1:  42%|████▏     | 33/78 [00:03&lt;00:04, 10.68batch/s]
+Train round0/1:  45%|████▍     | 35/78 [00:03&lt;00:04, 10.67batch/s]
+Train round0/1:  47%|████▋     | 37/78 [00:03&lt;00:03, 10.76batch/s]
+Train round0/1:  50%|█████     | 39/78 [00:03&lt;00:03, 10.47batch/s]
+Train round0/1:  53%|█████▎    | 41/78 [00:04&lt;00:03, 10.56batch/s]
+Train round0/1:  55%|█████▌    | 43/78 [00:04&lt;00:03, 10.41batch/s]
+Train round0/1:  58%|█████▊    | 45/78 [00:04&lt;00:03, 10.45batch/s]
+Train round0/1:  60%|██████    | 47/78 [00:04&lt;00:03, 10.13batch/s]
+Train round0/1:  63%|██████▎   | 49/78 [00:04&lt;00:02, 10.03batch/s]
+Train round0/1:  65%|██████▌   | 51/78 [00:05&lt;00:02, 10.58batch/s]
+Train round0/1:  68%|██████▊   | 53/78 [00:05&lt;00:02, 11.08batch/s]
+Train round0/1:  71%|███████   | 55/78 [00:05&lt;00:01, 11.71batch/s]
+Train round0/1:  73%|███████▎  | 57/78 [00:05&lt;00:01, 12.21batch/s]
+Train round0/1:  76%|███████▌  | 59/78 [00:05&lt;00:01, 11.85batch/s]
+Train round0/1:  78%|███████▊  | 61/78 [00:05&lt;00:01, 11.22batch/s]
+Train round0/1:  81%|████████  | 63/78 [00:06&lt;00:01, 11.14batch/s]
+Train round0/1:  83%|████████▎ | 65/78 [00:06&lt;00:01, 11.13batch/s]
+Train round0/1:  86%|████████▌ | 67/78 [00:06&lt;00:01, 10.82batch/s]
+Train round0/1:  88%|████████▊ | 69/78 [00:06&lt;00:00, 10.94batch/s]
+Train round0/1:  91%|█████████ | 71/78 [00:06&lt;00:00, 10.86batch/s]
+Train round0/1:  94%|█████████▎| 73/78 [00:07&lt;00:00, 10.66batch/s]
+Train round0/1:  96%|█████████▌| 75/78 [00:07&lt;00:00, 10.65batch/s]
+Train round0/1:  99%|█████████▊| 77/78 [00:07&lt;00:00, 10.62batch/s]
+
+Epoch:1, Accuracy:0.7590,Loss:0.735932323
+
+Test round:   0%|          | 0/30 [00:00&lt;?, ?batch/s]
+Test round:   3%|▎         | 1/30 [00:00&lt;00:03,  9.51batch/s]
+Test round:  10%|█         | 3/30 [00:00&lt;00:02, 11.42batch/s]
+Test round:  17%|█▋        | 5/30 [00:00&lt;00:02, 11.17batch/s]
+Test round:  23%|██▎       | 7/30 [00:00&lt;00:02, 10.89batch/s]
+Test round:  30%|███       | 9/30 [00:00&lt;00:01, 11.28batch/s]
+Test round:  37%|███▋      | 11/30 [00:01&lt;00:01, 10.89batch/s]
+Test round:  43%|████▎     | 13/30 [00:01&lt;00:01, 10.86batch/s]
+Test round:  50%|█████     | 15/30 [00:01&lt;00:01, 11.13batch/s]
+Test round:  57%|█████▋    | 17/30 [00:01&lt;00:01, 10.99batch/s]
+Test round:  63%|██████▎   | 19/30 [00:01&lt;00:01, 10.82batch/s]
+Test round:  70%|███████   | 21/30 [00:01&lt;00:00, 11.09batch/s]
+Test round:  77%|███████▋  | 23/30 [00:02&lt;00:00, 10.88batch/s]
+Test round:  83%|████████▎ | 25/30 [00:02&lt;00:00, 11.01batch/s]
+Test round:  90%|█████████ | 27/30 [00:02&lt;00:00, 11.44batch/s]
+Test round:  97%|█████████▋| 29/30 [00:02&lt;00:00, 11.35batch/s]
+
+test accuracy:0.6594, loss:1.07134
+Save model at ./data/train_0.pth...
+
+Test round:   0%|          | 0/30 [00:00&lt;?, ?batch/s]
+Test round:  30%|███       | 9/30 [00:00&lt;00:00, 84.41batch/s]
+Test round:  67%|██████▋   | 20/30 [00:00&lt;00:00, 94.29batch/s]
+
+test accuracy:0.6599, loss:1.07058
+</pre></div>
+</div>
+</section>
+<section id="modle-inference-for-single-sample">
+<h2>Modle inference for single sample<a class="headerlink" href="#modle-inference-for-single-sample" title="Permalink to this heading">¶</a></h2>
+<p>Method 1
+You may aslo load your own trained model by setting the path
+samosa_model.load_state_dict(torch.load(‘path_to_model’)) # the path for the model</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">samosa_testdataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">samosa_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="c1">#Direct use the model for sample inference</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">predicted_result</span> <span class="o">=</span> <span class="n">samosa_model</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The ground truth is </span><span class="si">{}</span><span class="s2">, while the predicted activity is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+
+<span class="c1"># Method 2</span>
+<span class="c1"># Use inference.predict</span>
+<span class="kn">from</span> <span class="nn">pysensing.acoustic.inference.predict</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">predicted_result</span>  <span class="o">=</span> <span class="n">har_predict</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">,</span><span class="s1">&#39;SAMoSA&#39;</span><span class="p">,</span><span class="n">samosa_model</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The ground truth is </span><span class="si">{}</span><span class="s2">, while the predicted activity is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The ground truth is 18, while the predicted activity is 18
+The ground truth is 18, while the predicted activity is 18
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>Modle inference for single sample<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.inference.embedding</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">sample_embedding</span> <span class="o">=</span> <span class="n">har_embedding</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">,</span><span class="s1">&#39;SAMoSA&#39;</span><span class="p">,</span><span class="n">samosa_model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="implementation-of-audioimu-enhancing-inertial-sensing-based-activity-recognition-with-acoustic-models">
+<h2>Implementation of “AudioIMU: Enhancing Inertial Sensing-Based Activity Recognition with Acoustic Models”<a class="headerlink" href="#implementation-of-audioimu-enhancing-inertial-sensing-based-activity-recognition-with-acoustic-models" title="Permalink to this heading">¶</a></h2>
+<p>This dataset is designed to use audio and IMU data collected by a watch to predict the actions of the users, 23 different activities are collected in the dataset.</p>
+<p>But different from the orginal paper, the reimplemeted paper only takes the audio data for human activity recognition. Subjects 01, 02, 03, 04 are used for testing while the other are used for training.</p>
+</section>
+<section id="id2">
+<h2>Load the data<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>Method 1: Use get_dataloader</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">train_loader</span><span class="p">,</span><span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_har_dataset</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;audioimu&#39;</span><span class="p">,</span>
+    <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Method2</span>
+<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;./data&#39;</span> <span class="c1"># The path contains the audioimu dataset</span>
+<span class="n">audioimu_traindataset</span> <span class="o">=</span> <span class="n">har_datasets</span><span class="o">.</span><span class="n">AudioIMU</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">audioimu_testdataset</span> <span class="o">=</span> <span class="n">har_datasets</span><span class="o">.</span><span class="n">AudioIMU</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="c1"># Define the Dataloader</span>
+<span class="n">audioimu_trainloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">audioimu_traindataset</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">audioimu_testloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">audioimu_testdataset</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">drop_last</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#List the activity classes in the dataset</span>
+<span class="n">dataclass</span> <span class="o">=</span> <span class="n">audioimu_traindataset</span><span class="o">.</span><span class="n">classlist</span>
+<span class="c1"># Example of the samples in the dataset</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Randomly select an index</span>
+<span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">audioimu_testdataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Spectrogram for activity: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_acoustic_har_tutorial_002.png" srcset="../_images/sphx_glr_acoustic_har_tutorial_002.png" alt="Spectrogram for activity: 15" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>using dataset: AudioImu
+torch.Size([1, 64, 690])
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2>Load the model<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>Method 1</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">audio_model</span> <span class="o">=</span> <span class="n">har_models</span><span class="o">.</span><span class="n">HAR_AUDIOCNN</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="c1"># Method2</span>
+<span class="n">audio_model</span> <span class="o">=</span> <span class="n">acoustic_models</span><span class="o">.</span><span class="n">load_har_model</span><span class="p">(</span><span class="s1">&#39;audiocnn&#39;</span><span class="p">,</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>Model training and testing<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.inference.training.har_train</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">epoch</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">audio_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="mf">0.0001</span><span class="p">)</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">har_train_val</span><span class="p">(</span><span class="n">audio_model</span><span class="p">,</span><span class="n">audioimu_trainloader</span><span class="p">,</span><span class="n">audioimu_testloader</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span><span class="n">save</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Model testing</span>
+<span class="n">test_loss</span> <span class="o">=</span> <span class="n">har_test</span><span class="p">(</span><span class="n">audio_model</span><span class="p">,</span><span class="n">audioimu_testloader</span><span class="p">,</span><span class="n">criterion</span><span class="p">,</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Train round0/1:   0%|          | 0/40 [00:00&lt;?, ?batch/s]
+Train round0/1:   2%|▎         | 1/40 [00:03&lt;02:21,  3.63s/batch]
+Train round0/1:   5%|▌         | 2/40 [00:04&lt;01:11,  1.88s/batch]
+Train round0/1:   8%|▊         | 3/40 [00:04&lt;00:48,  1.31s/batch]
+Train round0/1:  10%|█         | 4/40 [00:05&lt;00:37,  1.05s/batch]
+Train round0/1:  12%|█▎        | 5/40 [00:06&lt;00:31,  1.10batch/s]
+Train round0/1:  15%|█▌        | 6/40 [00:06&lt;00:27,  1.22batch/s]
+Train round0/1:  18%|█▊        | 7/40 [00:07&lt;00:25,  1.30batch/s]
+Train round0/1:  20%|██        | 8/40 [00:08&lt;00:23,  1.38batch/s]
+Train round0/1:  22%|██▎       | 9/40 [00:08&lt;00:21,  1.41batch/s]
+Train round0/1:  25%|██▌       | 10/40 [00:09&lt;00:20,  1.45batch/s]
+Train round0/1:  28%|██▊       | 11/40 [00:10&lt;00:19,  1.49batch/s]
+Train round0/1:  30%|███       | 12/40 [00:10&lt;00:18,  1.50batch/s]
+Train round0/1:  32%|███▎      | 13/40 [00:11&lt;00:17,  1.51batch/s]
+Train round0/1:  35%|███▌      | 14/40 [00:12&lt;00:17,  1.51batch/s]
+Train round0/1:  38%|███▊      | 15/40 [00:12&lt;00:16,  1.53batch/s]
+Train round0/1:  40%|████      | 16/40 [00:13&lt;00:15,  1.52batch/s]
+Train round0/1:  42%|████▎     | 17/40 [00:14&lt;00:15,  1.52batch/s]
+Train round0/1:  45%|████▌     | 18/40 [00:14&lt;00:14,  1.51batch/s]
+Train round0/1:  48%|████▊     | 19/40 [00:15&lt;00:13,  1.52batch/s]
+Train round0/1:  50%|█████     | 20/40 [00:16&lt;00:13,  1.52batch/s]
+Train round0/1:  52%|█████▎    | 21/40 [00:16&lt;00:12,  1.53batch/s]
+Train round0/1:  55%|█████▌    | 22/40 [00:17&lt;00:11,  1.53batch/s]
+Train round0/1:  57%|█████▊    | 23/40 [00:17&lt;00:11,  1.53batch/s]
+Train round0/1:  60%|██████    | 24/40 [00:18&lt;00:10,  1.54batch/s]
+Train round0/1:  62%|██████▎   | 25/40 [00:19&lt;00:09,  1.54batch/s]
+Train round0/1:  65%|██████▌   | 26/40 [00:19&lt;00:09,  1.53batch/s]
+Train round0/1:  68%|██████▊   | 27/40 [00:20&lt;00:08,  1.54batch/s]
+Train round0/1:  70%|███████   | 28/40 [00:21&lt;00:07,  1.54batch/s]
+Train round0/1:  72%|███████▎  | 29/40 [00:21&lt;00:07,  1.54batch/s]
+Train round0/1:  75%|███████▌  | 30/40 [00:22&lt;00:06,  1.53batch/s]
+Train round0/1:  78%|███████▊  | 31/40 [00:23&lt;00:05,  1.54batch/s]
+Train round0/1:  80%|████████  | 32/40 [00:23&lt;00:05,  1.53batch/s]
+Train round0/1:  82%|████████▎ | 33/40 [00:24&lt;00:04,  1.53batch/s]
+Train round0/1:  85%|████████▌ | 34/40 [00:25&lt;00:03,  1.54batch/s]
+Train round0/1:  88%|████████▊ | 35/40 [00:25&lt;00:03,  1.53batch/s]
+Train round0/1:  90%|█████████ | 36/40 [00:26&lt;00:02,  1.53batch/s]
+Train round0/1:  92%|█████████▎| 37/40 [00:27&lt;00:01,  1.54batch/s]
+Train round0/1:  95%|█████████▌| 38/40 [00:27&lt;00:01,  1.54batch/s]
+Train round0/1:  98%|█████████▊| 39/40 [00:28&lt;00:00,  1.54batch/s]
+Train round0/1: 100%|██████████| 40/40 [00:29&lt;00:00,  1.53batch/s]
+
+Epoch:1, Accuracy:0.9660,Loss:0.096005203
+
+Test round:   0%|          | 0/15 [00:00&lt;?, ?batch/s]
+Test round:   7%|▋         | 1/15 [00:00&lt;00:07,  1.82batch/s]
+Test round:  13%|█▎        | 2/15 [00:01&lt;00:07,  1.83batch/s]
+Test round:  20%|██        | 3/15 [00:01&lt;00:06,  1.84batch/s]
+Test round:  27%|██▋       | 4/15 [00:02&lt;00:05,  1.84batch/s]
+Test round:  33%|███▎      | 5/15 [00:02&lt;00:05,  1.84batch/s]
+Test round:  40%|████      | 6/15 [00:03&lt;00:04,  1.84batch/s]
+Test round:  47%|████▋     | 7/15 [00:03&lt;00:04,  1.84batch/s]
+Test round:  53%|█████▎    | 8/15 [00:04&lt;00:03,  1.84batch/s]
+Test round:  60%|██████    | 9/15 [00:04&lt;00:03,  1.82batch/s]
+Test round:  67%|██████▋   | 10/15 [00:05&lt;00:02,  1.83batch/s]
+Test round:  73%|███████▎  | 11/15 [00:05&lt;00:02,  1.84batch/s]
+Test round:  80%|████████  | 12/15 [00:06&lt;00:01,  1.84batch/s]
+Test round:  87%|████████▋ | 13/15 [00:07&lt;00:01,  1.85batch/s]
+Test round:  93%|█████████▎| 14/15 [00:07&lt;00:00,  1.85batch/s]
+Test round: 100%|██████████| 15/15 [00:08&lt;00:00,  1.84batch/s]
+
+test accuracy:0.5781, loss:3.59506
+</pre></div>
+</div>
+</section>
+<section id="model-inference">
+<h2>Model inference<a class="headerlink" href="#model-inference" title="Permalink to this heading">¶</a></h2>
+<p>You may aslo load your own trained model by setting the path
+audio_model.load_state_dict(torch.load(‘path_to_model’)) # the path for the model</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">audioimu_testdataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">audio_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">predicted_result</span> <span class="o">=</span> <span class="n">audio_model</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The ground truth is </span><span class="si">{}</span><span class="s2">, while the predicted activity is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+
+<span class="c1">#Method 2</span>
+<span class="c1">#Use inference.predict</span>
+<span class="kn">from</span> <span class="nn">pysensing.acoustic.inference.predict</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">predicted_result</span>  <span class="o">=</span> <span class="n">har_predict</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">,</span><span class="s1">&#39;AudioIMU&#39;</span><span class="p">,</span><span class="n">audio_model</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The ground truth is </span><span class="si">{}</span><span class="s2">, while the predicted activity is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The ground truth is 21, while the predicted activity is 21
+The ground truth is 21, while the predicted activity is 21
+</pre></div>
+</div>
+</section>
+<section id="model-embedding">
+<h2>Model embedding<a class="headerlink" href="#model-embedding" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.inference.embedding</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">sample_embedding</span> <span class="o">=</span> <span class="n">har_embedding</span><span class="p">(</span><span class="n">spectrogram</span><span class="p">,</span><span class="s1">&#39;AudioIMU&#39;</span><span class="p">,</span><span class="n">audio_model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And that’s it. We’re done with our acoustic humna activity recognition tutorials. Thanks for reading.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 49.397 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-acoustic-acoustic-har-tutorial-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/bb5ba084e4aab8ccbd115f017642c308/acoustic_har_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">acoustic_har_tutorial.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/7f52a050f53cbc380d524bb56e96166c/acoustic_har_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">acoustic_har_tutorial.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="acoustic_hgr_tutorial.html" class="btn btn-neutral float-right" title="Acoustic Hand Gesture Recognition Tutorial" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="acoustic_spectrogram_aug_tutorial.html" class="btn btn-neutral" title="Acoustic augmentation.spectrogram_aug Tutorial" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr class="rating-hr hr-top">
+      <div class="rating-container">
+        <div class="rating-prompt">Rate this Tutorial</div>
+        <div class="stars-outer">
+          <i class="far fa-star" title="1 Star" data-behavior="tutorial-rating" data-count="1"></i>
+          <i class="far fa-star" title="2 Stars" data-behavior="tutorial-rating" data-count="2"></i>
+          <i class="far fa-star" title="3 Stars" data-behavior="tutorial-rating" data-count="3"></i>
+          <i class="far fa-star" title="4 Stars" data-behavior="tutorial-rating" data-count="4"></i>
+          <i class="far fa-star" title="5 Stars" data-behavior="tutorial-rating" data-count="5"></i>
+        </div>
+      </div>
+    <hr class="rating-hr hr-bottom"/>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://yizhuoyang.github.io/html_test/">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://yizhuoyang.github.io/html_test/">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://yizhuoyang.github.io/html_test/">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+.. Pypose Tutorials documentation master file, created by
+   sphinx-quickstart on Sun Sep 11 00:56:21 2022.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Pysensing Tutorials
+============================================
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Acoustic
+
+   acoustic/acoustic_filter_tutorial
+   acoustic/acoustic_transform_tutorial
+   acoustic/acoustic_sig_aug_tutorial
+   acoustic/acoustic_spectrogram_aug_tutorial
+   acoustic/acoustic_har_tutorial
+   acoustic/acoustic_hgr_tutorial
+   acoustic/acoustic_ped_det_tutorial
+   acoustic/acoustic_hpe_tutorial
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
