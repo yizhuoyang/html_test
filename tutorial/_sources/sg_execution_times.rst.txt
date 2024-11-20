@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**06:36.057** total execution time for 9 files **from all galleries**:
+**14:58.022** total execution time for 10 files **from all galleries**:
 
 .. container::
 
@@ -32,30 +32,33 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_acoustic_acoustic_hpe_tutorial.py` (``acoustic_source/acoustic_hpe_tutorial.py``)
-     - 03:04.931
-     - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_source/acoustic_ped_det_tutorial.py``)
-     - 02:36.325
+     - 11:42.783
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_hpe_tutorial.py` (``acoustic_source/acoustic_hpe_tutorial.py``)
+     - 02:46.766
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_har_tutorial.py` (``acoustic_source/acoustic_har_tutorial.py``)
-     - 00:49.397
+     - 00:22.802
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_hgr_tutorial.py` (``acoustic_source/acoustic_hgr_tutorial.py``)
-     - 00:01.342
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_transform_tutorial.py` (``acoustic_source/acoustic_transform_tutorial.py``)
-     - 00:01.097
+     - 00:01.204
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_sig_aug_tutorial.py` (``acoustic_source/acoustic_sig_aug_tutorial.py``)
-     - 00:01.017
+     - 00:01.033
      - 0.0
-   * - :ref:`sphx_glr_csi_acoustic_filter_tutorial.py` (``csi_source/acoustic_filter_tutorial.py``)
-     - 00:00.841
+   * - :ref:`sphx_glr_acoustic_acoustic_transform_tutorial.py` (``acoustic_source/acoustic_transform_tutorial.py``)
+     - 00:00.936
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_filter_tutorial.py` (``acoustic_source/acoustic_filter_tutorial.py``)
-     - 00:00.649
+     - 00:00.691
+     - 0.0
+   * - :ref:`sphx_glr_csi_acoustic_filter_tutorial.py` (``csi_source/acoustic_filter_tutorial.py``)
+     - 00:00.681
+     - 0.0
+   * - :ref:`sphx_glr_rssi_acoustic_filter_tutorial.py` (``rssi_source/acoustic_filter_tutorial.py``)
+     - 00:00.678
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_spectrogram_aug_tutorial.py` (``acoustic_source/acoustic_spectrogram_aug_tutorial.py``)
-     - 00:00.458
+     - 00:00.448
      - 0.0

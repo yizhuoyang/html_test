@@ -86,7 +86,7 @@
 
           <!-- <li> -->
           <li>
-            <a href="https://yizhuoyang.github.io/html_test/">Doc</a>
+            <a href="https://yizhuoyang.github.io/html_test/docs/main/index.html">Doc</a>
           </li>
 
           <li>
@@ -160,6 +160,18 @@
 <li class="toctree-l1"><a class="reference internal" href="acoustic_ped_det_tutorial.html">Acoustic Pedestrian Detection Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acoustic_hpe_tutorial.html">Acoustic Human Pose estimation Tutorial</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">CSI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../csi/add_noise_tutorial.html">CSI Augmentation.adding_noise Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/deformation_tutorial.html">CSI Preprocessing.transform Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/denoising_tutorial.html">CSI Preprocessing.denoising Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/HAR_HID_tutorial.html">CSI Augmentation.deformation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/HFD_tutorial.html">CSI classification tasks Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/HPE_tutorial.html">CSI human pose estimation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/Reconstruction_tutorial.html">CSI human reconstruction Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/transform_tutorial.html">CSI human fall detection Tutorial</a></li>
+</ul>
+
 
             
           
@@ -286,8 +298,8 @@ to download the full example code.</p>
 </section>
 <section id="load-the-data">
 <h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">¶</a></h2>
-<p>Method 1: Use get_dataloader</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 1: Use get_dataloader</span>
+<span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">train_loader</span><span class="p">,</span><span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_har_dataset</span><span class="p">(</span>
     <span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span>
     <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;samosa&#39;</span><span class="p">,</span>
@@ -317,8 +329,8 @@ to download the full example code.</p>
 </section>
 <section id="load-the-model">
 <h2>Load the model<a class="headerlink" href="#load-the-model" title="Permalink to this heading">¶</a></h2>
-<p>Method 1:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">samosa_model</span> <span class="o">=</span> <span class="n">har_models</span><span class="o">.</span><span class="n">HAR_SAMCNN</span><span class="p">(</span><span class="n">dropout</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 1:</span>
+<span class="n">samosa_model</span> <span class="o">=</span> <span class="n">har_models</span><span class="o">.</span><span class="n">HAR_SAMCNN</span><span class="p">(</span><span class="n">dropout</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span class="c1"># Method 2:</span>
 <span class="n">samosa_model</span> <span class="o">=</span> <span class="n">acoustic_models</span><span class="o">.</span><span class="n">load_har_model</span><span class="p">(</span><span class="s1">&#39;samcnn&#39;</span><span class="p">,</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </pre></div>
@@ -338,89 +350,45 @@ to download the full example code.</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Train round0/1:   0%|          | 0/78 [00:00&lt;?, ?batch/s]
-Train round0/1:   1%|▏         | 1/78 [00:00&lt;00:20,  3.76batch/s]
-Train round0/1:   3%|▎         | 2/78 [00:00&lt;00:12,  5.87batch/s]
-Train round0/1:   4%|▍         | 3/78 [00:00&lt;00:10,  7.22batch/s]
-Train round0/1:   5%|▌         | 4/78 [00:00&lt;00:09,  7.67batch/s]
-Train round0/1:   8%|▊         | 6/78 [00:00&lt;00:08,  8.98batch/s]
-Train round0/1:  10%|█         | 8/78 [00:00&lt;00:07,  9.52batch/s]
-Train round0/1:  12%|█▏        | 9/78 [00:01&lt;00:07,  9.57batch/s]
-Train round0/1:  14%|█▍        | 11/78 [00:01&lt;00:06,  9.87batch/s]
-Train round0/1:  17%|█▋        | 13/78 [00:01&lt;00:06, 10.19batch/s]
-Train round0/1:  19%|█▉        | 15/78 [00:01&lt;00:06, 10.13batch/s]
-Train round0/1:  22%|██▏       | 17/78 [00:01&lt;00:05, 10.87batch/s]
-Train round0/1:  24%|██▍       | 19/78 [00:01&lt;00:05, 10.74batch/s]
-Train round0/1:  27%|██▋       | 21/78 [00:02&lt;00:05, 10.36batch/s]
-Train round0/1:  29%|██▉       | 23/78 [00:02&lt;00:05, 10.37batch/s]
-Train round0/1:  32%|███▏      | 25/78 [00:02&lt;00:05, 10.43batch/s]
-Train round0/1:  35%|███▍      | 27/78 [00:02&lt;00:04, 10.33batch/s]
-Train round0/1:  37%|███▋      | 29/78 [00:02&lt;00:04, 10.78batch/s]
-Train round0/1:  40%|███▉      | 31/78 [00:03&lt;00:04, 10.82batch/s]
-Train round0/1:  42%|████▏     | 33/78 [00:03&lt;00:04, 10.68batch/s]
-Train round0/1:  45%|████▍     | 35/78 [00:03&lt;00:04, 10.67batch/s]
-Train round0/1:  47%|████▋     | 37/78 [00:03&lt;00:03, 10.76batch/s]
-Train round0/1:  50%|█████     | 39/78 [00:03&lt;00:03, 10.47batch/s]
-Train round0/1:  53%|█████▎    | 41/78 [00:04&lt;00:03, 10.56batch/s]
-Train round0/1:  55%|█████▌    | 43/78 [00:04&lt;00:03, 10.41batch/s]
-Train round0/1:  58%|█████▊    | 45/78 [00:04&lt;00:03, 10.45batch/s]
-Train round0/1:  60%|██████    | 47/78 [00:04&lt;00:03, 10.13batch/s]
-Train round0/1:  63%|██████▎   | 49/78 [00:04&lt;00:02, 10.03batch/s]
-Train round0/1:  65%|██████▌   | 51/78 [00:05&lt;00:02, 10.58batch/s]
-Train round0/1:  68%|██████▊   | 53/78 [00:05&lt;00:02, 11.08batch/s]
-Train round0/1:  71%|███████   | 55/78 [00:05&lt;00:01, 11.71batch/s]
-Train round0/1:  73%|███████▎  | 57/78 [00:05&lt;00:01, 12.21batch/s]
-Train round0/1:  76%|███████▌  | 59/78 [00:05&lt;00:01, 11.85batch/s]
-Train round0/1:  78%|███████▊  | 61/78 [00:05&lt;00:01, 11.22batch/s]
-Train round0/1:  81%|████████  | 63/78 [00:06&lt;00:01, 11.14batch/s]
-Train round0/1:  83%|████████▎ | 65/78 [00:06&lt;00:01, 11.13batch/s]
-Train round0/1:  86%|████████▌ | 67/78 [00:06&lt;00:01, 10.82batch/s]
-Train round0/1:  88%|████████▊ | 69/78 [00:06&lt;00:00, 10.94batch/s]
-Train round0/1:  91%|█████████ | 71/78 [00:06&lt;00:00, 10.86batch/s]
-Train round0/1:  94%|█████████▎| 73/78 [00:07&lt;00:00, 10.66batch/s]
-Train round0/1:  96%|█████████▌| 75/78 [00:07&lt;00:00, 10.65batch/s]
-Train round0/1:  99%|█████████▊| 77/78 [00:07&lt;00:00, 10.62batch/s]
+Train round0/1:   1%|▏         | 1/78 [00:00&lt;00:13,  5.50batch/s]
+Train round0/1:  12%|█▏        | 9/78 [00:00&lt;00:01, 36.70batch/s]
+Train round0/1:  21%|██        | 16/78 [00:00&lt;00:01, 47.57batch/s]
+Train round0/1:  31%|███       | 24/78 [00:00&lt;00:00, 58.36batch/s]
+Train round0/1:  41%|████      | 32/78 [00:00&lt;00:00, 64.76batch/s]
+Train round0/1:  51%|█████▏    | 40/78 [00:00&lt;00:00, 68.15batch/s]
+Train round0/1:  62%|██████▏   | 48/78 [00:00&lt;00:00, 63.41batch/s]
+Train round0/1:  72%|███████▏  | 56/78 [00:00&lt;00:00, 67.40batch/s]
+Train round0/1:  81%|████████  | 63/78 [00:01&lt;00:00, 61.45batch/s]
+Train round0/1:  90%|████████▉ | 70/78 [00:01&lt;00:00, 56.92batch/s]
 
-Epoch:1, Accuracy:0.7590,Loss:0.735932323
+Epoch:1, Accuracy:0.7594,Loss:0.735899113
 
 Test round:   0%|          | 0/30 [00:00&lt;?, ?batch/s]
-Test round:   3%|▎         | 1/30 [00:00&lt;00:03,  9.51batch/s]
-Test round:  10%|█         | 3/30 [00:00&lt;00:02, 11.42batch/s]
-Test round:  17%|█▋        | 5/30 [00:00&lt;00:02, 11.17batch/s]
-Test round:  23%|██▎       | 7/30 [00:00&lt;00:02, 10.89batch/s]
-Test round:  30%|███       | 9/30 [00:00&lt;00:01, 11.28batch/s]
-Test round:  37%|███▋      | 11/30 [00:01&lt;00:01, 10.89batch/s]
-Test round:  43%|████▎     | 13/30 [00:01&lt;00:01, 10.86batch/s]
-Test round:  50%|█████     | 15/30 [00:01&lt;00:01, 11.13batch/s]
-Test round:  57%|█████▋    | 17/30 [00:01&lt;00:01, 10.99batch/s]
-Test round:  63%|██████▎   | 19/30 [00:01&lt;00:01, 10.82batch/s]
-Test round:  70%|███████   | 21/30 [00:01&lt;00:00, 11.09batch/s]
-Test round:  77%|███████▋  | 23/30 [00:02&lt;00:00, 10.88batch/s]
-Test round:  83%|████████▎ | 25/30 [00:02&lt;00:00, 11.01batch/s]
-Test round:  90%|█████████ | 27/30 [00:02&lt;00:00, 11.44batch/s]
-Test round:  97%|█████████▋| 29/30 [00:02&lt;00:00, 11.35batch/s]
+Test round:  40%|████      | 12/30 [00:00&lt;00:00, 109.82batch/s]
+Test round:  83%|████████▎ | 25/30 [00:00&lt;00:00, 117.66batch/s]
 
-test accuracy:0.6594, loss:1.07134
+test accuracy:0.6604, loss:1.06944
 Save model at ./data/train_0.pth...
 
 Test round:   0%|          | 0/30 [00:00&lt;?, ?batch/s]
-Test round:  30%|███       | 9/30 [00:00&lt;00:00, 84.41batch/s]
-Test round:  67%|██████▋   | 20/30 [00:00&lt;00:00, 94.29batch/s]
+Test round:  37%|███▋      | 11/30 [00:00&lt;00:00, 108.12batch/s]
+Test round:  80%|████████  | 24/30 [00:00&lt;00:00, 117.11batch/s]
 
-test accuracy:0.6599, loss:1.07058
+test accuracy:0.6609, loss:1.06880
 </pre></div>
 </div>
 </section>
 <section id="modle-inference-for-single-sample">
 <h2>Modle inference for single sample<a class="headerlink" href="#modle-inference-for-single-sample" title="Permalink to this heading">¶</a></h2>
-<p>Method 1
-You may aslo load your own trained model by setting the path
-samosa_model.load_state_dict(torch.load(‘path_to_model’)) # the path for the model</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">samosa_testdataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<p>Method 1</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># You may aslo load your own trained model by setting the path</span>
+<span class="c1"># samosa_model.load_state_dict(torch.load(&#39;path_to_model&#39;)) # the path for the model</span>
+<span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">samosa_testdataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">samosa_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="c1">#Direct use the model for sample inference</span>
 <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
 <span class="n">predicted_result</span> <span class="o">=</span> <span class="n">samosa_model</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The ground truth is </span><span class="si">{}</span><span class="s2">, while the predicted activity is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+<span class="c1">#print(&quot;The ground truth is {}, while the predicted activity is {}&quot;.format(activity,torch.argmax(predicted_result).cpu()))</span>
 
 <span class="c1"># Method 2</span>
 <span class="c1"># Use inference.predict</span>
@@ -431,7 +399,6 @@ samosa_model.load_state_dict(torch.load(‘path_to_model’)) # the path for the
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The ground truth is 18, while the predicted activity is 18
-The ground truth is 18, while the predicted activity is 18
 </pre></div>
 </div>
 </section>
@@ -450,8 +417,8 @@ The ground truth is 18, while the predicted activity is 18
 </section>
 <section id="id2">
 <h2>Load the data<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
-<p>Method 1: Use get_dataloader</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 1: Use get_dataloader</span>
+<span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">train_loader</span><span class="p">,</span><span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_har_dataset</span><span class="p">(</span>
     <span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span>
     <span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;audioimu&#39;</span><span class="p">,</span>
@@ -483,8 +450,8 @@ torch.Size([1, 64, 690])
 </section>
 <section id="id3">
 <h2>Load the model<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
-<p>Method 1</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">audio_model</span> <span class="o">=</span> <span class="n">har_models</span><span class="o">.</span><span class="n">HAR_AUDIOCNN</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 1</span>
+<span class="n">audio_model</span> <span class="o">=</span> <span class="n">har_models</span><span class="o">.</span><span class="n">HAR_AUDIOCNN</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span class="c1"># Method2</span>
 <span class="n">audio_model</span> <span class="o">=</span> <span class="n">acoustic_models</span><span class="o">.</span><span class="n">load_har_model</span><span class="p">(</span><span class="s1">&#39;audiocnn&#39;</span><span class="p">,</span><span class="n">pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </pre></div>
@@ -503,79 +470,80 @@ torch.Size([1, 64, 690])
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Train round0/1:   0%|          | 0/40 [00:00&lt;?, ?batch/s]
-Train round0/1:   2%|▎         | 1/40 [00:03&lt;02:21,  3.63s/batch]
-Train round0/1:   5%|▌         | 2/40 [00:04&lt;01:11,  1.88s/batch]
-Train round0/1:   8%|▊         | 3/40 [00:04&lt;00:48,  1.31s/batch]
-Train round0/1:  10%|█         | 4/40 [00:05&lt;00:37,  1.05s/batch]
-Train round0/1:  12%|█▎        | 5/40 [00:06&lt;00:31,  1.10batch/s]
-Train round0/1:  15%|█▌        | 6/40 [00:06&lt;00:27,  1.22batch/s]
-Train round0/1:  18%|█▊        | 7/40 [00:07&lt;00:25,  1.30batch/s]
-Train round0/1:  20%|██        | 8/40 [00:08&lt;00:23,  1.38batch/s]
-Train round0/1:  22%|██▎       | 9/40 [00:08&lt;00:21,  1.41batch/s]
-Train round0/1:  25%|██▌       | 10/40 [00:09&lt;00:20,  1.45batch/s]
-Train round0/1:  28%|██▊       | 11/40 [00:10&lt;00:19,  1.49batch/s]
-Train round0/1:  30%|███       | 12/40 [00:10&lt;00:18,  1.50batch/s]
-Train round0/1:  32%|███▎      | 13/40 [00:11&lt;00:17,  1.51batch/s]
-Train round0/1:  35%|███▌      | 14/40 [00:12&lt;00:17,  1.51batch/s]
-Train round0/1:  38%|███▊      | 15/40 [00:12&lt;00:16,  1.53batch/s]
-Train round0/1:  40%|████      | 16/40 [00:13&lt;00:15,  1.52batch/s]
-Train round0/1:  42%|████▎     | 17/40 [00:14&lt;00:15,  1.52batch/s]
-Train round0/1:  45%|████▌     | 18/40 [00:14&lt;00:14,  1.51batch/s]
-Train round0/1:  48%|████▊     | 19/40 [00:15&lt;00:13,  1.52batch/s]
-Train round0/1:  50%|█████     | 20/40 [00:16&lt;00:13,  1.52batch/s]
-Train round0/1:  52%|█████▎    | 21/40 [00:16&lt;00:12,  1.53batch/s]
-Train round0/1:  55%|█████▌    | 22/40 [00:17&lt;00:11,  1.53batch/s]
-Train round0/1:  57%|█████▊    | 23/40 [00:17&lt;00:11,  1.53batch/s]
-Train round0/1:  60%|██████    | 24/40 [00:18&lt;00:10,  1.54batch/s]
-Train round0/1:  62%|██████▎   | 25/40 [00:19&lt;00:09,  1.54batch/s]
-Train round0/1:  65%|██████▌   | 26/40 [00:19&lt;00:09,  1.53batch/s]
-Train round0/1:  68%|██████▊   | 27/40 [00:20&lt;00:08,  1.54batch/s]
-Train round0/1:  70%|███████   | 28/40 [00:21&lt;00:07,  1.54batch/s]
-Train round0/1:  72%|███████▎  | 29/40 [00:21&lt;00:07,  1.54batch/s]
-Train round0/1:  75%|███████▌  | 30/40 [00:22&lt;00:06,  1.53batch/s]
-Train round0/1:  78%|███████▊  | 31/40 [00:23&lt;00:05,  1.54batch/s]
-Train round0/1:  80%|████████  | 32/40 [00:23&lt;00:05,  1.53batch/s]
-Train round0/1:  82%|████████▎ | 33/40 [00:24&lt;00:04,  1.53batch/s]
-Train round0/1:  85%|████████▌ | 34/40 [00:25&lt;00:03,  1.54batch/s]
-Train round0/1:  88%|████████▊ | 35/40 [00:25&lt;00:03,  1.53batch/s]
-Train round0/1:  90%|█████████ | 36/40 [00:26&lt;00:02,  1.53batch/s]
-Train round0/1:  92%|█████████▎| 37/40 [00:27&lt;00:01,  1.54batch/s]
-Train round0/1:  95%|█████████▌| 38/40 [00:27&lt;00:01,  1.54batch/s]
-Train round0/1:  98%|█████████▊| 39/40 [00:28&lt;00:00,  1.54batch/s]
-Train round0/1: 100%|██████████| 40/40 [00:29&lt;00:00,  1.53batch/s]
+Train round0/1:   2%|▎         | 1/40 [00:03&lt;02:04,  3.19s/batch]
+Train round0/1:   5%|▌         | 2/40 [00:03&lt;00:55,  1.47s/batch]
+Train round0/1:   8%|▊         | 3/40 [00:03&lt;00:34,  1.08batch/s]
+Train round0/1:  10%|█         | 4/40 [00:04&lt;00:24,  1.50batch/s]
+Train round0/1:  12%|█▎        | 5/40 [00:04&lt;00:18,  1.93batch/s]
+Train round0/1:  15%|█▌        | 6/40 [00:04&lt;00:14,  2.34batch/s]
+Train round0/1:  18%|█▊        | 7/40 [00:04&lt;00:12,  2.66batch/s]
+Train round0/1:  20%|██        | 8/40 [00:05&lt;00:11,  2.90batch/s]
+Train round0/1:  22%|██▎       | 9/40 [00:05&lt;00:10,  3.08batch/s]
+Train round0/1:  25%|██▌       | 10/40 [00:05&lt;00:09,  3.21batch/s]
+Train round0/1:  28%|██▊       | 11/40 [00:05&lt;00:08,  3.39batch/s]
+Train round0/1:  30%|███       | 12/40 [00:06&lt;00:07,  3.55batch/s]
+Train round0/1:  32%|███▎      | 13/40 [00:06&lt;00:07,  3.55batch/s]
+Train round0/1:  35%|███▌      | 14/40 [00:06&lt;00:07,  3.55batch/s]
+Train round0/1:  38%|███▊      | 15/40 [00:07&lt;00:07,  3.45batch/s]
+Train round0/1:  40%|████      | 16/40 [00:07&lt;00:07,  3.14batch/s]
+Train round0/1:  42%|████▎     | 17/40 [00:07&lt;00:07,  2.95batch/s]
+Train round0/1:  45%|████▌     | 18/40 [00:08&lt;00:07,  2.85batch/s]
+Train round0/1:  48%|████▊     | 19/40 [00:08&lt;00:07,  2.79batch/s]
+Train round0/1:  50%|█████     | 20/40 [00:08&lt;00:07,  2.75batch/s]
+Train round0/1:  52%|█████▎    | 21/40 [00:09&lt;00:06,  2.72batch/s]
+Train round0/1:  55%|█████▌    | 22/40 [00:09&lt;00:06,  2.68batch/s]
+Train round0/1:  57%|█████▊    | 23/40 [00:10&lt;00:06,  2.67batch/s]
+Train round0/1:  60%|██████    | 24/40 [00:10&lt;00:06,  2.66batch/s]
+Train round0/1:  62%|██████▎   | 25/40 [00:10&lt;00:05,  2.68batch/s]
+Train round0/1:  65%|██████▌   | 26/40 [00:11&lt;00:05,  2.68batch/s]
+Train round0/1:  68%|██████▊   | 27/40 [00:11&lt;00:04,  2.66batch/s]
+Train round0/1:  70%|███████   | 28/40 [00:11&lt;00:04,  2.67batch/s]
+Train round0/1:  72%|███████▎  | 29/40 [00:12&lt;00:04,  2.67batch/s]
+Train round0/1:  75%|███████▌  | 30/40 [00:12&lt;00:03,  2.66batch/s]
+Train round0/1:  78%|███████▊  | 31/40 [00:13&lt;00:03,  2.69batch/s]
+Train round0/1:  80%|████████  | 32/40 [00:13&lt;00:02,  2.70batch/s]
+Train round0/1:  82%|████████▎ | 33/40 [00:13&lt;00:02,  2.69batch/s]
+Train round0/1:  85%|████████▌ | 34/40 [00:14&lt;00:02,  2.66batch/s]
+Train round0/1:  88%|████████▊ | 35/40 [00:14&lt;00:01,  2.65batch/s]
+Train round0/1:  90%|█████████ | 36/40 [00:14&lt;00:01,  2.83batch/s]
+Train round0/1:  92%|█████████▎| 37/40 [00:15&lt;00:00,  3.09batch/s]
+Train round0/1:  95%|█████████▌| 38/40 [00:15&lt;00:00,  3.31batch/s]
+Train round0/1:  98%|█████████▊| 39/40 [00:15&lt;00:00,  3.48batch/s]
+Train round0/1: 100%|██████████| 40/40 [00:15&lt;00:00,  3.61batch/s]
 
-Epoch:1, Accuracy:0.9660,Loss:0.096005203
+Epoch:1, Accuracy:0.9637,Loss:0.097062966
 
 Test round:   0%|          | 0/15 [00:00&lt;?, ?batch/s]
-Test round:   7%|▋         | 1/15 [00:00&lt;00:07,  1.82batch/s]
-Test round:  13%|█▎        | 2/15 [00:01&lt;00:07,  1.83batch/s]
-Test round:  20%|██        | 3/15 [00:01&lt;00:06,  1.84batch/s]
-Test round:  27%|██▋       | 4/15 [00:02&lt;00:05,  1.84batch/s]
-Test round:  33%|███▎      | 5/15 [00:02&lt;00:05,  1.84batch/s]
-Test round:  40%|████      | 6/15 [00:03&lt;00:04,  1.84batch/s]
-Test round:  47%|████▋     | 7/15 [00:03&lt;00:04,  1.84batch/s]
-Test round:  53%|█████▎    | 8/15 [00:04&lt;00:03,  1.84batch/s]
-Test round:  60%|██████    | 9/15 [00:04&lt;00:03,  1.82batch/s]
-Test round:  67%|██████▋   | 10/15 [00:05&lt;00:02,  1.83batch/s]
-Test round:  73%|███████▎  | 11/15 [00:05&lt;00:02,  1.84batch/s]
-Test round:  80%|████████  | 12/15 [00:06&lt;00:01,  1.84batch/s]
-Test round:  87%|████████▋ | 13/15 [00:07&lt;00:01,  1.85batch/s]
-Test round:  93%|█████████▎| 14/15 [00:07&lt;00:00,  1.85batch/s]
-Test round: 100%|██████████| 15/15 [00:08&lt;00:00,  1.84batch/s]
+Test round:   7%|▋         | 1/15 [00:00&lt;00:02,  6.94batch/s]
+Test round:  13%|█▎        | 2/15 [00:00&lt;00:01,  6.95batch/s]
+Test round:  20%|██        | 3/15 [00:00&lt;00:01,  6.98batch/s]
+Test round:  27%|██▋       | 4/15 [00:00&lt;00:01,  6.94batch/s]
+Test round:  33%|███▎      | 5/15 [00:00&lt;00:01,  6.95batch/s]
+Test round:  40%|████      | 6/15 [00:00&lt;00:01,  6.94batch/s]
+Test round:  47%|████▋     | 7/15 [00:01&lt;00:01,  6.96batch/s]
+Test round:  53%|█████▎    | 8/15 [00:01&lt;00:01,  6.96batch/s]
+Test round:  60%|██████    | 9/15 [00:01&lt;00:00,  6.99batch/s]
+Test round:  67%|██████▋   | 10/15 [00:01&lt;00:00,  6.98batch/s]
+Test round:  73%|███████▎  | 11/15 [00:01&lt;00:00,  6.99batch/s]
+Test round:  80%|████████  | 12/15 [00:01&lt;00:00,  6.99batch/s]
+Test round:  87%|████████▋ | 13/15 [00:01&lt;00:00,  7.00batch/s]
+Test round:  93%|█████████▎| 14/15 [00:02&lt;00:00,  7.00batch/s]
+Test round: 100%|██████████| 15/15 [00:02&lt;00:00,  6.99batch/s]
 
-test accuracy:0.5781, loss:3.59506
+test accuracy:0.5969, loss:3.47925
 </pre></div>
 </div>
 </section>
 <section id="model-inference">
 <h2>Model inference<a class="headerlink" href="#model-inference" title="Permalink to this heading">¶</a></h2>
-<p>You may aslo load your own trained model by setting the path
-audio_model.load_state_dict(torch.load(‘path_to_model’)) # the path for the model</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Method 1</span>
+<span class="c1"># You may aslo load your own trained model by setting the path</span>
+<span class="c1"># audio_model.load_state_dict(torch.load(&#39;path_to_model&#39;)) # the path for the model</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
 <span class="n">spectrogram</span><span class="p">,</span><span class="n">activity</span><span class="o">=</span> <span class="n">audioimu_testdataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">audio_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="n">predicted_result</span> <span class="o">=</span> <span class="n">audio_model</span><span class="p">(</span><span class="n">spectrogram</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The ground truth is </span><span class="si">{}</span><span class="s2">, while the predicted activity is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">activity</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+<span class="c1">#print(&quot;The ground truth is {}, while the predicted activity is {}&quot;.format(activity,torch.argmax(predicted_result).cpu()))</span>
 
 <span class="c1">#Method 2</span>
 <span class="c1">#Use inference.predict</span>
@@ -586,7 +554,6 @@ audio_model.load_state_dict(torch.load(‘path_to_model’)) # the path for the 
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The ground truth is 21, while the predicted activity is 21
-The ground truth is 21, while the predicted activity is 21
 </pre></div>
 </div>
 </section>
@@ -598,7 +565,7 @@ The ground truth is 21, while the predicted activity is 21
 </pre></div>
 </div>
 <p>And that’s it. We’re done with our acoustic humna activity recognition tutorials. Thanks for reading.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 49.397 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 22.802 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-acoustic-acoustic-har-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/bb5ba084e4aab8ccbd115f017642c308/acoustic_har_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">acoustic_har_tutorial.ipynb</span></code></a></p>
@@ -703,7 +670,7 @@ The ground truth is 21, while the predicted activity is 21
         <div class="col-md-4 text-center">
           <h2>Docs</h2>
           <p>Access documentation for Pysensing</p>
-          <a class="with-right-arrow" href="https://yizhuoyang.github.io/html_test/">View Docs</a>
+          <a class="with-right-arrow" href="https://yizhuoyang.github.io/html_test/docs/main/index.html">View Docs</a>
         </div>
 
         <div class="col-md-4 text-center">
@@ -741,7 +708,7 @@ The ground truth is 21, while the predicted activity is 21
           <ul>
             <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
             <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
-            <li><a href="https://yizhuoyang.github.io/html_test/">Docs</a></li>
+            <li><a href="https://yizhuoyang.github.io/html_test/docs/main/index.html">Docs</a></li>
             <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
           </ul>
         </div>
@@ -790,7 +757,7 @@ The ground truth is 21, while the predicted activity is 21
             <a href="https://github.com/pysensing/pysensing">Tutorials</a>
           </li>
           <li>
-            <a href="https://yizhuoyang.github.io/html_test/">Docs</a>
+            <a href="https://yizhuoyang.github.io/html_test/docs/main/index.html">Docs</a>
           </li>
           <li>
             <a href="https://github.com/pysensing/pysensing">About Us</a>

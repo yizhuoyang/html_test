@@ -1,9 +1,8 @@
 :orphan:
 
-This is my gallery
-==================
+# pysensing.acoustic examples
 
-Below is a gallery of examples
+Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, acoustic.model
 
 
 .. raw:: html
@@ -12,11 +11,34 @@ Below is a gallery of examples
 
 .. thumbnail-parent-div-open
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic Preprocessing.Filter Tutorial">
+
+.. only:: html
+
+  .. image:: /rssi/images/thumb/sphx_glr_acoustic_filter_tutorial_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_rssi_acoustic_filter_tutorial.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Acoustic Preprocessing.Filter Tutorial</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
 
     </div>
+
+
+.. toctree::
+   :hidden:
+
+   /rssi/acoustic_filter_tutorial
 
 
 .. only:: html
@@ -26,6 +48,10 @@ Below is a gallery of examples
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download all examples in Python source code: rssi_python.zip </rssi/rssi_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: rssi_jupyter.zip </rssi/rssi_jupyter.zip>`
 
 
 .. only:: html

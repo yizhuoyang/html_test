@@ -115,23 +115,6 @@ Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, aco
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic Human Activity Recognition Tutorial">
-
-.. only:: html
-
-  .. image:: /acoustic/images/thumb/sphx_glr_acoustic_har_tutorial_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_acoustic_acoustic_har_tutorial.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Acoustic Human Activity Recognition Tutorial</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Acoustic Pedestrian Detection Tutorial">
 
 .. only:: html
@@ -144,6 +127,23 @@ Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, aco
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Acoustic Pedestrian Detection Tutorial</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic Human Activity Recognition Tutorial">
+
+.. only:: html
+
+  .. image:: /acoustic/images/thumb/sphx_glr_acoustic_har_tutorial_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_acoustic_acoustic_har_tutorial.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Acoustic Human Activity Recognition Tutorial</div>
     </div>
 
 
@@ -163,8 +163,8 @@ Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, aco
    /acoustic/acoustic_filter_tutorial
    /acoustic/acoustic_transform_tutorial
    /acoustic/acoustic_hpe_tutorial
-   /acoustic/acoustic_har_tutorial
    /acoustic/acoustic_ped_det_tutorial
+   /acoustic/acoustic_har_tutorial
 
 
 .. only:: html

@@ -1,0 +1,609 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CSI Augmentation.deformation Tutorial &mdash; Pysensing Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CSI classification tasks Tutorial" href="HAR_HID_tutorial.html" />
+    <link rel="prev" title="CSI Preprocessing.denoising Tutorial" href="denoising_tutorial.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li class="active"> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+<p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_filter_tutorial.html">Acoustic Preprocessing.Filter Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_transform_tutorial.html">Acoustic Preprocssing.Transfrom Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_sig_aug_tutorial.html">Acoustic Augmentation.Signal_aug Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_spectrogram_aug_tutorial.html">Acoustic augmentation.spectrogram_aug Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_har_tutorial.html">Acoustic Human Activity Recognition Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_hgr_tutorial.html">Acoustic Hand Gesture Recognition Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_ped_det_tutorial.html">Acoustic Pedestrian Detection Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_hpe_tutorial.html">Acoustic Human Pose estimation Tutorial</a></li>
+</ul>               
+            
+              <p class="caption" role="heading"><span class="caption-text">CSI</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="add_noise_tutorial.html">CSI Augmentation.adding_noise Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transform_tutorial.html">CSI Preprocessing.transform Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="denoising_tutorial.html">CSI Preprocessing.denoising Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CSI Augmentation.deformation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HAR_HID_tutorial.html">CSI classification tasks Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HPE_tutorial.html">CSI human pose estimation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reconstruction_tutorial.html">CSI human reconstruction Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HFD_tutorial.html">CSI human fall detection Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>CSI Augmentation.deformation Tutorial</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/csi/deformation_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+
+          <div class="pytorch-call-to-action-links">
+            <div id="tutorial-type">csi/deformation_tutorial</div>
+
+            <div id="google-colab-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-colab.svg"/>
+              <div class="call-to-action-desktop-view">Run in Google Colab</div>
+              <div class="call-to-action-mobile-view">Colab</div>
+            </div>
+            <div id="download-notebook-link">
+              <img class="call-to-action-notebook-img" src="../_static/images/pytorch-download.svg"/>
+              <div class="call-to-action-desktop-view">Download Notebook</div>
+              <div class="call-to-action-mobile-view">Notebook</div>
+            </div>
+            <div id="github-view-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-github.svg"/>
+              <div class="call-to-action-desktop-view">View on GitHub</div>
+              <div class="call-to-action-mobile-view">GitHub</div>
+            </div>
+          </div>
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-csi-deformation-tutorial-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="csi-augmentation-deformation-tutorial">
+<span id="sphx-glr-csi-deformation-tutorial-py"></span><h1>CSI Augmentation.deformation Tutorial<a class="headerlink" href="#csi-augmentation-deformation-tutorial" title="Permalink to this heading">¶</a></h1>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install pysensing</span>
+</pre></div>
+</div>
+<p>In this tutorial, we will be implementing a simple csi.augmentation.deformation tutorial using the pysensing library.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../..&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pysensing.csi.augmentation.deformation</span> <span class="k">as</span> <span class="nn">deformation</span>
+<span class="kn">import</span> <span class="nn">pysensing.csi.dataset.get_dataloader</span> <span class="k">as</span> <span class="nn">load_data</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+</pre></div>
+</div>
+<section id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the plot function</span>
+
+<span class="k">def</span> <span class="nf">plot_csi_heatmap</span><span class="p">(</span><span class="n">csi_data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot WiFi CSI heatmap.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_shape</span> <span class="o">=</span> <span class="n">csi_data</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">csi_to_plot</span> <span class="o">=</span> <span class="n">csi_data</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">csi_to_plot</span> <span class="o">=</span> <span class="n">csi_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">data_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The input data should have at least 2 dimensions.&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">csi_to_plot</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;CSI Amplitude&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;WiFi CSI Heatmap&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time Index&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Subcarrier Index / Flattened Antenna-Subcarrier Index&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">plot_spec</span><span class="p">(</span><span class="n">csi</span><span class="p">):</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">csi_spectrogram</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">csi</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+    <span class="n">specgram</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">csi_spectrogram</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">specgram</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;CSI Amplitude&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Load the data</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_data</span><span class="o">.</span><span class="n">load_classification_dataset</span><span class="p">(</span><span class="s1">&#39;UT_HAR&#39;</span><span class="p">,</span><span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">example_csi_data_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+    <span class="n">data</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="n">example_csi_data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">example_csi_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">example_csi_data_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_csi_heatmap</span><span class="p">(</span><span class="n">example_csi_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_deformation_tutorial_001.png" srcset="../_images/sphx_glr_deformation_tutorial_001.png" alt="WiFi CSI Heatmap" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/data1/msc/zyj/yunjiao_csi/1028/yunjiao_csi/tutorials/csi_source/data/csi
+using dataset: UT-HAR DATA
+</pre></div>
+</div>
+</section>
+<section id="time-stretching">
+<h2>1. time stretching<a class="headerlink" href="#time-stretching" title="Permalink to this heading">¶</a></h2>
+<p>Use time stretching augmentation</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">csi_process</span> <span class="o">=</span> <span class="n">deformation</span><span class="o">.</span><span class="n">time_stretching</span><span class="p">(</span><span class="n">stretch_rate</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">reduced_csi_data</span> <span class="o">=</span> <span class="n">csi_process</span><span class="p">(</span><span class="n">example_csi_data</span><span class="p">)</span>
+<span class="n">plot_csi_heatmap</span><span class="p">(</span><span class="n">reduced_csi_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_deformation_tutorial_002.png" srcset="../_images/sphx_glr_deformation_tutorial_002.png" alt="WiFi CSI Heatmap" class = "sphx-glr-single-img"/></section>
+<section id="spectrum-scaling">
+<h2>2. spectrum scaling<a class="headerlink" href="#spectrum-scaling" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Use spectrum scaling augmentation</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">csi_process</span> <span class="o">=</span> <span class="n">deformation</span><span class="o">.</span><span class="n">spectrum_scaling</span><span class="p">(</span><span class="n">scale_factor</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">reduced_csi_data</span> <span class="o">=</span> <span class="n">csi_process</span><span class="p">(</span><span class="n">example_csi_data</span><span class="p">)</span>
+<span class="n">plot_spec</span><span class="p">(</span><span class="n">example_csi_data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_spec</span><span class="p">(</span><span class="n">reduced_csi_data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_csi_heatmap</span><span class="p">(</span><span class="n">reduced_csi_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../_images/sphx_glr_deformation_tutorial_003.png" srcset="../_images/sphx_glr_deformation_tutorial_003.png" alt="deformation tutorial" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_deformation_tutorial_004.png" srcset="../_images/sphx_glr_deformation_tutorial_004.png" alt="deformation tutorial" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_deformation_tutorial_005.png" srcset="../_images/sphx_glr_deformation_tutorial_005.png" alt="WiFi CSI Heatmap" class = "sphx-glr-multi-img"/></li>
+</ul>
+</section>
+<section id="spectrum-shifting">
+<h2>3. spectrum shifting<a class="headerlink" href="#spectrum-shifting" title="Permalink to this heading">¶</a></h2>
+<p>Use spectrum shifting augmentation</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">csi_process</span> <span class="o">=</span> <span class="n">deformation</span><span class="o">.</span><span class="n">spectrum_shifting</span><span class="p">(</span><span class="n">shift_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">shift_max</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">reduced_csi_data</span> <span class="o">=</span> <span class="n">csi_process</span><span class="p">(</span><span class="n">example_csi_data</span><span class="p">)</span>
+<span class="n">plot_spec</span><span class="p">(</span><span class="n">example_csi_data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_spec</span><span class="p">(</span><span class="n">reduced_csi_data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plot_csi_heatmap</span><span class="p">(</span><span class="n">reduced_csi_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../_images/sphx_glr_deformation_tutorial_006.png" srcset="../_images/sphx_glr_deformation_tutorial_006.png" alt="deformation tutorial" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_deformation_tutorial_007.png" srcset="../_images/sphx_glr_deformation_tutorial_007.png" alt="deformation tutorial" class = "sphx-glr-multi-img"/></li>
+<li><img src="../_images/sphx_glr_deformation_tutorial_008.png" srcset="../_images/sphx_glr_deformation_tutorial_008.png" alt="WiFi CSI Heatmap" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p>And that’s it. We’re done with our CSI augmentation.deformation tutorials. Thanks for reading.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.166 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-csi-deformation-tutorial-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/86da1d18d001b6858b5cbc4a5d3c2de4/deformation_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">deformation_tutorial.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/375618a77453465dbbd21247cebbc9e0/deformation_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">deformation_tutorial.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="HAR_HID_tutorial.html" class="btn btn-neutral float-right" title="CSI classification tasks Tutorial" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="denoising_tutorial.html" class="btn btn-neutral" title="CSI Preprocessing.denoising Tutorial" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr class="rating-hr hr-top">
+      <div class="rating-container">
+        <div class="rating-prompt">Rate this Tutorial</div>
+        <div class="stars-outer">
+          <i class="far fa-star" title="1 Star" data-behavior="tutorial-rating" data-count="1"></i>
+          <i class="far fa-star" title="2 Stars" data-behavior="tutorial-rating" data-count="2"></i>
+          <i class="far fa-star" title="3 Stars" data-behavior="tutorial-rating" data-count="3"></i>
+          <i class="far fa-star" title="4 Stars" data-behavior="tutorial-rating" data-count="4"></i>
+          <i class="far fa-star" title="5 Stars" data-behavior="tutorial-rating" data-count="5"></i>
+        </div>
+      </div>
+    <hr class="rating-hr hr-bottom"/>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

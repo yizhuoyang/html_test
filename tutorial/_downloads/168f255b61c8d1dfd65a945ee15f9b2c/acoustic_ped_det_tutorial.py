@@ -25,9 +25,9 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 # Reimplementation of "AV-PedAware: Self-Supervised Audio-Visual Fusion for Dynamic Pedestrian Awareness".
 #
 # This dataset contains the footstep sound of the pedestains which used for pedestrian localization..
-
+#
 # Note: Different from original paper which utilizes both audio and visual data to train the network. This library only focuses on using only audio data for pedestrian localization.
-
+#
 # The dataset can be downloaded from https://github.com/yizhuoyang/AV-PedAware
 
 ######################################################################
@@ -48,6 +48,7 @@ plt.show()
 ######################################################################
 # Load model
 # ------------------------
+
 # Method 1:
 avped_model = PED_CNN(0.2).to(device)
 # Method 2:
@@ -56,6 +57,7 @@ avped_model = load_ped_det_model('ped_cnn',pretrained=True).to(device)
 ######################################################################
 # Modle Training and Testing
 # ------------------------
+
 # Model training
 from pysensing.acoustic.inference.training.ped_det_train import *
 avped_trainloader = DataLoader(avped_traindataset,batch_size=64,shuffle=True,drop_last=True)
@@ -69,6 +71,7 @@ loss = ped_det_test(avped_model,avped_testloader,  device)
 ######################################################################
 # Modle Inference
 # ------------------------
+
 # Method 1
 spectrogram,position,lidar= avped_testdataset.__getitem__(1)
 avped_model.eval()
@@ -98,11 +101,12 @@ sample_embedding = ped_det_embedding(spectrogram,'AVPed',avped_model, device=dev
 # AFPILD: Acoustic footstep dataset collected using one microphone array and LiDAR sensor for person identification and localization
 # ----------------------------------------------------------------------------------
 # Reimplementation of "AFPILD: Acoustic footstep dataset collected using one microphone array and LiDAR sensor for person identification and localization".
-
+3
 # This dataset contains footstep sound of the pedestains which used for pedestrian localization and classification
 ######################################################################
 # Load the data
 # ------------------------
+
 # Method 1: Use get_dataloader
 from pysensing.acoustic.datasets.get_dataloader import *
 train_loader,test_loader = load_ped_det_dataset(
@@ -167,6 +171,7 @@ afpild_testing(
 ######################################################################
 # Model inference
 # ------------------------
+
 # Load the model 1
 avped_model = PED_CRNN(task='ideloc_ori_cloth.pth').to(device)
 # avped_model.load_state_dict(torch.load('path to weights',weights_only=True)['models']['model'])
@@ -177,8 +182,8 @@ avped_model = load_ped_det_model('ped_crnn',pretrained=True,task='ideloc_ori_clo
 # Model prediction 1
 data_dict_tensor = {k: torch.Tensor(v).to(device).unsqueeze(0).float() for k, v in data_dict.items()}
 output = avped_model(data_dict_tensor).squeeze(0).detach().cpu().numpy()
-print("The predicted person id is: {}, the ground truth is: {}".format(np.argmax(output[:40]),int(label[0])))
-print("The predicted angle is: {}, the ground truth is: {}".format(output[-1],label[1]))
+#print("The predicted person id is: {}, the ground truth is: {}".format(np.argmax(output[:40]),int(label[0])))
+#print("The predicted angle is: {}, the ground truth is: {}".format(output[-1],label[1]))
 
 # Model prediction 2
 from pysensing.acoustic.inference.predict import *

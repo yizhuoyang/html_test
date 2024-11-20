@@ -36,6 +36,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 ######################################################################
 # Load the data
 # ------------------------
+
 # Method 1: Use get_dataloader
 from pysensing.acoustic.datasets.get_dataloader import *
 train_loader,test_loader = load_har_dataset(
@@ -62,6 +63,7 @@ plt.show()
 ######################################################################
 # Load the model
 # ------------------------
+
 # Method 1:
 samosa_model = har_models.HAR_SAMCNN(dropout=0.6).to(device)
 # Method 2:
@@ -85,6 +87,7 @@ test_loss = har_test(samosa_model,samosa_testloader,criterion,device)
 # Modle inference for single sample
 # ------------------------
 # Method 1
+
 # You may aslo load your own trained model by setting the path
 # samosa_model.load_state_dict(torch.load('path_to_model')) # the path for the model
 spectrogram,activity= samosa_testdataset.__getitem__(3)
@@ -92,7 +95,7 @@ samosa_model.eval()
 #Direct use the model for sample inference
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 predicted_result = samosa_model(spectrogram.unsqueeze(0).float().to(device))
-print("The ground truth is {}, while the predicted activity is {}".format(activity,torch.argmax(predicted_result).cpu()))
+#print("The ground truth is {}, while the predicted activity is {}".format(activity,torch.argmax(predicted_result).cpu()))
 
 # Method 2
 # Use inference.predict
@@ -118,6 +121,7 @@ sample_embedding = har_embedding(spectrogram,'SAMoSA',samosa_model, device=devic
 ######################################################################
 # Load the data
 # ------------------------
+
 # Method 1: Use get_dataloader
 from pysensing.acoustic.datasets.get_dataloader import *
 train_loader,test_loader = load_har_dataset(
@@ -146,6 +150,7 @@ plt.show()
 ######################################################################
 # Load the model
 # ------------------------
+
 # Method 1
 audio_model = har_models.HAR_AUDIOCNN().to(device)
 # Method2
@@ -168,13 +173,15 @@ test_loss = har_test(audio_model,audioimu_testloader,criterion,device)
 ######################################################################
 # Model inference
 # ------------------------
+
+#Method 1
 # You may aslo load your own trained model by setting the path
 # audio_model.load_state_dict(torch.load('path_to_model')) # the path for the model
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 spectrogram,activity= audioimu_testdataset.__getitem__(6)
 audio_model.eval()
 predicted_result = audio_model(spectrogram.unsqueeze(0).float().to(device))
-print("The ground truth is {}, while the predicted activity is {}".format(activity,torch.argmax(predicted_result).cpu()))
+#print("The ground truth is {}, while the predicted activity is {}".format(activity,torch.argmax(predicted_result).cpu()))
 
 #Method 2
 #Use inference.predict

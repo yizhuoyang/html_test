@@ -48,6 +48,7 @@ print(sample['sound'].shape)
 ######################################################################
 # Load Speech2pose model
 # ------------------------
+
 # Method 1
 hpe_model = Speech2pose(out_cha=63).to(device)
 # model_path = 'path to pretrian weights'
@@ -140,7 +141,8 @@ evaluate_model(
 ######################################################################
 # Load the Wipose_LSTM model
 # ------------------------
-# # Method 1
+
+# Method 1
 hpe_model = Wipose_LSTM(in_cha=4,out_cha=63).to(device)
 # model_path = 'path to trained model'
 # state_dict = torch.load(model_path,weights_only=True)
@@ -159,6 +161,7 @@ sample= hpe_testdataset.__getitem__(index)
 ######################################################################
 # Model inference
 # ------------------------
+
 # Method 1
 hpe_model.eval()
 predicted_result = hpe_model(sample['sound'].unsqueeze(0).float().to(device))

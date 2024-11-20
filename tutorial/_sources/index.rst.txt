@@ -19,7 +19,12 @@ Welcome to Pysensing Tutorials
    acoustic/acoustic_hgr_tutorial
    acoustic/acoustic_ped_det_tutorial
    acoustic/acoustic_hpe_tutorial
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: RSSI
 
+   rssi/acoustic_filter_tutorial
 
 Indices and tables
 ==================
