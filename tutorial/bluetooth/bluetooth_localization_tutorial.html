@@ -1,0 +1,764 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bluetooth Localization Tutorial &mdash; Pysensing Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data loading and prepocessing" href="../mmwave_raw/mmwave_raw_tutorial.html" />
+    <link rel="prev" title="Acoustic Preprocssing.Transfrom Tutorial" href="../acoustic/acoustic_transform_tutorial.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li class="active"> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+<p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_filter_tutorial.html">Acoustic Preprocessing.Filter Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_transform_tutorial.html">Acoustic Preprocssing.Transfrom Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_sig_aug_tutorial.html">Acoustic Augmentation.Signal_aug Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_spectrogram_aug_tutorial.html">Acoustic augmentation.spectrogram_aug Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_har_tutorial.html">Acoustic Human Activity Recognition Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_hgr_tutorial.html">Acoustic Hand Gesture Recognition Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_ped_det_tutorial.html">Acoustic Pedestrian Detection Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic_hpe_tutorial.html">Acoustic Human Pose estimation Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CSI</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../csi/add_noise_tutorial.html">CSI Augmentation.adding_noise Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/deformation_tutorial.html">CSI Preprocessing.transform Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/denoising_tutorial.html">CSI Preprocessing.denoising Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/HAR_HID_tutorial.html">CSI Augmentation.deformation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/HFD_tutorial.html">CSI classification tasks Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/HPE_tutorial.html">CSI human pose estimation Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/Reconstruction_tutorial.html">CSI human reconstruction Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../csi/transform_tutorial.html">CSI human fall detection Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bluetooth</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bluetooth Localization Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">mmwave_raw</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_raw/mmwave_raw_tutorial.html">Data loading and prepocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_raw/mmwave_raw_tutorial.html#model-loading-and-inference">model loading and inference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">intraoral_scan</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intraoral_scan/tooth_alignment.html">Tutorial for tooth alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intraoral_scan/tooth_segmentation.html">Tutorial for tooth segmentation</a></li>
+<ul>    
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Bluetooth Localization Tutorial</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/bluetooth/bluetooth_localization_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+
+          <div class="pytorch-call-to-action-links">
+            <div id="tutorial-type">bluetooth/bluetooth_localization_tutorial</div>
+
+            <div id="google-colab-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-colab.svg"/>
+              <div class="call-to-action-desktop-view">Run in Google Colab</div>
+              <div class="call-to-action-mobile-view">Colab</div>
+            </div>
+            <div id="download-notebook-link">
+              <img class="call-to-action-notebook-img" src="../_static/images/pytorch-download.svg"/>
+              <div class="call-to-action-desktop-view">Download Notebook</div>
+              <div class="call-to-action-mobile-view">Notebook</div>
+            </div>
+            <div id="github-view-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-github.svg"/>
+              <div class="call-to-action-desktop-view">View on GitHub</div>
+              <div class="call-to-action-mobile-view">GitHub</div>
+            </div>
+          </div>
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-bluetooth-bluetooth-localization-tutorial-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="bluetooth-localization-tutorial">
+<span id="sphx-glr-bluetooth-bluetooth-localization-tutorial-py"></span><h1>Bluetooth Localization Tutorial<a class="headerlink" href="#bluetooth-localization-tutorial" title="Permalink to this heading">¶</a></h1>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install pysensing</span>
+</pre></div>
+</div>
+<p>This is the tutoral for Bluetooth RSSI Based Localization using Fingerprinting Methods</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">Adam</span><span class="p">,</span> <span class="n">SGD</span>
+<span class="kn">from</span> <span class="nn">pysensing.bluetooth.datasets.wmu_ble_loc</span> <span class="kn">import</span> <span class="n">get_dataloader_wmubleloc</span>
+<span class="kn">from</span> <span class="nn">pysensing.bluetooth.datasets.amazonas_indoor_env</span> <span class="kn">import</span> <span class="n">get_dataloader_amazonasindoorenv</span>
+<span class="kn">from</span> <span class="nn">pysensing.bluetooth.models.localization.fingerprinting</span> <span class="kn">import</span> <span class="n">MLP</span><span class="p">,</span> <span class="n">CNN</span><span class="p">,</span> <span class="n">WKNN</span><span class="p">,</span> <span class="n">LSTM</span>
+<span class="kn">from</span> <span class="nn">pysensing.acoustic.datasets.get_dataloader</span> <span class="kn">import</span> <span class="n">download_and_extract</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="data-download-links">
+<h2>Data download links<a class="headerlink" href="#data-download-links" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_url</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;WMUBLELoc&#39;</span><span class="p">:</span> <span class="s1">&#39;https://pysensing.oss-ap-southeast-1.aliyuncs.com/data/ble/WMUBLELoc.zip&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Amazonas&#39;</span><span class="p">:</span><span class="s1">&#39;https://pysensing.oss-ap-southeast-1.aliyuncs.com/data/ble/AmazonasIndoorEnv.zip&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="load-the-wmu-ble-localization-data">
+<h2>Load the WMU BLE Localization Data<a class="headerlink" href="#load-the-wmu-ble-localization-data" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./WMUBLELoc&#39;</span>
+<span class="c1"># download the dataset if the dataset have not been download</span>
+<span class="n">download_and_extract</span><span class="p">(</span><span class="n">dataset_url</span><span class="p">[</span><span class="s1">&#39;WMUBLELoc&#39;</span><span class="p">],</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="n">wmu_path</span> <span class="o">=</span> <span class="s2">&quot;./WMUBLELoc/iBeacon_RSSI_Labeled.csv&quot;</span>
+<span class="n">loader_train</span> <span class="o">=</span> <span class="n">get_dataloader_wmubleloc</span><span class="p">(</span><span class="n">wmu_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">train_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples_train</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader_train</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">loader_test</span> <span class="o">=</span> <span class="n">get_dataloader_wmubleloc</span><span class="p">(</span><span class="n">wmu_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">train_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples_test</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">loader_test</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading https://pysensing.oss-ap-southeast-1.aliyuncs.com/data/ble/WMUBLELoc.zip ...
+
+Downloading:   0%|          | 0.00/150k [00:00&lt;?, ?iB/s]
+Downloading: 100%|██████████| 150k/150k [00:00&lt;00:00, 6.18MiB/s]
+
+Extracting:   0%|          | 0/3 [00:00&lt;?, ?file/s]
+Extracting: 100%|██████████| 3/3 [00:00&lt;00:00, 1964.85file/s]
+Extracted to ./WMUBLELoc
+</pre></div>
+</div>
+</section>
+<section id="non-trainable-method-weighted-k-nearest-neighbors">
+<h2>Non-Trainable Method: Weighted K-Nearest Neighbors<a class="headerlink" href="#non-trainable-method-weighted-k-nearest-neighbors" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_train</span> <span class="o">=</span> <span class="n">loader_train</span><span class="o">.</span><span class="n">dataset</span>
+<span class="n">dataset_test</span> <span class="o">=</span> <span class="n">loader_test</span><span class="o">.</span><span class="n">dataset</span>
+
+<span class="n">train_pos</span> <span class="o">=</span> <span class="n">dataset_train</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">train_ble</span> <span class="o">=</span> <span class="n">dataset_train</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[:,</span> <span class="o">-</span><span class="mi">14</span><span class="p">:]</span>
+
+<span class="n">sample_test_ble</span><span class="p">,</span> <span class="n">sample_test_pos</span> <span class="o">=</span> <span class="n">dataset_test</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">sample_test_ble</span> <span class="o">=</span> <span class="n">sample_test_ble</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+<span class="n">wknn_estimator</span> <span class="o">=</span> <span class="n">WKNN</span><span class="p">(</span><span class="n">train_pos</span><span class="p">,</span> <span class="n">train_ble</span><span class="p">)</span>
+<span class="n">wknn_est_pos</span> <span class="o">=</span> <span class="n">wknn_estimator</span><span class="p">(</span><span class="n">sample_test_ble</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ground Truth Position: </span><span class="si">{}</span><span class="s2">. Estimated Position: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_test_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">wknn_est_pos</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Ground Truth Position: [5. 3.]. Estimated Position: [770.21148984   9.18770179]
+</pre></div>
+</div>
+</section>
+<section id="trainable-method-mlp">
+<h2>Trainable Method: MLP<a class="headerlink" href="#trainable-method-mlp" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="n">mlp_estimator</span> <span class="o">=</span> <span class="n">MLP</span><span class="p">(</span><span class="n">dim_in</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">dim_hidden</span><span class="o">=</span><span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">mlp_estimator</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loader_train</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">mlp_estimator</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="n">mlp_estimator</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">mlp_est_pos</span> <span class="o">=</span> <span class="n">mlp_estimator</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">sample_test_ble</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ground Truth Position: </span><span class="si">{}</span><span class="s2">. Estimated Position: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_test_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">mlp_est_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Ground Truth Position: [5. 3.]. Estimated Position: [5.7395477 2.4713275]
+</pre></div>
+</div>
+</section>
+<section id="trainable-method-cnn-1d">
+<h2>Trainable Method: CNN (1D)<a class="headerlink" href="#trainable-method-cnn-1d" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="n">cnn_estimator</span> <span class="o">=</span> <span class="n">CNN</span><span class="p">(</span><span class="n">dim_in</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim_embed</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">cnn_estimator</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loader_train</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value encountered&quot;</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">cnn_estimator</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid value computed&quot;</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="n">cnn_estimator</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">cnn_est_pos</span> <span class="o">=</span> <span class="n">cnn_estimator</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">sample_test_ble</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ground Truth Position: </span><span class="si">{}</span><span class="s2">. Estimated Position: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_test_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">cnn_est_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Ground Truth Position: [5. 3.]. Estimated Position: [[5.7282224 2.7632375]]
+</pre></div>
+</div>
+</section>
+<section id="trainable-method-lstm">
+<h2>Trainable Method: LSTM<a class="headerlink" href="#trainable-method-lstm" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>
+
+<span class="n">lstm_estimator</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="n">dim_in</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">dim_embed</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">dim_lstm</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lstm_estimator</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loader_train</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value encountered&quot;</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">y</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">lstm_estimator</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid value computed&quot;</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+<span class="n">lstm_estimator</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">lstm_est_pos</span> <span class="o">=</span> <span class="n">lstm_estimator</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">sample_test_ble</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ground Truth Position: </span><span class="si">{}</span><span class="s2">. Estimated Position: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_test_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">lstm_est_pos</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Ground Truth Position: [5. 3.]. Estimated Position: [[4.678388  2.1337519]]
+</pre></div>
+</div>
+</section>
+<section id="train-cnn-models-for-the-amazonas-indoor-environment-dataset">
+<h2>Train CNN models for the Amazonas Indoor Environment Dataset<a class="headerlink" href="#train-cnn-models-for-the-amazonas-indoor-environment-dataset" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="load-the-amazonas-indoor-environment-dataset">
+<h2>Load the Amazonas Indoor Environment Dataset<a class="headerlink" href="#load-the-amazonas-indoor-environment-dataset" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./Amazonas&#39;</span>
+<span class="c1"># download the dataset if the dataset have not been download</span>
+<span class="n">download_and_extract</span><span class="p">(</span><span class="n">dataset_url</span><span class="p">[</span><span class="s1">&#39;Amazonas&#39;</span><span class="p">],</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="n">amazonas_path</span> <span class="o">=</span> <span class="s1">&#39;./Amazonas/AmazonasIndoorEnv&#39;</span>
+<span class="n">amazonas_train_loader</span> <span class="o">=</span> <span class="n">get_dataloader_amazonasindoorenv</span><span class="p">(</span><span class="n">amazonas_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span> <span class="n">train_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples_train</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">amazonas_train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+
+<span class="n">amazonas_test_loader</span> <span class="o">=</span> <span class="n">get_dataloader_amazonasindoorenv</span><span class="p">(</span><span class="n">amazonas_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span> <span class="n">train_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples_test</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">amazonas_test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">amazonas_dataset_test</span> <span class="o">=</span> <span class="n">amazonas_test_loader</span><span class="o">.</span><span class="n">dataset</span>
+<span class="n">test_ble</span><span class="p">,</span> <span class="n">test_pos</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">amazonas_test_loader</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading https://pysensing.oss-ap-southeast-1.aliyuncs.com/data/ble/AmazonasIndoorEnv.zip ...
+
+Downloading:   0%|          | 0.00/151k [00:00&lt;?, ?iB/s]
+Downloading: 100%|██████████| 151k/151k [00:00&lt;00:00, 4.79MiB/s]
+
+Extracting:   0%|          | 0/13 [00:00&lt;?, ?file/s]
+Extracting: 100%|██████████| 13/13 [00:00&lt;00:00, 1255.03file/s]
+Extracted to ./Amazonas
+</pre></div>
+</div>
+</section>
+<section id="train-the-location-coordinates-regression-model">
+<h2>Train the Location (Coordinates) regression model<a class="headerlink" href="#train-the-location-coordinates-regression-model" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">criterion_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">cnn_pos</span> <span class="o">=</span> <span class="n">CNN</span><span class="p">(</span><span class="n">dim_in</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim_embed</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">64</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">optimizer_pos</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">cnn_pos</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">5e-4</span><span class="p">)</span>
+
+<span class="n">train_epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">train_epochs</span><span class="p">):</span>
+    <span class="n">epoch_loss_pos</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">batch_id</span><span class="p">,</span> <span class="n">batch_data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">amazonas_train_loader</span><span class="p">):</span>
+        <span class="n">ble</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">batch_data</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">torch</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">ble</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid value encountered&quot;</span><span class="p">)</span>
+        <span class="n">ble</span> <span class="o">=</span> <span class="n">ble</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="n">pos_pred</span> <span class="o">=</span> <span class="n">cnn_pos</span><span class="p">(</span><span class="n">ble</span><span class="p">)</span>
+        <span class="n">loss_pos</span> <span class="o">=</span> <span class="n">criterion_pos</span><span class="p">(</span><span class="n">pos_pred</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span>
+
+        <span class="n">optimizer_pos</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss_pos</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer_pos</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="n">epoch_loss_pos</span> <span class="o">+=</span> <span class="n">loss_pos</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+    <span class="n">epoch_loss_pos</span> <span class="o">/=</span> <span class="p">(</span><span class="n">batch_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">info</span> <span class="o">=</span> <span class="s1">&#39;Epoch </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">: Train Loss (Localization Error) = </span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+                                                                          <span class="n">train_epochs</span><span class="p">,</span>
+                                                                          <span class="n">epoch_loss_pos</span><span class="p">)</span>
+    <span class="c1"># print(info)</span>
+
+<span class="n">cnn_pos</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">test_pos_pred</span> <span class="o">=</span> <span class="n">cnn_pos</span><span class="p">(</span><span class="n">test_ble</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+<span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">criterion_pos</span><span class="p">(</span><span class="n">test_pos_pred</span><span class="p">,</span> <span class="n">test_pos</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The testing accuracy of coordinate localization is: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test_accuracy</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The testing accuracy of coordinate localization is: 3.324392318725586
+</pre></div>
+</div>
+</section>
+<section id="extract-embeddings-from-pre-trained-localization-model-instance-cnn-for-ujiindoorloc">
+<h2>Extract embeddings from pre-trained localization model (Instance: CNN for UJIIndoorLoc)<a class="headerlink" href="#extract-embeddings-from-pre-trained-localization-model-instance-cnn-for-ujiindoorloc" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">uji_test_loader</span> <span class="o">=</span> <span class="n">get_dataloader_amazonasindoorenv</span><span class="p">(</span><span class="n">amazonas_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">4765</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">receiver</span><span class="o">=</span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span> <span class="n">train_seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples_test</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">uji_test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+<span class="n">dataset_test</span> <span class="o">=</span> <span class="n">uji_test_loader</span><span class="o">.</span><span class="n">dataset</span>
+<span class="n">test_ble</span><span class="p">,</span> <span class="n">test_pos</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">uji_test_loader</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">pysensing.bluetooth.models.localization.load_model</span> <span class="kn">import</span> <span class="n">load_pretrain</span>
+
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CNN</span><span class="p">(</span><span class="n">dim_in</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim_embed</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">64</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">url_pretrain</span> <span class="o">=</span> <span class="s2">&quot;https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/ble/localization/amazonas_coord_cnn.pth&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_pretrain</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">url_pretrain</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+
+<span class="n">emb_area</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate_embeddings</span><span class="p">(</span><span class="n">test_ble</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And that’s it. We’re done with our bluetooth localization tutorial tutorials. Thanks for reading.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 20.651 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-bluetooth-bluetooth-localization-tutorial-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/f13a68b552aa76227f99e6f126f2ce3d/bluetooth_localization_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">bluetooth_localization_tutorial.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a2983cf244f32ba177ca0392ab6eb35d/bluetooth_localization_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">bluetooth_localization_tutorial.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mmwave_raw/mmwave_raw_tutorial.html" class="btn btn-neutral float-right" title="Data loading and prepocessing" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="../acoustic/acoustic_transform_tutorial.html" class="btn btn-neutral" title="Acoustic Preprocssing.Transfrom Tutorial" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr class="rating-hr hr-top">
+      <div class="rating-container">
+        <div class="rating-prompt">Rate this Tutorial</div>
+        <div class="stars-outer">
+          <i class="far fa-star" title="1 Star" data-behavior="tutorial-rating" data-count="1"></i>
+          <i class="far fa-star" title="2 Stars" data-behavior="tutorial-rating" data-count="2"></i>
+          <i class="far fa-star" title="3 Stars" data-behavior="tutorial-rating" data-count="3"></i>
+          <i class="far fa-star" title="4 Stars" data-behavior="tutorial-rating" data-count="4"></i>
+          <i class="far fa-star" title="5 Stars" data-behavior="tutorial-rating" data-count="5"></i>
+        </div>
+      </div>
+    <hr class="rating-hr hr-bottom"/>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>
