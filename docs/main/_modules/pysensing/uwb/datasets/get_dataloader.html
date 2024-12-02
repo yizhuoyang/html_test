@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -233,7 +234,7 @@
 <span class="kn">from</span> <span class="nn">pysensing.uwb.datasets.har</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pysensing.uwb.datasets.localization</span> <span class="kn">import</span> <span class="o">*</span>
 
-<div class="viewcode-block" id="load_localization_dataset"><a class="viewcode-back" href="../../../../uwb/generated/datasets/get_dataloader/pysensing.uwb.datasets.get_dataloader.load_localization_dataset.html#pysensing.uwb.datasets.get_dataloader.load_localization_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_localization_dataset</span><span class="p">(</span><span class="n">datasetname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
+<div class="viewcode-block" id="load_localization_dataset"><a class="viewcode-back" href="../../../../uwb/generated/datasets/get_dataloader/pysensing.uwb.datasets.get_dataloader.load_localization_dataset.html#pysensing.uwb.datasets.get_dataloader.load_localization_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_localization_dataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">datasetname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Load localization dataset for regression task.</span>
 
@@ -253,7 +254,7 @@
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt;train_loader, val_loader, test_loader = load_localization_dataset(&#39;pedestrian_tracking_mod1_CIR&#39;)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/Chen_Xinyan/Desktop/Research/github/pysensing/data/localization&#39;</span>  <span class="c1"># load from website, need to be revised</span>
+    
     <span class="k">if</span> <span class="n">datasetname</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;pedestrian_tracking_mod1_CIR&#39;</span><span class="p">,</span> <span class="s1">&#39;pedestrian_tracking_mod2_CIR&#39;</span><span class="p">,</span> <span class="s1">&#39;pedestrian_tracking_mod3_CIR&#39;</span><span class="p">]:</span>
         <span class="n">dataset_root</span> <span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s1">&#39;Pedestrian_Tracking&#39;</span><span class="p">),</span><span class="s1">&#39;processed_data&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">datasetname</span> <span class="o">==</span> <span class="s1">&#39;pedestrian_tracking_mod1_CIR&#39;</span><span class="p">:</span>
@@ -301,7 +302,7 @@
     
     <span class="k">return</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">val_loader</span><span class="p">,</span> <span class="n">test_loader</span></div>
 
-<div class="viewcode-block" id="load_occupancy_detection_dataset"><a class="viewcode-back" href="../../../../uwb/generated/datasets/get_dataloader/pysensing.uwb.datasets.get_dataloader.load_occupancy_detection_dataset.html#pysensing.uwb.datasets.get_dataloader.load_occupancy_detection_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_occupancy_detection_dataset</span><span class="p">(</span><span class="n">datasetname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
+<div class="viewcode-block" id="load_occupancy_detection_dataset"><a class="viewcode-back" href="../../../../uwb/generated/datasets/get_dataloader/pysensing.uwb.datasets.get_dataloader.load_occupancy_detection_dataset.html#pysensing.uwb.datasets.get_dataloader.load_occupancy_detection_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_occupancy_detection_dataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">datasetname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Load occupancy detection dataset for binary classification task.</span>
 
@@ -318,7 +319,6 @@
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt;train_loader, test_loader = load_occupancy_detection_dataset(&#39;nlos_human_detection_raw_dynamic&#39;)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/Chen_Xinyan/Desktop/Research/github/pysensing/data&#39;</span>  <span class="c1"># load from website, need to be revised</span>
     <span class="k">if</span> <span class="n">datasetname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;nlos&#39;</span><span class="p">:</span>
         <span class="n">dataset_root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s1">&#39;nlos_human_detection&#39;</span><span class="p">)</span>
         <span class="n">dataset</span> <span class="o">=</span> <span class="n">nlos_human_detection</span><span class="p">(</span><span class="n">dataset_root</span><span class="p">)</span>
@@ -349,7 +349,7 @@
 
     <span class="k">return</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span></div>
 
-<div class="viewcode-block" id="load_har_dataset"><a class="viewcode-back" href="../../../../uwb/generated/datasets/get_dataloader/pysensing.uwb.datasets.get_dataloader.load_har_dataset.html#pysensing.uwb.datasets.get_dataloader.load_har_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">datasetname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
+<div class="viewcode-block" id="load_har_dataset"><a class="viewcode-back" href="../../../../uwb/generated/datasets/get_dataloader/pysensing.uwb.datasets.get_dataloader.load_har_dataset.html#pysensing.uwb.datasets.get_dataloader.load_har_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">datasetname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Load human activity recognition dataset for multi-class classification task.</span>
 
@@ -374,7 +374,6 @@
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt;train_loader, test_loader = load_har_dataset(&#39;Sleepposenet_dataset1&#39;)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/Chen_Xinyan/Desktop/Research/github/pysensing/data&#39;</span>  <span class="c1"># load from website, need to be revised</span>
     <span class="k">if</span> <span class="n">datasetname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sleepposenet&#39;</span><span class="p">:</span>
 
         <span class="n">dataset_root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s1">&#39;sleep_pose_net_data&#39;</span><span class="p">)</span>

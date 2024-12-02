@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -232,6 +233,7 @@
 <span class="kn">from</span> <span class="nn">pysensing.csi.model.hid</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pysensing.csi.model.hpe</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pysensing.csi.model.reconstruction</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pysensing.csi.model.hfd</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -378,6 +380,28 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported model. Please choose from &#39;AutoEncoder&#39;.&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span></div>
 
+<span class="k">def</span> <span class="nf">load_hfd_model</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;FallFi&#39;</span><span class="p">,</span>
+                   <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;FallNet&#39;</span><span class="p">,</span>
+                   <span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Load the model for reconstruction task.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dataset: str, the dataset name. Default: &#39;HandFi&#39;.</span>
+<span class="sd">            model_name: str, the model name. Default: &#39;AutoEncoder&#39;.</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            model: the model for the reconstruction task.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;FallFi&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">dataset</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported dataset. Please choose from &#39;HandFi&#39;.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">&#39;FallNet&#39;</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">FallNet</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported model. Please choose from &#39;FallNet&#39;.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+
 <div class="viewcode-block" id="load_pretrain"><a class="viewcode-back" href="../../../../csi/generated/model/get_model/pysensing.csi.model.get_model.load_pretrain.html#pysensing.csi.model.get_model.load_pretrain">[docs]</a><span class="k">def</span> <span class="nf">load_pretrain</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Load pretrain models from files. need to be revised as we need to download from website.</span>
@@ -392,7 +416,7 @@
 <span class="sd">        model: the pretrain model for the task.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="c1"># pretrain_root = &#39;/data1/msc/zyj/yunjiao_csi/pysensing/csi/model/pretrain/&#39;</span>
-    <span class="n">task_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;UT_HAR&#39;</span><span class="p">:</span> <span class="s1">&#39;HAR&#39;</span><span class="p">,</span> <span class="s1">&#39;NTUFi_HAR&#39;</span><span class="p">:</span> <span class="s1">&#39;HAR&#39;</span><span class="p">,</span> <span class="s1">&#39;Widar3&#39;</span><span class="p">:</span> <span class="s1">&#39;HAR&#39;</span><span class="p">,</span> <span class="s1">&#39;NTUFi_HumanID&#39;</span><span class="p">:</span> <span class="s1">&#39;HID&#39;</span><span class="p">,</span> <span class="s1">&#39;MMFi&#39;</span><span class="p">:</span> <span class="s1">&#39;HPE&#39;</span><span class="p">,</span> <span class="s1">&#39;HandFi&#39;</span><span class="p">:</span> <span class="s1">&#39;reconstruction&#39;</span><span class="p">}</span>
+    <span class="n">task_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;UT_HAR&#39;</span><span class="p">:</span> <span class="s1">&#39;HAR&#39;</span><span class="p">,</span> <span class="s1">&#39;NTUFi_HAR&#39;</span><span class="p">:</span> <span class="s1">&#39;HAR&#39;</span><span class="p">,</span> <span class="s1">&#39;Widar3&#39;</span><span class="p">:</span> <span class="s1">&#39;HAR&#39;</span><span class="p">,</span> <span class="s1">&#39;NTUFi_HumanID&#39;</span><span class="p">:</span> <span class="s1">&#39;HID&#39;</span><span class="p">,</span> <span class="s1">&#39;MMFi&#39;</span><span class="p">:</span> <span class="s1">&#39;HPE&#39;</span><span class="p">,</span> <span class="s1">&#39;HandFi&#39;</span><span class="p">:</span> <span class="s1">&#39;reconstruction&#39;</span><span class="p">,</span> <span class="s1">&#39;FallFi&#39;</span><span class="p">:</span> <span class="s1">&#39;HFD&#39;</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">dataset</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">task_dict</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported dataset with pretrain weights. Please choose from &#39;UT_HAR&#39;, &#39;NTUFi_HAR&#39;, &#39;Widar3&#39;, &#39;NTUFi_HumanID&#39;, &#39;MMFi&#39; and &#39;HandFi&#39;.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -402,7 +426,7 @@
     <span class="n">save_root</span> <span class="o">=</span> <span class="s1">&#39;pretrain/csi/&#39;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_root</span><span class="p">):</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_root</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;MMFi&#39;</span> <span class="ow">or</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;HandFi&#39;</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;MMFi&#39;</span> <span class="ow">or</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;HandFi&#39;</span> <span class="ow">or</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;FallFi&#39;</span><span class="p">:</span> 
         <span class="c1"># file_path = os.path.join(path_root + task, dataset + &#39;_&#39; + model_name + &#39;.pkl&#39;)</span>
         <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_root</span> <span class="o">+</span> <span class="n">task</span><span class="p">,</span> <span class="n">dataset</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">&#39;.pth&#39;</span><span class="p">)</span>
         <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;pretrain/csi/&#39;</span><span class="p">,</span> <span class="n">dataset</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_name</span> <span class="o">+</span> <span class="s1">&#39;.pth&#39;</span><span class="p">)</span>

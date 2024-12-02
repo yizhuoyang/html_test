@@ -156,6 +156,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -263,7 +264,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">load_recon_model</span><span class="p">(</span><span class="s1">&#39;HandFi&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoEncoder&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">load_pretrain</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;HandFi&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoEncoder&#39;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">embedding</span> <span class="o">=</span> <span class="n">recon_csi_embedding</span><span class="p">(</span><span class="n">csi</span><span class="p">,</span> <span class="s1">&#39;NTUFi_HumanID&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">embedding</span> <span class="o">=</span> <span class="n">recon_csi_embedding</span><span class="p">(</span><span class="n">csi</span><span class="p">,</span> <span class="s1">&#39;HandFi&#39;</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

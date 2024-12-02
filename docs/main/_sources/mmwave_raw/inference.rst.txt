@@ -25,6 +25,17 @@ Human Activity Recognition
     har_test
     har_train_val
 
+Arm Gesture Recognition
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. currentmodule:: pysensing.mmwave_raw.inference.agr
+.. autosummary::
+    :toctree: generated/inference/agr
+    :nosignatures:
+    :template: autosummary/class-no-inherit.rst
+
+    agr_train
+    agr_test
+    agr_train_val
 
 Embedding
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

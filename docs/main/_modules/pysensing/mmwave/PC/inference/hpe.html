@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -237,6 +238,7 @@
 <span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hpe</span> <span class="kn">import</span> <span class="n">load_hpe_model</span><span class="p">,</span> <span class="n">load_hpe_pretrain</span>
 <span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference</span> <span class="kn">import</span> <span class="n">load_pretrain</span>
 <span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hpe.mmDiff.load_mmDiff</span> <span class="kn">import</span> <span class="n">load_mmDiff</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference</span> <span class="kn">import</span> <span class="n">MPJPE</span>
 
 
 <div class="viewcode-block" id="hpe_train"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/inference/hpe/pysensing.mmwave.PC.inference.hpe.hpe_train.html#pysensing.mmwave.PC.inference.hpe.hpe_train">[docs]</a><span class="k">def</span> <span class="nf">hpe_train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
@@ -280,12 +282,12 @@
                 <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 
                 <span class="n">epoch_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">inputs</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-                <span class="n">epoch_mpjpe</span> <span class="o">+=</span> <span class="p">(</span><span class="n">outputs</span> <span class="o">-</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">square</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">/</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">epoch_mpjpe</span> <span class="o">+=</span> <span class="n">MPJPE</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
                 <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
                 <span class="n">pbar</span><span class="o">.</span><span class="n">set_postfix</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;loss (batch)&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()})</span>
 
         <span class="n">epoch_loss</span> <span class="o">=</span> <span class="n">epoch_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
-        <span class="n">epoch_mpjpe</span> <span class="o">=</span> <span class="n">epoch_mpjpe</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+        <span class="n">epoch_mpjpe</span> <span class="o">=</span> <span class="n">epoch_mpjpe</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch:</span><span class="si">{}</span><span class="s1">, MPJPE:</span><span class="si">{:.4f}</span><span class="s1">,Loss:</span><span class="si">{:.9f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">epoch_mpjpe</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">epoch_loss</span><span class="p">)))</span>
         <span class="c1"># save model weights</span>
         <span class="n">savepath</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;train_</span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">.pth&quot;</span>
@@ -333,8 +335,8 @@
         
 
         <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-        <span class="n">mpjpe</span> <span class="o">=</span> <span class="p">(</span><span class="n">outputs</span> <span class="o">-</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">square</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">test_mpjpe</span> <span class="o">+=</span> <span class="n">mpjpe</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">*</span><span class="mi">1000</span>
+        <span class="n">mpjpe</span> <span class="o">=</span> <span class="n">MPJPE</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="n">test_mpjpe</span> <span class="o">+=</span> <span class="n">mpjpe</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
         <span class="n">test_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">inputs</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">num</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">test_mpjpe</span> <span class="o">=</span> <span class="n">test_mpjpe</span> <span class="o">/</span> <span class="n">num</span>

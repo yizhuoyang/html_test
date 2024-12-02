@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -231,15 +232,16 @@
 <span></span><span class="kn">import</span> <span class="nn">trimesh</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 <span class="kn">from</span> <span class="nn">.utils.ts_utils</span> <span class="kn">import</span> <span class="o">*</span>
 
 
-<div class="viewcode-block" id="predict"><a class="viewcode-back" href="../../../../intraoral_scan/generated/inference/ts_predict/pysensing.intraoral_scan.inference.ts_predict.predict.html#pysensing.intraoral_scan.inference.ts_predict.predict">[docs]</a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">segmenter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<div class="viewcode-block" id="predict"><a class="viewcode-back" href="../../../../intraoral_scan/generated/inference/ts_predict/pysensing.intraoral_scan.inference.ts_predict.predict.html#pysensing.intraoral_scan.inference.ts_predict.predict">[docs]</a><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">segmenter</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Predicts the FDI label for all points in each item of the provided data.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        data (list[dict]): A list of dictionaries containing &#39;jaw_dir&#39;, &#39;case_dir&#39;, &#39;feature, &#39;category&#39; and &#39;label&#39; keys for each IOS mesh.</span>
+<span class="sd">        data (List[dict]): A list of dictionaries containing &#39;jaw_dir&#39;, &#39;case_dir&#39;, &#39;feature, &#39;category&#39; and &#39;label&#39; keys for each IOS mesh.</span>
 <span class="sd">        segmenter (object): The segmentation model used for making predictions.</span>
 
 <span class="sd">    Returns:</span>
@@ -264,13 +266,13 @@
     <span class="k">return</span> <span class="n">results</span></div>
 
 
-<div class="viewcode-block" id="visualization"><a class="viewcode-back" href="../../../../intraoral_scan/generated/inference/ts_predict/pysensing.intraoral_scan.inference.ts_predict.visualization.html#pysensing.intraoral_scan.inference.ts_predict.visualization">[docs]</a><span class="k">def</span> <span class="nf">visualization</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">,</span> <span class="n">lbl</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">:</span>
+<div class="viewcode-block" id="visualization"><a class="viewcode-back" href="../../../../intraoral_scan/generated/inference/ts_predict/pysensing.intraoral_scan.inference.ts_predict.visualization.html#pysensing.intraoral_scan.inference.ts_predict.visualization">[docs]</a><span class="k">def</span> <span class="nf">visualization</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">,</span> <span class="n">lbl</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Visualizes a mesh by coloring each vertex based on the provided labels.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        mesh (Trimesh): A Trimesh object loaded from a mesh file.</span>
-<span class="sd">        lbl (list): A list containing FDI labels (0 indicates gum) for each vertex in the mesh.</span>
+<span class="sd">        lbl (List[int]): A list containing FDI labels (0 indicates gum) for each vertex in the mesh.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Trimesh: A Trimesh object where each vertex is colored according to the labels provided.</span>

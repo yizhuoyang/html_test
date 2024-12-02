@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -245,7 +246,7 @@
 <span class="sd">        dim_hidden (:obj:`Int`): Dimension of the hidden feature.</span>
 <span class="sd">        dim_out(:obj:`Int`): Dimension of the output, which is usually ``2`` or ``3``.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_in</span><span class="p">,</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim_hidden</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">64</span><span class="p">]):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_in</span><span class="p">,</span> <span class="n">dim_out</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim_hidden</span><span class="o">=</span><span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">16</span><span class="p">]):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MLP</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dim_input</span> <span class="o">=</span> <span class="n">dim_in</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dim_output</span> <span class="o">=</span> <span class="n">dim_out</span>

@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -233,11 +234,6 @@
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">parent</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">)</span>
-<span class="n">grandfather</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">grandfather</span><span class="p">))</span>
 
 <span class="kn">from</span> <span class="nn">pysensing.uwb.datasets.get_dataloader</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pysensing.uwb.models.har</span> <span class="kn">import</span> <span class="o">*</span>
@@ -340,7 +336,7 @@
 
     <span class="k">return</span></div>
 
-<div class="viewcode-block" id="nlos_human_detection_training"><a class="viewcode-back" href="../../../../uwb/generated/training/occupancy_detection/pysensing.uwb.training.occupancy_detection.nlos_human_detection_training.html#pysensing.uwb.training.occupancy_detection.nlos_human_detection_training">[docs]</a><span class="k">def</span> <span class="nf">nlos_human_detection_training</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">save_weights</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<div class="viewcode-block" id="nlos_human_detection_training"><a class="viewcode-back" href="../../../../uwb/generated/training/occupancy_detection/pysensing.uwb.training.occupancy_detection.nlos_human_detection_training.html#pysensing.uwb.training.occupancy_detection.nlos_human_detection_training">[docs]</a><span class="k">def</span> <span class="nf">nlos_human_detection_training</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">save_weights</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Trigger the train process of the human detection model.</span>
 
@@ -354,7 +350,7 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        None</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_occupancy_detection_dataset</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">)</span>
+    <span class="n">train_loader</span><span class="p">,</span> <span class="n">test_loader</span> <span class="o">=</span> <span class="n">load_occupancy_detection_dataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">)</span>
     <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">load_occupancy_detection_model</span><span class="p">(</span><span class="s1">&#39;nlos_human_detection&#39;</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>

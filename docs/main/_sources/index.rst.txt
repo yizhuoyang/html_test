@@ -10,6 +10,7 @@ Pysensing Documentation
    acoustic/Acoustic
    csi/csi
    mmwave_PC/mmwave_PC
+   mmwave_raw/mmwave_raw
    rssi/rssi
    uwb/uwb
    bluetooth/bluetooth

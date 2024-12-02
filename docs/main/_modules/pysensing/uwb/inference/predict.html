@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -316,7 +317,7 @@
 
 
 <div class="viewcode-block" id="predictor"><a class="viewcode-back" href="../../../../uwb/generated/inference/predict/pysensing.uwb.inference.predict.predictor.html#pysensing.uwb.inference.predict.predictor">[docs]</a><span class="k">class</span> <span class="nc">predictor</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pt_weights</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Initialize the predictor.</span>
 
@@ -326,19 +327,64 @@
 <span class="sd">            model_name (:obj: &#39;str&#39;): the model name.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="n">task</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span> <span class="o">=</span> <span class="n">dataset_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_name</span>  <span class="o">=</span> <span class="n">dataset_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="n">model_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">task</span> <span class="o">==</span> <span class="s1">&#39;har&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">load_har_model</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">load_har_model</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">task</span> <span class="o">==</span> <span class="s1">&#39;occupancy_detection&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">load_occupancy_detection_model</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">load_occupancy_detection_model</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">task</span> <span class="o">==</span> <span class="s1">&#39;localization&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">load_localization_model</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">load_localization_model</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>    
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid task name.&#39;</span><span class="p">)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_pretrain_weights</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">pt_weights</span><span class="p">)</span>
+        
+        
+<div class="viewcode-block" id="predictor.load_pretrain_weights"><a class="viewcode-back" href="../../../../uwb/generated/inference/predict/pysensing.uwb.inference.predict.predictor.html#pysensing.uwb.inference.predict.predictor.load_pretrain_weights">[docs]</a>    <span class="k">def</span> <span class="nf">load_pretrain_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">pt_weights</span><span class="p">):</span>
+        
+        <span class="k">if</span> <span class="n">pt_weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pt_weights</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pretrained weights loaded.&#39;</span><span class="p">)</span>
+        <span class="c1"># else:</span>
+        <span class="c1">#     pretrain_root = &#39;https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/uwb&#39;</span>
+        <span class="c1">#     if self.dataset_name in [&#39;sleep_pose_net_dataset1&#39;, &#39;sleep_pose_net_dataset2&#39;]:</span>
+        <span class="c1">#         folder = pretrain_root + &#39;/HAR&#39;</span>
+        <span class="c1">#         pretrain_path = folder + &#39;/&#39; +  self.dataset_name + &#39;.pth&#39;</span>
+        <span class="c1">#         model.load_state_dict(torch.hub.load_state_dict_from_url(pretrain_path,progress=True,map_location=device))</span>
+        <span class="c1">#     elif self.dataset_name in [&#39;nlos_human_detection_static&#39;, &#39;nlos_human_detection_dynamic&#39;]:</span>
+        <span class="c1">#         folder = pretrain_root + &#39;/occupancy_detection&#39;</span>
+        <span class="c1">#         if self.model_name == &#39;autoencoder&#39;:</span>
+        <span class="c1">#             if self.dataset_name == &#39;nlos_human_detection_static&#39;:</span>
+        <span class="c1">#                 pretrain_path = folder + &#39;/&#39; + &#39;nlos_detection_static_autoencoder.pth&#39;</span>
+        <span class="c1">#             elif self.dataset_name == &#39;nlos_human_detection_dynamic&#39;:</span>
+        <span class="c1">#                 pretrain_path =  folder + &#39;/&#39; + &#39;nlos_detection_dynamic_autoencoder.pth&#39;</span>
+        <span class="c1">#             else:</span>
+        <span class="c1">#                 raise ValueError(&#39;Dataset name for nlos_human_detection is invalid. Please choose from [nlos_human_detection_static,nlos_human_detection_dynamic].&#39;)</span>
+        <span class="c1">#         elif self.model_name == &#39;lstm&#39;:</span>
+        <span class="c1">#             if self.dataset_name == &#39;nlos_human_detection_static&#39;:</span>
+        <span class="c1">#                 raise ValueError(&#39;lstm pretrained model for nlos_human_detection_static is not provided yet.&#39;)</span>
+        <span class="c1">#             elif self.dataset_name == &#39;nlos_human_detection_dynamic&#39;:</span>
+        <span class="c1">#                 pretrain_path =  folder + &#39;/&#39; + &#39;nlos_detection_dynamic_lstm.pth&#39;</span>
+        <span class="c1">#         else:</span>
+        <span class="c1">#             raise ValueError(&#39;Model name for nlos_human_detection is invalid. Please choose from [autoencoder,lstm].&#39;)</span>
+        <span class="c1">#         model.load_state_dict(torch.hub.load_state_dict_from_url(pretrain_path,progress=True,map_location=device))</span>
+        <span class="c1">#     elif self.dataset_name == &#39;human_tracking&#39;:</span>
+        <span class="c1">#         folder = os.path.join(pretrain_root, &#39;localization&#39;)</span>
+        <span class="c1">#         if self.model_name == &#39;Var_model&#39;:</span>
+        <span class="c1">#             pretrain_path =  folder + &#39;/&#39; + &#39;Pedestrian_Tracking_Var_mod1_CNN.pth&#39;</span>
+        <span class="c1">#         elif self.model_name == &#39;CIR_model&#39;:</span>
+        <span class="c1">#             pretrain_path =  folder + &#39;/&#39; + &#39;Pedestrian_Tracking_CIR_mod1_CNN.pth&#39;</span>
+        <span class="c1">#         else:</span>
+        <span class="c1">#             raise ValueError(&#39;Model name for human_tracking is invalid. Please choose from [Var_model,CIR_model].&#39;)</span>
+        <span class="c1">#         model.load_state_dict(torch.hub.load_state_dict_from_url(pretrain_path,progress=True,map_location=device))</span>
+        <span class="c1">#     else:</span>
+        <span class="c1">#         raise ValueError(&#39;Dataset name is invalid. Please choose from [sleep_pose_net_dataset1,sleep_pose_net_dataset2,nlos_human_detection,human_tracking].&#39;)</span>
+            
+        <span class="k">return</span> <span class="n">model</span></div>
+        
 <div class="viewcode-block" id="predictor.predict"><a class="viewcode-back" href="../../../../uwb/generated/inference/predict/pysensing.uwb.inference.predict.predictor.html#pysensing.uwb.inference.predict.predictor.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Predict the output using the model.</span>

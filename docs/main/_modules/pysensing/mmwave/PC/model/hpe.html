@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -233,6 +234,7 @@
 <span class="kn">from</span> <span class="nn">.pointTrans.mmwave_point_transformer</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">.pointTrans.transformer</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">.mmDiff</span> <span class="kn">import</span> <span class="n">mmDiffRunner</span><span class="p">,</span> <span class="n">load_mmDiff</span>
+<span class="kn">from</span> <span class="nn">.mmMeshModel</span> <span class="kn">import</span> <span class="n">mmMeshModel</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">torch</span>
@@ -487,6 +489,7 @@
 
 <span class="k">def</span> <span class="nf">load_hpe_model</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s1">&#39;P4Transformer&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported model. Please choose from &#39;PointTransformer&#39;, &#39;mmMeshModel&#39;.&quot;</span><span class="p">)</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">P4Transformer</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">nsamples</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">spatial_stride</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
                   <span class="n">temporal_kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">temporal_stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                   <span class="n">emb_relu</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -500,9 +503,12 @@
                 <span class="p">)</span>
     <span class="k">elif</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s2">&quot;mmDiff&quot;</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">load_mmDiff</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">model_name</span> <span class="o">==</span> <span class="s2">&quot;mmMeshModel&quot;</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">mmMeshModel</span><span class="p">()</span>
         
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported model. Please choose from &#39;P4Transformer&#39;.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported model. Please choose from &#39;PointTransformer&#39;, &#39;mmMeshModel&#39;.&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span>
 
 

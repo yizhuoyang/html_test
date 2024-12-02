@@ -1,0 +1,9 @@
+﻿agr_train
+=========
+.. currentmodule:: pysensing.mmwave_raw.inference.agr
+
+.. autoclass:: agr_train
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    

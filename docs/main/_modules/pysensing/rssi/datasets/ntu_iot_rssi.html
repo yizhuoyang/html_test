@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -304,13 +305,6 @@
     <span class="n">ntuiotrssi_dataset</span> <span class="o">=</span> <span class="n">NTUIoTRSSI_Dataset</span><span class="p">(</span><span class="n">path_dataset</span><span class="p">)</span>
     <span class="n">ntuiotrssi_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">ntuiotrssi_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">ntuiotrssi_dataloader</span>
-
-
-<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
-<span class="c1">#     ntuiot_dataset = NTUIoTRSSI_Dataset(&#39;path/to/your/data&#39;)</span>
-<span class="c1">#     ntuiot_dataset.get_compact()</span>
-<span class="c1">#     print(ntuiot_dataset.__getitem__(0))</span>
-<span class="c1">#</span>
 </pre></div>
 
              </article>

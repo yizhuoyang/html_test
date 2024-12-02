@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -295,13 +296,16 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_train</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">train_length</span><span class="p">,</span> <span class="p">:]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_length</span><span class="p">:,</span> <span class="p">:]</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_length</span><span class="p">:,</span> <span class="p">:]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="n">ble_sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;index&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+        <span class="n">ble_sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ble_sets</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
         <span class="n">ble_position</span> <span class="o">=</span> <span class="n">ble_sample</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">dim_coord</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
         <span class="n">ble_array</span> <span class="o">=</span> <span class="n">ble_sample</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">dim_ble</span><span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">:</span>

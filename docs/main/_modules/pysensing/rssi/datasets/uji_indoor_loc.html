@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -353,32 +354,6 @@
     <span class="n">uji_dataset</span> <span class="o">=</span> <span class="n">UJIIndoorLoc_Dataset</span><span class="p">(</span><span class="n">path_dataset</span><span class="p">,</span> <span class="n">output_descriptor</span><span class="p">)</span>
     <span class="n">uji_dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">uji_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="n">is_train</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">uji_dataloader</span>
-
-
-<span class="c1"># if __name__ == &#39;__main__&#39;:</span>
-<span class="c1">#     uji_dataset = UJIIndoorLoc_Dataset(&#39;path/to/your/data&#39;,</span>
-<span class="c1">#                                        [&#39;longitude&#39;, &#39;latitude&#39;, &#39;floor&#39;, &#39;buildingid&#39;])</span>
-<span class="c1">#     print(uji_dataset.__getitem__(0))</span>
-<span class="c1">#     pass</span>
-
-<span class="c1"># if __name__ == &#39;__main__&#39;:</span>
-<span class="c1">#     uji_dataset = UJIIndoorLoc_Dataset(&#39;/Users/huanghe/Downloads/UJIndoorLoc/trainingData.csv&#39;,</span>
-<span class="c1">#                                        [&#39;longitude&#39;, &#39;latitude&#39;, &#39;floor&#39;, &#39;buildingid&#39;])</span>
-<span class="c1">#     sample = uji_dataset.__getitem__(55)</span>
-<span class="c1">#     pass</span>
-
-<span class="c1"># if __name__ == &#39;__main__&#39;:</span>
-<span class="c1">#     uji_loader = get_dataloader_ujiindoorloc(&#39;/Users/huanghe/Downloads/UJIndoorLoc/trainingData.csv&#39;,</span>
-<span class="c1">#                                              [&#39;longitude&#39;, &#39;latitude&#39;, &#39;floor&#39;, &#39;buildingid&#39;],</span>
-<span class="c1">#                                              19937,</span>
-<span class="c1">#                                              False)</span>
-<span class="c1">#     rssi_all, coord_all, id_all = next(iter(uji_loader))</span>
-<span class="c1">#     longitude_max = torch.max(coord_all[:, 0])</span>
-<span class="c1">#     longitude_min = torch.min(coord_all[:, 0])</span>
-<span class="c1">#     latitude_max = torch.max(coord_all[:, 1])</span>
-<span class="c1">#     latitude_min = torch.min(coord_all[:, 1])</span>
-<span class="c1">#     pass</span>
-
 </pre></div>
 
              </article>

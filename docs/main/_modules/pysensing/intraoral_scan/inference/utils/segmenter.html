@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -230,6 +231,7 @@
   <h1>Source code for pysensing.intraoral_scan.inference.utils.segmenter</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
 
@@ -251,7 +253,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">c2l_mapping</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span>
                             <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">48</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Segmenter.convert_clzz_to_label"><a class="viewcode-back" href="../../../../../intraoral_scan/generated/inference/utils/segmenter/pysensing.intraoral_scan.inference.utils.segmenter.Segmenter.html#pysensing.intraoral_scan.inference.utils.segmenter.Segmenter.convert_clzz_to_label">[docs]</a>    <span class="k">def</span> <span class="nf">convert_clzz_to_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clzz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<div class="viewcode-block" id="Segmenter.convert_clzz_to_label"><a class="viewcode-back" href="../../../../../intraoral_scan/generated/inference/utils/segmenter/pysensing.intraoral_scan.inference.utils.segmenter.Segmenter.html#pysensing.intraoral_scan.inference.utils.segmenter.Segmenter.convert_clzz_to_label">[docs]</a>    <span class="k">def</span> <span class="nf">convert_clzz_to_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clzz</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Convert class indices to FDI labels based on a predefined mapping.</span>
 

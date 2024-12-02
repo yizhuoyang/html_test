@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../acoustic/Acoustic.html">Acoustic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../csi/csi.html">CSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_PC/mmwave_PC.html">mmwave_PC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../mmwave_raw/mmwave_raw.html">mmwave_raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../rssi/rssi.html">RSSI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../uwb/uwb.html">UWB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../bluetooth/bluetooth.html">BLUETOOTH</a></li>
@@ -238,6 +239,7 @@
 
 <span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.preprocessing.uniform</span> <span class="kn">import</span> <span class="n">load_from_raw</span>
 <span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.preprocessing.sliding_window</span> <span class="kn">import</span> <span class="n">sliding_window</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.dataset.utils</span> <span class="kn">import</span> <span class="n">check_dataset</span>
 
 <div class="viewcode-block" id="radHAR"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/datasets/har/pysensing.mmwave.PC.dataset.har.radHAR.html#pysensing.mmwave.PC.dataset.har.radHAR">[docs]</a><span class="k">class</span> <span class="nc">radHAR</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
@@ -337,7 +339,7 @@
 
         <span class="k">return</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">label</span></div>
     
-<div class="viewcode-block" id="load_har_dataset"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/datasets/har/pysensing.mmwave.PC.dataset.har.load_har_dataset.html#pysensing.mmwave.PC.dataset.har.load_har_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_root</span><span class="p">):</span>
+<div class="viewcode-block" id="load_har_dataset"><a class="viewcode-back" href="../../../../../mmwave_PC/generated/datasets/har/pysensing.mmwave.PC.dataset.har.load_har_dataset.html#pysensing.mmwave.PC.dataset.har.load_har_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_har_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_root</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function provide quick construct train-test dataset based on dataset name.</span>
 
@@ -353,6 +355,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">dataset</span> <span class="o">==</span> <span class="s1">&#39;radHAR&#39;</span><span class="p">:</span>
+        <span class="n">dataset_root</span> <span class="o">=</span> <span class="n">check_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">dataset_root</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;using dataset: radHAR DATA&#39;</span><span class="p">)</span>
         <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">radHAR</span><span class="p">(</span><span class="n">dataset_root</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">)</span>
         <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">radHAR</span><span class="p">(</span><span class="n">dataset_root</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">)</span>
