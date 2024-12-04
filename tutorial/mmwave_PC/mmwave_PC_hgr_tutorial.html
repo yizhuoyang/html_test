@@ -1,0 +1,1048 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial for Human Gesture Recognition &mdash; Pysensing Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial for Human Pose Estimation" href="mmwave_PC_hpe_tutorial.html" />
+    <link rel="prev" title="Tutorial for Human Activity Recognition" href="mmwave_PC_har_tutorial.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li class="active"> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_filter_tutorial.html">Acoustic Filter Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_transform_tutorial.html">Acoustic Preprocssing.Transfrom Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bluetooth</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth/bluetooth_localization_tutorial.html">Bluetooth Localization Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">mmwave_raw</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_raw/mmwave_raw_tutorial.html">Data loading and prepocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_raw/mmwave_raw_tutorial.html#model-loading-and-inference">model loading and inference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">rssi</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mmwave_PC_har_tutorial.html">Tutorial for Human Activity Recognition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial for Human Gesture Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mmwave_PC_hpe_tutorial.html">Tutorial for Human Pose Estimation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">rssi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rssi/rssi_localization_fingerprinting_tutorial.html">RSSI Localization Fingerprinting Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Tutorial for Human Gesture Recognition</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/mmwave_PC/mmwave_PC_hgr_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+
+          <div class="pytorch-call-to-action-links">
+            <div id="tutorial-type">mmwave_PC/mmwave_PC_hgr_tutorial</div>
+
+            <div id="google-colab-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-colab.svg"/>
+              <div class="call-to-action-desktop-view">Run in Google Colab</div>
+              <div class="call-to-action-mobile-view">Colab</div>
+            </div>
+            <div id="download-notebook-link">
+              <img class="call-to-action-notebook-img" src="../_static/images/pytorch-download.svg"/>
+              <div class="call-to-action-desktop-view">Download Notebook</div>
+              <div class="call-to-action-mobile-view">Notebook</div>
+            </div>
+            <div id="github-view-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-github.svg"/>
+              <div class="call-to-action-desktop-view">View on GitHub</div>
+              <div class="call-to-action-mobile-view">GitHub</div>
+            </div>
+          </div>
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-mmwave-pc-mmwave-pc-hgr-tutorial-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="tutorial-for-human-gesture-recognition">
+<span id="sphx-glr-mmwave-pc-mmwave-pc-hgr-tutorial-py"></span><h1>Tutorial for Human Gesture Recognition<a class="headerlink" href="#tutorial-for-human-gesture-recognition" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>!/usr/bin/env python</dt><dd><p>coding: utf-8</p>
+</dd>
+</dl>
+<p>In[1]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+<section id="dataset-with-m-gesture">
+<h2>Dataset with M-Gesture:<a class="headerlink" href="#dataset-with-m-gesture" title="Permalink to this heading">¶</a></h2>
+<p>Point cloud gesture dataset collected using FMCW mmWave Radar, TI-IWR1443 single-chip 76-GHz to 81-GHz mmWave sensor evaluation module. 2 scenarios are included:
+short range (i.e. Human-Radar Distance(HRD) &lt; 0.5 m) and long range (i.e. 2m &lt; HRD &lt; 5m); Only long-range gesture recognition
+is supported as only long-range dataset contain point cloud data.</p>
+</section>
+<section id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">¶</a></h2>
+<p>In[2]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.dataset.hgr</span> <span class="kn">import</span> <span class="n">load_hgr_dataset</span>
+<span class="c1"># The path contains the radHAR dataset</span>
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">load_hgr_dataset</span><span class="p">(</span><span class="s2">&quot;M-Gesture&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Try to download M-Gesture dateset in /home/kemove/yyz/av-gihub/tutorials/mmwave_PC_source/mGesture
+Downloading M-Gesture to /home/kemove/yyz/av-gihub/tutorials/mmwave_PC_source/mGesture.zip...
+
+Downloading:   0%|          | 0.00/220M [00:00&lt;?, ?iB/s]
+Downloading:   0%|          | 508k/220M [00:00&lt;00:43, 5.05MiB/s]
+Downloading:   0%|          | 1.06M/220M [00:00&lt;00:41, 5.31MiB/s]
+Downloading:   1%|          | 1.60M/220M [00:00&lt;00:42, 5.14MiB/s]
+Downloading:   1%|          | 2.16M/220M [00:00&lt;00:40, 5.33MiB/s]
+Downloading:   1%|          | 2.70M/220M [00:00&lt;00:48, 4.50MiB/s]
+Downloading:   1%|▏         | 3.17M/220M [00:00&lt;00:56, 3.85MiB/s]
+Downloading:   2%|▏         | 3.57M/220M [00:00&lt;00:58, 3.72MiB/s]
+Downloading:   2%|▏         | 4.10M/220M [00:00&lt;00:53, 4.04MiB/s]
+Downloading:   2%|▏         | 4.70M/220M [00:01&lt;00:49, 4.39MiB/s]
+Downloading:   2%|▏         | 5.21M/220M [00:01&lt;00:48, 4.42MiB/s]
+Downloading:   3%|▎         | 5.87M/220M [00:01&lt;00:43, 4.95MiB/s]
+Downloading:   3%|▎         | 6.50M/220M [00:01&lt;00:40, 5.31MiB/s]
+Downloading:   3%|▎         | 7.09M/220M [00:01&lt;00:39, 5.44MiB/s]
+Downloading:   3%|▎         | 7.65M/220M [00:01&lt;00:39, 5.43MiB/s]
+Downloading:   4%|▎         | 8.26M/220M [00:01&lt;00:38, 5.55MiB/s]
+Downloading:   4%|▍         | 8.84M/220M [00:01&lt;00:37, 5.64MiB/s]
+Downloading:   4%|▍         | 9.41M/220M [00:01&lt;00:39, 5.29MiB/s]
+Downloading:   5%|▍         | 10.1M/220M [00:02&lt;00:37, 5.60MiB/s]
+Downloading:   5%|▍         | 10.6M/220M [00:02&lt;00:37, 5.60MiB/s]
+Downloading:   5%|▌         | 11.2M/220M [00:02&lt;00:41, 5.10MiB/s]
+Downloading:   5%|▌         | 11.7M/220M [00:02&lt;00:43, 4.80MiB/s]
+Downloading:   6%|▌         | 12.3M/220M [00:02&lt;00:42, 4.95MiB/s]
+Downloading:   6%|▌         | 12.9M/220M [00:02&lt;00:39, 5.29MiB/s]
+Downloading:   6%|▌         | 13.5M/220M [00:02&lt;00:37, 5.59MiB/s]
+Downloading:   6%|▋         | 14.2M/220M [00:02&lt;00:34, 5.92MiB/s]
+Downloading:   7%|▋         | 15.0M/220M [00:02&lt;00:32, 6.28MiB/s]
+Downloading:   7%|▋         | 15.7M/220M [00:02&lt;00:31, 6.48MiB/s]
+Downloading:   7%|▋         | 16.3M/220M [00:03&lt;00:31, 6.43MiB/s]
+Downloading:   8%|▊         | 17.0M/220M [00:03&lt;00:31, 6.55MiB/s]
+Downloading:   8%|▊         | 17.8M/220M [00:03&lt;00:30, 6.69MiB/s]
+Downloading:   8%|▊         | 18.5M/220M [00:03&lt;00:29, 6.73MiB/s]
+Downloading:   9%|▊         | 19.2M/220M [00:03&lt;00:30, 6.66MiB/s]
+Downloading:   9%|▉         | 19.9M/220M [00:03&lt;00:31, 6.36MiB/s]
+Downloading:   9%|▉         | 20.5M/220M [00:03&lt;00:31, 6.36MiB/s]
+Downloading:  10%|▉         | 21.2M/220M [00:03&lt;00:32, 6.13MiB/s]
+Downloading:  10%|▉         | 21.8M/220M [00:03&lt;00:33, 5.88MiB/s]
+Downloading:  10%|█         | 22.4M/220M [00:04&lt;00:36, 5.45MiB/s]
+Downloading:  10%|█         | 22.9M/220M [00:04&lt;00:35, 5.49MiB/s]
+Downloading:  11%|█         | 23.5M/220M [00:04&lt;00:35, 5.49MiB/s]
+Downloading:  11%|█         | 24.0M/220M [00:04&lt;00:35, 5.53MiB/s]
+Downloading:  11%|█         | 24.8M/220M [00:04&lt;00:33, 5.90MiB/s]
+Downloading:  12%|█▏        | 25.4M/220M [00:04&lt;00:33, 5.84MiB/s]
+Downloading:  12%|█▏        | 26.0M/220M [00:04&lt;00:33, 5.87MiB/s]
+Downloading:  12%|█▏        | 26.6M/220M [00:04&lt;00:32, 5.92MiB/s]
+Downloading:  12%|█▏        | 27.2M/220M [00:04&lt;00:33, 5.80MiB/s]
+Downloading:  13%|█▎        | 27.8M/220M [00:05&lt;00:32, 5.85MiB/s]
+Downloading:  13%|█▎        | 28.5M/220M [00:05&lt;00:30, 6.34MiB/s]
+Downloading:  13%|█▎        | 29.2M/220M [00:05&lt;00:30, 6.35MiB/s]
+Downloading:  14%|█▎        | 29.9M/220M [00:05&lt;00:28, 6.71MiB/s]
+Downloading:  14%|█▍        | 30.6M/220M [00:05&lt;00:27, 6.78MiB/s]
+Downloading:  14%|█▍        | 31.3M/220M [00:05&lt;00:27, 6.90MiB/s]
+Downloading:  15%|█▍        | 32.0M/220M [00:05&lt;00:27, 6.75MiB/s]
+Downloading:  15%|█▍        | 32.7M/220M [00:05&lt;00:33, 5.67MiB/s]
+Downloading:  15%|█▌        | 33.3M/220M [00:05&lt;00:34, 5.47MiB/s]
+Downloading:  15%|█▌        | 33.9M/220M [00:06&lt;00:33, 5.57MiB/s]
+Downloading:  16%|█▌        | 34.5M/220M [00:06&lt;00:32, 5.75MiB/s]
+Downloading:  16%|█▌        | 35.2M/220M [00:06&lt;00:31, 5.94MiB/s]
+Downloading:  16%|█▋        | 35.9M/220M [00:06&lt;00:29, 6.24MiB/s]
+Downloading:  17%|█▋        | 36.6M/220M [00:06&lt;00:29, 6.32MiB/s]
+Downloading:  17%|█▋        | 37.3M/220M [00:06&lt;00:28, 6.49MiB/s]
+Downloading:  17%|█▋        | 38.0M/220M [00:06&lt;00:27, 6.68MiB/s]
+Downloading:  18%|█▊        | 38.7M/220M [00:06&lt;00:26, 6.86MiB/s]
+Downloading:  18%|█▊        | 39.5M/220M [00:06&lt;00:26, 6.92MiB/s]
+Downloading:  18%|█▊        | 40.1M/220M [00:06&lt;00:26, 6.75MiB/s]
+Downloading:  19%|█▊        | 40.8M/220M [00:07&lt;00:27, 6.58MiB/s]
+Downloading:  19%|█▉        | 41.5M/220M [00:07&lt;00:28, 6.18MiB/s]
+Downloading:  19%|█▉        | 42.1M/220M [00:07&lt;00:36, 4.90MiB/s]
+Downloading:  19%|█▉        | 42.6M/220M [00:07&lt;00:40, 4.34MiB/s]
+Downloading:  20%|█▉        | 43.1M/220M [00:07&lt;00:40, 4.33MiB/s]
+Downloading:  20%|█▉        | 43.6M/220M [00:07&lt;00:38, 4.56MiB/s]
+Downloading:  20%|██        | 44.2M/220M [00:07&lt;00:37, 4.75MiB/s]
+Downloading:  20%|██        | 44.8M/220M [00:07&lt;00:34, 5.13MiB/s]
+Downloading:  21%|██        | 45.5M/220M [00:08&lt;00:31, 5.50MiB/s]
+Downloading:  21%|██        | 46.1M/220M [00:08&lt;00:29, 5.83MiB/s]
+Downloading:  21%|██▏       | 46.8M/220M [00:08&lt;00:29, 5.92MiB/s]
+Downloading:  22%|██▏       | 47.4M/220M [00:08&lt;00:29, 5.93MiB/s]
+Downloading:  22%|██▏       | 48.0M/220M [00:08&lt;00:29, 5.80MiB/s]
+Downloading:  22%|██▏       | 48.7M/220M [00:08&lt;00:28, 5.98MiB/s]
+Downloading:  22%|██▏       | 49.3M/220M [00:08&lt;00:27, 6.18MiB/s]
+Downloading:  23%|██▎       | 50.0M/220M [00:08&lt;00:28, 5.92MiB/s]
+Downloading:  23%|██▎       | 50.6M/220M [00:08&lt;00:29, 5.69MiB/s]
+Downloading:  23%|██▎       | 51.3M/220M [00:09&lt;00:28, 5.98MiB/s]
+Downloading:  24%|██▎       | 52.0M/220M [00:09&lt;00:27, 6.18MiB/s]
+Downloading:  24%|██▍       | 52.6M/220M [00:09&lt;00:27, 6.12MiB/s]
+Downloading:  24%|██▍       | 53.2M/220M [00:09&lt;00:26, 6.28MiB/s]
+Downloading:  24%|██▍       | 53.9M/220M [00:09&lt;00:25, 6.42MiB/s]
+Downloading:  25%|██▍       | 54.6M/220M [00:09&lt;00:25, 6.54MiB/s]
+Downloading:  25%|██▌       | 55.3M/220M [00:09&lt;00:26, 6.29MiB/s]
+Downloading:  25%|██▌       | 55.9M/220M [00:09&lt;00:26, 6.12MiB/s]
+Downloading:  26%|██▌       | 56.5M/220M [00:09&lt;00:27, 6.02MiB/s]
+Downloading:  26%|██▌       | 57.1M/220M [00:09&lt;00:26, 6.05MiB/s]
+Downloading:  26%|██▌       | 57.8M/220M [00:10&lt;00:25, 6.27MiB/s]
+Downloading:  27%|██▋       | 58.5M/220M [00:10&lt;00:24, 6.51MiB/s]
+Downloading:  27%|██▋       | 59.2M/220M [00:10&lt;00:24, 6.47MiB/s]
+Downloading:  27%|██▋       | 59.8M/220M [00:10&lt;00:24, 6.45MiB/s]
+Downloading:  27%|██▋       | 60.5M/220M [00:10&lt;00:24, 6.56MiB/s]
+Downloading:  28%|██▊       | 61.2M/220M [00:10&lt;00:23, 6.74MiB/s]
+Downloading:  28%|██▊       | 61.9M/220M [00:10&lt;00:23, 6.72MiB/s]
+Downloading:  28%|██▊       | 62.6M/220M [00:10&lt;00:25, 6.23MiB/s]
+Downloading:  29%|██▊       | 63.2M/220M [00:10&lt;00:24, 6.28MiB/s]
+Downloading:  29%|██▉       | 63.9M/220M [00:10&lt;00:24, 6.50MiB/s]
+Downloading:  29%|██▉       | 64.7M/220M [00:11&lt;00:23, 6.73MiB/s]
+Downloading:  30%|██▉       | 65.5M/220M [00:11&lt;00:22, 6.85MiB/s]
+Downloading:  30%|███       | 66.1M/220M [00:11&lt;00:22, 6.74MiB/s]
+Downloading:  30%|███       | 66.9M/220M [00:11&lt;00:22, 6.89MiB/s]
+Downloading:  31%|███       | 67.6M/220M [00:11&lt;00:22, 6.81MiB/s]
+Downloading:  31%|███       | 68.3M/220M [00:11&lt;00:21, 6.97MiB/s]
+Downloading:  31%|███▏      | 69.0M/220M [00:11&lt;00:21, 7.00MiB/s]
+Downloading:  32%|███▏      | 69.7M/220M [00:11&lt;00:21, 6.89MiB/s]
+Downloading:  32%|███▏      | 70.4M/220M [00:11&lt;00:24, 6.17MiB/s]
+Downloading:  32%|███▏      | 71.1M/220M [00:12&lt;00:23, 6.31MiB/s]
+Downloading:  33%|███▎      | 71.9M/220M [00:12&lt;00:22, 6.66MiB/s]
+Downloading:  33%|███▎      | 72.6M/220M [00:12&lt;00:21, 6.91MiB/s]
+Downloading:  33%|███▎      | 73.3M/220M [00:12&lt;00:23, 6.26MiB/s]
+Downloading:  34%|███▎      | 74.0M/220M [00:12&lt;00:23, 6.34MiB/s]
+Downloading:  34%|███▍      | 74.7M/220M [00:12&lt;00:22, 6.48MiB/s]
+Downloading:  34%|███▍      | 75.4M/220M [00:12&lt;00:22, 6.58MiB/s]
+Downloading:  35%|███▍      | 76.1M/220M [00:12&lt;00:20, 6.88MiB/s]
+Downloading:  35%|███▍      | 76.8M/220M [00:12&lt;00:20, 6.96MiB/s]
+Downloading:  35%|███▌      | 77.5M/220M [00:12&lt;00:20, 7.01MiB/s]
+Downloading:  36%|███▌      | 78.3M/220M [00:13&lt;00:19, 7.18MiB/s]
+Downloading:  36%|███▌      | 79.0M/220M [00:13&lt;00:20, 7.00MiB/s]
+Downloading:  36%|███▌      | 79.7M/220M [00:13&lt;00:20, 6.82MiB/s]
+Downloading:  37%|███▋      | 80.4M/220M [00:13&lt;00:21, 6.54MiB/s]
+Downloading:  37%|███▋      | 81.1M/220M [00:13&lt;00:23, 6.04MiB/s]
+Downloading:  37%|███▋      | 81.7M/220M [00:13&lt;00:22, 6.09MiB/s]
+Downloading:  37%|███▋      | 82.3M/220M [00:13&lt;00:22, 6.12MiB/s]
+Downloading:  38%|███▊      | 83.1M/220M [00:13&lt;00:21, 6.50MiB/s]
+Downloading:  38%|███▊      | 83.8M/220M [00:13&lt;00:20, 6.60MiB/s]
+Downloading:  38%|███▊      | 84.5M/220M [00:14&lt;00:20, 6.70MiB/s]
+Downloading:  39%|███▊      | 85.2M/220M [00:14&lt;00:20, 6.59MiB/s]
+Downloading:  39%|███▉      | 85.9M/220M [00:14&lt;00:20, 6.69MiB/s]
+Downloading:  39%|███▉      | 86.6M/220M [00:14&lt;00:20, 6.61MiB/s]
+Downloading:  40%|███▉      | 87.2M/220M [00:14&lt;00:20, 6.41MiB/s]
+Downloading:  40%|███▉      | 87.9M/220M [00:14&lt;00:20, 6.58MiB/s]
+Downloading:  40%|████      | 88.6M/220M [00:14&lt;00:21, 6.09MiB/s]
+Downloading:  41%|████      | 89.3M/220M [00:14&lt;00:20, 6.37MiB/s]
+Downloading:  41%|████      | 89.9M/220M [00:14&lt;00:20, 6.24MiB/s]
+Downloading:  41%|████      | 90.6M/220M [00:15&lt;00:21, 6.01MiB/s]
+Downloading:  41%|████▏     | 91.3M/220M [00:15&lt;00:20, 6.29MiB/s]
+Downloading:  42%|████▏     | 91.9M/220M [00:15&lt;00:20, 6.19MiB/s]
+Downloading:  42%|████▏     | 92.7M/220M [00:15&lt;00:19, 6.58MiB/s]
+Downloading:  42%|████▏     | 93.3M/220M [00:15&lt;00:19, 6.46MiB/s]
+Downloading:  43%|████▎     | 94.0M/220M [00:15&lt;00:19, 6.44MiB/s]
+Downloading:  43%|████▎     | 94.6M/220M [00:15&lt;00:19, 6.34MiB/s]
+Downloading:  43%|████▎     | 95.3M/220M [00:15&lt;00:20, 6.24MiB/s]
+Downloading:  44%|████▎     | 96.0M/220M [00:15&lt;00:19, 6.49MiB/s]
+Downloading:  44%|████▍     | 96.7M/220M [00:15&lt;00:19, 6.43MiB/s]
+Downloading:  44%|████▍     | 97.4M/220M [00:16&lt;00:18, 6.58MiB/s]
+Downloading:  45%|████▍     | 98.2M/220M [00:16&lt;00:17, 7.00MiB/s]
+Downloading:  45%|████▍     | 98.9M/220M [00:16&lt;00:17, 6.98MiB/s]
+Downloading:  45%|████▌     | 99.6M/220M [00:16&lt;00:17, 6.74MiB/s]
+Downloading:  46%|████▌     | 100M/220M [00:16&lt;00:17, 6.67MiB/s]
+Downloading:  46%|████▌     | 101M/220M [00:16&lt;00:18, 6.43MiB/s]
+Downloading:  46%|████▌     | 102M/220M [00:16&lt;00:18, 6.31MiB/s]
+Downloading:  46%|████▋     | 102M/220M [00:16&lt;00:17, 6.56MiB/s]
+Downloading:  47%|████▋     | 103M/220M [00:16&lt;00:17, 6.55MiB/s]
+Downloading:  47%|████▋     | 104M/220M [00:17&lt;00:19, 6.11MiB/s]
+Downloading:  47%|████▋     | 104M/220M [00:17&lt;00:18, 6.31MiB/s]
+Downloading:  48%|████▊     | 105M/220M [00:17&lt;00:18, 6.20MiB/s]
+Downloading:  48%|████▊     | 106M/220M [00:17&lt;00:19, 6.01MiB/s]
+Downloading:  48%|████▊     | 106M/220M [00:17&lt;00:19, 5.76MiB/s]
+Downloading:  48%|████▊     | 107M/220M [00:17&lt;00:19, 5.75MiB/s]
+Downloading:  49%|████▊     | 107M/220M [00:17&lt;00:21, 5.37MiB/s]
+Downloading:  49%|████▉     | 108M/220M [00:17&lt;00:19, 5.67MiB/s]
+Downloading:  49%|████▉     | 109M/220M [00:17&lt;00:19, 5.60MiB/s]
+Downloading:  50%|████▉     | 109M/220M [00:18&lt;00:18, 5.91MiB/s]
+Downloading:  50%|████▉     | 110M/220M [00:18&lt;00:18, 5.95MiB/s]
+Downloading:  50%|█████     | 110M/220M [00:18&lt;00:18, 5.87MiB/s]
+Downloading:  50%|█████     | 111M/220M [00:18&lt;00:18, 6.06MiB/s]
+Downloading:  51%|█████     | 112M/220M [00:18&lt;00:18, 5.89MiB/s]
+Downloading:  51%|█████     | 112M/220M [00:18&lt;00:21, 4.98MiB/s]
+Downloading:  51%|█████     | 113M/220M [00:18&lt;00:23, 4.63MiB/s]
+Downloading:  51%|█████▏    | 113M/220M [00:18&lt;00:22, 4.77MiB/s]
+Downloading:  52%|█████▏    | 114M/220M [00:19&lt;00:25, 4.15MiB/s]
+Downloading:  52%|█████▏    | 114M/220M [00:19&lt;00:26, 3.97MiB/s]
+Downloading:  52%|█████▏    | 115M/220M [00:19&lt;00:28, 3.68MiB/s]
+Downloading:  52%|█████▏    | 115M/220M [00:19&lt;00:27, 3.81MiB/s]
+Downloading:  53%|█████▎    | 116M/220M [00:19&lt;00:25, 4.12MiB/s]
+Downloading:  53%|█████▎    | 116M/220M [00:19&lt;00:24, 4.27MiB/s]
+Downloading:  53%|█████▎    | 117M/220M [00:19&lt;00:23, 4.48MiB/s]
+Downloading:  53%|█████▎    | 117M/220M [00:19&lt;00:21, 4.79MiB/s]
+Downloading:  53%|█████▎    | 118M/220M [00:19&lt;00:20, 5.00MiB/s]
+Downloading:  54%|█████▎    | 118M/220M [00:19&lt;00:19, 5.20MiB/s]
+Downloading:  54%|█████▍    | 119M/220M [00:20&lt;00:18, 5.38MiB/s]
+Downloading:  54%|█████▍    | 119M/220M [00:20&lt;00:18, 5.52MiB/s]
+Downloading:  55%|█████▍    | 120M/220M [00:20&lt;00:17, 5.87MiB/s]
+Downloading:  55%|█████▍    | 121M/220M [00:20&lt;00:17, 5.72MiB/s]
+Downloading:  55%|█████▌    | 121M/220M [00:20&lt;00:16, 6.03MiB/s]
+Downloading:  55%|█████▌    | 122M/220M [00:20&lt;00:16, 5.94MiB/s]
+Downloading:  56%|█████▌    | 123M/220M [00:20&lt;00:17, 5.53MiB/s]
+Downloading:  56%|█████▌    | 123M/220M [00:20&lt;00:19, 4.92MiB/s]
+Downloading:  56%|█████▌    | 124M/220M [00:20&lt;00:19, 5.07MiB/s]
+Downloading:  57%|█████▋    | 124M/220M [00:21&lt;00:17, 5.57MiB/s]
+Downloading:  57%|█████▋    | 125M/220M [00:21&lt;00:15, 5.97MiB/s]
+Downloading:  57%|█████▋    | 126M/220M [00:21&lt;00:14, 6.42MiB/s]
+Downloading:  57%|█████▋    | 127M/220M [00:21&lt;00:14, 6.43MiB/s]
+Downloading:  58%|█████▊    | 127M/220M [00:21&lt;00:13, 6.75MiB/s]
+Downloading:  58%|█████▊    | 128M/220M [00:21&lt;00:13, 6.67MiB/s]
+Downloading:  58%|█████▊    | 129M/220M [00:21&lt;00:13, 6.70MiB/s]
+Downloading:  59%|█████▉    | 129M/220M [00:21&lt;00:13, 6.79MiB/s]
+Downloading:  59%|█████▉    | 130M/220M [00:21&lt;00:13, 6.84MiB/s]
+Downloading:  59%|█████▉    | 131M/220M [00:22&lt;00:14, 6.27MiB/s]
+Downloading:  60%|█████▉    | 131M/220M [00:22&lt;00:14, 5.96MiB/s]
+Downloading:  60%|█████▉    | 132M/220M [00:22&lt;00:14, 5.92MiB/s]
+Downloading:  60%|██████    | 133M/220M [00:22&lt;00:14, 5.93MiB/s]
+Downloading:  61%|██████    | 133M/220M [00:22&lt;00:15, 5.45MiB/s]
+Downloading:  61%|██████    | 134M/220M [00:22&lt;00:15, 5.64MiB/s]
+Downloading:  61%|██████    | 135M/220M [00:22&lt;00:14, 5.90MiB/s]
+Downloading:  61%|██████▏   | 135M/220M [00:22&lt;00:13, 6.12MiB/s]
+Downloading:  62%|██████▏   | 136M/220M [00:22&lt;00:13, 6.12MiB/s]
+Downloading:  62%|██████▏   | 136M/220M [00:22&lt;00:13, 5.99MiB/s]
+Downloading:  62%|██████▏   | 137M/220M [00:23&lt;00:13, 6.21MiB/s]
+Downloading:  63%|██████▎   | 138M/220M [00:23&lt;00:12, 6.35MiB/s]
+Downloading:  63%|██████▎   | 139M/220M [00:23&lt;00:11, 6.81MiB/s]
+Downloading:  63%|██████▎   | 139M/220M [00:23&lt;00:11, 6.80MiB/s]
+Downloading:  64%|██████▎   | 140M/220M [00:23&lt;00:11, 6.75MiB/s]
+Downloading:  64%|██████▍   | 141M/220M [00:23&lt;00:11, 6.76MiB/s]
+Downloading:  64%|██████▍   | 141M/220M [00:23&lt;00:11, 6.82MiB/s]
+Downloading:  65%|██████▍   | 142M/220M [00:23&lt;00:11, 6.71MiB/s]
+Downloading:  65%|██████▍   | 143M/220M [00:23&lt;00:11, 6.84MiB/s]
+Downloading:  65%|██████▌   | 144M/220M [00:24&lt;00:11, 6.87MiB/s]
+Downloading:  65%|██████▌   | 144M/220M [00:24&lt;00:11, 6.59MiB/s]
+Downloading:  66%|██████▌   | 145M/220M [00:24&lt;00:11, 6.62MiB/s]
+Downloading:  66%|██████▌   | 146M/220M [00:24&lt;00:10, 7.02MiB/s]
+Downloading:  66%|██████▋   | 146M/220M [00:24&lt;00:10, 6.88MiB/s]
+Downloading:  67%|██████▋   | 147M/220M [00:24&lt;00:10, 7.03MiB/s]
+Downloading:  67%|██████▋   | 148M/220M [00:24&lt;00:10, 7.02MiB/s]
+Downloading:  68%|██████▊   | 149M/220M [00:24&lt;00:09, 7.35MiB/s]
+Downloading:  68%|██████▊   | 149M/220M [00:24&lt;00:09, 7.39MiB/s]
+Downloading:  68%|██████▊   | 150M/220M [00:24&lt;00:09, 7.41MiB/s]
+Downloading:  69%|██████▊   | 151M/220M [00:25&lt;00:09, 7.39MiB/s]
+Downloading:  69%|██████▉   | 152M/220M [00:25&lt;00:09, 7.39MiB/s]
+Downloading:  69%|██████▉   | 152M/220M [00:25&lt;00:09, 6.92MiB/s]
+Downloading:  70%|██████▉   | 153M/220M [00:25&lt;00:10, 6.23MiB/s]
+Downloading:  70%|██████▉   | 154M/220M [00:25&lt;00:10, 6.27MiB/s]
+Downloading:  70%|███████   | 154M/220M [00:25&lt;00:10, 6.24MiB/s]
+Downloading:  70%|███████   | 155M/220M [00:25&lt;00:10, 6.44MiB/s]
+Downloading:  71%|███████   | 156M/220M [00:25&lt;00:09, 6.51MiB/s]
+Downloading:  71%|███████   | 157M/220M [00:25&lt;00:09, 6.70MiB/s]
+Downloading:  71%|███████▏  | 157M/220M [00:26&lt;00:09, 6.94MiB/s]
+Downloading:  72%|███████▏  | 158M/220M [00:26&lt;00:08, 7.08MiB/s]
+Downloading:  72%|███████▏  | 159M/220M [00:26&lt;00:08, 7.41MiB/s]
+Downloading:  72%|███████▏  | 160M/220M [00:26&lt;00:08, 7.46MiB/s]
+Downloading:  73%|███████▎  | 160M/220M [00:26&lt;00:08, 7.06MiB/s]
+Downloading:  73%|███████▎  | 161M/220M [00:26&lt;00:08, 7.19MiB/s]
+Downloading:  73%|███████▎  | 162M/220M [00:26&lt;00:08, 6.88MiB/s]
+Downloading:  74%|███████▍  | 163M/220M [00:26&lt;00:08, 6.73MiB/s]
+Downloading:  74%|███████▍  | 163M/220M [00:26&lt;00:08, 6.73MiB/s]
+Downloading:  74%|███████▍  | 164M/220M [00:26&lt;00:09, 6.13MiB/s]
+Downloading:  75%|███████▍  | 165M/220M [00:27&lt;00:09, 5.66MiB/s]
+Downloading:  75%|███████▍  | 165M/220M [00:27&lt;00:09, 5.56MiB/s]
+Downloading:  75%|███████▌  | 166M/220M [00:27&lt;00:10, 5.42MiB/s]
+Downloading:  75%|███████▌  | 166M/220M [00:27&lt;00:10, 5.29MiB/s]
+Downloading:  76%|███████▌  | 167M/220M [00:27&lt;00:11, 4.86MiB/s]
+Downloading:  76%|███████▌  | 167M/220M [00:27&lt;00:11, 4.68MiB/s]
+Downloading:  76%|███████▌  | 168M/220M [00:27&lt;00:11, 4.63MiB/s]
+Downloading:  76%|███████▋  | 168M/220M [00:27&lt;00:10, 4.94MiB/s]
+Downloading:  77%|███████▋  | 169M/220M [00:28&lt;00:09, 5.30MiB/s]
+Downloading:  77%|███████▋  | 170M/220M [00:28&lt;00:09, 5.46MiB/s]
+Downloading:  77%|███████▋  | 170M/220M [00:28&lt;00:08, 6.10MiB/s]
+Downloading:  78%|███████▊  | 171M/220M [00:28&lt;00:07, 6.53MiB/s]
+Downloading:  78%|███████▊  | 172M/220M [00:28&lt;00:07, 6.84MiB/s]
+Downloading:  78%|███████▊  | 172M/220M [00:28&lt;00:07, 6.79MiB/s]
+Downloading:  79%|███████▊  | 173M/220M [00:28&lt;00:07, 6.48MiB/s]
+Downloading:  79%|███████▉  | 174M/220M [00:28&lt;00:08, 5.75MiB/s]
+Downloading:  79%|███████▉  | 174M/220M [00:28&lt;00:07, 5.79MiB/s]
+Downloading:  79%|███████▉  | 175M/220M [00:28&lt;00:07, 5.77MiB/s]
+Downloading:  80%|███████▉  | 176M/220M [00:29&lt;00:07, 5.77MiB/s]
+Downloading:  80%|████████  | 176M/220M [00:29&lt;00:07, 5.90MiB/s]
+Downloading:  80%|████████  | 177M/220M [00:29&lt;00:06, 6.38MiB/s]
+Downloading:  81%|████████  | 178M/220M [00:29&lt;00:06, 6.80MiB/s]
+Downloading:  81%|████████  | 178M/220M [00:29&lt;00:06, 6.92MiB/s]
+Downloading:  81%|████████▏ | 179M/220M [00:29&lt;00:05, 6.90MiB/s]
+Downloading:  82%|████████▏ | 180M/220M [00:29&lt;00:05, 6.90MiB/s]
+Downloading:  82%|████████▏ | 181M/220M [00:29&lt;00:05, 6.82MiB/s]
+Downloading:  82%|████████▏ | 181M/220M [00:29&lt;00:05, 6.69MiB/s]
+Downloading:  83%|████████▎ | 182M/220M [00:30&lt;00:05, 6.49MiB/s]
+Downloading:  83%|████████▎ | 183M/220M [00:30&lt;00:05, 6.46MiB/s]
+Downloading:  83%|████████▎ | 183M/220M [00:30&lt;00:05, 6.69MiB/s]
+Downloading:  84%|████████▎ | 184M/220M [00:30&lt;00:05, 6.42MiB/s]
+Downloading:  84%|████████▍ | 185M/220M [00:30&lt;00:05, 6.27MiB/s]
+Downloading:  84%|████████▍ | 185M/220M [00:30&lt;00:05, 6.46MiB/s]
+Downloading:  84%|████████▍ | 186M/220M [00:30&lt;00:05, 6.46MiB/s]
+Downloading:  85%|████████▍ | 187M/220M [00:30&lt;00:05, 6.26MiB/s]
+Downloading:  85%|████████▌ | 187M/220M [00:30&lt;00:05, 5.91MiB/s]
+Downloading:  85%|████████▌ | 188M/220M [00:30&lt;00:05, 5.97MiB/s]
+Downloading:  86%|████████▌ | 188M/220M [00:31&lt;00:05, 5.95MiB/s]
+Downloading:  86%|████████▌ | 189M/220M [00:31&lt;00:05, 5.96MiB/s]
+Downloading:  86%|████████▌ | 190M/220M [00:31&lt;00:04, 6.14MiB/s]
+Downloading:  86%|████████▋ | 190M/220M [00:31&lt;00:04, 6.17MiB/s]
+Downloading:  87%|████████▋ | 191M/220M [00:31&lt;00:04, 6.52MiB/s]
+Downloading:  87%|████████▋ | 192M/220M [00:31&lt;00:04, 6.62MiB/s]
+Downloading:  87%|████████▋ | 193M/220M [00:31&lt;00:04, 6.82MiB/s]
+Downloading:  88%|████████▊ | 193M/220M [00:31&lt;00:03, 6.88MiB/s]
+Downloading:  88%|████████▊ | 194M/220M [00:31&lt;00:03, 7.05MiB/s]
+Downloading:  88%|████████▊ | 195M/220M [00:31&lt;00:03, 6.99MiB/s]
+Downloading:  89%|████████▉ | 196M/220M [00:32&lt;00:03, 7.29MiB/s]
+Downloading:  89%|████████▉ | 196M/220M [00:32&lt;00:03, 7.51MiB/s]
+Downloading:  90%|████████▉ | 197M/220M [00:32&lt;00:03, 7.63MiB/s]
+Downloading:  90%|████████▉ | 198M/220M [00:32&lt;00:03, 7.12MiB/s]
+Downloading:  90%|█████████ | 199M/220M [00:32&lt;00:03, 6.88MiB/s]
+Downloading:  91%|█████████ | 199M/220M [00:32&lt;00:03, 6.76MiB/s]
+Downloading:  91%|█████████ | 200M/220M [00:32&lt;00:02, 6.88MiB/s]
+Downloading:  91%|█████████ | 201M/220M [00:32&lt;00:02, 6.75MiB/s]
+Downloading:  91%|█████████▏| 202M/220M [00:32&lt;00:02, 6.99MiB/s]
+Downloading:  92%|█████████▏| 202M/220M [00:33&lt;00:02, 6.83MiB/s]
+Downloading:  92%|█████████▏| 203M/220M [00:33&lt;00:02, 6.87MiB/s]
+Downloading:  92%|█████████▏| 204M/220M [00:33&lt;00:02, 6.83MiB/s]
+Downloading:  93%|█████████▎| 204M/220M [00:33&lt;00:02, 6.28MiB/s]
+Downloading:  93%|█████████▎| 205M/220M [00:33&lt;00:02, 6.33MiB/s]
+Downloading:  93%|█████████▎| 206M/220M [00:33&lt;00:02, 6.57MiB/s]
+Downloading:  94%|█████████▎| 206M/220M [00:33&lt;00:02, 6.66MiB/s]
+Downloading:  94%|█████████▍| 207M/220M [00:33&lt;00:01, 6.99MiB/s]
+Downloading:  94%|█████████▍| 208M/220M [00:33&lt;00:01, 6.93MiB/s]
+Downloading:  95%|█████████▍| 209M/220M [00:34&lt;00:01, 7.05MiB/s]
+Downloading:  95%|█████████▌| 209M/220M [00:34&lt;00:01, 7.03MiB/s]
+Downloading:  95%|█████████▌| 210M/220M [00:34&lt;00:01, 6.95MiB/s]
+Downloading:  96%|█████████▌| 211M/220M [00:34&lt;00:01, 6.87MiB/s]
+Downloading:  96%|█████████▌| 211M/220M [00:34&lt;00:01, 6.89MiB/s]
+Downloading:  96%|█████████▋| 212M/220M [00:34&lt;00:01, 6.85MiB/s]
+Downloading:  97%|█████████▋| 213M/220M [00:34&lt;00:01, 6.75MiB/s]
+Downloading:  97%|█████████▋| 214M/220M [00:34&lt;00:01, 6.45MiB/s]
+Downloading:  97%|█████████▋| 214M/220M [00:34&lt;00:00, 6.59MiB/s]
+Downloading:  98%|█████████▊| 215M/220M [00:35&lt;00:01, 4.30MiB/s]
+Downloading:  98%|█████████▊| 215M/220M [00:35&lt;00:01, 4.30MiB/s]
+Downloading:  98%|█████████▊| 216M/220M [00:35&lt;00:01, 4.26MiB/s]
+Downloading:  98%|█████████▊| 216M/220M [00:35&lt;00:00, 4.49MiB/s]
+Downloading:  99%|█████████▊| 217M/220M [00:35&lt;00:00, 4.99MiB/s]
+Downloading:  99%|█████████▉| 218M/220M [00:35&lt;00:00, 5.29MiB/s]
+Downloading:  99%|█████████▉| 218M/220M [00:35&lt;00:00, 5.32MiB/s]
+Downloading:  99%|█████████▉| 219M/220M [00:35&lt;00:00, 5.24MiB/s]
+Downloading: 100%|█████████▉| 220M/220M [00:35&lt;00:00, 5.92MiB/s]
+Downloading: 100%|██████████| 220M/220M [00:36&lt;00:00, 6.10MiB/s]
+
+Extracting:   0%|          | 0/31572 [00:00&lt;?, ?file/s]
+Extracting:   0%|          | 50/31572 [00:00&lt;01:04, 487.82file/s]
+Extracting:   0%|          | 99/31572 [00:00&lt;01:18, 402.08file/s]
+Extracting:   0%|          | 141/31572 [00:00&lt;01:20, 391.72file/s]
+Extracting:   9%|▉         | 2956/31572 [00:00&lt;00:02, 10299.69file/s]
+Extracting:  18%|█▊        | 5825/31572 [00:00&lt;00:01, 16509.03file/s]
+Extracting:  28%|██▊       | 8988/31572 [00:00&lt;00:01, 21428.77file/s]
+Extracting:  39%|███▊      | 12160/31572 [00:00&lt;00:00, 24694.36file/s]
+Extracting:  47%|████▋     | 14948/31572 [00:00&lt;00:00, 25686.58file/s]
+Extracting:  58%|█████▊    | 18402/31572 [00:00&lt;00:00, 28415.41file/s]
+Extracting:  70%|██████▉   | 21967/31572 [00:01&lt;00:00, 30625.53file/s]
+Extracting:  81%|████████  | 25511/31572 [00:01&lt;00:00, 32086.88file/s]
+Extracting:  92%|█████████▏| 29105/31572 [00:01&lt;00:00, 33252.21file/s]
+Extracting: 100%|██████████| 31572/31572 [00:01&lt;00:00, 21596.78file/s]
+Extracted to /home/kemove/yyz/av-gihub/tutorials/mmwave_PC_source/
+using dataset: M-Gesture DATA
+Generating 21356 samples...
+Generating 4359 samples...
+</pre></div>
+</div>
+</section>
+<section id="visualize-the-point-cloud">
+<h2>Visualize the point cloud<a class="headerlink" href="#visualize-the-point-cloud" title="Permalink to this heading">¶</a></h2>
+<p>In[3]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.tutorial.plot</span> <span class="kn">import</span> <span class="n">plot_3d_graph</span>
+<span class="c1"># Example of the samples in the dataset</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">9</span>  <span class="c1"># Randomly select an index</span>
+<span class="n">pc</span><span class="p">,</span><span class="n">gesture</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">gesture</span><span class="p">))</span>
+<span class="n">plot_3d_graph</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">pc</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_mmwave_PC_hgr_tutorial_001.png" srcset="../_images/sphx_glr_mmwave_PC_hgr_tutorial_001.png" alt="mmwave PC hgr tutorial" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(28, 50, 5) &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</section>
+<section id="create-model">
+<h2>Create model<a class="headerlink" href="#create-model" title="Permalink to this heading">¶</a></h2>
+<p>M-Gesture utilizes CNN-based model, EVL_NN with feature engineering module called RPM as the baseline hgr method. From model.hgr, we can import desired hgr model designed for mmWave PC. The model parameter for EVL_NN reimplemented for M-Gesture is as follows:</p>
+<p>In[4]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hgr</span> <span class="kn">import</span> <span class="n">EVL_NN</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">EVL_NN</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s2">&quot;M-Gesture&quot;</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>EVL_NN(
+  (C1): Sequential(
+    (0): Conv2d(1, 32, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3))
+  )
+  (M): MaxPool2d(kernel_size=(3, 3), stride=(2, 2), padding=(0, 1), dilation=1, ceil_mode=False)
+  (E1): Sequential(
+    (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (E2): Sequential(
+    (0): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (F): Sequential(
+    (0): Linear(in_features=1792, out_features=256, bias=True)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=256, out_features=4, bias=True)
+    (1): Softmax(dim=-1)
+  )
+)
+</pre></div>
+</div>
+</section>
+<section id="model-train">
+<h2>Model Train<a class="headerlink" href="#model-train" title="Permalink to this heading">¶</a></h2>
+<p>pysensing library support quick training of model with the following steps. The training interface incorporates pytorch loss functions, optimizers and dataloaders to facilate training. An example is provided for how to define the aforemetioned terms.</p>
+<p>In[5]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create pytorch dataloaders</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+
+<span class="c1"># Define pytorch loss function as criterion</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+
+
+<span class="c1"># Define pytorch optimizer for training</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+
+
+<span class="c1"># GPU acceleration with cuda</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A quick training using har_train. The resulted model parameters will be saved into “train_{num_epochs}.pth”.</p>
+<p>In[6]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pysensing training interface</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference.hgr</span> <span class="kn">import</span> <span class="n">hgr_train</span>
+<span class="c1"># hgr_train(model, train_loader, num_epochs=1, optimizer=optimizer, criterion=criterion, device=device)</span>
+</pre></div>
+</div>
+</section>
+<section id="model-inference">
+<h2>Model inference<a class="headerlink" href="#model-inference" title="Permalink to this heading">¶</a></h2>
+<p>Load the pretrained model, e.g. from  <a class="reference external" href="https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/mmwave_pc/HGR/M-Gesture_EVL_NN.pth">https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/mmwave_pc/HGR/M-Gesture_EVL_NN.pth</a>
+, and perform human gesture recognition!</p>
+<p>In[7]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load pretrained model</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference</span> <span class="kn">import</span> <span class="n">load_pretrain</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_pretrain</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;M-Gesture&quot;</span><span class="p">,</span> <span class="s2">&quot;EVL_NN&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading: &quot;https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/mmwave_pc/HGR/M-Gesture_EVL_NN.pth&quot; to /home/kemove/.cache/torch/hub/checkpoints/M-Gesture_EVL_NN.pth
+
+  0%|          | 0.00/7.62M [00:00&lt;?, ?B/s]
+  8%|▊         | 656k/7.62M [00:00&lt;00:01, 6.51MB/s]
+ 19%|█▊        | 1.42M/7.62M [00:00&lt;00:00, 7.31MB/s]
+ 28%|██▊       | 2.12M/7.62M [00:00&lt;00:00, 6.93MB/s]
+ 37%|███▋      | 2.79M/7.62M [00:00&lt;00:00, 6.76MB/s]
+ 45%|████▌     | 3.44M/7.62M [00:00&lt;00:00, 6.70MB/s]
+ 53%|█████▎    | 4.08M/7.62M [00:00&lt;00:00, 6.66MB/s]
+ 62%|██████▏   | 4.73M/7.62M [00:00&lt;00:00, 6.67MB/s]
+ 71%|███████   | 5.38M/7.62M [00:00&lt;00:00, 6.25MB/s]
+ 78%|███████▊  | 5.98M/7.62M [00:00&lt;00:00, 6.20MB/s]
+ 86%|████████▋ | 6.58M/7.62M [00:01&lt;00:00, 5.93MB/s]
+ 94%|█████████▍| 7.20M/7.62M [00:01&lt;00:00, 6.09MB/s]
+100%|██████████| 7.62M/7.62M [00:01&lt;00:00, 6.38MB/s]
+Use pretrained model!
+
+EVL_NN(
+  (C1): Sequential(
+    (0): Conv2d(1, 32, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3))
+  )
+  (M): MaxPool2d(kernel_size=(3, 3), stride=(2, 2), padding=(0, 1), dilation=1, ceil_mode=False)
+  (E1): Sequential(
+    (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (E2): Sequential(
+    (0): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace=True)
+    (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (F): Sequential(
+    (0): Linear(in_features=1792, out_features=256, bias=True)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=256, out_features=4, bias=True)
+    (1): Softmax(dim=-1)
+  )
+)
+</pre></div>
+</div>
+<p>Test the model on testing dataset.</p>
+<p>In[8]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference.hgr</span> <span class="kn">import</span> <span class="n">hgr_test</span>
+<span class="c1"># hgr_test(model, test_loader, criterion=criterion, device=device)</span>
+</pre></div>
+</div>
+<p>Model inference on sample and deep feature embedding of input modality in HGR task.</p>
+<p>In[9]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">pc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">pc</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">predicted_result</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The predicted gesture is </span><span class="si">{}</span><span class="s2">, while the ground truth is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predicted_result</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()))</span>
+
+<span class="c1"># Deep feature embedding</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference.embedding</span> <span class="kn">import</span> <span class="n">embedding</span>
+<span class="n">emb</span> <span class="o">=</span> <span class="n">embedding</span><span class="p">(</span><span class="nb">input</span> <span class="o">=</span> <span class="n">pc</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">&quot;M-Gesture&quot;</span><span class="p">,</span> <span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;EVL_NN&quot;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape of feature embedding is: &quot;</span><span class="p">,</span> <span class="n">emb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(28, 50, 5)
+The predicted gesture is 0, while the ground truth is 0
+The shape of feature embedding is:  torch.Size([256])
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 41.513 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-mmwave-pc-mmwave-pc-hgr-tutorial-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/16d784229cddca710574d1168c30ed00/mmwave_PC_hgr_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mmwave_PC_hgr_tutorial.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/4225498d6cd08d3597c8216142a437cc/mmwave_PC_hgr_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mmwave_PC_hgr_tutorial.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mmwave_PC_hpe_tutorial.html" class="btn btn-neutral float-right" title="Tutorial for Human Pose Estimation" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="mmwave_PC_har_tutorial.html" class="btn btn-neutral" title="Tutorial for Human Activity Recognition" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr class="rating-hr hr-top">
+      <div class="rating-container">
+        <div class="rating-prompt">Rate this Tutorial</div>
+        <div class="stars-outer">
+          <i class="far fa-star" title="1 Star" data-behavior="tutorial-rating" data-count="1"></i>
+          <i class="far fa-star" title="2 Stars" data-behavior="tutorial-rating" data-count="2"></i>
+          <i class="far fa-star" title="3 Stars" data-behavior="tutorial-rating" data-count="3"></i>
+          <i class="far fa-star" title="4 Stars" data-behavior="tutorial-rating" data-count="4"></i>
+          <i class="far fa-star" title="5 Stars" data-behavior="tutorial-rating" data-count="5"></i>
+        </div>
+      </div>
+    <hr class="rating-hr hr-bottom"/>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

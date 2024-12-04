@@ -1,0 +1,2097 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial for Human Pose Estimation &mdash; Pysensing Tutorials  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-dataframe.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RSSI Localization Fingerprinting Tutorial" href="../rssi/rssi_localization_fingerprinting_tutorial.html" />
+    <link rel="prev" title="Tutorial for Human Gesture Recognition" href="mmwave_PC_hgr_tutorial.html" />
+  <!-- Google Analytics -->
+  
+  <!-- End Google Analytics -->
+  
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+  <!-- Preload the theme fonts -->
+
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/FreightSans/freight-sans-medium-italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="../_static/fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Preload the katex fonts -->
+
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Main-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size1-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size4-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size2-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Size3-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+
+          <!-- <li class="active"> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+
+          <!-- <li> -->
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Doc</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pysensing/pysensing">GitHub</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+  </div>
+</div>
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_filter_tutorial.html">Acoustic Filter Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_transform_tutorial.html">Acoustic Preprocssing.Transfrom Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bluetooth</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth/bluetooth_localization_tutorial.html">Bluetooth Localization Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">mmwave_raw</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_raw/mmwave_raw_tutorial.html">Data loading and prepocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mmwave_raw/mmwave_raw_tutorial.html#model-loading-and-inference">model loading and inference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">rssi</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="mmwave_PC_har_tutorial.html">Tutorial for Human Activity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mmwave_PC_hgr_tutorial.html">Tutorial for Human Gesture Recognition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial for Human Pose Estimation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">rssi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rssi/rssi_localization_fingerprinting_tutorial.html">RSSI Localization Fingerprinting Tutorial</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Tutorial for Human Pose Estimation</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/mmwave_PC/mmwave_PC_hpe_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+
+        
+
+          <div class="pytorch-call-to-action-links">
+            <div id="tutorial-type">mmwave_PC/mmwave_PC_hpe_tutorial</div>
+
+            <div id="google-colab-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-colab.svg"/>
+              <div class="call-to-action-desktop-view">Run in Google Colab</div>
+              <div class="call-to-action-mobile-view">Colab</div>
+            </div>
+            <div id="download-notebook-link">
+              <img class="call-to-action-notebook-img" src="../_static/images/pytorch-download.svg"/>
+              <div class="call-to-action-desktop-view">Download Notebook</div>
+              <div class="call-to-action-mobile-view">Notebook</div>
+            </div>
+            <div id="github-view-link">
+              <img class="call-to-action-img" src="../_static/images/pytorch-github.svg"/>
+              <div class="call-to-action-desktop-view">View on GitHub</div>
+              <div class="call-to-action-mobile-view">GitHub</div>
+            </div>
+          </div>
+
+        
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#sphx-glr-download-mmwave-pc-mmwave-pc-hpe-tutorial-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="tutorial-for-human-pose-estimation">
+<span id="sphx-glr-mmwave-pc-mmwave-pc-hpe-tutorial-py"></span><h1>Tutorial for Human Pose Estimation<a class="headerlink" href="#tutorial-for-human-pose-estimation" title="Permalink to this heading">¶</a></h1>
+<p>In[1]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+<section id="dataset-with-metafi">
+<h2>Dataset with MetaFi:<a class="headerlink" href="#dataset-with-metafi" title="Permalink to this heading">¶</a></h2>
+<p>Point cloud Pose reconstruction dataset collected by Ti 6843 mmWave radar. 40 subjects are included and the human poses are obtained by 2 RGB camera.
+We provide cross-subject experiment settings with all daily activities.
+In the library, we provide a dataloader to use mmWave PC data, and predict these human poses.</p>
+</section>
+<section id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">¶</a></h2>
+<p>In[3]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.dataset.hpe</span> <span class="kn">import</span> <span class="n">load_hpe_dataset</span>
+<span class="c1"># The path contains the radHAR dataset</span>
+
+<span class="n">train_dataset</span><span class="p">,</span> <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">load_hpe_dataset</span><span class="p">(</span><span class="s2">&quot;MetaFi&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Try to download MetaFi dateset in /home/kemove/yyz/av-gihub/tutorials/mmwave_PC_source/mmfi
+Downloading MetaFi to /home/kemove/yyz/av-gihub/tutorials/mmwave_PC_source/mmfi.zip...
+
+Downloading:   0%|          | 0.00/260M [00:00&lt;?, ?iB/s]
+Downloading:   0%|          | 492k/260M [00:00&lt;00:53, 4.81MiB/s]
+Downloading:   0%|          | 974k/260M [00:00&lt;01:10, 3.64MiB/s]
+Downloading:   1%|          | 1.41M/260M [00:00&lt;01:07, 3.80MiB/s]
+Downloading:   1%|          | 1.80M/260M [00:00&lt;01:09, 3.69MiB/s]
+Downloading:   1%|          | 2.18M/260M [00:00&lt;01:09, 3.69MiB/s]
+Downloading:   1%|          | 2.55M/260M [00:00&lt;01:10, 3.62MiB/s]
+Downloading:   1%|          | 2.91M/260M [00:00&lt;01:11, 3.60MiB/s]
+Downloading:   1%|▏         | 3.33M/260M [00:00&lt;01:08, 3.74MiB/s]
+Downloading:   2%|▏         | 3.92M/260M [00:00&lt;00:58, 4.34MiB/s]
+Downloading:   2%|▏         | 4.44M/260M [00:01&lt;00:55, 4.59MiB/s]
+Downloading:   2%|▏         | 5.03M/260M [00:01&lt;00:51, 4.90MiB/s]
+Downloading:   2%|▏         | 5.59M/260M [00:01&lt;00:49, 5.09MiB/s]
+Downloading:   2%|▏         | 6.19M/260M [00:01&lt;00:47, 5.37MiB/s]
+Downloading:   3%|▎         | 6.73M/260M [00:01&lt;00:47, 5.27MiB/s]
+Downloading:   3%|▎         | 7.26M/260M [00:01&lt;00:49, 5.13MiB/s]
+Downloading:   3%|▎         | 7.88M/260M [00:01&lt;00:46, 5.40MiB/s]
+Downloading:   3%|▎         | 8.49M/260M [00:01&lt;00:53, 4.71MiB/s]
+Downloading:   3%|▎         | 9.04M/260M [00:01&lt;00:51, 4.89MiB/s]
+Downloading:   4%|▎         | 9.55M/260M [00:02&lt;00:52, 4.79MiB/s]
+Downloading:   4%|▍         | 10.0M/260M [00:02&lt;00:52, 4.77MiB/s]
+Downloading:   4%|▍         | 10.5M/260M [00:02&lt;00:52, 4.77MiB/s]
+Downloading:   4%|▍         | 11.1M/260M [00:02&lt;00:49, 5.04MiB/s]
+Downloading:   5%|▍         | 11.8M/260M [00:02&lt;00:44, 5.61MiB/s]
+Downloading:   5%|▍         | 12.4M/260M [00:02&lt;00:43, 5.63MiB/s]
+Downloading:   5%|▍         | 13.0M/260M [00:02&lt;00:45, 5.45MiB/s]
+Downloading:   5%|▌         | 13.6M/260M [00:02&lt;00:42, 5.82MiB/s]
+Downloading:   6%|▌         | 14.3M/260M [00:02&lt;00:39, 6.18MiB/s]
+Downloading:   6%|▌         | 15.0M/260M [00:03&lt;00:39, 6.13MiB/s]
+Downloading:   6%|▌         | 15.6M/260M [00:03&lt;00:41, 5.84MiB/s]
+Downloading:   6%|▌         | 16.2M/260M [00:03&lt;00:41, 5.92MiB/s]
+Downloading:   6%|▋         | 16.8M/260M [00:03&lt;00:44, 5.51MiB/s]
+Downloading:   7%|▋         | 17.4M/260M [00:03&lt;00:43, 5.54MiB/s]
+Downloading:   7%|▋         | 17.9M/260M [00:03&lt;00:48, 5.03MiB/s]
+Downloading:   7%|▋         | 18.5M/260M [00:03&lt;00:45, 5.33MiB/s]
+Downloading:   7%|▋         | 19.1M/260M [00:03&lt;00:51, 4.64MiB/s]
+Downloading:   8%|▊         | 19.6M/260M [00:03&lt;00:51, 4.69MiB/s]
+Downloading:   8%|▊         | 20.1M/260M [00:04&lt;00:51, 4.69MiB/s]
+Downloading:   8%|▊         | 20.7M/260M [00:04&lt;00:47, 5.00MiB/s]
+Downloading:   8%|▊         | 21.3M/260M [00:04&lt;00:44, 5.35MiB/s]
+Downloading:   8%|▊         | 22.0M/260M [00:04&lt;00:41, 5.77MiB/s]
+Downloading:   9%|▊         | 22.6M/260M [00:04&lt;00:40, 5.80MiB/s]
+Downloading:   9%|▉         | 23.2M/260M [00:04&lt;00:41, 5.69MiB/s]
+Downloading:   9%|▉         | 23.8M/260M [00:04&lt;00:43, 5.40MiB/s]
+Downloading:   9%|▉         | 24.3M/260M [00:04&lt;00:49, 4.77MiB/s]
+Downloading:  10%|▉         | 24.8M/260M [00:04&lt;00:48, 4.84MiB/s]
+Downloading:  10%|▉         | 25.4M/260M [00:05&lt;00:48, 4.85MiB/s]
+Downloading:  10%|█         | 26.0M/260M [00:05&lt;00:46, 5.06MiB/s]
+Downloading:  10%|█         | 26.5M/260M [00:05&lt;00:47, 4.87MiB/s]
+Downloading:  10%|█         | 27.0M/260M [00:05&lt;00:57, 4.06MiB/s]
+Downloading:  11%|█         | 27.4M/260M [00:05&lt;00:58, 4.00MiB/s]
+Downloading:  11%|█         | 27.8M/260M [00:05&lt;00:59, 3.87MiB/s]
+Downloading:  11%|█         | 28.3M/260M [00:05&lt;00:57, 4.02MiB/s]
+Downloading:  11%|█         | 28.8M/260M [00:05&lt;00:54, 4.24MiB/s]
+Downloading:  11%|█▏        | 29.3M/260M [00:06&lt;00:51, 4.49MiB/s]
+Downloading:  11%|█▏        | 29.8M/260M [00:06&lt;00:48, 4.74MiB/s]
+Downloading:  12%|█▏        | 30.3M/260M [00:06&lt;00:48, 4.71MiB/s]
+Downloading:  12%|█▏        | 30.9M/260M [00:06&lt;00:46, 4.89MiB/s]
+Downloading:  12%|█▏        | 31.5M/260M [00:06&lt;00:44, 5.11MiB/s]
+Downloading:  12%|█▏        | 32.2M/260M [00:06&lt;00:38, 5.88MiB/s]
+Downloading:  13%|█▎        | 33.0M/260M [00:06&lt;00:36, 6.22MiB/s]
+Downloading:  13%|█▎        | 33.6M/260M [00:06&lt;00:38, 5.81MiB/s]
+Downloading:  13%|█▎        | 34.2M/260M [00:06&lt;00:37, 6.03MiB/s]
+Downloading:  13%|█▎        | 34.9M/260M [00:06&lt;00:37, 6.03MiB/s]
+Downloading:  14%|█▎        | 35.6M/260M [00:07&lt;00:35, 6.24MiB/s]
+Downloading:  14%|█▍        | 36.2M/260M [00:07&lt;00:37, 6.00MiB/s]
+Downloading:  14%|█▍        | 36.8M/260M [00:07&lt;00:37, 5.93MiB/s]
+Downloading:  14%|█▍        | 37.4M/260M [00:07&lt;00:36, 6.08MiB/s]
+Downloading:  15%|█▍        | 38.1M/260M [00:07&lt;00:35, 6.25MiB/s]
+Downloading:  15%|█▍        | 38.8M/260M [00:07&lt;00:34, 6.47MiB/s]
+Downloading:  15%|█▌        | 39.5M/260M [00:07&lt;00:33, 6.54MiB/s]
+Downloading:  16%|█▌        | 40.3M/260M [00:07&lt;00:31, 6.92MiB/s]
+Downloading:  16%|█▌        | 41.0M/260M [00:07&lt;00:31, 6.97MiB/s]
+Downloading:  16%|█▌        | 41.7M/260M [00:07&lt;00:30, 7.07MiB/s]
+Downloading:  16%|█▋        | 42.4M/260M [00:08&lt;00:31, 6.79MiB/s]
+Downloading:  17%|█▋        | 43.1M/260M [00:08&lt;00:37, 5.82MiB/s]
+Downloading:  17%|█▋        | 43.7M/260M [00:08&lt;00:43, 4.93MiB/s]
+Downloading:  17%|█▋        | 44.3M/260M [00:08&lt;00:42, 5.07MiB/s]
+Downloading:  17%|█▋        | 44.9M/260M [00:08&lt;00:41, 5.22MiB/s]
+Downloading:  18%|█▊        | 45.5M/260M [00:08&lt;00:39, 5.43MiB/s]
+Downloading:  18%|█▊        | 46.1M/260M [00:08&lt;00:37, 5.74MiB/s]
+Downloading:  18%|█▊        | 46.7M/260M [00:08&lt;00:36, 5.86MiB/s]
+Downloading:  18%|█▊        | 47.5M/260M [00:09&lt;00:33, 6.25MiB/s]
+Downloading:  19%|█▊        | 48.2M/260M [00:09&lt;00:32, 6.44MiB/s]
+Downloading:  19%|█▉        | 48.8M/260M [00:09&lt;00:32, 6.44MiB/s]
+Downloading:  19%|█▉        | 49.5M/260M [00:09&lt;00:32, 6.55MiB/s]
+Downloading:  19%|█▉        | 50.2M/260M [00:09&lt;00:31, 6.71MiB/s]
+Downloading:  20%|█▉        | 50.9M/260M [00:09&lt;00:32, 6.35MiB/s]
+Downloading:  20%|█▉        | 51.6M/260M [00:09&lt;00:32, 6.38MiB/s]
+Downloading:  20%|██        | 52.3M/260M [00:09&lt;00:31, 6.66MiB/s]
+Downloading:  20%|██        | 53.0M/260M [00:09&lt;00:30, 6.72MiB/s]
+Downloading:  21%|██        | 53.7M/260M [00:09&lt;00:31, 6.59MiB/s]
+Downloading:  21%|██        | 54.3M/260M [00:10&lt;00:34, 6.01MiB/s]
+Downloading:  21%|██        | 54.9M/260M [00:10&lt;00:34, 5.94MiB/s]
+Downloading:  21%|██▏       | 55.5M/260M [00:10&lt;00:34, 5.85MiB/s]
+Downloading:  22%|██▏       | 56.2M/260M [00:10&lt;00:34, 5.97MiB/s]
+Downloading:  22%|██▏       | 56.9M/260M [00:10&lt;00:32, 6.23MiB/s]
+Downloading:  22%|██▏       | 57.5M/260M [00:10&lt;00:32, 6.29MiB/s]
+Downloading:  22%|██▏       | 58.2M/260M [00:10&lt;00:31, 6.36MiB/s]
+Downloading:  23%|██▎       | 58.9M/260M [00:10&lt;00:31, 6.28MiB/s]
+Downloading:  23%|██▎       | 59.5M/260M [00:10&lt;00:35, 5.63MiB/s]
+Downloading:  23%|██▎       | 60.1M/260M [00:11&lt;00:35, 5.64MiB/s]
+Downloading:  23%|██▎       | 60.7M/260M [00:11&lt;00:33, 5.91MiB/s]
+Downloading:  24%|██▎       | 61.3M/260M [00:11&lt;00:34, 5.76MiB/s]
+Downloading:  24%|██▍       | 61.9M/260M [00:11&lt;00:34, 5.68MiB/s]
+Downloading:  24%|██▍       | 62.6M/260M [00:11&lt;00:32, 6.04MiB/s]
+Downloading:  24%|██▍       | 63.3M/260M [00:11&lt;00:31, 6.32MiB/s]
+Downloading:  25%|██▍       | 64.0M/260M [00:11&lt;00:30, 6.51MiB/s]
+Downloading:  25%|██▍       | 64.7M/260M [00:11&lt;00:29, 6.52MiB/s]
+Downloading:  25%|██▌       | 65.5M/260M [00:11&lt;00:28, 6.81MiB/s]
+Downloading:  26%|██▌       | 66.2M/260M [00:11&lt;00:27, 7.03MiB/s]
+Downloading:  26%|██▌       | 67.0M/260M [00:12&lt;00:27, 6.98MiB/s]
+Downloading:  26%|██▌       | 67.7M/260M [00:12&lt;00:28, 6.79MiB/s]
+Downloading:  26%|██▋       | 68.4M/260M [00:12&lt;00:28, 6.74MiB/s]
+Downloading:  27%|██▋       | 69.1M/260M [00:12&lt;00:29, 6.50MiB/s]
+Downloading:  27%|██▋       | 69.8M/260M [00:12&lt;00:28, 6.67MiB/s]
+Downloading:  27%|██▋       | 70.4M/260M [00:12&lt;00:28, 6.69MiB/s]
+Downloading:  27%|██▋       | 71.1M/260M [00:12&lt;00:28, 6.55MiB/s]
+Downloading:  28%|██▊       | 71.9M/260M [00:12&lt;00:27, 6.71MiB/s]
+Downloading:  28%|██▊       | 72.6M/260M [00:12&lt;00:26, 6.93MiB/s]
+Downloading:  28%|██▊       | 73.3M/260M [00:13&lt;00:27, 6.84MiB/s]
+Downloading:  29%|██▊       | 74.1M/260M [00:13&lt;00:26, 7.01MiB/s]
+Downloading:  29%|██▉       | 74.8M/260M [00:13&lt;00:28, 6.55MiB/s]
+Downloading:  29%|██▉       | 75.4M/260M [00:13&lt;00:28, 6.39MiB/s]
+Downloading:  29%|██▉       | 76.1M/260M [00:13&lt;00:30, 5.94MiB/s]
+Downloading:  30%|██▉       | 76.7M/260M [00:13&lt;00:30, 5.95MiB/s]
+Downloading:  30%|██▉       | 77.3M/260M [00:13&lt;00:30, 5.94MiB/s]
+Downloading:  30%|███       | 77.9M/260M [00:13&lt;00:30, 5.92MiB/s]
+Downloading:  30%|███       | 78.7M/260M [00:13&lt;00:28, 6.42MiB/s]
+Downloading:  31%|███       | 79.3M/260M [00:14&lt;00:29, 6.15MiB/s]
+Downloading:  31%|███       | 80.1M/260M [00:14&lt;00:27, 6.59MiB/s]
+Downloading:  31%|███       | 80.8M/260M [00:14&lt;00:26, 6.71MiB/s]
+Downloading:  31%|███▏      | 81.5M/260M [00:14&lt;00:27, 6.42MiB/s]
+Downloading:  32%|███▏      | 82.2M/260M [00:14&lt;00:26, 6.62MiB/s]
+Downloading:  32%|███▏      | 82.9M/260M [00:14&lt;00:26, 6.64MiB/s]
+Downloading:  32%|███▏      | 83.7M/260M [00:14&lt;00:25, 6.96MiB/s]
+Downloading:  33%|███▎      | 84.4M/260M [00:14&lt;00:24, 7.08MiB/s]
+Downloading:  33%|███▎      | 85.1M/260M [00:14&lt;00:24, 7.06MiB/s]
+Downloading:  33%|███▎      | 85.8M/260M [00:14&lt;00:25, 6.92MiB/s]
+Downloading:  33%|███▎      | 86.5M/260M [00:15&lt;00:26, 6.60MiB/s]
+Downloading:  34%|███▎      | 87.2M/260M [00:15&lt;00:26, 6.54MiB/s]
+Downloading:  34%|███▍      | 87.8M/260M [00:15&lt;00:27, 6.36MiB/s]
+Downloading:  34%|███▍      | 88.6M/260M [00:15&lt;00:25, 6.70MiB/s]
+Downloading:  34%|███▍      | 89.3M/260M [00:15&lt;00:26, 6.51MiB/s]
+Downloading:  35%|███▍      | 90.0M/260M [00:15&lt;00:24, 6.85MiB/s]
+Downloading:  35%|███▍      | 90.8M/260M [00:15&lt;00:24, 6.96MiB/s]
+Downloading:  35%|███▌      | 91.5M/260M [00:15&lt;00:24, 6.94MiB/s]
+Downloading:  36%|███▌      | 92.2M/260M [00:15&lt;00:23, 6.99MiB/s]
+Downloading:  36%|███▌      | 92.9M/260M [00:16&lt;00:24, 6.92MiB/s]
+Downloading:  36%|███▌      | 93.6M/260M [00:16&lt;00:24, 6.86MiB/s]
+Downloading:  36%|███▋      | 94.4M/260M [00:16&lt;00:22, 7.19MiB/s]
+Downloading:  37%|███▋      | 95.1M/260M [00:16&lt;00:23, 7.02MiB/s]
+Downloading:  37%|███▋      | 95.9M/260M [00:16&lt;00:23, 7.02MiB/s]
+Downloading:  37%|███▋      | 96.6M/260M [00:16&lt;00:25, 6.49MiB/s]
+Downloading:  37%|███▋      | 97.2M/260M [00:16&lt;00:24, 6.50MiB/s]
+Downloading:  38%|███▊      | 97.9M/260M [00:16&lt;00:24, 6.60MiB/s]
+Downloading:  38%|███▊      | 98.6M/260M [00:16&lt;00:24, 6.57MiB/s]
+Downloading:  38%|███▊      | 99.3M/260M [00:16&lt;00:23, 6.69MiB/s]
+Downloading:  39%|███▊      | 100M/260M [00:17&lt;00:24, 6.57MiB/s]
+Downloading:  39%|███▉      | 101M/260M [00:17&lt;00:24, 6.55MiB/s]
+Downloading:  39%|███▉      | 101M/260M [00:17&lt;00:25, 6.31MiB/s]
+Downloading:  39%|███▉      | 102M/260M [00:17&lt;00:24, 6.48MiB/s]
+Downloading:  40%|███▉      | 103M/260M [00:17&lt;00:23, 6.66MiB/s]
+Downloading:  40%|███▉      | 103M/260M [00:17&lt;00:22, 6.91MiB/s]
+Downloading:  40%|████      | 104M/260M [00:17&lt;00:23, 6.69MiB/s]
+Downloading:  40%|████      | 105M/260M [00:17&lt;00:21, 7.06MiB/s]
+Downloading:  41%|████      | 106M/260M [00:17&lt;00:22, 6.97MiB/s]
+Downloading:  41%|████      | 106M/260M [00:18&lt;00:22, 6.84MiB/s]
+Downloading:  41%|████      | 107M/260M [00:18&lt;00:22, 6.79MiB/s]
+Downloading:  42%|████▏     | 108M/260M [00:18&lt;00:22, 6.71MiB/s]
+Downloading:  42%|████▏     | 108M/260M [00:18&lt;00:22, 6.68MiB/s]
+Downloading:  42%|████▏     | 109M/260M [00:18&lt;00:23, 6.43MiB/s]
+Downloading:  42%|████▏     | 110M/260M [00:18&lt;00:22, 6.69MiB/s]
+Downloading:  43%|████▎     | 111M/260M [00:18&lt;00:22, 6.73MiB/s]
+Downloading:  43%|████▎     | 111M/260M [00:18&lt;00:23, 6.40MiB/s]
+Downloading:  43%|████▎     | 112M/260M [00:18&lt;00:22, 6.56MiB/s]
+Downloading:  43%|████▎     | 113M/260M [00:18&lt;00:22, 6.66MiB/s]
+Downloading:  44%|████▎     | 113M/260M [00:19&lt;00:22, 6.59MiB/s]
+Downloading:  44%|████▍     | 114M/260M [00:19&lt;00:20, 6.93MiB/s]
+Downloading:  44%|████▍     | 115M/260M [00:19&lt;00:22, 6.58MiB/s]
+Downloading:  44%|████▍     | 115M/260M [00:19&lt;00:30, 4.79MiB/s]
+Downloading:  45%|████▍     | 116M/260M [00:19&lt;00:31, 4.63MiB/s]
+Downloading:  45%|████▍     | 117M/260M [00:19&lt;00:28, 5.09MiB/s]
+Downloading:  45%|████▌     | 117M/260M [00:19&lt;00:25, 5.58MiB/s]
+Downloading:  45%|████▌     | 118M/260M [00:19&lt;00:24, 5.86MiB/s]
+Downloading:  46%|████▌     | 119M/260M [00:20&lt;00:24, 5.68MiB/s]
+Downloading:  46%|████▌     | 119M/260M [00:20&lt;00:23, 5.90MiB/s]
+Downloading:  46%|████▌     | 120M/260M [00:20&lt;00:22, 6.29MiB/s]
+Downloading:  46%|████▋     | 121M/260M [00:20&lt;00:21, 6.37MiB/s]
+Downloading:  47%|████▋     | 121M/260M [00:20&lt;00:21, 6.33MiB/s]
+Downloading:  47%|████▋     | 122M/260M [00:20&lt;00:21, 6.26MiB/s]
+Downloading:  47%|████▋     | 123M/260M [00:20&lt;00:21, 6.26MiB/s]
+Downloading:  48%|████▊     | 123M/260M [00:20&lt;00:20, 6.61MiB/s]
+Downloading:  48%|████▊     | 124M/260M [00:20&lt;00:21, 6.44MiB/s]
+Downloading:  48%|████▊     | 125M/260M [00:21&lt;00:20, 6.46MiB/s]
+Downloading:  48%|████▊     | 125M/260M [00:21&lt;00:20, 6.66MiB/s]
+Downloading:  49%|████▊     | 126M/260M [00:21&lt;00:19, 6.72MiB/s]
+Downloading:  49%|████▉     | 127M/260M [00:21&lt;00:19, 6.95MiB/s]
+Downloading:  49%|████▉     | 128M/260M [00:21&lt;00:18, 7.14MiB/s]
+Downloading:  50%|████▉     | 129M/260M [00:21&lt;00:17, 7.49MiB/s]
+Downloading:  50%|████▉     | 129M/260M [00:21&lt;00:17, 7.40MiB/s]
+Downloading:  50%|█████     | 130M/260M [00:21&lt;00:19, 6.78MiB/s]
+Downloading:  50%|█████     | 131M/260M [00:21&lt;00:18, 6.83MiB/s]
+Downloading:  51%|█████     | 131M/260M [00:21&lt;00:18, 6.99MiB/s]
+Downloading:  51%|█████     | 132M/260M [00:22&lt;00:19, 6.58MiB/s]
+Downloading:  51%|█████     | 133M/260M [00:22&lt;00:21, 5.76MiB/s]
+Downloading:  51%|█████▏    | 134M/260M [00:22&lt;00:21, 5.91MiB/s]
+Downloading:  52%|█████▏    | 134M/260M [00:22&lt;00:19, 6.29MiB/s]
+Downloading:  52%|█████▏    | 135M/260M [00:22&lt;00:19, 6.51MiB/s]
+Downloading:  52%|█████▏    | 136M/260M [00:22&lt;00:18, 6.58MiB/s]
+Downloading:  53%|█████▎    | 136M/260M [00:22&lt;00:18, 6.66MiB/s]
+Downloading:  53%|█████▎    | 137M/260M [00:22&lt;00:18, 6.66MiB/s]
+Downloading:  53%|█████▎    | 138M/260M [00:22&lt;00:17, 6.85MiB/s]
+Downloading:  53%|█████▎    | 139M/260M [00:23&lt;00:17, 6.84MiB/s]
+Downloading:  54%|█████▎    | 139M/260M [00:23&lt;00:18, 6.61MiB/s]
+Downloading:  54%|█████▍    | 140M/260M [00:23&lt;00:17, 6.83MiB/s]
+Downloading:  54%|█████▍    | 141M/260M [00:23&lt;00:17, 6.80MiB/s]
+Downloading:  54%|█████▍    | 141M/260M [00:23&lt;00:17, 6.89MiB/s]
+Downloading:  55%|█████▍    | 142M/260M [00:23&lt;00:16, 6.96MiB/s]
+Downloading:  55%|█████▌    | 143M/260M [00:23&lt;00:16, 6.87MiB/s]
+Downloading:  55%|█████▌    | 144M/260M [00:23&lt;00:16, 6.85MiB/s]
+Downloading:  56%|█████▌    | 144M/260M [00:23&lt;00:16, 7.04MiB/s]
+Downloading:  56%|█████▌    | 145M/260M [00:23&lt;00:16, 7.12MiB/s]
+Downloading:  56%|█████▌    | 146M/260M [00:24&lt;00:15, 7.42MiB/s]
+Downloading:  56%|█████▋    | 147M/260M [00:24&lt;00:15, 7.33MiB/s]
+Downloading:  57%|█████▋    | 147M/260M [00:24&lt;00:15, 7.41MiB/s]
+Downloading:  57%|█████▋    | 148M/260M [00:24&lt;00:15, 7.23MiB/s]
+Downloading:  57%|█████▋    | 149M/260M [00:24&lt;00:15, 7.19MiB/s]
+Downloading:  58%|█████▊    | 150M/260M [00:24&lt;00:15, 6.94MiB/s]
+Downloading:  58%|█████▊    | 150M/260M [00:24&lt;00:16, 6.77MiB/s]
+Downloading:  58%|█████▊    | 151M/260M [00:24&lt;00:17, 6.37MiB/s]
+Downloading:  58%|█████▊    | 152M/260M [00:24&lt;00:17, 6.13MiB/s]
+Downloading:  59%|█████▊    | 152M/260M [00:25&lt;00:18, 5.85MiB/s]
+Downloading:  59%|█████▉    | 153M/260M [00:25&lt;00:17, 6.15MiB/s]
+Downloading:  59%|█████▉    | 154M/260M [00:25&lt;00:16, 6.41MiB/s]
+Downloading:  59%|█████▉    | 154M/260M [00:25&lt;00:15, 6.77MiB/s]
+Downloading:  60%|█████▉    | 155M/260M [00:25&lt;00:15, 6.68MiB/s]
+Downloading:  60%|██████    | 156M/260M [00:25&lt;00:16, 6.20MiB/s]
+Downloading:  60%|██████    | 156M/260M [00:25&lt;00:16, 6.35MiB/s]
+Downloading:  61%|██████    | 157M/260M [00:25&lt;00:15, 6.50MiB/s]
+Downloading:  61%|██████    | 158M/260M [00:25&lt;00:15, 6.56MiB/s]
+Downloading:  61%|██████    | 159M/260M [00:26&lt;00:15, 6.62MiB/s]
+Downloading:  61%|██████▏   | 159M/260M [00:26&lt;00:15, 6.45MiB/s]
+Downloading:  62%|██████▏   | 160M/260M [00:26&lt;00:16, 6.12MiB/s]
+Downloading:  62%|██████▏   | 160M/260M [00:26&lt;00:15, 6.26MiB/s]
+Downloading:  62%|██████▏   | 161M/260M [00:26&lt;00:15, 6.42MiB/s]
+Downloading:  62%|██████▏   | 162M/260M [00:26&lt;00:15, 6.38MiB/s]
+Downloading:  63%|██████▎   | 162M/260M [00:26&lt;00:15, 6.32MiB/s]
+Downloading:  63%|██████▎   | 163M/260M [00:26&lt;00:15, 6.37MiB/s]
+Downloading:  63%|██████▎   | 164M/260M [00:26&lt;00:14, 6.72MiB/s]
+Downloading:  63%|██████▎   | 165M/260M [00:26&lt;00:13, 6.84MiB/s]
+Downloading:  64%|██████▎   | 165M/260M [00:27&lt;00:13, 6.99MiB/s]
+Downloading:  64%|██████▍   | 166M/260M [00:27&lt;00:13, 6.89MiB/s]
+Downloading:  64%|██████▍   | 167M/260M [00:27&lt;00:13, 6.83MiB/s]
+Downloading:  65%|██████▍   | 167M/260M [00:27&lt;00:13, 6.88MiB/s]
+Downloading:  65%|██████▍   | 168M/260M [00:27&lt;00:12, 7.18MiB/s]
+Downloading:  65%|██████▌   | 169M/260M [00:27&lt;00:12, 6.98MiB/s]
+Downloading:  65%|██████▌   | 170M/260M [00:27&lt;00:12, 7.12MiB/s]
+Downloading:  66%|██████▌   | 171M/260M [00:27&lt;00:12, 7.15MiB/s]
+Downloading:  66%|██████▌   | 171M/260M [00:27&lt;00:11, 7.51MiB/s]
+Downloading:  66%|██████▋   | 172M/260M [00:28&lt;00:11, 7.45MiB/s]
+Downloading:  67%|██████▋   | 173M/260M [00:28&lt;00:12, 7.10MiB/s]
+Downloading:  67%|██████▋   | 174M/260M [00:28&lt;00:11, 7.25MiB/s]
+Downloading:  67%|██████▋   | 174M/260M [00:28&lt;00:11, 7.16MiB/s]
+Downloading:  67%|██████▋   | 175M/260M [00:28&lt;00:12, 6.92MiB/s]
+Downloading:  68%|██████▊   | 176M/260M [00:28&lt;00:12, 6.90MiB/s]
+Downloading:  68%|██████▊   | 176M/260M [00:28&lt;00:12, 6.69MiB/s]
+Downloading:  68%|██████▊   | 177M/260M [00:28&lt;00:11, 6.97MiB/s]
+Downloading:  69%|██████▊   | 178M/260M [00:28&lt;00:11, 7.01MiB/s]
+Downloading:  69%|██████▉   | 179M/260M [00:28&lt;00:12, 6.71MiB/s]
+Downloading:  69%|██████▉   | 179M/260M [00:29&lt;00:11, 6.80MiB/s]
+Downloading:  69%|██████▉   | 180M/260M [00:29&lt;00:11, 6.65MiB/s]
+Downloading:  70%|██████▉   | 181M/260M [00:29&lt;00:11, 6.72MiB/s]
+Downloading:  70%|██████▉   | 181M/260M [00:29&lt;00:11, 6.71MiB/s]
+Downloading:  70%|███████   | 182M/260M [00:29&lt;00:16, 4.72MiB/s]
+Downloading:  70%|███████   | 183M/260M [00:29&lt;00:15, 4.82MiB/s]
+Downloading:  71%|███████   | 183M/260M [00:29&lt;00:14, 5.27MiB/s]
+Downloading:  71%|███████   | 184M/260M [00:29&lt;00:13, 5.64MiB/s]
+Downloading:  71%|███████   | 185M/260M [00:30&lt;00:12, 5.92MiB/s]
+Downloading:  71%|███████▏  | 185M/260M [00:30&lt;00:11, 6.30MiB/s]
+Downloading:  72%|███████▏  | 186M/260M [00:30&lt;00:11, 6.42MiB/s]
+Downloading:  72%|███████▏  | 187M/260M [00:30&lt;00:11, 6.49MiB/s]
+Downloading:  72%|███████▏  | 187M/260M [00:30&lt;00:11, 6.45MiB/s]
+Downloading:  72%|███████▏  | 188M/260M [00:30&lt;00:11, 6.31MiB/s]
+Downloading:  73%|███████▎  | 189M/260M [00:30&lt;00:11, 6.11MiB/s]
+Downloading:  73%|███████▎  | 189M/260M [00:30&lt;00:11, 5.89MiB/s]
+Downloading:  73%|███████▎  | 190M/260M [00:30&lt;00:10, 6.35MiB/s]
+Downloading:  73%|███████▎  | 191M/260M [00:30&lt;00:10, 6.29MiB/s]
+Downloading:  74%|███████▍  | 191M/260M [00:31&lt;00:10, 6.42MiB/s]
+Downloading:  74%|███████▍  | 192M/260M [00:31&lt;00:10, 6.54MiB/s]
+Downloading:  74%|███████▍  | 193M/260M [00:31&lt;00:09, 6.68MiB/s]
+Downloading:  75%|███████▍  | 194M/260M [00:31&lt;00:10, 6.53MiB/s]
+Downloading:  75%|███████▍  | 194M/260M [00:31&lt;00:09, 6.72MiB/s]
+Downloading:  75%|███████▌  | 195M/260M [00:31&lt;00:09, 6.75MiB/s]
+Downloading:  75%|███████▌  | 196M/260M [00:31&lt;00:09, 6.74MiB/s]
+Downloading:  76%|███████▌  | 196M/260M [00:31&lt;00:10, 6.28MiB/s]
+Downloading:  76%|███████▌  | 197M/260M [00:31&lt;00:09, 6.38MiB/s]
+Downloading:  76%|███████▌  | 198M/260M [00:32&lt;00:09, 6.37MiB/s]
+Downloading:  76%|███████▋  | 198M/260M [00:32&lt;00:10, 5.87MiB/s]
+Downloading:  77%|███████▋  | 199M/260M [00:32&lt;00:11, 5.34MiB/s]
+Downloading:  77%|███████▋  | 199M/260M [00:32&lt;00:11, 5.12MiB/s]
+Downloading:  77%|███████▋  | 200M/260M [00:32&lt;00:11, 5.03MiB/s]
+Downloading:  77%|███████▋  | 200M/260M [00:32&lt;00:11, 5.16MiB/s]
+Downloading:  77%|███████▋  | 201M/260M [00:32&lt;00:10, 5.60MiB/s]
+Downloading:  78%|███████▊  | 202M/260M [00:32&lt;00:10, 5.68MiB/s]
+Downloading:  78%|███████▊  | 202M/260M [00:32&lt;00:09, 5.80MiB/s]
+Downloading:  78%|███████▊  | 203M/260M [00:33&lt;00:09, 5.87MiB/s]
+Downloading:  78%|███████▊  | 204M/260M [00:33&lt;00:08, 6.48MiB/s]
+Downloading:  79%|███████▉  | 205M/260M [00:33&lt;00:08, 6.63MiB/s]
+Downloading:  79%|███████▉  | 205M/260M [00:33&lt;00:08, 6.28MiB/s]
+Downloading:  79%|███████▉  | 206M/260M [00:33&lt;00:08, 6.27MiB/s]
+Downloading:  80%|███████▉  | 206M/260M [00:33&lt;00:08, 6.26MiB/s]
+Downloading:  80%|███████▉  | 207M/260M [00:33&lt;00:07, 6.71MiB/s]
+Downloading:  80%|████████  | 208M/260M [00:33&lt;00:07, 6.53MiB/s]
+Downloading:  80%|████████  | 209M/260M [00:33&lt;00:08, 6.24MiB/s]
+Downloading:  81%|████████  | 209M/260M [00:34&lt;00:08, 6.00MiB/s]
+Downloading:  81%|████████  | 210M/260M [00:34&lt;00:08, 5.94MiB/s]
+Downloading:  81%|████████  | 210M/260M [00:34&lt;00:08, 5.83MiB/s]
+Downloading:  81%|████████▏ | 211M/260M [00:34&lt;00:08, 5.68MiB/s]
+Downloading:  82%|████████▏ | 212M/260M [00:34&lt;00:08, 5.91MiB/s]
+Downloading:  82%|████████▏ | 212M/260M [00:34&lt;00:07, 6.00MiB/s]
+Downloading:  82%|████████▏ | 213M/260M [00:34&lt;00:07, 5.91MiB/s]
+Downloading:  82%|████████▏ | 214M/260M [00:34&lt;00:07, 5.88MiB/s]
+Downloading:  82%|████████▏ | 214M/260M [00:34&lt;00:07, 5.97MiB/s]
+Downloading:  83%|████████▎ | 215M/260M [00:34&lt;00:07, 6.22MiB/s]
+Downloading:  83%|████████▎ | 215M/260M [00:35&lt;00:07, 6.25MiB/s]
+Downloading:  83%|████████▎ | 216M/260M [00:35&lt;00:07, 5.86MiB/s]
+Downloading:  83%|████████▎ | 217M/260M [00:35&lt;00:07, 5.99MiB/s]
+Downloading:  84%|████████▍ | 217M/260M [00:35&lt;00:06, 6.27MiB/s]
+Downloading:  84%|████████▍ | 218M/260M [00:35&lt;00:07, 5.64MiB/s]
+Downloading:  84%|████████▍ | 219M/260M [00:35&lt;00:07, 5.67MiB/s]
+Downloading:  85%|████████▍ | 219M/260M [00:35&lt;00:06, 6.14MiB/s]
+Downloading:  85%|████████▍ | 220M/260M [00:35&lt;00:06, 6.13MiB/s]
+Downloading:  85%|████████▌ | 221M/260M [00:35&lt;00:06, 6.36MiB/s]
+Downloading:  85%|████████▌ | 221M/260M [00:36&lt;00:05, 6.69MiB/s]
+Downloading:  86%|████████▌ | 222M/260M [00:36&lt;00:05, 6.87MiB/s]
+Downloading:  86%|████████▌ | 223M/260M [00:36&lt;00:05, 7.11MiB/s]
+Downloading:  86%|████████▌ | 224M/260M [00:36&lt;00:05, 6.81MiB/s]
+Downloading:  86%|████████▋ | 224M/260M [00:36&lt;00:04, 7.07MiB/s]
+Downloading:  87%|████████▋ | 225M/260M [00:36&lt;00:04, 6.94MiB/s]
+Downloading:  87%|████████▋ | 226M/260M [00:36&lt;00:05, 6.56MiB/s]
+Downloading:  87%|████████▋ | 227M/260M [00:36&lt;00:05, 6.51MiB/s]
+Downloading:  88%|████████▊ | 227M/260M [00:36&lt;00:05, 6.39MiB/s]
+Downloading:  88%|████████▊ | 228M/260M [00:37&lt;00:05, 6.17MiB/s]
+Downloading:  88%|████████▊ | 229M/260M [00:37&lt;00:04, 6.33MiB/s]
+Downloading:  88%|████████▊ | 229M/260M [00:37&lt;00:05, 5.79MiB/s]
+Downloading:  89%|████████▊ | 230M/260M [00:37&lt;00:05, 5.83MiB/s]
+Downloading:  89%|████████▉ | 230M/260M [00:37&lt;00:04, 5.98MiB/s]
+Downloading:  89%|████████▉ | 231M/260M [00:37&lt;00:04, 6.03MiB/s]
+Downloading:  89%|████████▉ | 232M/260M [00:37&lt;00:04, 6.35MiB/s]
+Downloading:  90%|████████▉ | 232M/260M [00:37&lt;00:04, 6.32MiB/s]
+Downloading:  90%|████████▉ | 233M/260M [00:37&lt;00:04, 6.37MiB/s]
+Downloading:  90%|█████████ | 234M/260M [00:37&lt;00:04, 6.37MiB/s]
+Downloading:  90%|█████████ | 235M/260M [00:38&lt;00:03, 6.71MiB/s]
+Downloading:  91%|█████████ | 235M/260M [00:38&lt;00:03, 6.58MiB/s]
+Downloading:  91%|█████████ | 236M/260M [00:38&lt;00:03, 6.66MiB/s]
+Downloading:  91%|█████████ | 237M/260M [00:38&lt;00:03, 6.50MiB/s]
+Downloading:  91%|█████████▏| 237M/260M [00:38&lt;00:03, 6.51MiB/s]
+Downloading:  92%|█████████▏| 238M/260M [00:38&lt;00:03, 6.45MiB/s]
+Downloading:  92%|█████████▏| 239M/260M [00:38&lt;00:03, 6.10MiB/s]
+Downloading:  92%|█████████▏| 239M/260M [00:38&lt;00:03, 6.20MiB/s]
+Downloading:  92%|█████████▏| 240M/260M [00:38&lt;00:03, 6.41MiB/s]
+Downloading:  93%|█████████▎| 241M/260M [00:39&lt;00:02, 6.69MiB/s]
+Downloading:  93%|█████████▎| 241M/260M [00:39&lt;00:02, 6.63MiB/s]
+Downloading:  93%|█████████▎| 242M/260M [00:39&lt;00:02, 6.62MiB/s]
+Downloading:  93%|█████████▎| 243M/260M [00:39&lt;00:02, 6.58MiB/s]
+Downloading:  94%|█████████▍| 243M/260M [00:39&lt;00:02, 6.83MiB/s]
+Downloading:  94%|█████████▍| 244M/260M [00:39&lt;00:02, 6.68MiB/s]
+Downloading:  94%|█████████▍| 245M/260M [00:39&lt;00:02, 6.14MiB/s]
+Downloading:  95%|█████████▍| 245M/260M [00:39&lt;00:02, 6.33MiB/s]
+Downloading:  95%|█████████▍| 246M/260M [00:39&lt;00:02, 6.40MiB/s]
+Downloading:  95%|█████████▌| 247M/260M [00:39&lt;00:01, 6.43MiB/s]
+Downloading:  95%|█████████▌| 247M/260M [00:40&lt;00:01, 6.42MiB/s]
+Downloading:  96%|█████████▌| 248M/260M [00:40&lt;00:01, 6.21MiB/s]
+Downloading:  96%|█████████▌| 249M/260M [00:40&lt;00:01, 6.16MiB/s]
+Downloading:  96%|█████████▌| 249M/260M [00:40&lt;00:01, 6.19MiB/s]
+Downloading:  96%|█████████▋| 250M/260M [00:40&lt;00:01, 5.30MiB/s]
+Downloading:  97%|█████████▋| 250M/260M [00:40&lt;00:01, 4.88MiB/s]
+Downloading:  97%|█████████▋| 251M/260M [00:40&lt;00:01, 4.93MiB/s]
+Downloading:  97%|█████████▋| 252M/260M [00:40&lt;00:01, 5.24MiB/s]
+Downloading:  97%|█████████▋| 252M/260M [00:40&lt;00:01, 5.55MiB/s]
+Downloading:  97%|█████████▋| 253M/260M [00:41&lt;00:01, 5.57MiB/s]
+Downloading:  98%|█████████▊| 254M/260M [00:41&lt;00:01, 5.90MiB/s]
+Downloading:  98%|█████████▊| 254M/260M [00:41&lt;00:00, 6.10MiB/s]
+Downloading:  98%|█████████▊| 255M/260M [00:41&lt;00:00, 5.93MiB/s]
+Downloading:  98%|█████████▊| 255M/260M [00:41&lt;00:00, 5.71MiB/s]
+Downloading:  99%|█████████▊| 256M/260M [00:41&lt;00:00, 5.11MiB/s]
+Downloading:  99%|█████████▉| 257M/260M [00:41&lt;00:00, 4.43MiB/s]
+Downloading:  99%|█████████▉| 257M/260M [00:41&lt;00:00, 4.57MiB/s]
+Downloading:  99%|█████████▉| 258M/260M [00:42&lt;00:00, 4.70MiB/s]
+Downloading:  99%|█████████▉| 258M/260M [00:42&lt;00:00, 4.41MiB/s]
+Downloading: 100%|█████████▉| 259M/260M [00:42&lt;00:00, 4.32MiB/s]
+Downloading: 100%|█████████▉| 259M/260M [00:42&lt;00:00, 4.59MiB/s]
+Downloading: 100%|██████████| 260M/260M [00:42&lt;00:00, 6.12MiB/s]
+
+Extracting:   0%|          | 0/324045 [00:00&lt;?, ?file/s]
+Extracting:   1%|          | 3131/324045 [00:00&lt;00:10, 31302.42file/s]
+Extracting:   2%|▏         | 6262/324045 [00:00&lt;00:10, 31008.42file/s]
+Extracting:   3%|▎         | 9364/324045 [00:00&lt;00:10, 30468.86file/s]
+Extracting:   4%|▍         | 12659/324045 [00:00&lt;00:09, 31431.07file/s]
+Extracting:   5%|▍         | 16028/324045 [00:00&lt;00:09, 32234.99file/s]
+Extracting:   6%|▌         | 19254/324045 [00:00&lt;00:09, 31384.79file/s]
+Extracting:   7%|▋         | 22409/324045 [00:00&lt;00:09, 31434.86file/s]
+Extracting:   8%|▊         | 25677/324045 [00:00&lt;00:09, 31824.94file/s]
+Extracting:   9%|▉         | 28863/324045 [00:00&lt;00:09, 31100.98file/s]
+Extracting:  10%|▉         | 32106/324045 [00:01&lt;00:09, 31486.94file/s]
+Extracting:  11%|█         | 35259/324045 [00:01&lt;00:09, 30672.01file/s]
+Extracting:  12%|█▏        | 38346/324045 [00:01&lt;00:09, 30729.30file/s]
+Extracting:  13%|█▎        | 41554/324045 [00:01&lt;00:09, 31128.87file/s]
+Extracting:  14%|█▍        | 44671/324045 [00:01&lt;00:09, 30925.90file/s]
+Extracting:  15%|█▍        | 47767/324045 [00:01&lt;00:09, 30210.16file/s]
+Extracting:  16%|█▌        | 50944/324045 [00:01&lt;00:08, 30665.54file/s]
+Extracting:  17%|█▋        | 54016/324045 [00:01&lt;00:08, 30065.11file/s]
+Extracting:  18%|█▊        | 57395/324045 [00:01&lt;00:08, 31153.25file/s]
+Extracting:  19%|█▊        | 60517/324045 [00:01&lt;00:08, 30892.20file/s]
+Extracting:  20%|█▉        | 63842/324045 [00:02&lt;00:08, 31585.26file/s]
+Extracting:  21%|██        | 67130/324045 [00:02&lt;00:08, 31966.39file/s]
+Extracting:  22%|██▏       | 70345/324045 [00:02&lt;00:07, 32017.90file/s]
+Extracting:  23%|██▎       | 73645/324045 [00:02&lt;00:07, 32310.18file/s]
+Extracting:  24%|██▎       | 76879/324045 [00:02&lt;00:07, 31269.90file/s]
+Extracting:  25%|██▍       | 80015/324045 [00:02&lt;00:07, 30958.60file/s]
+Extracting:  26%|██▌       | 83312/324045 [00:02&lt;00:07, 31544.23file/s]
+Extracting:  27%|██▋       | 86620/324045 [00:02&lt;00:07, 31993.08file/s]
+Extracting:  28%|██▊       | 89825/324045 [00:02&lt;00:07, 31749.26file/s]
+Extracting:  29%|██▉       | 93167/324045 [00:02&lt;00:07, 32240.56file/s]
+Extracting:  30%|██▉       | 96452/324045 [00:03&lt;00:07, 32420.95file/s]
+Extracting:  31%|███       | 99697/324045 [00:03&lt;00:07, 31778.09file/s]
+Extracting:  32%|███▏      | 102923/324045 [00:03&lt;00:06, 31917.47file/s]
+Extracting:  33%|███▎      | 106230/324045 [00:03&lt;00:06, 32256.27file/s]
+Extracting:  34%|███▍      | 109459/324045 [00:03&lt;00:06, 31533.68file/s]
+Extracting:  35%|███▍      | 112686/324045 [00:03&lt;00:06, 31748.77file/s]
+Extracting:  36%|███▌      | 115865/324045 [00:03&lt;00:06, 31736.34file/s]
+Extracting:  37%|███▋      | 119042/324045 [00:03&lt;00:06, 30880.25file/s]
+Extracting:  38%|███▊      | 122373/324045 [00:03&lt;00:06, 31587.98file/s]
+Extracting:  39%|███▉      | 125632/324045 [00:03&lt;00:06, 31882.03file/s]
+Extracting:  40%|███▉      | 128826/324045 [00:04&lt;00:06, 31345.80file/s]
+Extracting:  41%|████      | 132196/324045 [00:04&lt;00:05, 32034.13file/s]
+Extracting:  42%|████▏     | 135633/324045 [00:04&lt;00:05, 32721.79file/s]
+Extracting:  43%|████▎     | 138910/324045 [00:04&lt;00:05, 32275.18file/s]
+Extracting:  44%|████▍     | 142142/324045 [00:04&lt;00:05, 32184.40file/s]
+Extracting:  45%|████▍     | 145364/324045 [00:04&lt;00:05, 32150.09file/s]
+Extracting:  46%|████▌     | 148581/324045 [00:04&lt;00:05, 31555.11file/s]
+Extracting:  47%|████▋     | 151915/324045 [00:04&lt;00:05, 32077.90file/s]
+Extracting:  48%|████▊     | 155352/324045 [00:04&lt;00:05, 32755.18file/s]
+Extracting:  49%|████▉     | 158631/324045 [00:05&lt;00:05, 32182.70file/s]
+Extracting:  50%|█████     | 162167/324045 [00:05&lt;00:04, 33114.89file/s]
+Extracting:  51%|█████     | 165484/324045 [00:05&lt;00:04, 32656.16file/s]
+Extracting:  52%|█████▏    | 168754/324045 [00:05&lt;00:04, 31381.61file/s]
+Extracting:  53%|█████▎    | 171927/324045 [00:05&lt;00:04, 30951.53file/s]
+Extracting:  54%|█████▍    | 175175/324045 [00:05&lt;00:04, 31388.27file/s]
+Extracting:  55%|█████▌    | 178555/324045 [00:05&lt;00:04, 32090.22file/s]
+Extracting:  56%|█████▌    | 181772/324045 [00:05&lt;00:04, 31985.04file/s]
+Extracting:  57%|█████▋    | 184976/324045 [00:05&lt;00:04, 30699.43file/s]
+Extracting:  58%|█████▊    | 188226/324045 [00:05&lt;00:04, 31215.70file/s]
+Extracting:  59%|█████▉    | 191359/324045 [00:06&lt;00:04, 31074.70file/s]
+Extracting:  60%|██████    | 194867/324045 [00:06&lt;00:04, 32246.52file/s]
+Extracting:  61%|██████    | 198100/324045 [00:06&lt;00:03, 32172.28file/s]
+Extracting:  62%|██████▏   | 201323/324045 [00:06&lt;00:03, 31212.82file/s]
+Extracting:  63%|██████▎   | 204589/324045 [00:06&lt;00:03, 31630.33file/s]
+Extracting:  64%|██████▍   | 207944/324045 [00:06&lt;00:03, 32192.45file/s]
+Extracting:  65%|██████▌   | 211232/324045 [00:06&lt;00:03, 31960.15file/s]
+Extracting:  66%|██████▌   | 214478/324045 [00:06&lt;00:03, 32104.47file/s]
+Extracting:  67%|██████▋   | 217700/324045 [00:06&lt;00:03, 32138.01file/s]
+Extracting:  68%|██████▊   | 220947/324045 [00:06&lt;00:03, 32233.32file/s]
+Extracting:  69%|██████▉   | 224173/324045 [00:07&lt;00:03, 31388.57file/s]
+Extracting:  70%|███████   | 227528/324045 [00:07&lt;00:03, 32019.35file/s]
+Extracting:  71%|███████   | 230736/324045 [00:07&lt;00:02, 31599.35file/s]
+Extracting:  72%|███████▏  | 234105/324045 [00:07&lt;00:02, 32210.69file/s]
+Extracting:  73%|███████▎  | 237401/324045 [00:07&lt;00:02, 32431.78file/s]
+Extracting:  74%|███████▍  | 240648/324045 [00:07&lt;00:02, 31770.00file/s]
+Extracting:  75%|███████▌  | 244072/324045 [00:07&lt;00:02, 32491.62file/s]
+Extracting:  76%|███████▋  | 247327/324045 [00:07&lt;00:02, 32405.55file/s]
+Extracting:  77%|███████▋  | 250571/324045 [00:07&lt;00:02, 31504.02file/s]
+Extracting:  78%|███████▊  | 253729/324045 [00:08&lt;00:02, 31486.06file/s]
+Extracting:  79%|███████▉  | 256883/324045 [00:08&lt;00:02, 30404.31file/s]
+Extracting:  80%|████████  | 260138/324045 [00:08&lt;00:02, 31009.79file/s]
+Extracting:  81%|████████  | 263249/324045 [00:08&lt;00:01, 30888.81file/s]
+Extracting:  82%|████████▏ | 266552/324045 [00:08&lt;00:01, 31514.63file/s]
+Extracting:  83%|████████▎ | 269710/324045 [00:08&lt;00:01, 31083.69file/s]
+Extracting:  84%|████████▍ | 272824/324045 [00:08&lt;00:01, 30714.89file/s]
+Extracting:  85%|████████▌ | 276174/324045 [00:08&lt;00:01, 31527.33file/s]
+Extracting:  86%|████████▌ | 279332/324045 [00:08&lt;00:01, 31512.54file/s]
+Extracting:  87%|████████▋ | 282487/324045 [00:08&lt;00:01, 30697.91file/s]
+Extracting:  88%|████████▊ | 285687/324045 [00:09&lt;00:01, 31076.26file/s]
+Extracting:  89%|████████▉ | 288800/324045 [00:09&lt;00:01, 30704.99file/s]
+Extracting:  90%|█████████ | 292183/324045 [00:09&lt;00:01, 31621.04file/s]
+Extracting:  91%|█████████ | 295351/324045 [00:09&lt;00:00, 31508.48file/s]
+Extracting:  92%|█████████▏| 298506/324045 [00:09&lt;00:00, 30382.02file/s]
+Extracting:  93%|█████████▎| 301681/324045 [00:09&lt;00:00, 30775.99file/s]
+Extracting:  94%|█████████▍| 304767/324045 [00:09&lt;00:00, 30273.39file/s]
+Extracting:  95%|█████████▌| 308043/324045 [00:09&lt;00:00, 30995.70file/s]
+Extracting:  96%|█████████▌| 311317/324045 [00:09&lt;00:00, 31507.72file/s]
+Extracting:  97%|█████████▋| 314474/324045 [00:09&lt;00:00, 30836.40file/s]
+Extracting:  98%|█████████▊| 317726/324045 [00:10&lt;00:00, 31328.20file/s]
+Extracting:  99%|█████████▉| 320865/324045 [00:10&lt;00:00, 30658.17file/s]
+Extracting: 100%|██████████| 324045/324045 [00:10&lt;00:00, 31524.32file/s]
+Extracted to /home/kemove/yyz/av-gihub/tutorials/mmwave_PC_source/
+Using default config file.
+using dataset: MetaFi DATA
+S02 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A14&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S03 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;]
+S05 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S06 [&#39;A02&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S08 [&#39;A02&#39;, &#39;A03&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S09 [&#39;A02&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S11 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;]
+S12 [&#39;A02&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S13 [&#39;A02&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A27&#39;]
+S14 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A23&#39;]
+S15 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A17&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S16 [&#39;A02&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S17 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A23&#39;]
+S18 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S19 [&#39;A02&#39;, &#39;A03&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;]
+S21 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S23 [&#39;A02&#39;, &#39;A03&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S25 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S26 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A23&#39;]
+S27 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;]
+S28 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A21&#39;, &#39;A27&#39;]
+S29 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A19&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S30 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S31 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S32 [&#39;A02&#39;, &#39;A03&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S33 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S34 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S35 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;]
+S36 [&#39;A02&#39;, &#39;A03&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S37 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S38 [&#39;A02&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S40 [&#39;A02&#39;, &#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S04 [&#39;A03&#39;, &#39;A04&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S07 [&#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S20 [&#39;A03&#39;, &#39;A04&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S22 [&#39;A03&#39;, &#39;A04&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S24 [&#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S39 [&#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S01 [&#39;A04&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S10 [&#39;A04&#39;, &#39;A05&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A20&#39;, &#39;A22&#39;, &#39;A23&#39;, &#39;A27&#39;]
+S01 [&#39;A02&#39;, &#39;A03&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A21&#39;]
+S04 [&#39;A02&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A18&#39;, &#39;A19&#39;, &#39;A23&#39;]
+S07 [&#39;A02&#39;, &#39;A23&#39;]
+S10 [&#39;A02&#39;, &#39;A03&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A21&#39;]
+S20 [&#39;A02&#39;, &#39;A05&#39;, &#39;A18&#39;, &#39;A19&#39;]
+S22 [&#39;A02&#39;, &#39;A05&#39;, &#39;A19&#39;]
+S24 [&#39;A02&#39;, &#39;A13&#39;, &#39;A18&#39;]
+S39 [&#39;A02&#39;, &#39;A20&#39;]
+S06 [&#39;A03&#39;, &#39;A13&#39;, &#39;A19&#39;]
+S09 [&#39;A03&#39;, &#39;A04&#39;, &#39;A05&#39;, &#39;A13&#39;, &#39;A14&#39;, &#39;A19&#39;]
+S12 [&#39;A03&#39;, &#39;A04&#39;, &#39;A23&#39;]
+S13 [&#39;A03&#39;, &#39;A22&#39;, &#39;A23&#39;]
+S16 [&#39;A03&#39;, &#39;A04&#39;, &#39;A17&#39;, &#39;A21&#39;]
+S38 [&#39;A03&#39;, &#39;A14&#39;]
+S08 [&#39;A04&#39;, &#39;A22&#39;]
+S19 [&#39;A04&#39;, &#39;A27&#39;]
+S23 [&#39;A04&#39;, &#39;A20&#39;, &#39;A23&#39;]
+S32 [&#39;A04&#39;]
+S36 [&#39;A04&#39;, &#39;A14&#39;, &#39;A17&#39;, &#39;A18&#39;, &#39;A23&#39;]
+S11 [&#39;A05&#39;, &#39;A17&#39;, &#39;A19&#39;, &#39;A27&#39;]
+S25 [&#39;A05&#39;]
+S34 [&#39;A05&#39;, &#39;A20&#39;, &#39;A21&#39;, &#39;A22&#39;]
+S02 [&#39;A13&#39;, &#39;A17&#39;, &#39;A20&#39;]
+S31 [&#39;A13&#39;, &#39;A14&#39;]
+S15 [&#39;A14&#39;, &#39;A18&#39;]
+S17 [&#39;A14&#39;, &#39;A17&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S28 [&#39;A14&#39;, &#39;A20&#39;, &#39;A22&#39;, &#39;A23&#39;]
+S21 [&#39;A17&#39;, &#39;A19&#39;]
+S26 [&#39;A17&#39;, &#39;A18&#39;, &#39;A21&#39;, &#39;A22&#39;, &#39;A27&#39;]
+S05 [&#39;A18&#39;]
+S29 [&#39;A18&#39;, &#39;A20&#39;, &#39;A21&#39;]
+S27 [&#39;A19&#39;, &#39;A27&#39;]
+S30 [&#39;A20&#39;, &#39;A21&#39;]
+S40 [&#39;A20&#39;]
+S37 [&#39;A21&#39;]
+S14 [&#39;A22&#39;, &#39;A27&#39;]
+S18 [&#39;A22&#39;]
+S03 [&#39;A23&#39;, &#39;A27&#39;]
+S35 [&#39;A27&#39;]
+</pre></div>
+</div>
+</section>
+<section id="visualize-the-pc-data">
+<h2>Visualize the PC data<a class="headerlink" href="#visualize-the-pc-data" title="Permalink to this heading">¶</a></h2>
+<p>In[6]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.tutorial.plot</span> <span class="kn">import</span> <span class="n">plot_3d_graph</span>
+<span class="c1"># Example of the samples in the dataset</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Randomly select an index</span>
+<span class="n">pc</span><span class="p">,</span><span class="n">pose</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pc</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">pose</span><span class="p">))</span>
+<span class="n">plot_3d_graph</span><span class="p">(</span><span class="n">pose</span><span class="p">,</span> <span class="n">pc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_mmwave_PC_hpe_tutorial_001.png" srcset="../_images/sphx_glr_mmwave_PC_hpe_tutorial_001.png" alt="mmwave PC hpe tutorial" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(5, 150, 5) &lt;class &#39;torch.Tensor&#39;&gt;
+</pre></div>
+</div>
+</section>
+<section id="create-model">
+<h2>Create model<a class="headerlink" href="#create-model" title="Permalink to this heading">¶</a></h2>
+<p>mmFi utilizes PointTransformer model as a baseline hpe method. From model.hpe, we can import
+desired hpe model designed for mmWave PC. The model parameter for PointTransformer reimplemented
+for mmFi is as follows:</p>
+<p>In[7]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hpe</span> <span class="kn">import</span> <span class="n">PointTransformerReg</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">PointTransformerReg</span><span class="p">(</span>
+                    <span class="n">input_dim</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                    <span class="n">nblocks</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                    <span class="n">n_p</span> <span class="o">=</span> <span class="mi">17</span>
+                <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PointTransformerReg(
+  (backbone): Backbone(
+    (fc1): Sequential(
+      (0): Linear(in_features=5, out_features=32, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=32, out_features=32, bias=True)
+    )
+    (transformer1): TransformerBlock(
+      (fc1): Linear(in_features=32, out_features=128, bias=True)
+      (fc2): Linear(in_features=128, out_features=32, bias=True)
+      (fc_delta): Sequential(
+        (0): Linear(in_features=3, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (fc_gamma): Sequential(
+        (0): Linear(in_features=128, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (w_qs): Linear(in_features=128, out_features=128, bias=False)
+      (w_ks): Linear(in_features=128, out_features=128, bias=False)
+      (w_vs): Linear(in_features=128, out_features=128, bias=False)
+    )
+    (transition_downs): ModuleList(
+      (0): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(35, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (1): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(67, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (2): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(131, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(256, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (3): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(259, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(512, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+    )
+    (transformers): ModuleList(
+      (0): TransformerBlock(
+        (fc1): Linear(in_features=64, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=64, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (1): TransformerBlock(
+        (fc1): Linear(in_features=128, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=128, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (2): TransformerBlock(
+        (fc1): Linear(in_features=256, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=256, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (3): TransformerBlock(
+        (fc1): Linear(in_features=512, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=512, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+    )
+  )
+  (transformer): Transformer(
+    (layers): ModuleList(
+      (0-4): 5 x ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_k): Linear(in_features=512, out_features=512, bias=False)
+              (to_v): Linear(in_features=512, out_features=512, bias=False)
+              (to_q): Linear(in_features=512, out_features=512, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=512, out_features=512, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=512, out_features=256, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+                (3): Linear(in_features=256, out_features=512, bias=True)
+                (4): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (fc2): Sequential(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+    (1): Dropout(p=0.0, inplace=False)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=32, bias=True)
+  )
+  (fc3): Sequential(
+    (0): ReLU()
+    (1): Linear(in_features=32, out_features=64, bias=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+    (4): Linear(in_features=64, out_features=3, bias=True)
+  )
+)
+</pre></div>
+</div>
+<p>A shortcut for loading the hpe model to avoid the tedious hyper-parameter setting.</p>
+<p>In[8]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hpe</span> <span class="kn">import</span> <span class="n">load_hpe_model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_hpe_model</span><span class="p">(</span><span class="s2">&quot;MetaFi&quot;</span><span class="p">,</span> <span class="s2">&quot;PointTransformer&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PointTransformerReg(
+  (backbone): Backbone(
+    (fc1): Sequential(
+      (0): Linear(in_features=5, out_features=32, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=32, out_features=32, bias=True)
+    )
+    (transformer1): TransformerBlock(
+      (fc1): Linear(in_features=32, out_features=128, bias=True)
+      (fc2): Linear(in_features=128, out_features=32, bias=True)
+      (fc_delta): Sequential(
+        (0): Linear(in_features=3, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (fc_gamma): Sequential(
+        (0): Linear(in_features=128, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (w_qs): Linear(in_features=128, out_features=128, bias=False)
+      (w_ks): Linear(in_features=128, out_features=128, bias=False)
+      (w_vs): Linear(in_features=128, out_features=128, bias=False)
+    )
+    (transition_downs): ModuleList(
+      (0): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(35, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (1): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(67, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (2): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(131, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(256, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (3): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(259, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(512, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+    )
+    (transformers): ModuleList(
+      (0): TransformerBlock(
+        (fc1): Linear(in_features=64, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=64, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (1): TransformerBlock(
+        (fc1): Linear(in_features=128, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=128, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (2): TransformerBlock(
+        (fc1): Linear(in_features=256, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=256, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (3): TransformerBlock(
+        (fc1): Linear(in_features=512, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=512, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+    )
+  )
+  (transformer): Transformer(
+    (layers): ModuleList(
+      (0-4): 5 x ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_k): Linear(in_features=512, out_features=512, bias=False)
+              (to_v): Linear(in_features=512, out_features=512, bias=False)
+              (to_q): Linear(in_features=512, out_features=512, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=512, out_features=512, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=512, out_features=256, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+                (3): Linear(in_features=256, out_features=512, bias=True)
+                (4): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (fc2): Sequential(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+    (1): Dropout(p=0.0, inplace=False)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=32, bias=True)
+  )
+  (fc3): Sequential(
+    (0): ReLU()
+    (1): Linear(in_features=32, out_features=64, bias=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+    (4): Linear(in_features=64, out_features=3, bias=True)
+  )
+)
+</pre></div>
+</div>
+</section>
+<section id="model-train">
+<h2>Model Train<a class="headerlink" href="#model-train" title="Permalink to this heading">¶</a></h2>
+<p>pysensing library support quick training of model with the following steps. The training interface
+incorporates pytorch loss functions, optimizers and dataloaders to facilate training.
+An example is provided for how to define the aforemetioned terms.</p>
+<p>In[11]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create pytorch dataloaders</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># Define pytorch loss function as criterion</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+
+<span class="c1"># Define pytorch optimizer for training</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="c1"># GPU acceleration with cuda</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A quick training using hpe_train. The resulted model parameters will be saved into “train_{num_epochs}.pth”.</p>
+<p>In[12]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pysensing training interface</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference.hpe</span> <span class="kn">import</span> <span class="n">hpe_train</span>
+<span class="c1"># hpe_train(model, train_loader, num_epochs=1, optimizer=optimizer, criterion=criterion, device=device)</span>
+</pre></div>
+</div>
+</section>
+<section id="model-inference">
+<h2>Model inference<a class="headerlink" href="#model-inference" title="Permalink to this heading">¶</a></h2>
+<p>Load the pretrained model, e.g. from  <a class="reference external" href="https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/mmwave_pc/hpe/MetaFi_PointTransformer.pth">https://pysensing.oss-ap-southeast-1.aliyuncs.com/pretrain/mmwave_pc/hpe/MetaFi_PointTransformer.pth</a>
+, and perform human pose estimation!</p>
+<p>In[13]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># load pretrained model</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference</span> <span class="kn">import</span> <span class="n">load_pretrain</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_pretrain</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;MetaFi&quot;</span><span class="p">,</span> <span class="s2">&quot;PointTransformer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Use pretrained model!
+
+PointTransformerReg(
+  (backbone): Backbone(
+    (fc1): Sequential(
+      (0): Linear(in_features=5, out_features=32, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=32, out_features=32, bias=True)
+    )
+    (transformer1): TransformerBlock(
+      (fc1): Linear(in_features=32, out_features=128, bias=True)
+      (fc2): Linear(in_features=128, out_features=32, bias=True)
+      (fc_delta): Sequential(
+        (0): Linear(in_features=3, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (fc_gamma): Sequential(
+        (0): Linear(in_features=128, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (w_qs): Linear(in_features=128, out_features=128, bias=False)
+      (w_ks): Linear(in_features=128, out_features=128, bias=False)
+      (w_vs): Linear(in_features=128, out_features=128, bias=False)
+    )
+    (transition_downs): ModuleList(
+      (0): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(35, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (1): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(67, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (2): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(131, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(256, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (3): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(259, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(512, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+    )
+    (transformers): ModuleList(
+      (0): TransformerBlock(
+        (fc1): Linear(in_features=64, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=64, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (1): TransformerBlock(
+        (fc1): Linear(in_features=128, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=128, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (2): TransformerBlock(
+        (fc1): Linear(in_features=256, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=256, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (3): TransformerBlock(
+        (fc1): Linear(in_features=512, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=512, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+    )
+  )
+  (transformer): Transformer(
+    (layers): ModuleList(
+      (0-4): 5 x ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_k): Linear(in_features=512, out_features=512, bias=False)
+              (to_v): Linear(in_features=512, out_features=512, bias=False)
+              (to_q): Linear(in_features=512, out_features=512, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=512, out_features=512, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=512, out_features=256, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+                (3): Linear(in_features=256, out_features=512, bias=True)
+                (4): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (fc2): Sequential(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+    (1): Dropout(p=0.0, inplace=False)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=32, bias=True)
+  )
+  (fc3): Sequential(
+    (0): ReLU()
+    (1): Linear(in_features=32, out_features=64, bias=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+    (4): Linear(in_features=64, out_features=3, bias=True)
+  )
+)
+</pre></div>
+</div>
+<p>Test the model on testing dataset.</p>
+<p>In[14]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference.hpe</span> <span class="kn">import</span> <span class="n">hpe_test</span>
+<span class="c1"># hpe_test(model, test_loader, criterion=criterion, device=device)</span>
+</pre></div>
+</div>
+<p>Model inference on sample and deep feature embedding of input modality in HPE task.</p>
+<p>In[15]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model inference</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">points</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">predicted_result</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The predicted pose is </span><span class="si">{}</span><span class="s2">, while the ground truth is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predicted_result</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),</span><span class="n">pose</span><span class="p">))</span>
+
+<span class="c1"># Deep feature embedding</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.inference.embedding</span> <span class="kn">import</span> <span class="n">embedding</span>
+<span class="n">emb</span> <span class="o">=</span> <span class="n">embedding</span><span class="p">(</span><span class="nb">input</span> <span class="o">=</span> <span class="n">points</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">dataset_name</span> <span class="o">=</span> <span class="s2">&quot;MetaFi&quot;</span><span class="p">,</span> <span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;PointTransformer&quot;</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape of feature embedding is: &quot;</span><span class="p">,</span> <span class="n">emb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The predicted pose is tensor([[[-0.1174,  0.0153,  3.0502],
+         [-0.2116,  0.0201,  3.0562],
+         [-0.2254,  0.3597,  3.0622],
+         [-0.2422,  0.7359,  3.0764],
+         [ 0.0274, -0.0367,  3.0689],
+         [ 0.0280,  0.3391,  3.0851],
+         [ 0.0784,  0.7612,  3.1083],
+         [-0.1010, -0.2694,  3.0435],
+         [-0.0911, -0.5694,  3.0298],
+         [-0.0989, -0.6771,  3.0037],
+         [-0.1014, -0.7289,  3.0263],
+         [ 0.0349, -0.5211,  3.0320],
+         [ 0.2234, -0.4633,  2.9763],
+         [ 0.1240, -0.5344,  2.8526],
+         [-0.1987, -0.5264,  3.0986],
+         [-0.3519, -0.4576,  3.0666],
+         [-0.2247, -0.4779,  2.9469]]], grad_fn=&lt;ToCopyBackward0&gt;), while the ground truth is tensor([[-0.0626, -0.0378,  3.3111],
+        [-0.1724, -0.0395,  3.3111],
+        [-0.1786,  0.3689,  3.3083],
+        [-0.2026,  0.7605,  3.3111],
+        [ 0.0473, -0.0362,  3.3111],
+        [ 0.0633,  0.3689,  3.3111],
+        [ 0.0673,  0.7605,  3.3111],
+        [-0.0685, -0.3322,  3.3016],
+        [-0.0744, -0.6267,  3.2920],
+        [-0.0642, -0.7458,  3.2512],
+        [-0.0653, -0.8049,  3.2850],
+        [ 0.0914, -0.5671,  3.3118],
+        [ 0.3367, -0.5248,  3.3104],
+        [ 0.2930, -0.5677,  3.0678],
+        [-0.2505, -0.5671,  3.3131],
+        [-0.5012, -0.5671,  3.3116],
+        [-0.4514, -0.5674,  3.0686]])
+The shape of feature embedding is:  torch.Size([1, 17, 32])
+</pre></div>
+</div>
+</section>
+<section id="mmdiff-diffusion-model-for-mmwave-radar-hpe">
+<h2>mmDiff: diffusion model for mmWave radar HPE<a class="headerlink" href="#mmdiff-diffusion-model-for-mmwave-radar-hpe" title="Permalink to this heading">¶</a></h2>
+<p>Load Diffusion Runner with model initialized. This process will define the setting for model and dataset. Currently two settings are implemented:
+1. “mmBody + P4Transformer”:</p>
+<blockquote>
+<div><p>Phase 1: Input [b, 4, 5000, 6]; Output: [b, 17, 3] and [b, 17, 64].
+Phase 2: GRC, LRC, TMC, SLC</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>“MetaFi + PointTransformer”:</dt><dd><p>Phase 1: Input [b, 5, 150, 5]; Output: [b, 17, 3] and [b, 17, 32].
+Phase 2: GRC, TMC, SLC</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>In[16]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hpe.mmDiff.load_mmDiff</span> <span class="kn">import</span> <span class="n">load_mmDiff</span>
+<span class="n">mmDiffRunner</span> <span class="o">=</span> <span class="n">load_mmDiff</span><span class="p">(</span><span class="s2">&quot;MetaFi&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Self.model_feat vadility passes.
+MMdiff using PointTransformer as feature extractor.
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Phase 1 Training: Can train phase 1 from scratch (is_train = True) or load pretrained phase 1 model (is_train = False).</dt><dd><p>Set is_save = True to facilitate phase 2 training acceleration.</p>
+</dd>
+</dl>
+<p>If phase 1 features are saved, set is_save = False.</p>
+<p>In[17]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mmDiffRunner</span><span class="o">.</span><span class="n">phase1_train</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">test_dataset</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Phase 1 use pretrained model!
+</pre></div>
+</div>
+<p>Phase 1 can also receive self defined model and the model should follow the setting defined above. The Self-defined model should output coarse joints and coarse joint features.</p>
+<p>In[18]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Self defined model should output coarse joints and coarse joint features</span>
+<span class="kn">from</span> <span class="nn">pysensing.mmwave.PC.model.hpe.pointTrans</span> <span class="kn">import</span> <span class="n">PointTransformerReg_feat</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">PointTransformerReg_feat</span><span class="p">(</span>
+                    <span class="n">input_dim</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                    <span class="n">nblocks</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                    <span class="n">n_p</span> <span class="o">=</span> <span class="mi">17</span>
+                <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="n">mmDiffRunner</span><span class="o">.</span><span class="n">phase1_train</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">test_dataset</span><span class="p">,</span> <span class="n">model_self</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">is_train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>PointTransformerReg_feat(
+  (backbone): Backbone(
+    (fc1): Sequential(
+      (0): Linear(in_features=5, out_features=32, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=32, out_features=32, bias=True)
+    )
+    (transformer1): TransformerBlock(
+      (fc1): Linear(in_features=32, out_features=128, bias=True)
+      (fc2): Linear(in_features=128, out_features=32, bias=True)
+      (fc_delta): Sequential(
+        (0): Linear(in_features=3, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (fc_gamma): Sequential(
+        (0): Linear(in_features=128, out_features=128, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=128, out_features=128, bias=True)
+      )
+      (w_qs): Linear(in_features=128, out_features=128, bias=False)
+      (w_ks): Linear(in_features=128, out_features=128, bias=False)
+      (w_vs): Linear(in_features=128, out_features=128, bias=False)
+    )
+    (transition_downs): ModuleList(
+      (0): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(35, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(64, 64, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (1): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(67, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(128, 128, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (2): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(131, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(256, 256, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+      (3): TransitionDown(
+        (conv1): Sequential(
+          (0): Conv1d(259, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+        (conv2): Sequential(
+          (0): Conv1d(512, 512, kernel_size=(1,), stride=(1,))
+          (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+        )
+      )
+    )
+    (transformers): ModuleList(
+      (0): TransformerBlock(
+        (fc1): Linear(in_features=64, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=64, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (1): TransformerBlock(
+        (fc1): Linear(in_features=128, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=128, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (2): TransformerBlock(
+        (fc1): Linear(in_features=256, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=256, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+      (3): TransformerBlock(
+        (fc1): Linear(in_features=512, out_features=128, bias=True)
+        (fc2): Linear(in_features=128, out_features=512, bias=True)
+        (fc_delta): Sequential(
+          (0): Linear(in_features=3, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (fc_gamma): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+        (w_qs): Linear(in_features=128, out_features=128, bias=False)
+        (w_ks): Linear(in_features=128, out_features=128, bias=False)
+        (w_vs): Linear(in_features=128, out_features=128, bias=False)
+      )
+    )
+  )
+  (transformer): Transformer(
+    (layers): ModuleList(
+      (0-4): 5 x ModuleList(
+        (0): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_k): Linear(in_features=512, out_features=512, bias=False)
+              (to_v): Linear(in_features=512, out_features=512, bias=False)
+              (to_q): Linear(in_features=512, out_features=512, bias=False)
+              (to_out): Sequential(
+                (0): Linear(in_features=512, out_features=512, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+        (1): Residual(
+          (fn): PreNorm(
+            (norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=512, out_features=256, bias=True)
+                (1): GELU(approximate=&#39;none&#39;)
+                (2): Dropout(p=0.0, inplace=False)
+                (3): Linear(in_features=256, out_features=512, bias=True)
+                (4): Dropout(p=0.0, inplace=False)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (fc2): Sequential(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+    (1): Dropout(p=0.0, inplace=False)
+    (2): ReLU()
+    (3): Linear(in_features=256, out_features=32, bias=True)
+  )
+  (fc3): Sequential(
+    (0): ReLU()
+    (1): Linear(in_features=32, out_features=64, bias=True)
+    (2): Dropout(p=0.0, inplace=False)
+    (3): ReLU()
+    (4): Linear(in_features=64, out_features=3, bias=True)
+  )
+)
+Self.model_feat vadility passes.
+Phase 1 use self defined model!
+</pre></div>
+</div>
+<p>Phase 2 Training: Can train from scratch (is_train = True) or load pretrained phase 2 model (is_train = False).</p>
+<p>In[19]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mmDiffRunner</span><span class="o">.</span><span class="n">phase2_train</span><span class="p">(</span><span class="n">train_loader</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">is_train</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Phase 2 use pretrained model!
+</pre></div>
+</div>
+<p>Testing mmDiff</p>
+<p>In[20]:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1">#mmDiffRunner.test()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 39.438 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-mmwave-pc-mmwave-pc-hpe-tutorial-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/c47bdc6e93e4f714c54fd0f50bdc1682/mmwave_PC_hpe_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mmwave_PC_hpe_tutorial.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/80ece54c2b4cd511b57d4bcc143322c2/mmwave_PC_hpe_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mmwave_PC_hpe_tutorial.py</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rssi/rssi_localization_fingerprinting_tutorial.html" class="btn btn-neutral float-right" title="RSSI Localization Fingerprinting Tutorial" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="mmwave_PC_hgr_tutorial.html" class="btn btn-neutral" title="Tutorial for Human Gesture Recognition" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  
+
+    <hr class="rating-hr hr-top">
+      <div class="rating-container">
+        <div class="rating-prompt">Rate this Tutorial</div>
+        <div class="stars-outer">
+          <i class="far fa-star" title="1 Star" data-behavior="tutorial-rating" data-count="1"></i>
+          <i class="far fa-star" title="2 Stars" data-behavior="tutorial-rating" data-count="2"></i>
+          <i class="far fa-star" title="3 Stars" data-behavior="tutorial-rating" data-count="3"></i>
+          <i class="far fa-star" title="4 Stars" data-behavior="tutorial-rating" data-count="4"></i>
+          <i class="far fa-star" title="5 Stars" data-behavior="tutorial-rating" data-count="5"></i>
+        </div>
+      </div>
+    <hr class="rating-hr hr-bottom"/>
+
+  
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2024, Pysensing contributors.
+
+    </p>
+  </div>
+    
+      <div>
+        Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+      </div>
+     
+
+</footer>
+
+          </div>
+        </div>
+<!--        <div class="pytorch-content-right" id="pytorch-content-right">-->
+<!--          <div class="pytorch-right-menu" id="pytorch-right-menu">-->
+<!--              <a class="twitter-timeline" data-width="100%" href="https://twitter.com/pypose_org?ref_src=twsrc%5Etfw">News from Twitter @pypose_rog<br>You need VPN if you see this.</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<!--          </div>-->
+<!--        </div>-->
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+         <script src="../_static/jquery.js"></script>
+         <script src="../_static/underscore.js"></script>
+         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+         <script src="../_static/doctools.js"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access documentation for Pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get started with tutorials and examples</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Get Started</h2>
+          <p>Find resources and how to start using pysensing</p>
+          <a class="with-right-arrow" href="https://github.com/pysensing/pysensing">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://github.com/pysensing/pysensing" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Pysensing</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Get Started</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Features</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://github.com/pysensing/pysensing">Resources</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Tutorials</a></li>
+            <li><a href="https://github.com/pysensing/pysensing">Docs</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Github Issues</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title">Stay up to date</li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/pysensing/pysensing" target="_blank">GitHub</a></li>
+
+          </ul>  
+          </div>
+        </div>
+     </div>
+
+  </footer>
+
+  <div class="cookie-banner-wrapper">
+  <div class="container">
+    <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+    <img class="close-button" src="../_static/images/pytorch-x.svg">
+  </div>
+</div>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://github.com/pysensing/pysensing" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Get Started</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Tutorials</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Docs</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">About Us</a>
+          </li>
+          <li>
+            <a href="https://github.com/pysensing/pysensing">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+      mainMenuDropdown.bind();
+      filterTags.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>
