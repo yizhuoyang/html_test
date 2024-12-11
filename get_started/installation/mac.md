@@ -1,16 +1,16 @@
 # Installing on macOS
 {:.no_toc}
 
-PyPose can be installed and used on macOS. Depending on your system and compute requirements, your experience with PyPose on a Mac may vary in terms of processing time. It is recommended, but not required, that your Mac have an NVIDIA GPU in order to harness the full power of PyPose's [CUDA](https://developer.nvidia.com/cuda-zone) support.
+pysensing can be installed and used on macOS. Depending on your system and compute requirements, your experience with pysensing on a Mac may vary in terms of processing time. It is recommended, but not required, that your Mac have an NVIDIA GPU in order to harness the full power of pysensing's [CUDA](https://developer.nvidia.com/cuda-zone) support.
 
-> Currently, CUDA support on macOS is only available by [building PyPose from source](#mac-from-source)
+> Currently, CUDA support on macOS is only available by [building pysensing from source](#mac-from-source)
 
 ## Prerequisites
 {: #mac-prerequisites}
 
 ### macOS Version
 
-PyPose is supported on macOS 10.10 (Yosemite) or above.
+pysensing is supported on macOS 10.10 (Yosemite) or above.
 
 ### Python
 {: #mac-python}
@@ -20,7 +20,7 @@ It is recommended that you use Python 3.7 or greater, which can be installed eit
 ### Package Manager
 {: #mac-package-manager}
 
-To install the PyPose binaries, you will need to use one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#macos) or [pip](https://pypi.org/project/pip/). Anaconda is the recommended package manager as it will provide you all of the PyPose dependencies in one, sandboxed install, including Python.
+To install the pysensing binaries, you will need to use one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#macos) or [pip](https://pypi.org/project/pip/). Anaconda is the recommended package manager as it will provide you all of the pysensing dependencies in one, sandboxed install, including Python.
 
 #### Anaconda
 
@@ -47,21 +47,21 @@ If you installed Python via Homebrew or the Python website, `pip` was installed 
 ### pip
 {: #mac-anaconda}
 
-To install PyPose via pip, use one of the following command
+To install pysensing via pip, use one of the following command
 
 ```bash
 # Python 3.x
-pip install pypose
+pip install pysensing
 ```
 
 ## Verification
 {: #mac-verification}
 
-To ensure that PyPose was installed correctly, we can verify the installation by running sample PyPose code. Here we will construct a randomly initialized tensor.
+To ensure that pysensing was installed correctly, we can verify the installation by running sample pysensing code. Here we will construct a randomly initialized tensor.
 
 
 ```python
->>> import torch, pypose as pp
+>>> import torch, pysensing as pp
 
 >>> # A random so(3) LieTensor
 >>> r = pp.randn_so3(2, requires_grad=True)
@@ -73,7 +73,7 @@ To ensure that PyPose was installed correctly, we can verify the installation by
 ## Building from source
 {: #mac-from-source}
 
-For the majority of PyPose users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge PyPose code, whether for testing or actual development on the PyPose core.
+For the majority of pysensing users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge pysensing code, whether for testing or actual development on the pysensing core.
 
 > You will also need to build from source if you want CUDA support.
 
@@ -82,6 +82,6 @@ For the majority of PyPose users, installing from a pre-built binary via a packa
 
 1. Install [Anaconda](#anaconda)
 2. Install [CUDA](https://developer.nvidia.com/cuda-downloads), if your machine has a [CUDA-enabled GPU](https://developer.nvidia.com/cuda-gpus).
-3. Install from [source](https://github.com/pypose/pypose).
+3. Install from [source](https://github.com/pysensing/pysensing).
 
 You can verify the installation as described [above](#mac-verification).

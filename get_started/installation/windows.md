@@ -1,14 +1,14 @@
 # Installing on Windows
 {:.no_toc}
 
-PyPose can be installed and used on various Windows distributions. Depending on your system and compute requirements, your experience with PyPose on Windows may vary in terms of processing time. It is recommended, but not required, that your Windows system has an NVIDIA GPU in order to harness the full power of PyPose's [CUDA](https://developer.nvidia.com/cuda-zone) [support](https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors).
+pysensing can be installed and used on various Windows distributions. Depending on your system and compute requirements, your experience with pysensing on Windows may vary in terms of processing time. It is recommended, but not required, that your Windows system has an NVIDIA GPU in order to harness the full power of pysensing's [CUDA](https://developer.nvidia.com/cuda-zone) [support](https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors).
 
 ## Prerequisites
 {: #windows-prerequisites}
 
 ### Supported Windows Distributions
 
-PyPose is supported on the following Windows distributions:
+pysensing is supported on the following Windows distributions:
 
 * [Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO) or greater recommended.
 
@@ -17,7 +17,7 @@ PyPose is supported on the following Windows distributions:
 ### Python
 {: #windows-python}
 
-Currently, PyPose on Windows only supports Python 3.7 and beyond; Python 2.x is not supported.
+Currently, pysensing on Windows only supports Python 3.7 and beyond; Python 2.x is not supported.
 
 As it is not installed by default on Windows, there are multiple ways to install Python:
 
@@ -36,7 +36,7 @@ choco install python
 ### Package Manager
 {: #windows-package-manager}
 
-To install the PyPose binaries, you will need to use at least one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#windows) and [pip](https://pypi.org/project/pip/). Currently we only support `pip` and it will provide you all of the PyPose dependencies in one, sandboxed install.
+To install the pysensing binaries, you will need to use at least one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#windows) and [pip](https://pypi.org/project/pip/). Currently we only support `pip` and it will provide you all of the pysensing dependencies in one, sandboxed install.
 
 #### pip
 
@@ -50,17 +50,17 @@ If you installed Python by any of the recommended ways [above](#windows-python),
 
 #### No CUDA
 
-Currently we do not have a CPU version of PyPose. Please stay tuned!
+Currently we do not have a CPU version of pysensing. Please stay tuned!
 
 #### With CUDA
 
-To install PyPose via pip, and you do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Windows, Package: pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
+To install pysensing via pip, and you do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Windows, Package: pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
 Then, run the command that is presented to you. 
 
 ## Verification
 {: #windows-verification}
 
-To ensure that PyPose was installed correctly, we can verify the installation by running sample PyPose code. Here we will construct a randomly initialized tensor.
+To ensure that pysensing was installed correctly, we can verify the installation by running sample pysensing code. Here we will construct a randomly initialized tensor.
 
 From the command line, type:
 
@@ -71,7 +71,7 @@ python
 then enter the following code:
 
 ```python
-import pypose as pp
+import pysensing as pp
 pp.__version__
 ```
 

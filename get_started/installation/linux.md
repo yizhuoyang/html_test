@@ -1,15 +1,15 @@
 # Installing on Linux
 {:.no_toc}
 
-PyPose can be installed and used on various Linux distributions. Depending on your system and compute requirements, your experience with PyPose on Linux may vary in terms of processing time. It is recommended, but not required, that your Linux system has an NVIDIA GPU in order to harness the full power of PyPose's [CUDA](https://developer.nvidia.com/cuda-zone) support.
-<!-- [support](https://PyPose.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors). -->
+pysensing can be installed and used on various Linux distributions. Depending on your system and compute requirements, your experience with pysensing on Linux may vary in terms of processing time. It is recommended, but not required, that your Linux system has an NVIDIA GPU in order to harness the full power of pysensing's [CUDA](https://developer.nvidia.com/cuda-zone) support.
+<!-- [support](https://pysensing.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors). -->
 
 ## Prerequisites
 <!-- {: #linux-prerequisites}
 
 ### Supported Linux Distributions
 
-PyPose is supported on Linux distributions that use [glibc](https://www.gnu.org/software/libc/) >= v2.17, which include the following:
+pysensing is supported on Linux distributions that use [glibc](https://www.gnu.org/software/libc/) >= v2.17, which include the following:
 
 * [Arch Linux](https://www.archlinux.org/download/), minimum version 2012-07-15
 * [CentOS](https://www.centos.org/download/), minimum version 7.3-1611
@@ -43,14 +43,14 @@ sudo apt install python
 
 > It is recommended that you use Python 3.6, 3.7 or 3.8, which can be installed via any of the mechanisms above .
 
-<!-- > If you use [Anaconda](#anaconda) to install PyPose, it will install a sandboxed version of Python that will be used for running PyPose applications. -->
+<!-- > If you use [Anaconda](#anaconda) to install pysensing, it will install a sandboxed version of Python that will be used for running pysensing applications. -->
 
 ### Package Manager
 {: #linux-package-manager}
 
-To install the PyPose binaries, you will need to use one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#linux) or [pip](https://pypi.org/project/pip/). 
+To install the pysensing binaries, you will need to use one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#linux) or [pip](https://pypi.org/project/pip/). 
 
-<!-- Anaconda is the recommended package manager as it will provide you all of the PyPose dependencies in one, sandboxed install, including Python.
+<!-- Anaconda is the recommended package manager as it will provide you all of the pysensing dependencies in one, sandboxed install, including Python.
 
 #### Anaconda
 
@@ -85,12 +85,12 @@ sudo apt install python3-pip
 
 #### No CUDA
 
-To install PyPose via Anaconda, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Conda and CUDA: None.
+To install pysensing via Anaconda, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Conda and CUDA: None.
 Then, run the command that is presented to you.
 
 #### With CUDA
 
-To install PyPose via Anaconda, and you do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Conda and the CUDA version suited to your machine. Often, the latest CUDA version is better.
+To install pysensing via Anaconda, and you do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Conda and the CUDA version suited to your machine. Often, the latest CUDA version is better.
 Then, run the command that is presented to you. -->
 
 
@@ -99,22 +99,22 @@ Then, run the command that is presented to you. -->
 
 #### No CUDA
 
-To install PyPose via pip, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Pip and CUDA: None.
+To install pysensing via pip, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Pip and CUDA: None.
 Then, run the command that is presented to you.
 
 #### With CUDA
 
-To install PyPose via pip, and do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
+To install pysensing via pip, and do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
 Then, run the command that is presented to you.
 
 ## Verification
 {: #linux-verification}
 
-To ensure that PyPose was installed correctly, we can verify the installation by running sample PyPose code. Here we will construct a randomly initialized tensor.
+To ensure that pysensing was installed correctly, we can verify the installation by running sample pysensing code. Here we will construct a randomly initialized tensor.
 
 
 ```python
->>> import torch, pypose as pp
+>>> import torch, pysensing as pp
 
 >>> # A random so(3) LieTensor
 >>> r = pp.randn_so3(2, requires_grad=True)
@@ -123,7 +123,7 @@ To ensure that PyPose was installed correctly, we can verify the installation by
             [-0.0807, -0.7184, -0.1102]], requires_grad=True)
 ```
 
-Additionally, to check if your GPU driver and CUDA is enabled and accessible by PyPose, run the following commands to return whether or not the CUDA driver is enabled:
+Additionally, to check if your GPU driver and CUDA is enabled and accessible by pysensing, run the following commands to return whether or not the CUDA driver is enabled:
 
 ```python
 import torch
@@ -133,13 +133,13 @@ torch.cuda.is_available()
 ## Building from source
 {: #linux-from-source}
 
-For the majority of PyPose users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge PyPose code, whether for testing or actual development on the PyPose core. To install the latest PyPose code, you will need to [build PyPose from source](https://github.com/pypose/pypose#from-source).
+For the majority of pysensing users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge pysensing code, whether for testing or actual development on the pysensing core. To install the latest pysensing code, you will need to [build pysensing from source](https://github.com/pysensing/pysensing#from-source).
 
 <!-- ### Prerequisites
 {: #linux-prerequisites-2}
 
 1. Install [Anaconda](#anaconda)
 2. Install [CUDA](https://developer.nvidia.com/cuda-downloads), if your machine has a [CUDA-enabled GPU](https://developer.nvidia.com/cuda-gpus).
-3. Follow the steps described here: [https://github.com/PyPose/PyPose#from-source](https://github.com/PyPose/PyPose#from-source)
+3. Follow the steps described here: [https://github.com/pysensing/pysensing#from-source](https://github.com/pysensing/pysensing#from-source)
 
 You can verify the installation as described [above](#linux-verification). -->
