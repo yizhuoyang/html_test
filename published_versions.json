@@ -25,11 +25,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose-nightly"
+            "command": "pip install pysensing-nightly"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose-nightly"
+            "command": "pip install pysensing-nightly"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> Conda packages are not currently available for ROCm, please use pip instead<br />",
@@ -139,7 +139,7 @@
             "command": "pip3 install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu"
           },
           "cuda10.2": {
-            "note": "pip install pypose",
+            "note": "pip install pysensing",
             "command": null
           },
           "cuda11.x": {
@@ -153,12 +153,12 @@
         },
         "conda": {
           "cuda10.2": {
-            "note": "pip install pypose",
+            "note": "pip install pysensing",
             "command": null
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose-nightly"
+            "command": "pip install pysensing-nightly"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -178,7 +178,7 @@
             }
           },
           "cuda10.2": {
-            "note": "pip install pypose",
+            "note": "pip install pysensing",
             "versions": {
             }
           },
@@ -201,15 +201,15 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": null,
@@ -219,11 +219,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> Conda packages are not currently available for ROCm, please use pip instead<br />",
@@ -266,11 +266,11 @@
         "pip": {
           "cuda10.2": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on MacOS",
@@ -278,7 +278,7 @@
           },
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
@@ -328,15 +328,15 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
-            "note": "pip install pypose",
+            "note": "pip install pysensing",
             "command": null
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose",
+            "command": "pip install pysensing",
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -345,12 +345,12 @@
         },
         "conda": {
           "cuda10.2": {
-            "note": "pip install pypose",
+            "note": "pip install pysensing",
             "command": null
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose",
+            "command": "pip install pysensing",
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -370,7 +370,7 @@
             }
           },
           "cuda10.2": {
-            "note": "pip install pypose",
+            "note": "pip install pysensing",
             "versions": {
             }
           },
@@ -393,15 +393,15 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose",
+            "command": "pip install pysensing",
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": null,
@@ -411,11 +411,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> Conda packages are not currently available for ROCm, please use pip instead<br />",
@@ -458,11 +458,11 @@
         "pip": {
           "cuda10.2": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on MacOS",
@@ -470,7 +470,7 @@
           },
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
@@ -520,15 +520,15 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -538,11 +538,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -591,11 +591,11 @@
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": null,
@@ -605,11 +605,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> Conda packages are not currently available for ROCm, please use pip instead<br />",
@@ -652,11 +652,11 @@
         "pip": {
           "cuda10.2": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on MacOS",
@@ -664,7 +664,7 @@
           },
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
@@ -714,15 +714,15 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -732,11 +732,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -781,29 +781,29 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> Conda packages are not currently available for ROCm, please use pip instead<br />",
@@ -846,11 +846,11 @@
         "pip": {
           "cuda10.2": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on MacOS",
@@ -858,7 +858,7 @@
           },
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
@@ -908,7 +908,7 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
             "note": null,
@@ -926,11 +926,11 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on Windows",
@@ -979,7 +979,7 @@
           },
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": null,
@@ -993,7 +993,7 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "<b>NOTE:</b> 'nvidia' channel is required for cudatoolkit 11.1",
@@ -1040,11 +1040,11 @@
         "pip": {
           "cuda10.2": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on MacOS",
@@ -1052,7 +1052,7 @@
           },
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
@@ -1102,7 +1102,7 @@
         "pip": {
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda10.2": {
             "note": null,
@@ -1120,7 +1120,7 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "<b>NOTE:</b> 'conda-forge' channel is required for cudatoolkit 11.1",
@@ -1187,7 +1187,7 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "<b>NOTE:</b> 'nvidia' channel is required for cudatoolkit 11.1",
@@ -1234,11 +1234,11 @@
         "pip": {
           "cuda10.2": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "# MacOS Binaries dont support CUDA, install from source if CUDA is needed",
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "rocm4.x": {
             "note": "<b>NOTE:</b> ROCm is not available on MacOS",
@@ -1246,7 +1246,7 @@
           },
           "accnone": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           }
         },
         "conda": {
@@ -1314,7 +1314,7 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose"
+            "command": "pip install pysensing"
           },
           "cuda11.x": {
             "note": "<b>NOTE:</b> 'conda-forge' channel is required for cudatoolkit 11.1",
@@ -1381,7 +1381,7 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose-lts"
+            "command": "pip install pysensing-lts"
           },
           "cuda11.x": {
             "note": "<b>NOTE:</b> 'nvidia' channel is required for cudatoolkit 11.1",
@@ -1502,7 +1502,7 @@
         "conda": {
           "cuda10.2": {
             "note": null,
-            "command": "pip install pypose-lts"
+            "command": "pip install pysensing-lts"
           },
           "cuda11.x": {
             "note": "<b>NOTE:</b> 'conda-forge' channel is required for cudatoolkit 11.1",
