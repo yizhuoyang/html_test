@@ -432,13 +432,13 @@
       <div class="col-md-12 title-block mobile-heading">
         <div class="option-text">Your OS</div>
       </div>
-      <div class="col-md-4 option block" id="linux">
+      <div class="col-md-6 option block" id="linux">
         <div class="option-text">Linux</div>
       </div>
-      <div class="col-md-4 option block" id="macos">
+      <!-- <div class="col-md-4 option block" id="macos">
         <div class="option-text">Mac</div>
-      </div>
-      <div class="col-md-4 option block" id="windows">
+      </div> -->
+      <div class="col-md-6 option block" id="windows">
         <div class="option-text">Windows</div>
       </div>
     </div>
@@ -571,139 +571,76 @@ pip <span class="nb">install </span>pysensing
 <p>You can verify the installation as described <a href="#mac-verification">above</a>.</p>
 
 </div>
-  <div class="os linux selected">
-<h1 class="no_toc" id="installing-on-linux">Installing on Linux</h1>
+<div class="os linux selected">
+  <h1 class="no_toc" id="installing-on-linux">Installing on Linux</h1>
+  <p>
+      pysensing can be installed and used on various Linux distributions. Depending on your system and compute requirements, your experience with pysensing on Linux may vary in terms of processing time. It is recommended, but not required, that your Linux system has an NVIDIA GPU in order to harness the full power of pysensing's <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> support.
+  </p>
 
-<p>pysensing can be installed and used on various Linux distributions. Depending on your system and compute requirements, your experience with pysensing on Linux may vary in terms of processing time. It is recommended, but not required, that your Linux system has an NVIDIA GPU in order to harness the full power of pysensing’s <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> support.
-<!-- [support](https://pysensing.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors). --></p>
-
-<h2 id="prerequisites">Prerequisites</h2>
-<!-- {: #linux-prerequisites}
-
-### Supported Linux Distributions
-
-pysensing is supported on Linux distributions that use [glibc](https://www.gnu.org/software/libc/) >= v2.17, which include the following:
-
-* [Arch Linux](https://www.archlinux.org/download/), minimum version 2012-07-15
-* [CentOS](https://www.centos.org/download/), minimum version 7.3-1611
-* [Debian](https://www.debian.org/distrib/), minimum version 8.0
-* [Fedora](https://getfedora.org/), minimum version 24
-* [Mint](https://linuxmint.com/download.php), minimum version 14
-* [OpenSUSE](https://software.opensuse.org/), minimum version 42.1
-* [PCLinuxOS](https://www.pclinuxos.com/get-pclinuxos/), minimum version 2014.7
-* [Slackware](http://www.slackware.com/getslack/), minimum version 14.2
-* [Ubuntu](https://www.ubuntu.com/download/desktop), minimum version 13.04
-
-> The install instructions here will generally apply to all supported Linux distributions. An example difference is that your distribution may support `yum` instead of `apt`. The specific examples shown were run on an Ubuntu 18.04 machine. -->
-
-<h3 id="linux-python">Python</h3>
-
-<p>Python 3.7 or greater is generally installed by default on any of our supported Linux distributions, which meets our recommendation.</p>
-
-<blockquote>
-  <p>Tip: By default, you will have to use the command <code class="language-plaintext highlighter-rouge">python3</code> to run Python. If you want to use just the command <code class="language-plaintext highlighter-rouge">python</code>, instead of <code class="language-plaintext highlighter-rouge">python3</code>, you can symlink <code class="language-plaintext highlighter-rouge">python</code> to the <code class="language-plaintext highlighter-rouge">python3</code> binary.</p>
-</blockquote>
-
-<p>However, if you want to install another version, there are multiple ways:</p>
-
-<ul>
-  <li>APT</li>
-  <li><a href="https://www.python.org/downloads/mac-osx/">Python website</a></li>
-</ul>
-
-<p>If you decide to use APT, you can run the following command to install it:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python
-</code></pre></div></div>
-
-<blockquote>
-  <p>It is recommended that you use Python 3.6, 3.7 or 3.8, which can be installed via any of the mechanisms above .</p>
-</blockquote>
-
-<!-- > If you use [Anaconda](#anaconda) to install pysensing, it will install a sandboxed version of Python that will be used for running pysensing applications. -->
-
-<h3 id="linux-package-manager">Package Manager</h3>
-
-<p>To install the pysensing binaries, you will need to use one of two supported package managers: <a href="https://www.anaconda.com/download/#linux">Anaconda</a> or <a href="https://pypi.org/project/pip/">pip</a>.</p>
-
-<!-- Anaconda is the recommended package manager as it will provide you all of the pysensing dependencies in one, sandboxed install, including Python.
-
-#### Anaconda
-
-To install Anaconda, you will use the [command-line installer](https://www.anaconda.com/download/#linux). Right-click on the 64-bit installer link, select `Copy Link Location`, and then use the following commands:
-
-```bash
-# The version of Anaconda may be different depending on when you are installing`
+  <h2 id="prerequisites">Prerequisites</h2>
+  <h3 id="linux-python">Python</h3>
+  <p>
+      Python 3.7 or greater is generally installed by default on any of our supported Linux distributions, which meets our requirements.
+      We recommend starting with Anaconda and pip to create a controlled environment for your pysensing installation.
+  </p>
+  <h3 id="install-anaconda">Install Anaconda</h3>
+  <p>Download and install Anaconda using the <a href="https://www.anaconda.com/download/#linux">command-line installer</a>:</p>
+  <pre>
+<code>
+# The version of Anaconda may be different depending on when you are installing
 curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sh Miniconda3-latest-Linux-x86_64.sh
-# and follow the prompts. The defaults are generally good.`
-```
+sh Miniconda3-latest-Linux-x86_64.sh</code>
+  </pre>
+  <p>Follow the prompts. The defaults are generally good. You may need to open a new terminal or re-source your <code>~/.bashrc</code> to get access to the <code>conda</code> command.</p>
+  <p>Create a pysensing environment with the specified Python version. We recommend using Python >= 3.10:</p>
+  <pre>
+<code>conda create -n pysensing python=3.10
+conda activate pysensing</code>
+  </pre>
 
-> You may have to open a new terminal or re-source your `~/.bashrc `to get access to the `conda` command. -->
+  <h3 id="install-pytorch">Install PyTorch</h3>
+  <p>Follow the official <a href="https://pytorch.org/get-started/locally/">PyTorch installation guide</a> to install PyTorch based on your system's capabilities:</p>
+  <p><strong>For systems with CUDA support</strong> (replace <code>cu118</code> with your CUDA version):</p>
+  <pre>
+<code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118</code>
+  </pre>
+  <p><strong>For systems without CUDA support:</strong></p>
+  <pre>
+<code>pip install torch torchvision torchaudio</code>
+  </pre>
 
-<h4 id="pip">pip</h4>
+  <h2 id="installation">Installation</h2>
+  <h3 id="pip">pip</h3>
+  <p>The pysensing package itself can be installed from PyPI:</p>
+  <pre>
+<code>pip install pysensing</code>
+  </pre>
 
-<p><em>Python 3</em></p>
+  <h3 id="building-from-source">Building from Source</h3>
+  <p>If you want to build from source and get the latest version:</p>
+  <pre>
+<code>pip install --upgrade git+https://github.com/pysensing/pysensing.git</code>
+  </pre>
 
-<p>While Python 3.x is installed by default on Linux, <code class="language-plaintext highlighter-rouge">pip</code> is not installed by default.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>python3-pip
-</code></pre></div></div>
-
-<blockquote>
-  <p>Tip: If you want to use just the command  <code class="language-plaintext highlighter-rouge">pip</code>, instead of <code class="language-plaintext highlighter-rouge">pip3</code>, you can symlink <code class="language-plaintext highlighter-rouge">pip</code> to the <code class="language-plaintext highlighter-rouge">pip3</code> binary.</p>
-</blockquote>
-
-<h2 id="linux-installation">Installation</h2>
-
-<!-- ### Anaconda
-{: #linux-anaconda}
-
-#### No CUDA
-
-To install pysensing via Anaconda, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Conda and CUDA: None.
-Then, run the command that is presented to you.
-
-#### With CUDA
-
-To install pysensing via Anaconda, and you do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Conda and the CUDA version suited to your machine. Often, the latest CUDA version is better.
-Then, run the command that is presented to you. -->
-
-<h3 id="linux-pip">pip</h3>
-
-<h4 id="no-cuda">No CUDA</h4>
-
-<p>To install pysensing via pip, and do not have a <a href="https://developer.nvidia.com/cuda-zone">CUDA-capable</a> system or do not require CUDA, in the above selector, choose OS: Linux, Package: Pip and CUDA: None.
-Then, run the command that is presented to you.</p>
-
-<h4 id="with-cuda">With CUDA</h4>
-
-<p>To install pysensing via pip, and do have a <a href="https://developer.nvidia.com/cuda-zone">CUDA-capable</a> system, in the above selector, choose OS: Linux, Package: Pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
-Then, run the command that is presented to you.</p>
-
-<h2 id="linux-verification">Verification</h2>
-
-<p>To ensure that pysensing was installed correctly, we can verify the installation by running sample pysensing code. Here we will construct a randomly initialized tensor.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">torch</span><span class="p">,</span> <span class="n">pysensing</span> <span class="k">as</span> <span class="n">pp</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="c1"># A random so(3) LieTensor
-</span><span class="o">&gt;&gt;&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">pp</span><span class="p">.</span><span class="n">randn_so3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">so3Type</span> <span class="n">LieTensor</span><span class="p">:</span>
-    <span class="n">tensor</span><span class="p">([[</span> <span class="mf">0.1606</span><span class="p">,</span>  <span class="mf">0.0232</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5516</span><span class="p">],</span>
-            <span class="p">[</span><span class="o">-</span><span class="mf">0.0807</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7184</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1102</span><span class="p">]],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Additionally, to check if your GPU driver and CUDA is enabled and accessible by pysensing, run the following commands to return whether or not the CUDA driver is enabled:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch</span>
-<span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="n">is_available</span><span class="p">()</span>
-</code></pre></div></div>
-
-<h2 id="linux-from-source">Building from source</h2>
-
-<p>For the majority of pysensing users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge pysensing code, whether for testing or actual development on the pysensing core. To install the latest pysensing code, you will need to <a href="https://github.com/pysensing/pysensing#from-source">build pysensing from source</a>.</p>
-
+  <h2 id="verification">Verification</h2>
+  <p>To ensure that <code>pysensing</code> was installed correctly, verify the installation by running a sample tutorial notebook:</p>
+  <ol>
+      <li>Clone the <code>pysensing</code> repository:</li>
+      <pre>
+<code>git clone https://github.com/pysensing/pysensing.git</code>
+      </pre>
+      <li>Install Jupyter via pip:</li>
+      <pre>
+<code>pip install jupyter</code>
+      </pre>
+      <li>Navigate to the tutorial directory and launch Jupyter Notebook:</li>
+      <pre>
+<code>cd pysensing/pysensing/acoustic/tutorials/
+jupyter notebook</code>
+      </pre>
+  </ol>
+  <p>This will open the tutorial notebooks in your default web browser.</p>
+<!-- </div> -->
 <!-- ### Prerequisites
 {: #linux-prerequisites-2}
 
@@ -714,87 +651,102 @@ Then, run the command that is presented to you.</p>
 You can verify the installation as described [above](#linux-verification). -->
 
 </div>
-  <div class="os windows">
-<h1 class="no_toc" id="installing-on-windows">Installing on Windows</h1>
+<div class="os windows">
+  <h1 class="no_toc" id="installing-on-windows">Installing on Windows</h1>
+  <p>
+      pysensing can be installed and used on various Windows distributions. Depending on your system and compute requirements, your experience with pysensing on Windows may vary in terms of processing time. It is recommended, but not required, that your Windows system has an NVIDIA GPU in order to harness the full power of pysensing's <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> <a href="https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors">support</a>.
+  </p>
 
-<p>pysensing can be installed and used on various Windows distributions. Depending on your system and compute requirements, your experience with pysensing on Windows may vary in terms of processing time. It is recommended, but not required, that your Windows system has an NVIDIA GPU in order to harness the full power of pysensing’s <a href="https://developer.nvidia.com/cuda-zone">CUDA</a> <a href="https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors">support</a>.</p>
+  <h2 id="windows-prerequisites">Prerequisites</h2>
 
-<h2 id="windows-prerequisites">Prerequisites</h2>
+  <h3 id="supported-windows-distributions">Supported Windows Distributions</h3>
+  <p>pysensing is supported on the following Windows distributions:</p>
+  <ul>
+      <li><a href="https://www.microsoft.com/en-us/software-download/windows10ISO">Windows 10</a> or greater recommended.</li>
+  </ul>
+  <blockquote>
+      <p>The install instructions here will generally apply to all supported Windows distributions. The specific examples shown will be run on a Windows 11 Home machine.</p>
+  </blockquote>
 
-<h3 id="supported-windows-distributions">Supported Windows Distributions</h3>
+  <h3 id="windows-python">Python</h3>
+  <p>Currently, pysensing on Windows only supports Python 3.7 or greater; Python 2.x is not supported.</p>
+  <p>As it is not installed by default on Windows, there are multiple ways to install Python:</p>
+  <ul>
+      <li><a href="https://chocolatey.org/">Chocolatey</a></li>
+      <li><a href="https://www.python.org/downloads/windows/">Python website</a></li>
+      <li><a href="https://www.anaconda.com/download/#windows">Anaconda</a></li>
+  </ul>
+  <blockquote>
+      <p>
+          If you decide to use Chocolatey and haven't installed Chocolatey yet, ensure that you are 
+          <a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/">running your command prompt as an administrator</a>.
+      </p>
+  </blockquote>
+  <p>For a Chocolatey-based install, run the following command in an <a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/">administrative command prompt</a>:</p>
+  <pre><code># Install Python via Chocolatey
+choco install python</code></pre>
 
-<p>pysensing is supported on the following Windows distributions:</p>
+  <h3 id="windows-package-manager">Package Manager</h3>
+  <p>To install the pysensing binaries, you will need to use at least one of two supported package managers: <a href="https://www.anaconda.com/download/#windows">Anaconda</a> and <a href="https://pypi.org/project/pip/">pip</a>.</p>
 
-<ul>
-  <li><a href="https://www.microsoft.com/en-us/software-download/windows10ISO">Windows 10</a> or greater recommended.</li>
-</ul>
+  <h4 id="pip">pip</h4>
+  <p>If you installed Python by any of the recommended ways <a href="#windows-python">above</a>, <a href="https://pypi.org/project/pip/">pip</a> will have already been installed for you.</p>
 
-<blockquote>
-  <p>The install instructions here will generally apply to all supported Windows distributions. The specific examples shown will be run on a Windows 11 Home machine</p>
-</blockquote>
+  <h4 id="anaconda">Anaconda</h4>
+  <p>Follow the instructions in <a href="https://www.anaconda.com/download/#windows">Anaconda Download</a>, and you will install Anaconda, including the Anaconda Navigator, which is intuitive for package management and recommended for Windows users.</p>
+  <blockquote>
+      <p>Make sure you have added your <code>conda-directory</code> and <code>conda-directory/Scripts</code> to your <code>PATH</code> variables after Anaconda installation. Otherwise, the <code>conda</code> command in the Windows command-line tool will not be recognized.</p>
+  </blockquote>
 
-<h3 id="windows-python">Python</h3>
+  <h3 id="cuda">CUDA</h3>
+  <p>Before installing PyTorch, it is better to check the compatibility of your device. Refer to the <a href="https://docs.nvidia.com/deploy/cuda-compatibility/index.html#binary-compatibility__table-toolkit-driver">CUDA compatibility</a> and <a href="https://docs.nvidia.com/deeplearning/cudnn/latest/reference/support-matrix.html">NVIDIA support matrix</a>.</p>
+  <ul>
+      <li><a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit</a></li>
+      <li><a href="https://developer.nvidia.com/cudnn-downloads">cuDNN</a></li>
+  </ul>
+  <p>Note that <em>CUDA Toolkit</em> should be installed first, as it is the foundation for <em>cuDNN</em>.</p>
 
-<p>Currently, pysensing on Windows only supports Python 3.7 and beyond; Python 2.x is not supported.</p>
+  <h4 id="cuda-toolkit">CUDA Toolkit</h4>
+  <p>Follow the instructions in <a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit</a> and run the executable for installation.</p>
+  <blockquote>
+      <p>After installation, ensure the environment variables <code>CUDA_PATH</code> and <code>CUDA_PATH_V12_1</code> (or your CUDA version) are set in the Windows system variables. Check the success of the installation with <code>nvcc -V</code>.</p>
+  </blockquote>
 
-<p>As it is not installed by default on Windows, there are multiple ways to install Python:</p>
+  <h4 id="cudnn">cuDNN</h4>
+  <p>When the CUDA Toolkit is ready, download <a href="https://developer.nvidia.com/cudnn-downloads">cuDNN</a>, extract the contents, and copy the <code>lib</code>, <code>bin</code>, and <code>include</code> directories into your CUDA installation directory. Update your <code>PATH</code> variables accordingly.</p>
 
-<ul>
-  <li><a href="https://chocolatey.org/">Chocolatey</a></li>
-  <li><a href="https://www.python.org/downloads/windows/">Python website</a></li>
-  <li><a href="#anaconda">Anaconda</a></li>
-</ul>
+  <h3 id="windows-pytorch">PyTorch</h3>
+  <p>Create a virtual environment for PyTorch and pysensing installation:</p>
+  <pre><code># Create and activate a conda environment
+conda create -n your_dev python=3.10 
+conda activate your_dev</code></pre>
+  <p>Install PyTorch:</p>
+  <p><strong>For systems with CUDA support:</strong></p>
+  <pre><code>pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121</code></pre>
+  <p><strong>For systems without CUDA support:</strong></p>
+  <pre><code>pip install torch torchvision torchaudio</code></pre>
 
-<blockquote>
-  <p>If you decide to use Chocolatey, and haven’t installed Chocolatey yet, ensure that you are <a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/">running your command prompt as an administrator</a>.</p>
-</blockquote>
+  <h2 id="windows-installation">Installation</h2>
+  <h3 id="pip">pip</h3>
+  <p>The pysensing package itself can be installed from PyPI:</p>
+  <pre><code>pip install pysensing</code></pre>
 
-<p>For a Chocolatey-based install, run the following command in an <a href="https://www.howtogeek.com/194041/how-to-open-the-command-prompt-as-administrator-in-windows-8.1/">administrative command prompt</a>:</p>
+  <h3 id="building-from-source">Building from Source</h3>
+  <p>If you want to build from source and get the latest version:</p>
+  <pre><code>pip install --upgrade git+https://github.com/pysensing/pysensing.git</code></pre>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco <span class="nb">install </span>python
-</code></pre></div></div>
-
-<h3 id="windows-package-manager">Package Manager</h3>
-
-<p>To install the pysensing binaries, you will need to use at least one of two supported package managers: <a href="https://www.anaconda.com/download/#windows">Anaconda</a> and <a href="https://pypi.org/project/pip/">pip</a>. Currently we only support <code class="language-plaintext highlighter-rouge">pip</code> and it will provide you all of the pysensing dependencies in one, sandboxed install.</p>
-
-<h4 id="pip">pip</h4>
-
-<p>If you installed Python by any of the recommended ways <a href="#windows-python">above</a>, <a href="https://pypi.org/project/pip/">pip</a> will have already been installed for you.</p>
-
-<h2 id="windows-installation">Installation</h2>
-
-<h3 id="windows-anaconda">pip</h3>
-
-<h4 id="no-cuda">No CUDA</h4>
-
-<p>Currently we do not have a CPU version of pysensing. Please stay tuned!</p>
-
-<h4 id="with-cuda">With CUDA</h4>
-
-<p>To install pysensing via pip, and you do have a <a href="https://developer.nvidia.com/cuda-zone">CUDA-capable</a> system, in the above selector, choose OS: Windows, Package: pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
-Then, run the command that is presented to you.</p>
-
-<h2 id="windows-verification">Verification</h2>
-
-<p>To ensure that pysensing was installed correctly, we can verify the installation by running sample pysensing code. Here we will construct a randomly initialized tensor.</p>
-
-<p>From the command line, type:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python
-</code></pre></div></div>
-
-<p>then enter the following code:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pysensing</span> <span class="k">as</span> <span class="n">pp</span>
-<span class="n">pp</span><span class="p">.</span><span class="n">__version__</span>
-</code></pre></div></div>
-
-<p>The output should be something similar to:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'0.2.0'
-</code></pre></div></div>
-
+  <h2 id="windows-verification">Verification</h2>
+  <p>To ensure that pysensing was installed correctly, verify the installation by running a sample tutorial notebook:</p>
+  <ol>
+      <li>Clone the <code>pysensing</code> repository:</li>
+      <pre><code>git clone https://github.com/pysensing/pysensing.git</code></pre>
+      <li>Install Jupyter via pip:</li>
+      <pre><code>pip install jupyter</code></pre>
+      <li>Navigate to the tutorial directory and launch Jupyter Notebook:</li>
+      <pre><code>cd pysensing/pysensing/acoustic/tutorials/
+jupyter notebook</code></pre>
+  </ol>
+  <p>This will open the tutorial notebooks in your default web browser.</p>
 </div>
 </div>
 
