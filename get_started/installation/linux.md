@@ -1,5 +1,4 @@
 # Installing on Linux
-{:.no_toc}
 
 pysensing can be installed and used on various Linux distributions. Depending on your system and compute requirements, your experience with pysensing on Linux may vary in terms of processing time. It is recommended, but not required, that your Linux system has an NVIDIA GPU in order to harness the full power of pysensing's [CUDA](https://developer.nvidia.com/cuda-zone) support.
 <!-- [support](https://pysensing.org/tutorials/beginner/blitz/tensor_tutorial.html?highlight=cuda#cuda-tensors). -->
@@ -24,37 +23,16 @@ pysensing is supported on Linux distributions that use [glibc](https://www.gnu.o
 > The install instructions here will generally apply to all supported Linux distributions. An example difference is that your distribution may support `yum` instead of `apt`. The specific examples shown were run on an Ubuntu 18.04 machine. -->
 
 ### Python
-{: #linux-python}
 
-Python 3.7 or greater is generally installed by default on any of our supported Linux distributions, which meets our recommendation.
 
-> Tip: By default, you will have to use the command `python3` to run Python. If you want to use just the command `python`, instead of `python3`, you can symlink `python` to the `python3` binary.
+Python 3.7 or greater is generally installed by default on any of our supported Linux distributions, which meets our requirments.
 
-However, if you want to install another version, there are multiple ways:
+We recommend starting with Anaconda and pip to create a controlled environment for your pysensing installation.
 
-* APT
-* [Python website](https://www.python.org/downloads/mac-osx/)
 
-If you decide to use APT, you can run the following command to install it:
+#### Install Anaconda
 
-```bash
-sudo apt install python
-```
-
-> It is recommended that you use Python 3.6, 3.7 or 3.8, which can be installed via any of the mechanisms above .
-
-<!-- > If you use [Anaconda](#anaconda) to install pysensing, it will install a sandboxed version of Python that will be used for running pysensing applications. -->
-
-### Package Manager
-{: #linux-package-manager}
-
-To install the pysensing binaries, you will need to use one of two supported package managers: [Anaconda](https://www.anaconda.com/download/#linux) or [pip](https://pypi.org/project/pip/). 
-
-<!-- Anaconda is the recommended package manager as it will provide you all of the pysensing dependencies in one, sandboxed install, including Python.
-
-#### Anaconda
-
-To install Anaconda, you will use the [command-line installer](https://www.anaconda.com/download/#linux). Right-click on the 64-bit installer link, select `Copy Link Location`, and then use the following commands:
+Download and install Anaconda using the [command-line installer](https://www.anaconda.com/download/#linux).
 
 ```bash
 # The version of Anaconda may be different depending on when you are installing`
@@ -63,22 +41,25 @@ sh Miniconda3-latest-Linux-x86_64.sh
 # and follow the prompts. The defaults are generally good.`
 ```
 
-> You may have to open a new terminal or re-source your `~/.bashrc `to get access to the `conda` command. -->
+> You may have to open a new terminal or re-source your `~/.bashrc `to get access to the `conda` command. 
 
-#### pip
-
-*Python 3*
-
-While Python 3.x is installed by default on Linux, `pip` is not installed by default.
-
+Create a pysesning enviroment with specified python version, we recommend to use python >= 3.10:
 ```bash
-sudo apt install python3-pip
+conda create -n pysensing python=3.10 
+conda activate pysensing
 ```
+#### PyTorch
+Follow the official [PyTorch installation guide](https://pytorch.org/get-started/locally/) to install PyTorch based on your system’s capabilities.
 
-> Tip: If you want to use just the command  `pip`, instead of `pip3`, you can symlink `pip` to the `pip3` binary.
-
+- **For systems with CUDA support** (replace `cu118` with your CUDA version):
+  ```bash
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+  ```
+- **For systems without CUDA support** :
+  ```bash
+  pip install torch torchvision torchaudio
+  ```
 ## Installation
-{: #linux-installation}
 
 <!-- ### Anaconda
 {: #linux-anaconda}
@@ -95,51 +76,35 @@ Then, run the command that is presented to you. -->
 
 
 ### pip
-{: #linux-pip}
+The pysensing package itself can be installed from pypi by:
+```bash
+pip install pysensing
+```
+### Building from source
+If you want to build from source and get and latest version:
+```bash
+pip install --upgrade git+https://github.com/pysensing/pysensing.git
+```
 
-#### No CUDA
-
-To install pysensing via pip, and do not have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system or do not require CUDA, in the above selector, choose OS: Linux, Package: Pip and CUDA: None.
-Then, run the command that is presented to you.
-
-#### With CUDA
-
-To install pysensing via pip, and do have a [CUDA-capable](https://developer.nvidia.com/cuda-zone) system, in the above selector, choose OS: Linux, Package: Pip and the CUDA version suited to your machine. Often, the latest CUDA version is better.
-Then, run the command that is presented to you.
 
 ## Verification
-{: #linux-verification}
 
-To ensure that pysensing was installed correctly, we can verify the installation by running sample pysensing code. Here we will construct a randomly initialized tensor.
+To ensure that `pysensing` was installed correctly, verify the installation by running a sample tutorial notebook.
 
-
-```python
->>> import torch, pysensing as pp
-
->>> # A random so(3) LieTensor
->>> r = pp.randn_so3(2, requires_grad=True)
-    so3Type LieTensor:
-    tensor([[ 0.1606,  0.0232, -1.5516],
-            [-0.0807, -0.7184, -0.1102]], requires_grad=True)
+1. Clone the `pysensing` repository:
+```bash
+git clone https://github.com/pysensing/pysensing.git
 ```
 
-Additionally, to check if your GPU driver and CUDA is enabled and accessible by pysensing, run the following commands to return whether or not the CUDA driver is enabled:
-
-```python
-import torch
-torch.cuda.is_available()
+2. Install Jupyter via pip:
+```bash
+pip install jupyter
 ```
 
-## Building from source
-{: #linux-from-source}
+3. Navigate to the tutorial directory and launch Jupyter Notebook:
+```bash
+cd pysensing/pysensing/acoustic/tutorials/
+jupyter notebook
+```
 
-For the majority of pysensing users, installing from a pre-built binary via a package manager will provide the best experience. However, there are times when you may want to install the bleeding edge pysensing code, whether for testing or actual development on the pysensing core. To install the latest pysensing code, you will need to [build pysensing from source](https://github.com/pysensing/pysensing#from-source).
-
-<!-- ### Prerequisites
-{: #linux-prerequisites-2}
-
-1. Install [Anaconda](#anaconda)
-2. Install [CUDA](https://developer.nvidia.com/cuda-downloads), if your machine has a [CUDA-enabled GPU](https://developer.nvidia.com/cuda-gpus).
-3. Follow the steps described here: [https://github.com/pysensing/pysensing#from-source](https://github.com/pysensing/pysensing#from-source)
-
-You can verify the installation as described [above](#linux-verification). -->
+This will open the tutorial notebooks in your default web browser.
