@@ -22,10 +22,48 @@ Welcome to Pysensing Tutorials
    
 .. toctree::
    :maxdepth: 1
-   :caption: RSSI
+   :caption: Bluetooth
 
-   rssi/acoustic_filter_tutorial
+   bluetooth/bluetooth_localization_tutorial
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: intraoral_scan
 
+   intraoral_scan/tooth_alignment
+   intraoral_scan/tooth_segmentation   
+ 
+.. toctree::
+   :maxdepth: 1
+   :caption: mmwave_raw
+
+   mmwave_raw/mmwave_raw_tutorial
+   
+
+.. toctree::
+   :maxdepth: 1
+   :caption: mmwave_PC
+
+   mmwave_PC/mmwave_PC_har_tutorial
+   mmwave_PC/mmwave_PC_hgr_tutorial
+   mmwave_PC/mmwave_PC_hpe_tutorial  
+
+.. toctree::
+   :maxdepth: 1
+   :caption: rssi
+
+   rssi/rssi_localization_fingerprinting_tutorial
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: uwb
+
+   uwb/uwb_preprocessing_tutorial
+   uwb/uwb_augmentation_tutorial    
+   uwb/uwb_har_tutorial
+   uwb/uwb_localization_tutorial      
+   uwb/uwb_occupancy_detection_tutorial     
+     
 Indices and tables
 ==================
 

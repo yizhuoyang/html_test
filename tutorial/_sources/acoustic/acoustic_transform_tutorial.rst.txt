@@ -118,13 +118,6 @@ First, the example audio is loaded
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/kemove/anaconda3/envs/open-mmlab/lib/python3.8/site-packages/torch/functional.py:666: UserWarning: A window was not provided. A rectangular window will be applied,which is known to cause spectral leakage. Other windows such as torch.hann_window or torch.hamming_window can are recommended to reduce spectral leakage.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at ../aten/src/ATen/native/SpectralOps.cpp:836.)
-      return _VF.stft(input, n_fft, hop_length, win_length, window,  # type: ignore[attr-defined]
-
 
 
 
@@ -151,13 +144,6 @@ First, the example audio is loaded
    :srcset: /acoustic/images/sphx_glr_acoustic_transform_tutorial_003.png
    :class: sphx-glr-single-img
 
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/kemove/anaconda3/envs/open-mmlab/lib/python3.8/site-packages/pysensing/acoustic/preprocessing/transform.py:195: UserWarning: A window was not provided. A rectangular window will be applied.Please provide the same window used by stft to make the inversion lossless.To suppress this warning and use a rectangular window, explicitly set `window=torch.ones(n_fft, device=<device>)`. (Triggered internally at ../aten/src/ATen/native/SpectralOps.cpp:1023.)
-      istft_result = torch.istft(
 
 
 
@@ -255,7 +241,7 @@ And that's it. We're done with our acoustic preprocessing tutorials. Thanks for 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.936 seconds)
+   **Total running time of the script:** (0 minutes 1.126 seconds)
 
 
 .. _sphx_glr_download_acoustic_acoustic_transform_tutorial.py:

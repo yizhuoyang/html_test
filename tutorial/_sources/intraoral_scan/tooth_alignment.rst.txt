@@ -173,10 +173,6 @@ Visualization of Tooth Alignment Results
 
       :download:`Download Python source code: tooth_alignment.py <tooth_alignment.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-zip
-
-      :download:`Download zipped: tooth_alignment.zip <tooth_alignment.zip>`
-
 
 .. only:: html
 

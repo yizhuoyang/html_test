@@ -41,8 +41,7 @@ import os
 
 from pysensing.mmwave.PC.dataset.har import load_har_dataset
 # The path contains the radHAR dataset
-root =  '/mnt/data_nas/data/junqiao/data/mGesture' 
-train_dataset, test_dataset = load_har_dataset("radHAR", root)
+train_dataset, test_dataset = load_har_dataset("radHAR")
 
 ######################################################################
 # Visualize the voxel image

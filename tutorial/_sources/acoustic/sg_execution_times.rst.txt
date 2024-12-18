@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**14:56.662** total execution time for 8 files **from acoustic**:
+**07:10.359** total execution time for 8 files **from acoustic**:
 
 .. container::
 
@@ -32,27 +32,27 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_ped_det_tutorial.py``)
-     - 11:42.783
-     - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_hpe_tutorial.py` (``acoustic_hpe_tutorial.py``)
-     - 02:46.766
+     - 03:13.995
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_ped_det_tutorial.py``)
+     - 03:02.304
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_har_tutorial.py` (``acoustic_har_tutorial.py``)
-     - 00:22.802
+     - 00:49.579
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_hgr_tutorial.py` (``acoustic_hgr_tutorial.py``)
-     - 00:01.204
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_sig_aug_tutorial.py` (``acoustic_sig_aug_tutorial.py``)
-     - 00:01.033
+     - 00:01.179
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_transform_tutorial.py` (``acoustic_transform_tutorial.py``)
-     - 00:00.936
+     - 00:01.126
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_sig_aug_tutorial.py` (``acoustic_sig_aug_tutorial.py``)
+     - 00:01.031
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_filter_tutorial.py` (``acoustic_filter_tutorial.py``)
-     - 00:00.691
+     - 00:00.686
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_spectrogram_aug_tutorial.py` (``acoustic_spectrogram_aug_tutorial.py``)
-     - 00:00.448
+     - 00:00.460
      - 0.0

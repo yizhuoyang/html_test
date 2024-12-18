@@ -121,7 +121,7 @@ And that's it. We're done with our acoustic hand gesture recognition tutorials. 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.204 seconds)
+   **Total running time of the script:** (0 minutes 1.179 seconds)
 
 
 .. _sphx_glr_download_acoustic_acoustic_hgr_tutorial.py:

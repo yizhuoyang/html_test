@@ -121,9 +121,7 @@ First, the example audio is loaded
 
  .. code-block:: none
 
-    /home/kemove/anaconda3/envs/open-mmlab/lib/python3.8/site-packages/pysensing/acoustic/augmentation/spectrogram_aug.py:54: UserWarning: The input to TimeStretch must be complex type. Providing non-complex tensor produces invalid results.
-      timestretch_result = self.transformation(waveform)
-    /home/kemove/Downloads/html_doc-20241114T031700Z-001/html_doc/tutorials/acoustic_source/acoustic_spectrogram_aug_tutorial.py:40: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at ../aten/src/ATen/native/Copy.cpp:305.)
+    /home/kemove/yyz/av-gihub/tutorials/acoustic_source/acoustic_spectrogram_aug_tutorial.py:40: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at ../aten/src/ATen/native/Copy.cpp:299.)
       plot_spec(ax, spec[0].float(), title)
 
 
@@ -191,7 +189,7 @@ And that's it. We're done with our acoustic augmentation.signal_aug tutorials. T
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.448 seconds)
+   **Total running time of the script:** (0 minutes 0.460 seconds)
 
 
 .. _sphx_glr_download_acoustic_acoustic_spectrogram_aug_tutorial.py:

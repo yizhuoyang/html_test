@@ -32,8 +32,8 @@ import os
 
 from pysensing.mmwave.PC.dataset.hpe import load_hpe_dataset
 # The path contains the radHAR dataset
-root =  '/home/junqiao/projects/data/MMFi_Dataset/'
-train_dataset, test_dataset = load_hpe_dataset("MetaFi", root)
+
+train_dataset, test_dataset = load_hpe_dataset("MetaFi")
 
 
 ######################################################################
@@ -229,4 +229,4 @@ mmDiffRunner.phase2_train(train_loader = None, is_train = False)
 ######################################################################
 # In[20]:
 
-mmDiffRunner.test()
+#mmDiffRunner.test()

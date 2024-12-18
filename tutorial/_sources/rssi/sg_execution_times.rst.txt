@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.678** total execution time for 1 file **from rssi**:
+**02:04.909** total execution time for 1 file **from rssi**:
 
 .. container::
 
@@ -32,6 +32,6 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_rssi_acoustic_filter_tutorial.py` (``acoustic_filter_tutorial.py``)
-     - 00:00.678
+   * - :ref:`sphx_glr_rssi_rssi_localization_fingerprinting_tutorial.py` (``rssi_localization_fingerprinting_tutorial.py``)
+     - 02:04.909
      - 0.0

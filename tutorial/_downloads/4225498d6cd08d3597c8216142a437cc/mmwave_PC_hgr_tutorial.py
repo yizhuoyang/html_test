@@ -37,8 +37,7 @@ import os
 
 from pysensing.mmwave.PC.dataset.hgr import load_hgr_dataset
 # The path contains the radHAR dataset
-root =  '/mnt/data_nas/data/junqiao/data/mGesture'
-train_dataset, test_dataset = load_hgr_dataset("M-Gesture", root)
+train_dataset, test_dataset = load_hgr_dataset("M-Gesture")
 
 ######################################################################
 # Visualize the point cloud

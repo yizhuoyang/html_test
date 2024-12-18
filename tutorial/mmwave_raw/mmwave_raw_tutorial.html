@@ -36,7 +36,8 @@
   <link rel="stylesheet" href="../_static/sg_gallery-rendered-html.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Bluetooth Localization Tutorial" href="../bluetooth/bluetooth_localization_tutorial.html" />
+    <link rel="next" title="Tutorial for Human Activity Recognition" href="../mmwave_PC/mmwave_PC_har_tutorial.html" />
+    <link rel="prev" title="Tutorial for tooth segmentation" href="../intraoral_scan/tooth_segmentation.html" />
   <!-- Google Analytics -->
   
   <!-- End Google Analytics -->
@@ -148,7 +149,7 @@
               
             
             
-<p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Acoustic</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_filter_tutorial.html">Acoustic Preprocessing.Filter Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_transform_tutorial.html">Acoustic Preprocssing.Transfrom Tutorial</a></li>
@@ -158,6 +159,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_hgr_tutorial.html">Acoustic Hand Gesture Recognition Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_ped_det_tutorial.html">Acoustic Pedestrian Detection Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acoustic/acoustic_hpe_tutorial.html">Acoustic Human Pose estimation Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Bluetooth</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bluetooth/bluetooth_localization_tutorial.html">Bluetooth Localization Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">CSI</span></p>
 <ul>
@@ -170,9 +175,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../csi/Reconstruction_tutorial.html">CSI human reconstruction Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../csi/transform_tutorial.html">CSI human fall detection Tutorial</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Bluetooth</span></p>
+<p class="caption" role="heading"><span class="caption-text">intraoral_scan</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../bluetooth/bluetooth_localization_tutorial.html">Bluetooth Localization Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intraoral_scan/tooth_alignment.html">Tutorial for tooth alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intraoral_scan/tooth_segmentation.html">Tutorial for tooth segmentation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">mmwave_raw</span></p>
 <ul class="current">
@@ -184,16 +190,20 @@
 <li class="toctree-l1"><a class="reference internal" href="../mmwave_PC/mmwave_PC_har_tutorial.html">Tutorial for Human Activity Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mmwave_PC/mmwave_PC_hgr_tutorial.html">Tutorial for Human Gesture Recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mmwave_PC/mmwave_PC_hpe_tutorial.html">Tutorial for Human Pose Estimation</a></li>
-</ul> 
+</ul>
 <p class="caption" role="heading"><span class="caption-text">rssi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../rssi/rssi_localization_fingerprinting_tutorial.html">Tutorial for localization</a></li>
-</ul>    
-<p class="caption" role="heading"><span class="caption-text">intraoral_scan</span></p>
+<li class="toctree-l1"><a class="reference internal" href="../rssi/rssi_localization_fingerprinting_tutorial.html">RSSI Localization Fingerprinting Tutorial</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">uwb</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../intraoral_scan/tooth_alignment.html">Tutorial for tooth alignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../intraoral_scan/tooth_segmentation.html">Tutorial for tooth segmentation</a></li>
-<ul>     
+<li class="toctree-l1"><a class="reference internal" href="../uwb/uwb_preprocessing_tutorial.html">Tutorial for UWB Data Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uwb/uwb_augmentation_tutorial.html">Tutorial for UWB Data Augmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uwb/uwb_har_tutorial.html">Tutorial for UWB Human Activity Recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uwb/uwb_localization_tutorial.html">Tutorial for UWB Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uwb/uwb_occupancy_detection_tutorial.html">Tutorial for UWB Occupancy Detection</a></li>
+</ul>
+
             
           
         </div>
@@ -358,9 +368,7 @@ in cubelearn</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The prediction is </span><span class="si">{</span><span class="n">class_idx</span><span class="o">==</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/kemove/anaconda3/envs/il/lib/python3.9/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
-  return self.fget.__get__(instance, owner)()
-The prediction is True
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The prediction is True
 </pre></div>
 </div>
 <section id="embedding-extraction">
@@ -406,7 +414,7 @@ models</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>torch.Size([16, 4, 31, 7])
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.143 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 33.881 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-mmwave-raw-mmwave-raw-tutorial-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/f2c10ec35480116bd25424aceb8b10bc/mmwave_raw_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mmwave_raw_tutorial.ipynb</span></code></a></p>
@@ -427,8 +435,10 @@ models</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../mmwave_PC/mmwave_PC_har_tutorial.html" class="btn btn-neutral float-right" title="Tutorial for Human Activity Recognition" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
       
-        <a href="../bluetooth/bluetooth_localization_tutorial.html" class="btn btn-neutral" title="Bluetooth Localization Tutorial" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+        <a href="../intraoral_scan/tooth_segmentation.html" class="btn btn-neutral" title="Tutorial for tooth segmentation" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
       
     </div>
   

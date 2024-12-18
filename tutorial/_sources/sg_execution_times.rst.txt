@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**14:58.022** total execution time for 10 files **from all galleries**:
+**03:45.732** total execution time for 22 files **from all galleries**:
 
 .. container::
 
@@ -32,33 +32,69 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_source/acoustic_ped_det_tutorial.py``)
-     - 11:42.783
+   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_hgr_tutorial.py` (``mmwave_PC_source/mmwave_PC_hgr_tutorial.py``)
+     - 02:40.496
      - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_hpe_tutorial.py` (``acoustic_source/acoustic_hpe_tutorial.py``)
-     - 02:46.766
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_har_tutorial.py` (``acoustic_source/acoustic_har_tutorial.py``)
-     - 00:22.802
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_hgr_tutorial.py` (``acoustic_source/acoustic_hgr_tutorial.py``)
-     - 00:01.204
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_sig_aug_tutorial.py` (``acoustic_source/acoustic_sig_aug_tutorial.py``)
-     - 00:01.033
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_transform_tutorial.py` (``acoustic_source/acoustic_transform_tutorial.py``)
-     - 00:00.936
+   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_har_tutorial.py` (``mmwave_PC_source/mmwave_PC_har_tutorial.py``)
+     - 01:05.236
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_filter_tutorial.py` (``acoustic_source/acoustic_filter_tutorial.py``)
-     - 00:00.691
+     - 00:00.000
      - 0.0
-   * - :ref:`sphx_glr_csi_acoustic_filter_tutorial.py` (``csi_source/acoustic_filter_tutorial.py``)
-     - 00:00.681
+   * - :ref:`sphx_glr_acoustic_acoustic_har_tutorial.py` (``acoustic_source/acoustic_har_tutorial.py``)
+     - 00:00.000
      - 0.0
-   * - :ref:`sphx_glr_rssi_acoustic_filter_tutorial.py` (``rssi_source/acoustic_filter_tutorial.py``)
-     - 00:00.678
+   * - :ref:`sphx_glr_acoustic_acoustic_hgr_tutorial.py` (``acoustic_source/acoustic_hgr_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_hpe_tutorial.py` (``acoustic_source/acoustic_hpe_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_source/acoustic_ped_det_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_sig_aug_tutorial.py` (``acoustic_source/acoustic_sig_aug_tutorial.py``)
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_spectrogram_aug_tutorial.py` (``acoustic_source/acoustic_spectrogram_aug_tutorial.py``)
-     - 00:00.448
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_acoustic_acoustic_transform_tutorial.py` (``acoustic_source/acoustic_transform_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_bluetooth_bluetooth_localization_tutorial.py` (``bluetooth_source/bluetooth_localization_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_intraoral_scan_tooth_alignment.py` (``intraoral_scan_source/tooth_alignment.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_intraoral_scan_tooth_segmentation.py` (``intraoral_scan_source/tooth_segmentation.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_hpe_tutorial.py` (``mmwave_PC_source/mmwave_PC_hpe_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_mmwave_PC_plot_tutorial.py` (``mmwave_PC_source/plot_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_mmwave_raw_mmwave_raw_tutorial.py` (``mmwave_raw_source/mmwave_raw_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_rssi_rssi_localization_fingerprinting_tutorial.py` (``rssi_source/rssi_localization_fingerprinting_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_uwb_uwb_augmentation_tutorial.py` (``uwb_source/uwb_augmentation_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_uwb_uwb_har_tutorial.py` (``uwb_source/uwb_har_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_uwb_uwb_localization_tutorial.py` (``uwb_source/uwb_localization_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_uwb_uwb_occupancy_detection_tutorial.py` (``uwb_source/uwb_occupancy_detection_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_uwb_uwb_preprocessing_tutorial.py` (``uwb_source/uwb_preprocessing_tutorial.py``)
+     - 00:00.000
      - 0.0

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.000** total execution time for 3 files **from intraoral_scan**:
+**00:00.000** total execution time for 2 files **from intraoral_scan**:
 
 .. container::
 
@@ -32,9 +32,6 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_intraoral_scan_prepare_data.py` (``prepare_data.py``)
-     - 00:00.000
-     - 0.0
    * - :ref:`sphx_glr_intraoral_scan_tooth_alignment.py` (``tooth_alignment.py``)
      - 00:00.000
      - 0.0

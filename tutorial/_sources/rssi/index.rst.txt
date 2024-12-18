@@ -1,8 +1,7 @@
 :orphan:
 
-# pysensing.acoustic examples
+This is the tutorial for pysensing.rssi
 
-Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, acoustic.model
 
 
 .. raw:: html
@@ -13,18 +12,18 @@ Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, aco
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Acoustic Preprocessing.Filter Tutorial">
+    <div class="sphx-glr-thumbcontainer" tooltip="RSSI Localization Fingerprinting Tutorial">
 
 .. only:: html
 
-  .. image:: /rssi/images/thumb/sphx_glr_acoustic_filter_tutorial_thumb.png
+  .. image:: /rssi/images/thumb/sphx_glr_rssi_localization_fingerprinting_tutorial_thumb.png
     :alt:
 
-  :ref:`sphx_glr_rssi_acoustic_filter_tutorial.py`
+  :ref:`sphx_glr_rssi_rssi_localization_fingerprinting_tutorial.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Acoustic Preprocessing.Filter Tutorial</div>
+      <div class="sphx-glr-thumbnail-title">RSSI Localization Fingerprinting Tutorial</div>
     </div>
 
 
@@ -38,7 +37,7 @@ Examples of acoustic.preprocessing, acoustic.augmentation, acoustic.dataset, aco
 .. toctree::
    :hidden:
 
-   /rssi/acoustic_filter_tutorial
+   /rssi/rssi_localization_fingerprinting_tutorial
 
 
 .. only:: html

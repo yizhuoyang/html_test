@@ -164,10 +164,6 @@ Visualization of Tooth Segmentation Results
 
       :download:`Download Python source code: tooth_segmentation.py <tooth_segmentation.py>`
 
-    .. container:: sphx-glr-download sphx-glr-download-zip
-
-      :download:`Download zipped: tooth_segmentation.zip <tooth_segmentation.zip>`
-
 
 .. only:: html
 
