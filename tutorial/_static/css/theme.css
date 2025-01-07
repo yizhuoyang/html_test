@@ -9738,21 +9738,22 @@ pre {
 
 .header-logo {
   height: 73px;
-  width: 183px;
-  background-image: url("../images/pysensing.svg");
+  width: 73px;
+  background-image: url("../images/pysensing.jpeg");
   background-repeat: no-repeat;
-  background-size: 193px 73px;
+  background-size: 73px 73px;
   display: block;
   float: left;
   z-index: 10;
 }
 @media screen and (min-width: 1100px) {
   .header-logo {
-    background-size: 198px 87px;
+    background-size: 83px 83px;
     position: absolute;
-    height: 87px;
-    width: 198px;
+    height: 83px;
+    width:  83px;
     top: 50%;
+    left: 10px;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     float: none;
@@ -10097,7 +10098,7 @@ pre {
 }
 
 .footer-logo {
-  background-image: url("../images/pypose.svg");
+  background-image: url("../images/pysensing.jpeg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 30px 34px;
@@ -10387,7 +10388,7 @@ ul.pytorch-breadcrumbs a {
 }
 
 .tutorials-header .header-logo {
-  background-image: url("../images/pysensing.svg");
+  background-image: url("../images/pysensing.jpeg");
 }
 .tutorials-header .main-menu ul li a {
   color: #262626;
