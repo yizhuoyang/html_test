@@ -8,13 +8,14 @@ Pysensing Documentation
    :caption: Contents:
 
    acoustic/Acoustic
+   bluetooth/bluetooth
    csi/csi
+   intraoral_scan/intraoral_scan
    mmwave_PC/mmwave_PC
    mmwave_raw/mmwave_raw
    rssi/rssi
    uwb/uwb
-   bluetooth/bluetooth
-   intraoral_scan/intraoral_scan
+
 
 
 Indices and tables
