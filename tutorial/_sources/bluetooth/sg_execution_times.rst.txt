@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:20.082** total execution time for 1 file **from bluetooth**:
+**00:20.249** total execution time for 1 file **from bluetooth**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_bluetooth_bluetooth_localization_tutorial.py` (``bluetooth_localization_tutorial.py``)
-     - 00:20.082
+     - 00:20.249
      - 0.0

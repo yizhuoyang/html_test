@@ -35,7 +35,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 # ------------------------
 # The dataset can be downloaded from this github repo: https://github.com/yizhuoyang/AV-PedAware
 
-root = '/home/kemove/yyz/pysensing/avped' # The path contains the AVPed dataset
+root = './data' # The path contains the AVPed dataset
 avped_traindataset = AVPed(root,'train')
 avped_testdataset = AVPed(root,'test')
 index = 20
@@ -101,7 +101,7 @@ sample_embedding = ped_det_embedding(spectrogram,'AVPed',avped_model, device=dev
 # AFPILD: Acoustic footstep dataset collected using one microphone array and LiDAR sensor for person identification and localization
 # ----------------------------------------------------------------------------------
 # Reimplementation of "AFPILD: Acoustic footstep dataset collected using one microphone array and LiDAR sensor for person identification and localization".
-3
+
 # This dataset contains footstep sound of the pedestains which used for pedestrian localization and classification
 ######################################################################
 # Load the data

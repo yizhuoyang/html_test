@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**03:45.732** total execution time for 22 files **from all galleries**:
+**01:43.586** total execution time for 22 files **from all galleries**:
 
 .. container::
 
@@ -32,11 +32,8 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_hgr_tutorial.py` (``mmwave_PC_source/mmwave_PC_hgr_tutorial.py``)
-     - 02:40.496
-     - 0.0
-   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_har_tutorial.py` (``mmwave_PC_source/mmwave_PC_har_tutorial.py``)
-     - 01:05.236
+   * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_source/acoustic_ped_det_tutorial.py``)
+     - 01:43.586
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_filter_tutorial.py` (``acoustic_source/acoustic_filter_tutorial.py``)
      - 00:00.000
@@ -48,9 +45,6 @@ Computation times
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_hpe_tutorial.py` (``acoustic_source/acoustic_hpe_tutorial.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr_acoustic_acoustic_ped_det_tutorial.py` (``acoustic_source/acoustic_ped_det_tutorial.py``)
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_acoustic_acoustic_sig_aug_tutorial.py` (``acoustic_source/acoustic_sig_aug_tutorial.py``)
@@ -69,6 +63,12 @@ Computation times
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_intraoral_scan_tooth_segmentation.py` (``intraoral_scan_source/tooth_segmentation.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_har_tutorial.py` (``mmwave_PC_source/mmwave_PC_har_tutorial.py``)
+     - 00:00.000
+     - 0.0
+   * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_hgr_tutorial.py` (``mmwave_PC_source/mmwave_PC_hgr_tutorial.py``)
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_mmwave_PC_mmwave_PC_hpe_tutorial.py` (``mmwave_PC_source/mmwave_PC_hpe_tutorial.py``)

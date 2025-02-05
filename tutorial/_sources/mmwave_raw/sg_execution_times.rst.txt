@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:33.881** total execution time for 1 file **from mmwave_raw**:
+**00:19.856** total execution time for 1 file **from mmwave_raw**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_mmwave_raw_mmwave_raw_tutorial.py` (``mmwave_raw_tutorial.py``)
-     - 00:33.881
+     - 00:19.856
      - 0.0

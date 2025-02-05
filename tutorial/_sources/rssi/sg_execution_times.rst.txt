@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**02:04.909** total execution time for 1 file **from rssi**:
+**02:16.801** total execution time for 1 file **from rssi**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_rssi_rssi_localization_fingerprinting_tutorial.py` (``rssi_localization_fingerprinting_tutorial.py``)
-     - 02:04.909
+     - 02:16.801
      - 0.0

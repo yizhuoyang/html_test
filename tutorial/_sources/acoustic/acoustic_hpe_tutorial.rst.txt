@@ -262,63 +262,63 @@ Modle Training
       self.df[self.df["sound_length"] == sound_length]
     /home/kemove/anaconda3/envs/il/lib/python3.9/site-packages/pysensing/acoustic/inference/training/AcousticPose_utils/libs/dataset.py:195: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
       self.df[self.df["sound_length"] == sound_length]
-    epoch: 0        epoch time[sec]: 4      train loss: 35.7390     val loss: 5554.8646     val_rmse: 74.53097      val_mae: 51.34270
-    epoch: 1        epoch time[sec]: 1      train loss: 2.9727      val loss: 25.6959       val_rmse: 5.06912       val_mae: 3.25518
-    epoch: 2        epoch time[sec]: 1      train loss: 1.4077      val loss: 2.6241        val_rmse: 1.61991       val_mae: 0.95808
-    epoch: 3        epoch time[sec]: 1      train loss: 1.1356      val loss: 3.5195        val_rmse: 1.87604       val_mae: 1.04522
-    epoch: 4        epoch time[sec]: 1      train loss: 0.9243      val loss: 1.5310        val_rmse: 1.23734       val_mae: 0.71184
-    epoch: 5        epoch time[sec]: 1      train loss: 0.7955      val loss: 3.5594        val_rmse: 1.88662       val_mae: 1.16877
-    epoch: 6        epoch time[sec]: 1      train loss: 0.8497      val loss: 4.6753        val_rmse: 2.16226       val_mae: 1.17781
-    epoch: 7        epoch time[sec]: 1      train loss: 0.7119      val loss: 1.2523        val_rmse: 1.11907       val_mae: 0.63488
-    epoch: 8        epoch time[sec]: 1      train loss: 0.8146      val loss: 1.8044        val_rmse: 1.34328       val_mae: 0.73590
-    epoch: 9        epoch time[sec]: 1      train loss: 0.6545      val loss: 3.3827        val_rmse: 1.83922       val_mae: 1.10017
-    epoch: 10       epoch time[sec]: 1      train loss: 0.5552      val loss: 1.1688        val_rmse: 1.08112       val_mae: 0.57759
-    epoch: 11       epoch time[sec]: 1      train loss: 0.4592      val loss: 2.0147        val_rmse: 1.41939       val_mae: 0.74739
-    epoch: 12       epoch time[sec]: 1      train loss: 0.4994      val loss: 0.9686        val_rmse: 0.98416       val_mae: 0.55964
-    epoch: 13       epoch time[sec]: 1      train loss: 0.3855      val loss: 1.2417        val_rmse: 1.11432       val_mae: 0.62025
-    epoch: 14       epoch time[sec]: 1      train loss: 0.4807      val loss: 12.4831       val_rmse: 3.53314       val_mae: 2.36653
-    epoch: 15       epoch time[sec]: 1      train loss: 0.4118      val loss: 1.3485        val_rmse: 1.16123       val_mae: 0.66796
-    epoch: 16       epoch time[sec]: 1      train loss: 0.3761      val loss: 0.9973        val_rmse: 0.99863       val_mae: 0.53796
-    epoch: 17       epoch time[sec]: 1      train loss: 0.4024      val loss: 0.8047        val_rmse: 0.89707       val_mae: 0.49792
-    epoch: 18       epoch time[sec]: 1      train loss: 0.3684      val loss: 0.9007        val_rmse: 0.94903       val_mae: 0.52189
-    epoch: 19       epoch time[sec]: 1      train loss: 0.4444      val loss: 0.5412        val_rmse: 0.73564       val_mae: 0.38856
-    epoch: 20       epoch time[sec]: 1      train loss: 0.4993      val loss: 3.9111        val_rmse: 1.97765       val_mae: 1.08059
-    epoch: 21       epoch time[sec]: 1      train loss: 0.5329      val loss: 2.8935        val_rmse: 1.70104       val_mae: 1.00245
-    epoch: 22       epoch time[sec]: 1      train loss: 0.5511      val loss: 5.5930        val_rmse: 2.36494       val_mae: 1.52599
-    epoch: 23       epoch time[sec]: 1      train loss: 0.4637      val loss: 0.5622        val_rmse: 0.74982       val_mae: 0.43827
-    epoch: 24       epoch time[sec]: 1      train loss: 0.3852      val loss: 0.5459        val_rmse: 0.73882       val_mae: 0.41697
-    epoch: 25       epoch time[sec]: 1      train loss: 0.3494      val loss: 0.5928        val_rmse: 0.76992       val_mae: 0.43026
-    epoch: 26       epoch time[sec]: 1      train loss: 0.3270      val loss: 1.0129        val_rmse: 1.00643       val_mae: 0.59031
-    epoch: 27       epoch time[sec]: 1      train loss: 0.3271      val loss: 1.1278        val_rmse: 1.06199       val_mae: 0.58608
-    epoch: 28       epoch time[sec]: 1      train loss: 0.3561      val loss: 0.8824        val_rmse: 0.93934       val_mae: 0.53670
-    epoch: 29       epoch time[sec]: 1      train loss: 0.4345      val loss: 2.2521        val_rmse: 1.50071       val_mae: 0.77469
-    epoch: 30       epoch time[sec]: 1      train loss: 0.3261      val loss: 0.5565        val_rmse: 0.74597       val_mae: 0.42798
-    epoch: 31       epoch time[sec]: 1      train loss: 0.2789      val loss: 0.2856        val_rmse: 0.53439       val_mae: 0.29199
-    epoch: 32       epoch time[sec]: 1      train loss: 0.2797      val loss: 0.8026        val_rmse: 0.89586       val_mae: 0.49548
-    epoch: 33       epoch time[sec]: 1      train loss: 0.2679      val loss: 0.3465        val_rmse: 0.58865       val_mae: 0.31378
-    epoch: 34       epoch time[sec]: 1      train loss: 0.2232      val loss: 0.3359        val_rmse: 0.57957       val_mae: 0.35535
-    epoch: 35       epoch time[sec]: 1      train loss: 0.2356      val loss: 0.4082        val_rmse: 0.63887       val_mae: 0.36426
-    epoch: 36       epoch time[sec]: 1      train loss: 0.2611      val loss: 0.5367        val_rmse: 0.73261       val_mae: 0.40534
-    epoch: 37       epoch time[sec]: 1      train loss: 0.2392      val loss: 0.6087        val_rmse: 0.78019       val_mae: 0.44737
-    epoch: 38       epoch time[sec]: 1      train loss: 0.2305      val loss: 0.4172        val_rmse: 0.64594       val_mae: 0.32282
-    epoch: 39       epoch time[sec]: 1      train loss: 0.2442      val loss: 0.2554        val_rmse: 0.50535       val_mae: 0.28782
-    epoch: 40       epoch time[sec]: 1      train loss: 0.2222      val loss: 0.2548        val_rmse: 0.50480       val_mae: 0.30691
-    epoch: 41       epoch time[sec]: 1      train loss: 0.2488      val loss: 0.5324        val_rmse: 0.72965       val_mae: 0.37258
-    epoch: 42       epoch time[sec]: 1      train loss: 0.1904      val loss: 0.2356        val_rmse: 0.48537       val_mae: 0.26606
-    epoch: 43       epoch time[sec]: 1      train loss: 0.2384      val loss: 0.3041        val_rmse: 0.55143       val_mae: 0.30847
-    epoch: 44       epoch time[sec]: 1      train loss: 0.3045      val loss: 1.0510        val_rmse: 1.02519       val_mae: 0.52256
-    epoch: 45       epoch time[sec]: 1      train loss: 0.3366      val loss: 0.6302        val_rmse: 0.79388       val_mae: 0.45900
-    epoch: 46       epoch time[sec]: 1      train loss: 0.3774      val loss: 1.3712        val_rmse: 1.17100       val_mae: 0.64678
-    epoch: 47       epoch time[sec]: 1      train loss: 0.3146      val loss: 2.0887        val_rmse: 1.44523       val_mae: 0.88037
-    epoch: 48       epoch time[sec]: 1      train loss: 0.5820      val loss: 5.6748        val_rmse: 2.38218       val_mae: 1.50417
-    epoch: 49       epoch time[sec]: 1      train loss: 0.5284      val loss: 1.1686        val_rmse: 1.08104       val_mae: 0.58750
+    epoch: 0        epoch time[sec]: 4      train loss: 38.0937     val loss: 163.1282      val_rmse: 12.77217      val_mae: 8.43311
+    epoch: 1        epoch time[sec]: 1      train loss: 3.3102      val loss: 50.4458       val_rmse: 7.10252       val_mae: 4.40765
+    epoch: 2        epoch time[sec]: 1      train loss: 1.5292      val loss: 1.8193        val_rmse: 1.34880       val_mae: 0.82698
+    epoch: 3        epoch time[sec]: 1      train loss: 1.1860      val loss: 1.4522        val_rmse: 1.20507       val_mae: 0.72901
+    epoch: 4        epoch time[sec]: 1      train loss: 1.0476      val loss: 1.2415        val_rmse: 1.11424       val_mae: 0.64408
+    epoch: 5        epoch time[sec]: 1      train loss: 0.8655      val loss: 1.5326        val_rmse: 1.23800       val_mae: 0.72606
+    epoch: 6        epoch time[sec]: 1      train loss: 0.8991      val loss: 1.7280        val_rmse: 1.31454       val_mae: 0.75788
+    epoch: 7        epoch time[sec]: 1      train loss: 0.7731      val loss: 1.4055        val_rmse: 1.18552       val_mae: 0.67471
+    epoch: 8        epoch time[sec]: 1      train loss: 1.0249      val loss: 33.7593       val_rmse: 5.81028       val_mae: 3.50439
+    epoch: 9        epoch time[sec]: 1      train loss: 0.8726      val loss: 3.8771        val_rmse: 1.96904       val_mae: 1.12149
+    epoch: 10       epoch time[sec]: 1      train loss: 0.7102      val loss: 1.1204        val_rmse: 1.05849       val_mae: 0.56559
+    epoch: 11       epoch time[sec]: 1      train loss: 0.5611      val loss: 1.5317        val_rmse: 1.23764       val_mae: 0.69886
+    epoch: 12       epoch time[sec]: 1      train loss: 0.5923      val loss: 3.0224        val_rmse: 1.73850       val_mae: 1.06073
+    epoch: 13       epoch time[sec]: 1      train loss: 0.5095      val loss: 3.3477        val_rmse: 1.82968       val_mae: 1.13779
+    epoch: 14       epoch time[sec]: 1      train loss: 0.6626      val loss: 2.4439        val_rmse: 1.56328       val_mae: 0.91174
+    epoch: 15       epoch time[sec]: 1      train loss: 0.5039      val loss: 1.3499        val_rmse: 1.16187       val_mae: 0.62304
+    epoch: 16       epoch time[sec]: 1      train loss: 0.4427      val loss: 0.8582        val_rmse: 0.92637       val_mae: 0.49949
+    epoch: 17       epoch time[sec]: 1      train loss: 0.4141      val loss: 0.7087        val_rmse: 0.84182       val_mae: 0.44726
+    epoch: 18       epoch time[sec]: 1      train loss: 0.4481      val loss: 1.9027        val_rmse: 1.37937       val_mae: 0.81386
+    epoch: 19       epoch time[sec]: 1      train loss: 0.4947      val loss: 0.7230        val_rmse: 0.85029       val_mae: 0.46919
+    epoch: 20       epoch time[sec]: 1      train loss: 0.4163      val loss: 0.7290        val_rmse: 0.85384       val_mae: 0.46518
+    epoch: 21       epoch time[sec]: 1      train loss: 0.3556      val loss: 0.4851        val_rmse: 0.69652       val_mae: 0.38136
+    epoch: 22       epoch time[sec]: 1      train loss: 0.3800      val loss: 0.5969        val_rmse: 0.77261       val_mae: 0.41563
+    epoch: 23       epoch time[sec]: 1      train loss: 0.3724      val loss: 0.6957        val_rmse: 0.83409       val_mae: 0.47226
+    epoch: 24       epoch time[sec]: 1      train loss: 0.3783      val loss: 0.7569        val_rmse: 0.87001       val_mae: 0.49752
+    epoch: 25       epoch time[sec]: 1      train loss: 0.4418      val loss: 1.0745        val_rmse: 1.03658       val_mae: 0.56204
+    epoch: 26       epoch time[sec]: 1      train loss: 0.3735      val loss: 1.5351        val_rmse: 1.23899       val_mae: 0.71568
+    epoch: 27       epoch time[sec]: 1      train loss: 0.4474      val loss: 1.1726        val_rmse: 1.08285       val_mae: 0.59331
+    epoch: 28       epoch time[sec]: 1      train loss: 0.4119      val loss: 2.5204        val_rmse: 1.58757       val_mae: 0.93299
+    epoch: 29       epoch time[sec]: 1      train loss: 0.5752      val loss: 0.9867        val_rmse: 0.99332       val_mae: 0.55090
+    epoch: 30       epoch time[sec]: 1      train loss: 0.3881      val loss: 0.9181        val_rmse: 0.95816       val_mae: 0.57685
+    epoch: 31       epoch time[sec]: 1      train loss: 0.3227      val loss: 1.1632        val_rmse: 1.07851       val_mae: 0.59697
+    epoch: 32       epoch time[sec]: 1      train loss: 0.4059      val loss: 0.7456        val_rmse: 0.86350       val_mae: 0.51384
+    epoch: 33       epoch time[sec]: 1      train loss: 0.3700      val loss: 0.4349        val_rmse: 0.65946       val_mae: 0.36350
+    epoch: 34       epoch time[sec]: 1      train loss: 0.2653      val loss: 0.5030        val_rmse: 0.70920       val_mae: 0.42115
+    epoch: 35       epoch time[sec]: 1      train loss: 0.2663      val loss: 0.5556        val_rmse: 0.74541       val_mae: 0.39126
+    epoch: 36       epoch time[sec]: 1      train loss: 0.2956      val loss: 0.4150        val_rmse: 0.64422       val_mae: 0.37835
+    epoch: 37       epoch time[sec]: 1      train loss: 0.2606      val loss: 0.3849        val_rmse: 0.62038       val_mae: 0.36641
+    epoch: 38       epoch time[sec]: 1      train loss: 0.2569      val loss: 0.4467        val_rmse: 0.66835       val_mae: 0.35664
+    epoch: 39       epoch time[sec]: 1      train loss: 0.2712      val loss: 0.6237        val_rmse: 0.78972       val_mae: 0.40919
+    epoch: 40       epoch time[sec]: 1      train loss: 0.2585      val loss: 0.4085        val_rmse: 0.63916       val_mae: 0.37400
+    epoch: 41       epoch time[sec]: 1      train loss: 0.2806      val loss: 0.5592        val_rmse: 0.74777       val_mae: 0.42447
+    epoch: 42       epoch time[sec]: 1      train loss: 0.2215      val loss: 0.3250        val_rmse: 0.57006       val_mae: 0.30865
+    epoch: 43       epoch time[sec]: 1      train loss: 0.2627      val loss: 0.2415        val_rmse: 0.49140       val_mae: 0.26592
+    epoch: 44       epoch time[sec]: 1      train loss: 0.2536      val loss: 0.3004        val_rmse: 0.54807       val_mae: 0.30688
+    epoch: 45       epoch time[sec]: 1      train loss: 0.2531      val loss: 0.2808        val_rmse: 0.52989       val_mae: 0.30597
+    epoch: 46       epoch time[sec]: 1      train loss: 0.2785      val loss: 0.8624        val_rmse: 0.92864       val_mae: 0.49453
+    epoch: 47       epoch time[sec]: 1      train loss: 0.2600      val loss: 0.6742        val_rmse: 0.82110       val_mae: 0.47749
+    epoch: 48       epoch time[sec]: 1      train loss: 0.3157      val loss: 0.3889        val_rmse: 0.62361       val_mae: 0.34720
+    epoch: 49       epoch time[sec]: 1      train loss: 0.2532      val loss: 0.4986        val_rmse: 0.70615       val_mae: 0.38780
     /home/kemove/anaconda3/envs/il/lib/python3.9/site-packages/pysensing/acoustic/inference/training/AcousticPose_utils/libs/dataset.py:195: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
       self.df[self.df["sound_length"] == sound_length]
     ---------- Start evaluation for test data ----------
-    loss: 0.23558   RMSE: 0.49      MAE: 0.27       Acc: 0.87, 0.97, 0.99, 0.99
-    arm RMSE: 0.66  arm MAE: 0.39   Acc: 0.80, 0.95, 0.98, 0.99
-    leg RMSE: 0.35  leg MAE: 0.20   Acc: 0.95, 0.99, 0.99, 1.00
-    body RMSE: 0.32 body MAE: 0.17  Acc: 0.94, 1.00, 1.00, 1.00
+    loss: 0.24147   RMSE: 0.49      MAE: 0.27       Acc: 0.86, 0.96, 0.98, 0.99
+    arm RMSE: 0.64  arm MAE: 0.38   Acc: 0.79, 0.95, 0.98, 0.99
+    leg RMSE: 0.40  leg MAE: 0.22   Acc: 0.93, 0.98, 0.99, 0.99
+    body RMSE: 0.33 body MAE: 0.16  Acc: 0.94, 0.99, 1.00, 1.00
     Done.
 
 
@@ -443,7 +443,7 @@ And that's it. We're done with our acoustic humna pose estimation tutorials. Tha
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (3 minutes 13.995 seconds)
+   **Total running time of the script:** (3 minutes 10.114 seconds)
 
 
 .. _sphx_glr_download_acoustic_acoustic_hpe_tutorial.py:

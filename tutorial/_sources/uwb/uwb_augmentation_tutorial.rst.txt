@@ -277,7 +277,7 @@ Scaling
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.883 seconds)
+   **Total running time of the script:** (0 minutes 0.871 seconds)
 
 
 .. _sphx_glr_download_uwb_uwb_augmentation_tutorial.py:

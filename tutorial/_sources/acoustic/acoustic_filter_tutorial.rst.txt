@@ -248,7 +248,7 @@ And that's it. We're done with our acoustic preprocessing tutorials. Thanks for 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.686 seconds)
+   **Total running time of the script:** (0 minutes 0.649 seconds)
 
 
 .. _sphx_glr_download_acoustic_acoustic_filter_tutorial.py:

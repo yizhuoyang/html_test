@@ -221,7 +221,7 @@ Model train
  .. code-block:: none
 
     Loading pedestrian tracking CIR dataset in mod 1...
-    Epoch:1,MAE Loss:27.245818672
+    Epoch:1,MAE Loss:26.150909321
 
 
 
@@ -295,7 +295,7 @@ Generate embedding
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 34.916 seconds)
+   **Total running time of the script:** (0 minutes 28.170 seconds)
 
 
 .. _sphx_glr_download_uwb_uwb_localization_tutorial.py:

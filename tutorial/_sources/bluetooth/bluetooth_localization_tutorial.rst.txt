@@ -109,8 +109,8 @@ Load the WMU BLE Localization Data
  .. code-block:: none
 
     Downloading https://pysensing.oss-ap-southeast-1.aliyuncs.com/data/ble/WMUBLELoc.zip ...
-    Downloading:   0%|          | 0.00/150k [00:00<?, ?iB/s]    Downloading:  55%|█████▍    | 81.9k/150k [00:00<00:00, 788kiB/s]    Downloading: 100%|██████████| 150k/150k [00:00<00:00, 399kiB/s] 
-    Extracting:   0%|          | 0/3 [00:00<?, ?file/s]    Extracting: 100%|██████████| 3/3 [00:00<00:00, 328.41file/s]
+    Downloading:   0%|          | 0.00/150k [00:00<?, ?iB/s]    Downloading:  66%|██████▌   | 98.3k/150k [00:00<00:00, 833kiB/s]    Downloading: 100%|██████████| 150k/150k [00:00<00:00, 789kiB/s] 
+    Extracting:   0%|          | 0/3 [00:00<?, ?file/s]    Extracting: 100%|██████████| 3/3 [00:00<00:00, 1488.40file/s]
     Extracted to ./WMUBLELoc
 
 
@@ -236,7 +236,7 @@ Trainable Method: CNN (1D)
 
  .. code-block:: none
 
-    Ground Truth Position: [5. 3.]. Estimated Position: [[5.020965 2.970263]]
+    Ground Truth Position: [5. 3.]. Estimated Position: [[5.158995  2.2390306]]
 
 
 
@@ -323,8 +323,8 @@ Load the Amazonas Indoor Environment Dataset
  .. code-block:: none
 
     Downloading https://pysensing.oss-ap-southeast-1.aliyuncs.com/data/ble/AmazonasIndoorEnv.zip ...
-    Downloading:   0%|          | 0.00/151k [00:00<?, ?iB/s]    Downloading: 100%|██████████| 151k/151k [00:00<00:00, 6.43MiB/s]
-    Extracting:   0%|          | 0/13 [00:00<?, ?file/s]    Extracting: 100%|██████████| 13/13 [00:00<00:00, 967.82file/s]
+    Downloading:   0%|          | 0.00/151k [00:00<?, ?iB/s]    Downloading: 100%|██████████| 151k/151k [00:00<00:00, 3.84MiB/s]
+    Extracting:   0%|          | 0/13 [00:00<?, ?file/s]    Extracting: 100%|██████████| 13/13 [00:00<00:00, 823.80file/s]
     Extracted to ./Amazonas
 
 
@@ -387,7 +387,7 @@ Train the Location (Coordinates) regression model
 
  .. code-block:: none
 
-    The testing accuracy of coordinate localization is: 3.293771266937256
+    The testing accuracy of coordinate localization is: 3.1247076988220215
 
 
 
@@ -431,7 +431,7 @@ And that's it. We're done with our bluetooth localization tutorial tutorials. Th
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 20.082 seconds)
+   **Total running time of the script:** (0 minutes 20.249 seconds)
 
 
 .. _sphx_glr_download_bluetooth_bluetooth_localization_tutorial.py:
