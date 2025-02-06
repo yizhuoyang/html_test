@@ -9737,11 +9737,11 @@ pre {
 }
 
 .header-logo {
-  height: 23px;
-  width: 90px;
+  height: 40px;
+  width: 160px;
   background-image: url("../images/LOGO2.png");
   background-repeat: no-repeat;
-  background-size: 90px 23px;
+  background-size: 160px 40px;
   display: block;
   float: left;
   z-index: 10;
@@ -9750,11 +9750,11 @@ pre {
   .header-logo {
     background-size: contain;  
     position: absolute;
-    height: 80px;            
-    width: auto;              
+    height: 560px;            
+    width: 140;              
     min-width: 120px;         
-    top: 35px;
-    left: 20px;               
+    top: 268px;
+    left: 30px;               
     transform: translateY(-50%);
     float: none;
   }
